@@ -10,7 +10,7 @@ public class Calculator : MonoBehaviour
     public GameObject Question, Result;
     public TextMeshProUGUI PrimaryDigit, SecondaryDigit, SignDigit;
     public GameObject TMP_InputField_Answer;
-    public GameObject Correct, Wrong;
+    public GameObject Correct, Wrong, TimesUp;
     [SerializeField] TextMeshProUGUI countdownText;
     float currentTime = 0f, startTime = 10f;
     bool onTime = true;
@@ -59,9 +59,10 @@ public class Calculator : MonoBehaviour
             currentTime = 0;
             countdownText.color = Color.red;
             onTime = false;
-            // Question.SetActive(false);
-            // Result.SetActive(true);
-            // Wrong.SetActive(true);
+
+            Question.SetActive(false);
+            Result.SetActive(true);
+            TimesUp.SetActive(true);
         }
 
     }
