@@ -8,15 +8,17 @@ public class Calculator : MonoBehaviour
 {   int primary,secondary,temp,final;
     public GameObject Question,Result;
     public TextMeshProUGUI PrimaryDigit, SecondaryDigit, SignDigit;
-    // public TextMeshPro inputField;
-    // private string VarSign;
-    // public TMP_InputField answer;
     public GameObject TMP_InputField_Answer;
     public GameObject Correct,Wrong;
+    [SerializeField] TextMeshProUGUI countdownText; 
+    float currentTime = 0f, startTime = 10f;
+    bool onTime = true;
     // Start is called before the first frame update
     void Start()
     {
         CalculatorFn("addition");
+        currentTime = startTime;
+
     }
 
     // Update is called once per frame
@@ -42,6 +44,19 @@ public class Calculator : MonoBehaviour
             Debug.Log("User Answer: " + answer);
             CheckAnswerFn(final,answer);
         }
+        currentTime -= 1 * Time.deltaTime;
+        print(currentTime);
+        countdownText.text = currentTime.ToString("0.0");
+        if(currentTime <= 0)
+        {
+            currentTime = 0;
+            countdownText.color = Color.red;
+            onTime = false;
+            // Question.SetActive(false);
+            // Result.SetActive(true);
+            // Wrong.SetActive(true);
+        }
+
     }
     public void CalculatorFn(string operation){
         primary = UnityEngine.Random.Range(1,10);
@@ -101,4 +116,5 @@ public class Calculator : MonoBehaviour
             Debug.Log("Correct");
         }
     }
+    
 }
