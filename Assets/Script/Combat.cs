@@ -20,14 +20,25 @@ public class Combat : MonoBehaviour
     public void onPressAttack()
     {
         graphmat.SetFloat("_RemovedSegment", ++curr_stamina);
-        float no = max_stamina - curr_stamina;
+        float no;
+        no = max_stamina - curr_stamina;
+        if(no <= 0)
+        {
+            no = 0.0f;
+        }
         txt.text = no.ToString();
     }
     public void onPressDefend()
     {
         graphmat.SetFloat("_RemovedSegment", ++curr_stamina);
-        float no = max_stamina - curr_stamina;
+        float no;
+        no = max_stamina - curr_stamina;
+        if(no <= 0)
+        {
+            no = 0.0f;
+        }
         txt.text = no.ToString();
+        
     }
     public void onPressSpecial_1()
     {
