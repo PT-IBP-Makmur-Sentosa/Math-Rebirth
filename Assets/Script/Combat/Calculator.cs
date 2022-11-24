@@ -52,7 +52,6 @@ public class Calculator : MonoBehaviour
             CheckAnswerFn(final, answer);
         }
         currentTime -= 1 * Time.deltaTime;
-        print(currentTime);
         countdownText.text = currentTime.ToString("0.0");
         if (currentTime <= 0)
         {
