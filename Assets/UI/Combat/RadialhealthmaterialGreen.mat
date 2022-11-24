@@ -73,12 +73,12 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Radius: 0.4
-    - _RemovedSegment: 2
+    - _RemovedSegment: 0
     - _Rotate: 0
     - _fp1: 6.26
     - _fp2: 2
     - _fp3: 3.14
-    - _segmentCount: 20
+    - _segmentCount: 4
     - _segmentSpacing: 0.01
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
