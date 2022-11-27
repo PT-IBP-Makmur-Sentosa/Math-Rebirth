@@ -1026,7 +1026,7 @@ MonoBehaviour:
   unitLevel: 0
   damage: 10
   maxHP: 100
-  currentHP: 50
+  currentHP: 100
   maxStamina: 0
   currentStamina: 0
 --- !u!212 &408614794
@@ -2082,6 +2082,7 @@ MonoBehaviour:
   questions: {fileID: 1166520403}
   player: {fileID: 1135412652}
   enemy: {fileID: 408614792}
+  answered: 0
   goDown: 0
   state: 0
 --- !u!4 &1117297490
@@ -2159,7 +2160,7 @@ MonoBehaviour:
   maxHP: 100
   currentHP: 100
   maxStamina: 10
-  currentStamina: 4
+  currentStamina: 2
 --- !u!212 &1135412654
 SpriteRenderer:
   m_ObjectHideFlags: 0
