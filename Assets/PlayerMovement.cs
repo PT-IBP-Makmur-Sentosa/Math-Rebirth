@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float runSpeed = 0.2f;
+    public float jumpPower = 0.2f;
     float horizontalMove = 0f;
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,10 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        if (Input.GetKeyDown("w"))
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpPower), ForceMode2D.Force);
+        }
     }
 
     private void FixedUpdate()
@@ -23,13 +28,13 @@ public class PlayerMovement : MonoBehaviour
         if(horizontalMove < 0)
         {
             Quaternion rot = gameObject.transform.rotation;
-            rot = new Quaternion(0.0f, 180.0f, rot.z, rot.w);
+            rot = new Quaternion(0.0f, 180.0f, 0.0f, 0.0f);
             gameObject.transform.rotation = rot;
         }
         else if(horizontalMove > 0)
         {
             Quaternion rot = gameObject.transform.rotation;
-            rot = new Quaternion(0.0f, 0.0f, rot.z, rot.w);
+            rot = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
             gameObject.transform.rotation = rot;
         }
 
