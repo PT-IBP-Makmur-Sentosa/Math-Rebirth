@@ -52,6 +52,10 @@ public class EnemyBehaviour : MonoBehaviour
                 face = -1;
             }
         }
+        else if(trigger)
+        {
+            
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
