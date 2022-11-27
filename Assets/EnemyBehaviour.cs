@@ -40,7 +40,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             move = Vector2.right * speed * Time.deltaTime * dir;
             transform.Translate(move);
-            print(move);
+            // print(move);
             if (transform.position.x < startingX - range)
             {
                 dir = -1;
