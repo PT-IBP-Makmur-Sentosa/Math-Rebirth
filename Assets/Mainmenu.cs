@@ -18,6 +18,11 @@ public class Mainmenu : MonoBehaviour
     void Start()
     {
         menu.SetActive(true);
+        help.SetActive(false);
+        help1.SetActive(false);
+        help2.SetActive(false);
+        about.SetActive(false);
+        setting.SetActive(false);
     }
 
     // Update is called once per frame
