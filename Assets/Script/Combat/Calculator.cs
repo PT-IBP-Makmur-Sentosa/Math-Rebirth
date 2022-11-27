@@ -7,6 +7,9 @@ using TMPro;
 public class Calculator : MonoBehaviour
 {
     int final;
+    public CombatManager combatManagerScript;
+    public BattleHUD playerHUD;
+
     public GameObject Question, Result;
     public TextMeshProUGUI PrimaryDigit, SecondaryDigit, SignDigit;
     public GameObject TMP_InputField_Answer;
@@ -24,40 +27,23 @@ public class Calculator : MonoBehaviour
 
     void OnEnable()
     {
+        print("enabled");
         lotteryTime = 2f;
         runLottery = true;
         // CalculatorFn("addition");
         currentTime = startTime;
+        Question.SetActive(true);
         TMP_InputField_Answer.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        // if (Input.GetKeyDown(KeyCode.Z))
-        // {
-        //     CalculatorFn("addition");
-        // }
-        // if (Input.GetKeyDown(KeyCode.X))
-        // {
-        //     CalculatorFn("minus");
-        // }
-        // if (Input.GetKeyDown(KeyCode.C))
-        // {
-        //     CalculatorFn("multiplication");
-        // }
-        // if (Input.GetKeyDown(KeyCode.V))
-        // {
-        //     CalculatorFn("division");
-        // }
-        // if (Input.GetKeyDown(KeyCode.B))
-        // {
-        //     CalculatorFn("modulus");
-        // }
         if (Input.GetKeyDown(KeyCode.Return))
         {
             string answer = TMP_InputField_Answer.GetComponent<TMP_InputField>().text;
             Debug.Log("User Answer: " + answer);
+            combatManagerScript.answered = true;
             CheckAnswerFn(final, answer);
         }
 
@@ -71,8 +57,8 @@ public class Calculator : MonoBehaviour
             onTime = false;
 
             Question.SetActive(false);
-            Result.SetActive(true);
-            TimesUp.SetActive(true);
+            // Result.SetActive(true);
+            // TimesUp.SetActive(true);
         }
 
         // lottery randomizer counter
@@ -130,33 +116,27 @@ public class Calculator : MonoBehaviour
         }
     }
     public void CheckAnswerFn(int final, string answer)
-    {
+    {   
         int user_answer = Convert.ToInt32(answer);
-        // int.TryParse(inputField.text, out user_answer);
-        // string user_answer = inputField.text;
-        // if (int.TryParse(inputField.text, out int result)){
-        // // Do something with the result
-        //     user_answer = result;
-        // } else {
-        //     Debug.Log ("Not a valid int");
-        // }
         Debug.Log("user_answer: " + answer.GetType() + user_answer + answer + " " + "final: " + final);
         if (user_answer != final)
         {
             Question.SetActive(false);
-            Result.SetActive(true);
-            Wrong.SetActive(true);
-            TimesUp.SetActive(false);
+            // Result.SetActive(true);
+            // Wrong.SetActive(true);
+            // TimesUp.SetActive(false);
             Debug.Log("wrong");
         }
         else if (user_answer == final)
         {
             Question.SetActive(false);
-            Result.SetActive(true);
-            Correct.SetActive(true);
-            TimesUp.SetActive(false);
+            // Result.SetActive(true);
+            // Correct.SetActive(true);
+            // TimesUp.SetActive(false);
             Debug.Log("Correct");
         }
+        TMP_InputField_Answer.GetComponent<TMP_InputField>().text = "";
+        combatManagerScript.goDown = false;
     }
 
     public void setDigit(TextMeshProUGUI digitUI)
