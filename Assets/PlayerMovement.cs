@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed = 0.2f;
     public float jumpPower = 0.2f;
     float horizontalMove = 0f;
+
+    bool hurt = false;
+    bool death = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,4 +45,19 @@ public class PlayerMovement : MonoBehaviour
         pos += new Vector2(horizontalMove, 0.0f);
         gameObject.transform.position = pos;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("enemy"))
+        {
+            gameObject.GetComponent<Animator>().SetBool("hurt", true);
+            hurt = true;
+            print("hurt");
+            gameObject.GetComponent<Animator>().SetBool("death", true);
+            death = true;
+            print("death");
+        }
+    }
+
+
 }
