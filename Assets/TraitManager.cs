@@ -16,10 +16,10 @@ public class TraitManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Tinfo[0] = @"Having a hobby of going to the gym when he isn't researching in his lab. He has a very healthy body and trained muscle. Someone saw him lifting a car by himself, but that itself is just a rumour.
+        Tinfo[0] = @"Having a hobby of going to the gym during his leisure time. He has a very healthy body and trained muscle. Someone saw him lifting a car by himself, but that itself is just a rumour.
 
 Trait focuses on Strength, +5 Str per Level & +2 for other stats.";
-        Tinfo[1] = @"He was once being the ace of his university track and field team. He has a very good agility and quick. It was rumoured that he's as fast as Usain Bolt.
+        Tinfo[1] = @"He was once the ace of his university track and field team. He has a very good agility and quick. It was rumoured that he's as fast as Usain Bolt.
 
 Trait focuses on Agility, +5 Agi per Level & +2 for other stats.";
         Tinfo[2] = @"Reading is the same as breathing for him. He has been reading lots of books since young age, that being said, he knows a lot of knowledge thus having a sharper mind than the average human. Some suspect he might be the reincarnation of Albert Einstein.
