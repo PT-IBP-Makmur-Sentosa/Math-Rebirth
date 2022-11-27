@@ -5,18 +5,19 @@ using Cinemachine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float runSpeed = 0.2f;
-    public float jumpPower = 0.2f;
+    public float runSpeed = 0.1f;
+    public float jumpPower = 400f;
     float horizontalMove = 0f;
 
     bool hurt = false;
     bool death = false;
     private bool trigger = false;
-    public GameObject CombatScene;
+    //public GameObject CombatScene;
     public GameObject[] enemys;
     [SerializeField] CinemachineVirtualCamera walk_cam;
     [SerializeField] CinemachineVirtualCamera combat_cam;
     public Animator cm_cam1;
+    public GameObject canvas_scroll;
     
 
     // Start is called before the first frame update
@@ -33,8 +34,10 @@ public class PlayerMovement : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpPower), ForceMode2D.Force);
         }
+        
         if(trigger)
         {  
+            canvas_scroll.SetActive(false);
             CameraSwitch.swithcam(combat_cam);
             foreach (GameObject enemy in enemys)
             {
@@ -81,8 +84,16 @@ public class PlayerMovement : MonoBehaviour
             print("death");
             print("Enemy Found");
         }
-        
     }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            trigger = false;
+            cm_cam1.SetBool("enter", false);
+        }
+    }
+
     private void OnEnable()
     {
         CameraSwitch.register(walk_cam);
@@ -90,8 +101,8 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnDisable()
     {
-        CameraSwitch.register(walk_cam);
-        CameraSwitch.register(combat_cam);
+        CameraSwitch.unregister(walk_cam);
+        CameraSwitch.unregister(combat_cam);
     }
     IEnumerator Coroutine()
     {
@@ -99,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Started Coroutine at timestamp : " + Time.time);
         cm_cam1.SetBool("enter", true);
         //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSecondsRealtime(110.0f/60.0f);
         trigger = true;
         //After we have waited 5 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);

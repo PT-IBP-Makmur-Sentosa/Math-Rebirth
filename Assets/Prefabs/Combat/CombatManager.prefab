@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7191555589425641895}
   - component: {fileID: 7191555589425641892}
+  - component: {fileID: 7202031339557436733}
   m_Layer: 0
   m_Name: CombatManager
   m_TagString: Untagged
@@ -44,5 +45,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e5aae4a1700314896adbc4e66c27d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  calculatorScript: {fileID: 7202031339557436733}
+  playerHUD: {fileID: 0}
   combatUI: {fileID: 0}
   questions: {fileID: 0}
+  player: {fileID: 0}
+  enemy: {fileID: 0}
+  answered: 0
+  goDown: 0
+  state: 0
+--- !u!114 &7202031339557436733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7191555589425641893}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d6e845620b715d188558716acc67551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatManagerScript: {fileID: 7191555589425641892}
+  playerHUD: {fileID: 0}
+  Question: {fileID: 0}
+  Result: {fileID: 0}
+  PrimaryDigit: {fileID: 0}
+  SecondaryDigit: {fileID: 0}
+  SignDigit: {fileID: 0}
+  TMP_InputField_Answer: {fileID: 0}
+  Correct: {fileID: 0}
+  Wrong: {fileID: 0}
+  TimesUp: {fileID: 0}
+  countdownText: {fileID: 0}

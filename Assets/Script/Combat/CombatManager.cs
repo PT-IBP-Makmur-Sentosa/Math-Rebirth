@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST}
 
@@ -8,6 +9,8 @@ public class CombatManager : MonoBehaviour
 {
     public Calculator calculatorScript;
     public BattleHUD playerHUD;
+    public PlayerMovement playerMov;
+    public CinemachineVirtualCamera CMVir;
 
     public GameObject combatUI;
     public GameObject questions;
@@ -17,6 +20,7 @@ public class CombatManager : MonoBehaviour
     private float movementSpeed = 400f;
     public bool goDown = false;
     private Vector3 curr_position;
+    public GameObject canvas_scroll;
     // Start is called before the first frame update
     Unit playerUnit;
     Unit enemyUnit;
@@ -87,6 +91,7 @@ public class CombatManager : MonoBehaviour
         }
         else{
             //enemy turn
+            yield return new WaitForSeconds(2f);
             calculatorScript.enabled = false;
             state = BattleState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
@@ -96,6 +101,11 @@ public class CombatManager : MonoBehaviour
     IEnumerator EnemyTurn()
     {
         print(enemyUnit.unitName + " attacks!");
+        calculatorScript.Question.SetActive(false);
+        calculatorScript.Result.SetActive(false);
+        calculatorScript.Wrong.SetActive(false);
+        calculatorScript.Correct.SetActive(false);
+        calculatorScript.TimesUp.SetActive(false);
         yield return new WaitForSeconds(2f);
         bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
         playerHUD.SetHUD(playerUnit);
@@ -124,10 +134,44 @@ public class CombatManager : MonoBehaviour
         if(state==BattleState.WON)
         {
             print("You won the battle!");
+            calculatorScript.Question.SetActive(false);
+            calculatorScript.Result.SetActive(false);
+            calculatorScript.Wrong.SetActive(false);
+            calculatorScript.Correct.SetActive(false);
+            calculatorScript.TimesUp.SetActive(false);
+            calculatorScript.enabled = false;
+            StartCoroutine(Coroutine());
+            // foreach (GameObject enemy in playerMov.enemys)
+            // {
+            //     enemy.SetActive(true);
+            // }
+            //CameraSwitch.register(CMVir);
+            canvas_scroll.SetActive(true);
+            CameraSwitch.swithcam(CMVir);
+            print(CameraSwitch.isActiveCam(CMVir));
         }
         else if(state == BattleState.LOST)
         {
             print("You were defeated");
+            calculatorScript.Question.SetActive(false);
+            calculatorScript.Result.SetActive(false);
+            calculatorScript.Wrong.SetActive(false);
+            calculatorScript.Correct.SetActive(false);
+            calculatorScript.TimesUp.SetActive(false);
+            calculatorScript.enabled = false;
+            StartCoroutine(Coroutine());
+            // foreach (GameObject enemy in playerMov.enemys)
+            // {
+            //     enemy.SetActive(true);
+            // }
+            canvas_scroll.SetActive(true);
+            CameraSwitch.register(CMVir);
+            CameraSwitch.swithcam(CMVir);
         }
+    }
+
+        IEnumerator Coroutine()
+    {
+        yield return new WaitForSecondsRealtime(2);
     }
 }

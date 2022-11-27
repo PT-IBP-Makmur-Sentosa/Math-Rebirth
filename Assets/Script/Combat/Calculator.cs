@@ -57,8 +57,8 @@ public class Calculator : MonoBehaviour
             onTime = false;
 
             Question.SetActive(false);
-            // Result.SetActive(true);
-            // TimesUp.SetActive(true);
+            Result.SetActive(true);
+            TimesUp.SetActive(true);
         }
 
         // lottery randomizer counter
@@ -122,17 +122,17 @@ public class Calculator : MonoBehaviour
         if (user_answer != final)
         {
             Question.SetActive(false);
-            // Result.SetActive(true);
-            // Wrong.SetActive(true);
-            // TimesUp.SetActive(false);
+            Result.SetActive(true);
+            Wrong.SetActive(true);
+            TimesUp.SetActive(false);
             Debug.Log("wrong");
         }
         else if (user_answer == final)
         {
             Question.SetActive(false);
-            // Result.SetActive(true);
-            // Correct.SetActive(true);
-            // TimesUp.SetActive(false);
+            Result.SetActive(true);
+            Correct.SetActive(true);
+            TimesUp.SetActive(false);
             Debug.Log("Correct");
         }
         TMP_InputField_Answer.GetComponent<TMP_InputField>().text = "";

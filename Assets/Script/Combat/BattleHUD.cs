@@ -30,9 +30,11 @@ public class BattleHUD : MonoBehaviour
         max_health = playerUnit.maxHP;
         curr_stamina = playerUnit.currentStamina;
         max_stamina = playerUnit.maxStamina;
+
         health.fillAmount = curr_health/max_health;
         health_text.text = (curr_health/max_health*100).ToString();
         stamina_text.text = curr_stamina.ToString();
+
         removed = max_stamina - curr_stamina;
         graphmat_green.SetFloat("_segmentCount", max_stamina);
         graphmat_green.SetFloat("_RemovedSegment", removed);
@@ -44,7 +46,7 @@ public class BattleHUD : MonoBehaviour
         health.fillAmount = curr_health/max_health;
         health_text.text = (curr_health/max_health*100).ToString();
     }
-        public void onPressAttack()
+    public void onPressAttack()
     {   
         curr_stamina -=1;
         playerUnit.currentStamina -= 1;
