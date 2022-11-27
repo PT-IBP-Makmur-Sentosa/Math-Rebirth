@@ -618,7 +618,7 @@ MonoBehaviour:
     
 
     Trait focuses on Strength, +5 Str
-    per Level & +2 for other stats.'
+    per Level & +2 for other Stats.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1098,7 +1098,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 322313137, guid: ee74d3ca88a3d024b9dbd1e4319ab1b5, type: 3}
+  m_Sprite: {fileID: 1035634721, guid: 33bc5a72a7d118542b1f12f6d057cd1c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1124,7 +1124,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1852920030}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 07e4c4cbec37c564db88728412aa206d, type: 2}
   m_CullingMode: 0
@@ -1173,6 +1173,12 @@ MonoBehaviour:
   - Enhanced Mind
   - Average Joe
   anim: {fileID: 1852920034}
+  sprites: {fileID: 1852920032}
+  img:
+  - {fileID: 1035634721, guid: 33bc5a72a7d118542b1f12f6d057cd1c, type: 3}
+  - {fileID: 1372586029, guid: 33bc5a72a7d118542b1f12f6d057cd1c, type: 3}
+  - {fileID: 2017147942, guid: 33bc5a72a7d118542b1f12f6d057cd1c, type: 3}
+  - {fileID: 269448093, guid: 33bc5a72a7d118542b1f12f6d057cd1c, type: 3}
 --- !u!4 &2005375546
 Transform:
   m_ObjectHideFlags: 0
