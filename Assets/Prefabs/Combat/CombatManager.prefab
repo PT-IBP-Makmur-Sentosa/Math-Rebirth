@@ -42,17 +42,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 7191555589425641893}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51e5aae4a1700314896adbc4e66c27d5, type: 3}
+  m_Script: {fileID: 11500000, guid: fe233a7c3d3dd1b41b84acddeae0f46f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  calculatorScript: {fileID: 7202031339557436733}
+  calculatorScript: {fileID: 0}
   playerHUD: {fileID: 0}
+  playerMov: {fileID: 0}
+  CMVir: {fileID: 0}
   combatUI: {fileID: 0}
+  moves: {fileID: 0}
   questions: {fileID: 0}
   player: {fileID: 0}
   enemy: {fileID: 0}
   answered: 0
   goDown: 0
+  canvas_scroll: {fileID: 0}
+  playerAnimator: {fileID: 0}
+  skeletonAnimator: {fileID: 0}
+  CalculatorAnimator: {fileID: 0}
   state: 0
 --- !u!114 &7202031339557436733
 MonoBehaviour:
@@ -78,3 +85,5 @@ MonoBehaviour:
   Wrong: {fileID: 0}
   TimesUp: {fileID: 0}
   countdownText: {fileID: 0}
+  onTime: 1
+  answer_correct: 0

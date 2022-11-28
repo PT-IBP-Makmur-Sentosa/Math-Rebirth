@@ -24,6 +24,7 @@ public class CombatManager : MonoBehaviour
     public GameObject canvas_scroll;
     public Animator playerAnimator;
     public Animator skeletonAnimator;
+    public Animator CalculatorAnimator;
     // Start is called before the first frame update
     Unit playerUnit;
     Unit enemyUnit;
@@ -91,7 +92,8 @@ public class CombatManager : MonoBehaviour
     IEnumerator PlayerDefend()
     {  
         isDefend = true;
-        yield return new WaitForSeconds(1.5f);
+        CalculatorAnimator.SetTrigger("is_shielding");
+        yield return new WaitForSeconds(1.0f);
         state = BattleState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
     }
@@ -116,6 +118,10 @@ public class CombatManager : MonoBehaviour
         calculatorScript.answer_correct = false;
         answered = false;
         moves.SetActive(false);
+        playerAnimator.SetTrigger("is_attacking");
+        yield return new WaitForSeconds(0.4f);
+        CalculatorAnimator.SetTrigger("is_throwing");
+        yield return new WaitForSeconds(1.6f);
         skeletonAnimator.SetBool("is_hurt", true);
         yield return new WaitForSeconds(0.5f);
         skeletonAnimator.SetBool("is_hurt", false);
@@ -154,6 +160,8 @@ public class CombatManager : MonoBehaviour
             isDead = playerUnit.TakeDamage(enemyUnit.damage);
         }
         isDefend = false;
+        skeletonAnimator.SetTrigger("is_attacking");
+        yield return new WaitForSeconds(1.5f);
         playerAnimator.SetBool("if_hurt", true);
         yield return new WaitForSeconds(0.5f);
         playerAnimator.SetBool("if_hurt", false);
