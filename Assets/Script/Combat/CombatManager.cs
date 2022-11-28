@@ -199,7 +199,7 @@ public class CombatManager : MonoBehaviour
             //     enemy.SetActive(true);
             // }
             //CameraSwitch.register(CMVir);
-            canvas_scroll.SetActive(true);
+            //canvas_scroll.SetActive(true);
             CameraSwitch.swithcam(CMVir);
             print(CameraSwitch.isActiveCam(CMVir));
         }
@@ -217,7 +217,7 @@ public class CombatManager : MonoBehaviour
             // {
             //     enemy.SetActive(true);
             // }
-            canvas_scroll.SetActive(true);
+            //canvas_scroll.SetActive(true);
             
             CameraSwitch.swithcam(CMVir);
         }
