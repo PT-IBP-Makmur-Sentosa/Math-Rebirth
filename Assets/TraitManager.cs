@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -8,14 +9,15 @@ public class TraitManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI traitName;
     [SerializeField] TextMeshProUGUI traitInfo;
-    [SerializeField] string[] Tname;
     [SerializeField] Animator anim;
     [SerializeField] Image sprites;
     [SerializeField] Sprite[] img;
+    public string[] Tname;
+    public int idx = 0;
+    float sec = 0.0f;
+    string globStr;
     string[] Tinfo = new string[4];
     
-    
-    int idx = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,5 +63,20 @@ Trait is equally distributed, +3 for all Stats per Level.";
         traitInfo.text = Tinfo[idx];
         sprites.sprite = img[idx];
         anim.SetInteger("index", idx);
+    }
+
+    public void startGame(string scene)
+    {
+        GameObject glob = GameObject.Find("GlobalObject");
+        glob.GetComponent<GlobalControl>().TraitSet(Tname[idx]);
+
+        sec = 1.0f;
+        globStr = scene;
+        Invoke("changeScene", sec);
+    }
+
+    void changeScene()
+    {
+        SceneManager.LoadScene(globStr, LoadSceneMode.Single);
     }
 }
