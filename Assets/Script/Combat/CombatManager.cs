@@ -22,6 +22,8 @@ public class CombatManager : MonoBehaviour
     public bool goDown = false;
     private Vector3 curr_position;
     public GameObject canvas_scroll;
+    public Animator playerAnimator;
+    public Animator skeletonAnimator;
     // Start is called before the first frame update
     Unit playerUnit;
     Unit enemyUnit;
@@ -112,10 +114,16 @@ public class CombatManager : MonoBehaviour
         calculatorScript.answer_correct = false;
         answered = false;
         moves.SetActive(false);
+        
+        skeletonAnimator.SetBool("is_hurt", true);
+        yield return new WaitForSeconds(1.0f);
+        skeletonAnimator.SetBool("is_hurt", false);
         // yield return new WaitForSeconds(10f);
         if(isDead)
         {
             //end battle
+            skeletonAnimator.SetTrigger("is_death");
+            yield return new WaitForSeconds(4f);
             state = BattleState.WON;
             EndBattle();
         }
@@ -145,10 +153,16 @@ public class CombatManager : MonoBehaviour
             isDead = playerUnit.TakeDamage(enemyUnit.damage);
         }
         isDefend = false;
+        playerAnimator.SetBool("if_hurt", true);
+        yield return new WaitForSeconds(0.5f);
+        playerAnimator.SetBool("if_hurt", false);
         playerHUD.SetHUD(playerUnit);
         yield return new WaitForSeconds(2f);
         if(isDead)
         {
+            print("player died");
+            playerAnimator.SetTrigger("death");
+            yield return new WaitForSeconds(4f);
             state = BattleState.LOST;
             EndBattle();
         }
@@ -168,6 +182,7 @@ public class CombatManager : MonoBehaviour
         }
     }
     void EndBattle(){
+        CameraSwitch.register(CMVir);
         if(state==BattleState.WON)
         {
             print("You won the battle!");
@@ -202,7 +217,7 @@ public class CombatManager : MonoBehaviour
             //     enemy.SetActive(true);
             // }
             canvas_scroll.SetActive(true);
-            CameraSwitch.register(CMVir);
+            
             CameraSwitch.swithcam(CMVir);
         }
     }

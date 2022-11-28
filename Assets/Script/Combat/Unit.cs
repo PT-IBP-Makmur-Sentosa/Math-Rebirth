@@ -11,6 +11,7 @@ public class Unit : MonoBehaviour
     public float currentHP;
     public int maxStamina;
     public int currentStamina;
+    private Animator playerAnimator;
 
     public bool TakeDamage(float dmg)
     {

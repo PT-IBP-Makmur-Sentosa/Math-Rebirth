@@ -9,8 +9,6 @@ public class PlayerMovement : MonoBehaviour
     public float jumpPower = 400f;
     float horizontalMove = 0f;
 
-    bool hurt = false;
-    bool death = false;
     private bool trigger = false;
     //public GameObject CombatScene;
     public GameObject[] enemys;
@@ -76,12 +74,6 @@ public class PlayerMovement : MonoBehaviour
         {
             
             StartCoroutine(Coroutine());
-            gameObject.GetComponent<Animator>().SetBool("hurt", true);
-            hurt = true;
-            print("hurt");
-            gameObject.GetComponent<Animator>().SetBool("death", true);
-            death = true;
-            print("death");
             print("Enemy Found");
         }
     }
