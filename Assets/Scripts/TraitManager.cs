@@ -9,7 +9,7 @@ public class TraitManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI traitName;
     [SerializeField] TextMeshProUGUI traitInfo;
-    [SerializeField] Animator anim;
+    //[SerializeField] Animator anim;
     [SerializeField] Image sprites;
     [SerializeField] Sprite[] img;
     public string[] Tname;
@@ -53,7 +53,7 @@ Trait is equally distributed, +3 for all Stats per Level.";
         traitName.text = Tname[idx];
         traitInfo.text = Tinfo[idx];
         sprites.sprite = img[idx];
-        anim.SetInteger("index", idx);
+        //anim.SetInteger("index", idx);
     }
     public void nextTrait()
     {
@@ -62,7 +62,7 @@ Trait is equally distributed, +3 for all Stats per Level.";
         traitName.text = Tname[idx];
         traitInfo.text = Tinfo[idx];
         sprites.sprite = img[idx];
-        anim.SetInteger("index", idx);
+        //anim.SetInteger("index", idx);
     }
 
     public void startGame(string scene)
