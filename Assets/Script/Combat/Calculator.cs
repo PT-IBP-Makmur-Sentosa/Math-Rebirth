@@ -15,8 +15,9 @@ public class Calculator : MonoBehaviour
     public GameObject TMP_InputField_Answer;
     public GameObject Correct, Wrong, TimesUp;
     [SerializeField] TextMeshProUGUI countdownText;
-    float currentTime = 0f, startTime = 10f;
-    bool onTime = true;
+    float currentTime = 0f, startTime = 10f;    
+    int temp;
+    public bool onTime = true,answer_correct = false;
     float lotteryTime = 3f;
     bool runLottery = false;
     // Start is called before the first frame update
@@ -31,6 +32,7 @@ public class Calculator : MonoBehaviour
         lotteryTime = 2f;
         runLottery = true;
         // CalculatorFn("addition");
+        countdownText.color = Color.white;
         currentTime = startTime;
         Question.SetActive(true);
         TMP_InputField_Answer.SetActive(false);
@@ -50,12 +52,16 @@ public class Calculator : MonoBehaviour
         // timer
         currentTime -= 1 * Time.deltaTime;
         countdownText.text = currentTime.ToString("0.0");
+        if(currentTime <= 3)
+        {
+            countdownText.color = Color.red;
+        }
         if (currentTime <= 0)
         {
             currentTime = 0;
-            countdownText.color = Color.red;
+            combatManagerScript.answered = true;
             onTime = false;
-
+            answer_correct = false;
             Question.SetActive(false);
             Result.SetActive(true);
             TimesUp.SetActive(true);
@@ -93,6 +99,11 @@ public class Calculator : MonoBehaviour
     {
         print("primary" + primary);
         print("secondary" + secondary);
+         if(primary - secondary < 0){
+            temp = secondary;
+            secondary = primary;
+            primary = temp;
+        }
 
         if (operation == "+")
         {
@@ -128,7 +139,8 @@ public class Calculator : MonoBehaviour
             Debug.Log("wrong");
         }
         else if (user_answer == final)
-        {
+        {   
+            answer_correct = true;
             Question.SetActive(false);
             Result.SetActive(true);
             Correct.SetActive(true);

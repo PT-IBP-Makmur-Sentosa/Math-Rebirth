@@ -13,6 +13,7 @@ public class CombatManager : MonoBehaviour
     public CinemachineVirtualCamera CMVir;
 
     public GameObject combatUI;
+    public GameObject moves;
     public GameObject questions;
     public GameObject player;
     public GameObject enemy;
@@ -25,6 +26,7 @@ public class CombatManager : MonoBehaviour
     Unit playerUnit;
     Unit enemyUnit;
     public BattleState state;
+    bool isDead, isDefend=false;
     void Start()
     {
 
@@ -45,6 +47,7 @@ public class CombatManager : MonoBehaviour
     void PlayerTurn()
     {   
         print("Player Turn");
+        moves.SetActive(true);
     }
     // Update is called once per frame
     void Update()
@@ -77,11 +80,38 @@ public class CombatManager : MonoBehaviour
             return;
         StartCoroutine(PlayerAttack());
     }
+    public void onDefendButton(){
+        if(state != BattleState.PLAYERTURN)
+            return;
+        moves.SetActive(false);
+        StartCoroutine(PlayerDefend());
+    }
+    IEnumerator PlayerDefend()
+    {  
+        isDefend = true;
+        yield return new WaitForSeconds(1.5f);
+        state = BattleState.ENEMYTURN;
+        StartCoroutine(EnemyTurn());
+    }
     IEnumerator PlayerAttack()
-    {
-        bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
-        print("Attack is succesful");
+    {   
+        
         yield return new WaitUntil(() => answered == true);
+        if(calculatorScript.answer_correct == true && calculatorScript.onTime == true)
+        {
+            isDead = enemyUnit.TakeDamage(playerUnit.damage);  
+            print("Attack is succesful");
+        }
+        else if(calculatorScript.answer_correct == false || calculatorScript.onTime == false)
+        {
+            isDead = enemyUnit.TakeDamage( playerUnit.damage * 0.25f);  
+            print("Attack not successful");
+            goDown = false;
+        }
+        print("enemy HP " + enemyUnit.currentHP);
+        calculatorScript.answer_correct = false;
+        answered = false;
+        moves.SetActive(false);
         // yield return new WaitForSeconds(10f);
         if(isDead)
         {
@@ -96,10 +126,9 @@ public class CombatManager : MonoBehaviour
             state = BattleState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
         }
-        
     }
     IEnumerator EnemyTurn()
-    {
+    {   
         print(enemyUnit.unitName + " attacks!");
         calculatorScript.Question.SetActive(false);
         calculatorScript.Result.SetActive(false);
@@ -107,7 +136,15 @@ public class CombatManager : MonoBehaviour
         calculatorScript.Correct.SetActive(false);
         calculatorScript.TimesUp.SetActive(false);
         yield return new WaitForSeconds(2f);
-        bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
+        if(isDefend)
+        {
+            isDead = playerUnit.TakeDamage(enemyUnit.damage * 0.5f);
+        }
+        else if(!isDefend)
+        {
+            isDead = playerUnit.TakeDamage(enemyUnit.damage);
+        }
+        isDefend = false;
         playerHUD.SetHUD(playerUnit);
         yield return new WaitForSeconds(2f);
         if(isDead)

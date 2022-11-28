@@ -447,6 +447,10 @@ PrefabInstance:
       value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6632216579881130898, guid: cdb765765ff54ba42a1b7b568c032d4f, type: 3}
+      propertyPath: damage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6632216579881130898, guid: cdb765765ff54ba42a1b7b568c032d4f, type: 3}
       propertyPath: currentStamina
       value: 10
       objectReference: {fileID: 0}
@@ -542,6 +546,10 @@ PrefabInstance:
     - target: {fileID: 4661905263343608258, guid: c23418ee7cb1a3042bddda9f83cacfe1, type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661905263343608259, guid: c23418ee7cb1a3042bddda9f83cacfe1, type: 3}
+      propertyPath: damage
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c23418ee7cb1a3042bddda9f83cacfe1, type: 3}
@@ -2450,6 +2458,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 995746730}
     - target: {fileID: 7191555589425641892, guid: 5151bcf18fae1164c82bbaf3185d41c8, type: 3}
+      propertyPath: moves
+      value: 
+      objectReference: {fileID: 6665861159585913331}
+    - target: {fileID: 7191555589425641892, guid: 5151bcf18fae1164c82bbaf3185d41c8, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1039699449}
@@ -3718,6 +3730,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Defend
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 753033703}
+        m_TargetAssemblyTypeName: CombatManager, Assembly-CSharp
+        m_MethodName: onDefendButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &6665861159170962741

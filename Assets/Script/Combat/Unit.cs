@@ -6,13 +6,13 @@ public class Unit : MonoBehaviour
 {
     public string unitName;
     public int unitLevel;
-    public int damage;
-    public int maxHP;
-    public int currentHP;
+    public float damage;
+    public float maxHP;
+    public float currentHP;
     public int maxStamina;
     public int currentStamina;
 
-    public bool TakeDamage(int dmg)
+    public bool TakeDamage(float dmg)
     {
         currentHP -= dmg;
         if(currentHP <=0)
