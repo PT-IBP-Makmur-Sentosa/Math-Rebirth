@@ -549,7 +549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4661905263343608259, guid: c23418ee7cb1a3042bddda9f83cacfe1, type: 3}
       propertyPath: damage
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c23418ee7cb1a3042bddda9f83cacfe1, type: 3}
@@ -1151,6 +1151,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4661905263343608257, guid: c23418ee7cb1a3042bddda9f83cacfe1, type: 3}
   m_PrefabInstance: {fileID: 304049993}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &995746734 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 995746736, guid: c23418ee7cb1a3042bddda9f83cacfe1, type: 3}
+  m_PrefabInstance: {fileID: 304049993}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1001733929 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9034537396976451555, guid: 0b0bdba70ab52cf4caa2a3f513c602f7, type: 3}
@@ -1164,6 +1169,11 @@ GameObject:
 --- !u!4 &1039699452 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6632216579881130896, guid: cdb765765ff54ba42a1b7b568c032d4f, type: 3}
+  m_PrefabInstance: {fileID: 226167553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1039699453 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1039699453, guid: cdb765765ff54ba42a1b7b568c032d4f, type: 3}
   m_PrefabInstance: {fileID: 226167553}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1113322974 stripped
@@ -2485,6 +2495,14 @@ PrefabInstance:
       propertyPath: canvas_scroll
       value: 
       objectReference: {fileID: 1864531934}
+    - target: {fileID: 7191555589425641892, guid: 5151bcf18fae1164c82bbaf3185d41c8, type: 3}
+      propertyPath: playerAnimator
+      value: 
+      objectReference: {fileID: 1039699453}
+    - target: {fileID: 7191555589425641892, guid: 5151bcf18fae1164c82bbaf3185d41c8, type: 3}
+      propertyPath: skeletonAnimator
+      value: 
+      objectReference: {fileID: 995746734}
     - target: {fileID: 7191555589425641893, guid: 5151bcf18fae1164c82bbaf3185d41c8, type: 3}
       propertyPath: m_Name
       value: CombatManager

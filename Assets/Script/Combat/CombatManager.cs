@@ -99,6 +99,7 @@ public class CombatManager : MonoBehaviour
     {   
         
         yield return new WaitUntil(() => answered == true);
+
         if(calculatorScript.answer_correct == true && calculatorScript.onTime == true)
         {
             isDead = enemyUnit.TakeDamage(playerUnit.damage);  
@@ -110,20 +111,20 @@ public class CombatManager : MonoBehaviour
             print("Attack not successful");
             goDown = false;
         }
+        
         print("enemy HP " + enemyUnit.currentHP);
         calculatorScript.answer_correct = false;
         answered = false;
         moves.SetActive(false);
-        
         skeletonAnimator.SetBool("is_hurt", true);
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
         skeletonAnimator.SetBool("is_hurt", false);
         // yield return new WaitForSeconds(10f);
         if(isDead)
         {
             //end battle
             skeletonAnimator.SetTrigger("is_death");
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(3f);
             state = BattleState.WON;
             EndBattle();
         }

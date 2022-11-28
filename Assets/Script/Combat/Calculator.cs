@@ -99,11 +99,6 @@ public class Calculator : MonoBehaviour
     {
         print("primary" + primary);
         print("secondary" + secondary);
-         if(primary - secondary < 0){
-            temp = secondary;
-            secondary = primary;
-            primary = temp;
-        }
 
         if (operation == "+")
         {
