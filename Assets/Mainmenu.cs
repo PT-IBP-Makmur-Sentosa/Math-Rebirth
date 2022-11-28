@@ -48,10 +48,12 @@ public class Mainmenu : MonoBehaviour
     public void Help() {  
         help.SetActive(true);
         menu.SetActive(false);
+        help1.SetActive(false);
     }   
     public void Help1() {  
         help1.SetActive(true);
         help.SetActive(false);
+        help2.SetActive(false);
     }  
     public void Help2() {  
         help2.SetActive(true);
