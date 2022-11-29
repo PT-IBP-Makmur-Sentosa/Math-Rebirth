@@ -72,9 +72,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.CompareTag("Enemy"))
         {
-
+            GameObject.Find("CombatManager").GetComponent<CombatManager>().StartCombat();
             StartCoroutine(Coroutine());
             print("Enemy Found");
+        }
+
+        if(collision.gameObject.name == "Soul"){
+            print("Soul collected");
+            collision.gameObject.SetActive(false);
         }
     }
     void OnTriggerExit2D(Collider2D other)

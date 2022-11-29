@@ -17,6 +17,7 @@ public class CombatManager : MonoBehaviour
     public GameObject questions;
     public GameObject player;
     public GameObject enemy;
+    public GameObject soul;
     public bool answered = false;
     private float movementSpeed = 400f;
     public bool goDown = false;
@@ -30,9 +31,8 @@ public class CombatManager : MonoBehaviour
     Unit enemyUnit;
     public BattleState state;
     bool isDead, isDefend=false;
-    void Start()
+    public void StartCombat()
     {
-
         calculatorScript.enabled = false;
         state = BattleState.START;
         StartCoroutine(SetupBattle());
@@ -192,6 +192,7 @@ public class CombatManager : MonoBehaviour
     }
     void EndBattle(){
         CameraSwitch.register(CMVir);
+        moves.SetActive(true);
         if(state==BattleState.WON)
         {
             print("You won the battle!");
@@ -208,27 +209,38 @@ public class CombatManager : MonoBehaviour
             // }
             //CameraSwitch.register(CMVir);
             //canvas_scroll.SetActive(true);
+            player.GetComponent<Unit>().Reset(1);
             CameraSwitch.swithcam(CMVir);
             print(CameraSwitch.isActiveCam(CMVir));
         }
         else if(state == BattleState.LOST)
         {
             print("You were defeated");
+
             calculatorScript.Question.SetActive(false);
             calculatorScript.Result.SetActive(false);
             calculatorScript.Wrong.SetActive(false);
             calculatorScript.Correct.SetActive(false);
             calculatorScript.TimesUp.SetActive(false);
             calculatorScript.enabled = false;
+
+            foreach (GameObject enemy in playerMov.enemys)
+            {
+                enemy.SetActive(true);
+            }
+
+            soul.SetActive(true);
+            soul.transform.position = playerMov.transform.position;
+            
+            playerMov.transform.position = GameObject.Find("Player Start Pos").transform.position;
             StartCoroutine(Coroutine());
-            // foreach (GameObject enemy in playerMov.enemys)
-            // {
-            //     enemy.SetActive(true);
-            // }
+            player.GetComponent<Unit>().Reset(0);
+            enemy.GetComponent<Unit>().Reset(0);
             //canvas_scroll.SetActive(true);
             
             CameraSwitch.swithcam(CMVir);
         }
+        playerHUD.SetHUD(playerUnit);
     }
 
         IEnumerator Coroutine()

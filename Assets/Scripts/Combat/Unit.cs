@@ -27,6 +27,15 @@ public class Unit : MonoBehaviour
         }
     }
 
+    public void Reset(int mode){
+        if(mode == 1){
+            currentStamina = maxStamina;
+        }
+        else if (mode == 0){
+            currentHP = maxHP;
+            currentStamina = maxStamina;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
