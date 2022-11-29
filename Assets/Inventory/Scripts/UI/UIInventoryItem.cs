@@ -1,10 +1,10 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
+using System;
+using UnityEngine.EventSystems;
 
 public class UIInventoryItem : MonoBehaviour
 {
@@ -12,11 +12,14 @@ public class UIInventoryItem : MonoBehaviour
     private Image itemImage;
     [SerializeField]
     private TMP_Text quantityTxt;
+
     [SerializeField]
     private Image borderImage;
 
     public event Action<UIInventoryItem> OnItemClicked,
-    OnItemDroppedOn, OnItemBeginDrag, OnItemEndDrag, OnRightMouseBtnClick;
+        OnItemDroppedOn, OnItemBeginDrag, OnItemEndDrag,
+        OnRightMouseBtnClick;
+
     private bool empty = true;
 
     public void Awake()
@@ -27,22 +30,25 @@ public class UIInventoryItem : MonoBehaviour
     public void ResetData()
     {
         this.itemImage.gameObject.SetActive(false);
+        this.empty = true;
     }
     public void Deselect()
     {
-        borderImage.enabled = false;
+        this.borderImage.enabled = false;
     }
     public void SetData(Sprite sprite, int quantity)
     {
-        itemImage.gameObject.SetActive(true);
-        itemImage.sprite = sprite;
-        quantityTxt.text = quantity + "";
-        empty = false;
+        this.itemImage.gameObject.SetActive(true);
+        this.itemImage.sprite = sprite;
+        this.quantityTxt.text = quantity + "";
+        this.empty = false;
     }
+
     public void Select()
     {
         borderImage.enabled = true;
     }
+
     public void OnBeginDrag()
     {
         if (empty)
@@ -54,10 +60,12 @@ public class UIInventoryItem : MonoBehaviour
     {
         OnItemDroppedOn?.Invoke(this);
     }
+
     public void OnEndDrag()
     {
         OnItemEndDrag?.Invoke(this);
     }
+
     public void OnPointerClick(BaseEventData data)
     {
         if (empty)

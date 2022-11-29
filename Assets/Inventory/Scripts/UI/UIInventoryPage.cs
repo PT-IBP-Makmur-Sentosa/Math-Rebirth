@@ -9,9 +9,24 @@ public class UIInventoryPage : MonoBehaviour
     private UIInventoryItem itemPrefab;
     [SerializeField]
     private RectTransform contentPanel;
+    [SerializeField]
+    private UIInventoryDescription itemDescription;
 
+    [SerializeField]
+    private MouseFollower mouseFollower;
     List<UIInventoryItem> listofUIItems = new List<UIInventoryItem>();
 
+    public Sprite image;
+    public int quantity;
+    public string title, description;
+
+    private void Awake()
+    {
+        Hide();
+        mouseFollower.Toggle(false);
+        itemDescription.ResetDescription();
+
+    }
     public void InitializeInventoryUI(int inventorysize)
     {
         print("initialized");
@@ -35,6 +50,7 @@ public class UIInventoryPage : MonoBehaviour
 
     private void HandleEndDrag(UIInventoryItem obj)
     {
+        mouseFollower.Toggle(false);
     }
 
     private void HandleSwap(UIInventoryItem obj)
@@ -43,19 +59,27 @@ public class UIInventoryPage : MonoBehaviour
 
     private void HandleBeginDrag(UIInventoryItem obj)
     {
+        mouseFollower.Toggle(true);
+        mouseFollower.SetData(image, quantity);
+        print("begin drag called");
     }
 
     private void HandleItemSelection(UIInventoryItem obj)
     {
         Debug.Log(obj.name);
+        itemDescription.SetDescription(image, title, description);
+        listofUIItems[0].Select();
     }
 
-    public void show()
+    public void Show()
     {
         gameObject.SetActive(true);
+        itemDescription.ResetDescription();
+
+        listofUIItems[0].SetData(image, quantity);
     }
 
-    public void hide()
+    public void Hide()
     {
         gameObject.SetActive(false);
     }

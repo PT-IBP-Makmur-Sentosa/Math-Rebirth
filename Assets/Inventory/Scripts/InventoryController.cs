@@ -18,12 +18,12 @@ public class InventoryController : MonoBehaviour
         {
             if (inventoryUI.isActiveAndEnabled == false)
             {
-                inventoryUI.show();
+                inventoryUI.Show();
 
             }
             else
             {
-                inventoryUI.hide();
+                inventoryUI.Hide();
             }
         }
     }
