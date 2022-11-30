@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Inventory.UI;
 using UnityEngine;
 
 public class MouseFollower : MonoBehaviour
@@ -34,7 +35,6 @@ public class MouseFollower : MonoBehaviour
 
     public void Toggle(bool val)
     {
-        Debug.Log($"Item toggled {val}");
         gameObject.SetActive(val);
     }
 }

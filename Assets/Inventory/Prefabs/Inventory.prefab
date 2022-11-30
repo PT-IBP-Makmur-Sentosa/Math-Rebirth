@@ -1377,7 +1377,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 0
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 10
+  m_ScrollSensitivity: 80
   m_Viewport: {fileID: 1404645308690276700}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 1404645308449712312}
@@ -1509,7 +1509,9 @@ MonoBehaviour:
   itemPrefab: {fileID: 762114464905070426, guid: 5644668de89d68644b1d6e76d83b33d2, type: 3}
   contentPanel: {fileID: 1404645308905174866}
   itemDescription: {fileID: 1906665989603293652}
+  mouseFollower: {fileID: 0}
   image: {fileID: 21300000, guid: b3f8025fbdf215f45b7fa7830ebaea1b, type: 3}
+  image2: {fileID: 0}
   quantity: 1
   title: Sword
   description: Cuts things
