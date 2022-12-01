@@ -36,6 +36,11 @@ public class GlobalControl : MonoBehaviour
         playerTrait = trait;
     }
 
+    public string TraitGet()
+    {
+        return playerTrait;
+    }
+
     void printOut()
     {
         print(playerTrait);
