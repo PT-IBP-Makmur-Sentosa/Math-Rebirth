@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,21 +17,48 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera combat_cam;
     public Animator cm_cam1;
     public GameObject canvas_scroll;
+    public GameObject tutorial_background;
+    public GameObject move_tutorial;
+    public GameObject inventory_tutorial;
+    public GameObject combat_tutorial;
 
 
     // Start is called before the first frame update
     void Start()
     {
         enemys = GameObject.FindGameObjectsWithTag("Enemy");
+        tutorial_background = GameObject.Find("TutorialBg");
+        move_tutorial = GameObject.Find("MoveTutorial");
+        inventory_tutorial = GameObject.Find("InventoryTutorial");
+        combat_tutorial = GameObject.Find("inCombatTutorial");
+
+        tutorial_background.SetActive(true);
+        move_tutorial.SetActive(true);
+        inventory_tutorial.SetActive(false);
+        combat_tutorial.SetActive(false);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown("d") || Input.GetKeyDown("a") )
+        {
+            tutorial_background.SetActive(false);
+            move_tutorial.SetActive(false);
+            inventory_tutorial.SetActive(false);
+        }
+
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+
+    
         if (Input.GetKeyDown("w"))
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpPower), ForceMode2D.Force);
+            tutorial_background.SetActive(false);
+            move_tutorial.SetActive(false);
+            inventory_tutorial.SetActive(false);
         }
 
         if (trigger)
@@ -109,6 +137,11 @@ public class PlayerMovement : MonoBehaviour
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSecondsRealtime(1.6f);
         trigger = true;
+        tutorial_background.SetActive(true);
+        combat_tutorial.SetActive(true);
+        yield return new WaitForSecondsRealtime(2f);
+        tutorial_background.SetActive(false);
+        combat_tutorial.SetActive(false);
         //After we have waited 5 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
