@@ -73,7 +73,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Radius: 0.4
-    - _RemovedSegment: 2
+    - _RemovedSegment: 7
     - _Rotate: 0
     - _fp1: 6.26
     - _fp2: 2
