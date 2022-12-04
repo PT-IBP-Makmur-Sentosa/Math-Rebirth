@@ -14,8 +14,9 @@ public class Calculator : MonoBehaviour
     public TextMeshProUGUI PrimaryDigit, SecondaryDigit, SignDigit;
     public GameObject TMP_InputField_Answer;
     public GameObject Correct, Wrong, TimesUp;
+    public Unit player;
     [SerializeField] TextMeshProUGUI countdownText;
-    float currentTime = 0f, startTime = 10f;    
+    public float currentTime = 0f, startTime = 10f, maxTime = 0.0f;    
     int temp;
     public bool onTime = true,answer_correct = false;
     float lotteryTime = 3f;
@@ -33,7 +34,8 @@ public class Calculator : MonoBehaviour
         runLottery = true;
         // CalculatorFn("addition");
         countdownText.color = Color.white;
-        currentTime = startTime;
+        maxTime = startTime + player.ExtraTime;
+        currentTime = maxTime;
         Question.SetActive(true);
         TMP_InputField_Answer.SetActive(false);
     }
@@ -41,7 +43,7 @@ public class Calculator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) && combatManagerScript.state == BattleState.PLAYERTURN)
         {
             string answer = TMP_InputField_Answer.GetComponent<TMP_InputField>().text;
             Debug.Log("User Answer: " + answer);
@@ -50,22 +52,33 @@ public class Calculator : MonoBehaviour
         }
 
         // timer
-        currentTime -= 1 * Time.deltaTime;
-        countdownText.text = currentTime.ToString("0.0");
-        if(currentTime <= 3)
+        if(combatManagerScript.state == BattleState.PLAYERTURN)
         {
-            countdownText.color = Color.red;
+            currentTime -= 1 * Time.deltaTime;
+            countdownText.text = currentTime.ToString("0.0");
+
+
+            if (currentTime <= 3)
+            {
+                countdownText.color = Color.red;
+            }
+
+            if (currentTime > 0)
+            {
+                onTime = true;
+            }
+            else if (currentTime <= 0)
+            {
+                currentTime = 0;
+                combatManagerScript.answered = true;
+                onTime = false;
+                answer_correct = false;
+                Question.SetActive(false);
+                Result.SetActive(true);
+                TimesUp.SetActive(true);
+            }
         }
-        if (currentTime <= 0)
-        {
-            currentTime = 0;
-            combatManagerScript.answered = true;
-            onTime = false;
-            answer_correct = false;
-            Question.SetActive(false);
-            Result.SetActive(true);
-            TimesUp.SetActive(true);
-        }
+        
 
         // lottery randomizer counter
         if (runLottery && lotteryTime > 1)

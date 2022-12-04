@@ -6,6 +6,7 @@ public class Unit : MonoBehaviour
 {
     public string unitName;
     public int unitLevel;
+    public int prevLevel;
 
     string trait;
     Dictionary<string, float[]> dict = new Dictionary<string, float[]>();
@@ -14,13 +15,13 @@ public class Unit : MonoBehaviour
     float Agi;
     float Int;
 
-    public float damage;
-    float Def;
+    public float Atk;
+    public float Def;
 
-    float CRate;
+    public float CRate;
 
-    float ExtraTime;
-    float ExtraMult;
+    public float ExtraTime;
+    public float ExtraMult;
     
 
     public float maxHP;
@@ -32,8 +33,20 @@ public class Unit : MonoBehaviour
 
     public bool TakeDamage(float dmg)
     {
-        currentHP -= dmg;
-        if(currentHP <=0)
+        float damageTakenMod = (dmg / (dmg + Def));
+
+        if (damageTakenMod < 0.3f)
+        {
+            damageTakenMod = 0.5f;
+        }
+
+        float damageTaken = dmg * damageTakenMod;
+        
+        currentHP -= damageTaken;
+
+        Debug.Log(dmg);
+        Debug.Log(unitName + " got hit and lose " + damageTaken + " HP. Current HP left: " + currentHP);
+        if (currentHP <=0)
         {
             return true;
             //enemy died
@@ -58,6 +71,7 @@ public class Unit : MonoBehaviour
     void Start()
     {
         trait = GameObject.Find("GlobalObject").GetComponent<GlobalControl>().TraitGet();
+        prevLevel = unitLevel;
 
         float[] mult = new float[3] { 5.0f, 2.0f, 2.0f };
         dict.Add("Strong Body", mult);
@@ -70,25 +84,69 @@ public class Unit : MonoBehaviour
 
         mult = new float[3] { 3.0f, 3.0f, 3.0f };
         dict.Add("Average Joe", mult);
+
+        LevelUp();
     }
 
     // Update is called once per frame
     void Update()
     {
+        trait = GameObject.Find("GlobalObject").GetComponent<GlobalControl>().TraitGet();
+
         Str = dict[trait][0] * unitLevel;
         Agi = dict[trait][1] * unitLevel;
         Int = dict[trait][2] * unitLevel;
 
-        maxHP = Str * 20.0f;
-        damage = Str * 1.0f;
-        Def = Agi * 7.0f;
         if (gameObject.CompareTag("Player"))
         {
+            maxHP = Str * 20.0f;
+            Atk = Str * 3.0f;
+            Def = Agi * 7.0f;
             CRate = Agi * 0.12f;
+            ExtraMult = Int * 0.004f;
+            ExtraTime = Int * 0.02f;
         }
-        else CRate = 0.0f;
-        ExtraMult = Int * 0.02f;
-        ExtraTime = Int * 0.4f;
+        else if (gameObject.CompareTag("enemy"))
+        {
+            maxHP = unitLevel * 30.0f;
+            Atk = unitLevel * 14.0f;
+            Def = unitLevel * 7.0f;
+            CRate = 0.0f;
+            ExtraMult = 0.0f;
+            ExtraTime = 0.0f;
+        }
 
+        if (prevLevel != unitLevel) LevelUp();
+    }
+
+    public void LevelUp()
+    {
+        print(gameObject.tag + " Level up! Now Level: " + unitLevel);
+
+        Str = dict[trait][0] * unitLevel;
+        Agi = dict[trait][1] * unitLevel;
+        Int = dict[trait][2] * unitLevel;
+
+        if (gameObject.CompareTag("Player"))
+        {
+            maxHP = Str * 20.0f;
+            Atk = Str * 3.0f;
+            Def = Agi * 7.0f;
+            CRate = Agi * 0.12f;
+            ExtraMult = Int * 0.004f;
+            ExtraTime = Int * 0.02f;
+        }
+        else if (gameObject.CompareTag("enemy"))
+        {
+            maxHP = unitLevel * 30.0f;
+            Atk = unitLevel * 14.0f;
+            Def = unitLevel * 7.0f;
+            CRate = 0.0f;
+            ExtraMult = 0.0f;
+            ExtraTime = 0.0f;
+        }
+
+        currentHP = maxHP;
+        prevLevel = unitLevel;
     }
 }

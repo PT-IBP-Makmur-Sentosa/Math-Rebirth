@@ -31,9 +31,13 @@ public class CombatManager : MonoBehaviour
     Unit enemyUnit;
     public BattleState state;
     bool isDead, isDefend=false;
+    float actionMultiplier = 1.0f;
+    float actionHit = 1.0f;
+
     public void StartCombat()
     {
         calculatorScript.enabled = false;
+        playerHUD.SetHUD(playerUnit);
         state = BattleState.START;
         StartCoroutine(SetupBattle());
         curr_position = combatUI.transform.position;
@@ -79,6 +83,8 @@ public class CombatManager : MonoBehaviour
         questions.SetActive(true);
     }
     public void onAttackButton(){
+        actionHit = 1.0f;
+        actionMultiplier = Random.Range(0.9f, 1.1f);
         if(state != BattleState.PLAYERTURN)
             return;
         StartCoroutine(PlayerAttack());
@@ -98,25 +104,42 @@ public class CombatManager : MonoBehaviour
         StartCoroutine(EnemyTurn());
     }
     IEnumerator PlayerAttack()
-    {   
-        
+    {
+        answered = false;
+        float mathMult;
         yield return new WaitUntil(() => answered == true);
+
+        bool isCrit = Random.Range(0.00f, 100.0f) <= playerUnit.CRate;
+        float CDmg = 1.5f;
+
+        if (isCrit)
+        {
+            print("Critical Damage!");
+            CDmg = 1.5f;
+        }
+        else CDmg = 1.0f;
+        
 
         if(calculatorScript.answer_correct == true && calculatorScript.onTime == true)
         {
-            isDead = enemyUnit.TakeDamage(playerUnit.damage);  
+            mathMult = 1.0f + ((1.0f + playerUnit.ExtraMult) * (0.1f + calculatorScript.currentTime/calculatorScript.maxTime));
+            
+            print(mathMult + "A");
+            isDead = enemyUnit.TakeDamage(playerUnit.Atk * mathMult * actionMultiplier * actionHit * CDmg);
             print("Attack is succesful");
         }
         else if(calculatorScript.answer_correct == false || calculatorScript.onTime == false)
         {
-            isDead = enemyUnit.TakeDamage( playerUnit.damage * 0.25f);  
+            mathMult = 0.5f;
+            print(mathMult + "B");
+            isDead = enemyUnit.TakeDamage(playerUnit.Atk * mathMult);  
             print("Attack not successful");
             goDown = false;
         }
         
         print("enemy HP " + enemyUnit.currentHP);
         calculatorScript.answer_correct = false;
-        answered = false;
+        
         moves.SetActive(false);
         playerAnimator.SetTrigger("is_attacking");
         yield return new WaitForSeconds(0.4f);
@@ -151,13 +174,16 @@ public class CombatManager : MonoBehaviour
         calculatorScript.Correct.SetActive(false);
         calculatorScript.TimesUp.SetActive(false);
         yield return new WaitForSeconds(2f);
-        if(isDefend)
+
+        float EnemyMod = Random.Range(0.8f, 1.1f);
+
+        if (isDefend)
         {
-            isDead = playerUnit.TakeDamage(enemyUnit.damage * 0.5f);
+            isDead = playerUnit.TakeDamage(enemyUnit.Atk * EnemyMod * 0.5f);
         }
         else if(!isDefend)
         {
-            isDead = playerUnit.TakeDamage(enemyUnit.damage);
+            isDead = playerUnit.TakeDamage(enemyUnit.Atk * EnemyMod);
         }
         isDefend = false;
         skeletonAnimator.SetTrigger("is_attacking");

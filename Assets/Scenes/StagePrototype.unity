@@ -517,6 +517,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3976932350373523771, guid: cdb765765ff54ba42a1b7b568c032d4f, type: 3}
   m_PrefabInstance: {fileID: 226167553}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &226167555 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6632216579881130898, guid: cdb765765ff54ba42a1b7b568c032d4f, type: 3}
+  m_PrefabInstance: {fileID: 226167553}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039699449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dbaa61936e86536dbb922cbe187f571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &304049993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -602,7 +613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4661905263343608258, guid: c23418ee7cb1a3042bddda9f83cacfe1, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4661905263343608259, guid: c23418ee7cb1a3042bddda9f83cacfe1, type: 3}
       propertyPath: damage
@@ -912,7 +923,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9034537395924242676, guid: 0b0bdba70ab52cf4caa2a3f513c602f7, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9034537395924242676, guid: 0b0bdba70ab52cf4caa2a3f513c602f7, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6091,6 +6102,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 651888920}
     - target: {fileID: 7202031339557436733, guid: 5151bcf18fae1164c82bbaf3185d41c8, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 226167555}
+    - target: {fileID: 7202031339557436733, guid: 5151bcf18fae1164c82bbaf3185d41c8, type: 3}
       propertyPath: Correct
       value: 
       objectReference: {fileID: 1001733929}
@@ -6343,9 +6358,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007234967}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.0007036}
+  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6665861158541632241}
