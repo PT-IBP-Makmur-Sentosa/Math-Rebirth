@@ -17,7 +17,7 @@ public class Calculator : MonoBehaviour
     [SerializeField] TextMeshProUGUI countdownText;
     float currentTime = 0f, startTime = 10f;    
     int temp;
-    public bool onTime = true,answer_correct = false;
+    public bool onTime = true,answer_correct = false,keepTimer=true;
     float lotteryTime = 3f;
     bool runLottery = false;
     // Start is called before the first frame update
@@ -46,25 +46,31 @@ public class Calculator : MonoBehaviour
             string answer = TMP_InputField_Answer.GetComponent<TMP_InputField>().text;
             Debug.Log("User Answer: " + answer);
             combatManagerScript.answered = true;
+            keepTimer = false;
             CheckAnswerFn(final, answer);
         }
 
         // timer
-        currentTime -= 1 * Time.deltaTime;
-        countdownText.text = currentTime.ToString("0.0");
+        if(keepTimer)
+        {
+            currentTime -= 1 * Time.deltaTime;
+            countdownText.text = currentTime.ToString("0.0"); 
+            print(currentTime);
+        }
+        
         if(currentTime <= 3)
         {
             countdownText.color = Color.red;
         }
         if (currentTime <= 0)
-        {
-            currentTime = 0;
+        {   
             combatManagerScript.answered = true;
+            keepTimer = false;
             onTime = false;
             answer_correct = false;
             Question.SetActive(false);
-            Result.SetActive(true);
             TimesUp.SetActive(true);
+            Result.SetActive(true);
         }
 
         // lottery randomizer counter
