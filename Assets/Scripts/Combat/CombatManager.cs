@@ -26,21 +26,17 @@ public class CombatManager : MonoBehaviour
     public Animator playerAnimator;
     public Animator skeletonAnimator;
     public Animator CalculatorAnimator;
-    public GameObject tutorial_background;
-    public GameObject Combat_tutorial;
     // Start is called before the first frame update
     Unit playerUnit;
     Unit enemyUnit;
     public BattleState state;
     bool isDead, isDefend=false;
-
     public void StartCombat()
     {
         calculatorScript.enabled = false;
         state = BattleState.START;
         StartCoroutine(SetupBattle());
         curr_position = combatUI.transform.position;
-        
     }
     IEnumerator SetupBattle()
     {
@@ -50,10 +46,6 @@ public class CombatManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         state = BattleState.PLAYERTURN;
         PlayerTurn();
-        tutorial_background = GameObject.Find("TutorialBg");
-        Combat_tutorial = GameObject.Find("inCombatTutorial");
-        tutorial_background.SetActive(true);
-        Combat_tutorial.SetActive(true);
     }
     void PlayerTurn()
     {   
@@ -85,8 +77,6 @@ public class CombatManager : MonoBehaviour
         goDown = true;
         calculatorScript.enabled = true;
         questions.SetActive(true);
-        tutorial_background.SetActive(false);
-        Combat_tutorial.SetActive(false);
     }
     public void onAttackButton(){
         if(state != BattleState.PLAYERTURN)

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: f5267a89efb494eb79df21ee36bae861
+<<<<<<<< HEAD:Assets/Scenes/Mainmenu.unity.meta
+guid: 3f91822c2fc5ab34eb670ef188db8454
+========
+guid: 52a9341a25b283e47a746083669c0db0
+>>>>>>>> maptile:Assets/Scenes/GameSceneMerge 1.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
