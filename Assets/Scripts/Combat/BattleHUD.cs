@@ -32,7 +32,7 @@ public class BattleHUD : MonoBehaviour
         max_stamina = playerUnit.maxStamina;
 
         health.fillAmount = curr_health/max_health;
-        health_text.text = (curr_health/max_health*100).ToString();
+        health_text.text = (curr_health/max_health*100).ToString("0.0");
         stamina_text.text = curr_stamina.ToString();
 
         removed = max_stamina - curr_stamina;
@@ -44,7 +44,7 @@ public class BattleHUD : MonoBehaviour
     {   curr_health = playerUnit.currentHP;
         max_health = playerUnit.maxHP;
         health.fillAmount = curr_health/max_health;
-        health_text.text = (curr_health/max_health*100).ToString();
+        health_text.text = (curr_health/max_health*100).ToString("0.0");
 
         curr_stamina = playerUnit.currentStamina;
         max_stamina = playerUnit.maxStamina;
