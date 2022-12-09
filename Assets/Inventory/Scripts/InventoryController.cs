@@ -154,21 +154,26 @@ namespace Inventory
         {
             if (Input.GetKeyDown(KeyCode.I))
             {
-                if (inventoryUI.isActiveAndEnabled == false)
+                GameObject glob = GameObject.Find("GlobalObject");
+                if (!glob.GetComponent<GlobalControl>().inCombat)
                 {
-                    inventoryUI.Show();
-                    foreach (var item in inventoryData.GetCurrentInventoryState())
+                    if (inventoryUI.isActiveAndEnabled == false)
                     {
-                        inventoryUI.UpdateData(item.Key,
-                        item.Value.item.ItemImage,
-                        item.Value.quantity);
-                    }
+                        inventoryUI.Show();
+                        foreach (var item in inventoryData.GetCurrentInventoryState())
+                        {
+                            inventoryUI.UpdateData(item.Key,
+                            item.Value.item.ItemImage,
+                            item.Value.quantity);
+                        }
 
+                    }
+                    else
+                    {
+                        inventoryUI.Hide();
+                    }
                 }
-                else
-                {
-                    inventoryUI.Hide();
-                }
+
             }
         }
     }

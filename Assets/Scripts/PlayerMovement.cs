@@ -77,7 +77,8 @@ public class PlayerMovement : MonoBehaviour
             print("Enemy Found");
         }
 
-        if(collision.gameObject.name == "Soul"){
+        if (collision.gameObject.name == "Soul")
+        {
             print("Soul collected");
             collision.gameObject.SetActive(false);
         }
@@ -109,6 +110,8 @@ public class PlayerMovement : MonoBehaviour
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSecondsRealtime(1.6f);
         trigger = true;
+        GameObject glob = GameObject.Find("GlobalObject");
+        glob.GetComponent<GlobalControl>().inCombat = true;
         //After we have waited 5 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
