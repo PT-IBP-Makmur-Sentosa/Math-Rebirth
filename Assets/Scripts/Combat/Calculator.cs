@@ -31,6 +31,7 @@ public class Calculator : MonoBehaviour
         print("enabled");
         lotteryTime = 2f;
         runLottery = true;
+        keepTimer = true;
         // CalculatorFn("addition");
         countdownText.color = Color.white;
         currentTime = startTime;

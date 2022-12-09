@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Cinemachine;
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST}
@@ -14,6 +15,10 @@ public class CombatManager : MonoBehaviour
 
     public GameObject combatUI;
     public GameObject moves;
+    public Button Attack;
+    public Button Defend;
+    public Button Special1;
+    public Button Special2;
     public GameObject questions;
     public GameObject player;
     public GameObject enemy;
@@ -51,6 +56,10 @@ public class CombatManager : MonoBehaviour
     {   
         print("Player Turn");
         moves.SetActive(true);
+        // Attack.enabled = true;
+        // Defend.enabled = true;
+        // Special1.enabled = true;
+        // Special2.enabled = true;
     }
     // Update is called once per frame
     void Update()
@@ -87,6 +96,11 @@ public class CombatManager : MonoBehaviour
         if(state != BattleState.PLAYERTURN)
             return;
         moves.SetActive(false);
+        // Attack.enabled = false;
+        // Defend.enabled = false;
+        // Special1.enabled = false;
+        // Special2.enabled = false;
+
         StartCoroutine(PlayerDefend());
     }
     IEnumerator PlayerDefend()
@@ -104,7 +118,8 @@ public class CombatManager : MonoBehaviour
 
         if(calculatorScript.answer_correct == true && calculatorScript.onTime == true)
         {
-            isDead = enemyUnit.TakeDamage(playerUnit.damage);  
+            isDead = enemyUnit.TakeDamage(playerUnit.damage);
+              
             print("Attack is succesful");
         }
         else if(calculatorScript.answer_correct == false || calculatorScript.onTime == false)
@@ -113,11 +128,15 @@ public class CombatManager : MonoBehaviour
             print("Attack not successful");
             goDown = false;
         }
-        
+        playerHUD.SetHealth(enemyUnit.currentHP);
         print("enemy HP " + enemyUnit.currentHP);
         calculatorScript.answer_correct = false;
         answered = false;
         moves.SetActive(false);
+        // Attack.enabled = false;
+        // Defend.enabled = false;
+        // Special1.enabled = false;
+        // Special2.enabled = false;
         playerAnimator.SetTrigger("is_attacking");
         yield return new WaitForSeconds(0.4f);
         CalculatorAnimator.SetTrigger("is_throwing");
@@ -193,6 +212,11 @@ public class CombatManager : MonoBehaviour
     void EndBattle(){
         CameraSwitch.register(CMVir);
         moves.SetActive(true);
+        // Attack.enabled = true;
+        // Defend.enabled = true;
+        // Special1.enabled = true;
+        // Special2.enabled = true;
+
         if(state==BattleState.WON)
         {
             print("You won the battle!");
