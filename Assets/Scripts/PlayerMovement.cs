@@ -16,12 +16,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera combat_cam;
     public Animator cm_cam1;
     public GameObject canvas_scroll;
+    public GameObject enemy;
+    public RuntimeAnimatorController skeleton_animator;
+    public Sprite skeleton_sprite;
+
+    public RuntimeAnimatorController shade_animator;
+    public Sprite shade_sprite;
 
 
     // Start is called before the first frame update
     void Start()
     {
         enemys = GameObject.FindGameObjectsWithTag("Enemy");
+        
     }
 
     // Update is called once per frame
@@ -70,8 +77,18 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Skeleton"))
         {
+            enemy.GetComponent<SpriteRenderer>().sprite = skeleton_sprite;
+            enemy.GetComponent<Animator>().runtimeAnimatorController = skeleton_animator;
+            GameObject.Find("CombatManager").GetComponent<CombatManager>().StartCombat();
+            StartCoroutine(Coroutine());
+            print("Enemy Found");
+        }
+        if (collision.CompareTag("Shade"))
+        {
+            enemy.GetComponent<SpriteRenderer>().sprite = shade_sprite;
+            enemy.GetComponent<Animator>().runtimeAnimatorController = shade_animator;
             GameObject.Find("CombatManager").GetComponent<CombatManager>().StartCombat();
             StartCoroutine(Coroutine());
             print("Enemy Found");
