@@ -8,6 +8,8 @@ public class GlobalControl : MonoBehaviour
     string playerTrait;
     [SerializeField] bool trigger = false;
 
+    public bool inCombat = false;
+
     void Awake()
     {
         if (Instance == null)
