@@ -109,13 +109,28 @@ public class CombatManager : MonoBehaviour
         float mathMult;
         yield return new WaitUntil(() => answered == true);
 
-        bool isCrit = Random.Range(0.00f, 100.0f) <= playerUnit.CRate;
-        float CDmg = 1.5f;
+        float critRoller = Random.Range(0.01f, 100.0f);
+        bool isCrit = critRoller <= playerUnit.CRate;
+        float CDmg = playerUnit.CDmg;
 
         if (isCrit)
         {
-            print("Critical Damage!");
-            CDmg = 1.5f;
+            bool redCrit = playerUnit.CRate > 100.0f;
+            if (redCrit)
+            {
+                redCrit = Random.Range(0.01f, 100.0f) <= (playerUnit.CRate - 100.0f);
+            }
+
+            if (redCrit)
+            {
+                print("Red Critical Damage!");
+                CDmg = playerUnit.CDmg * 1.5f;
+            }
+            else if (!redCrit)
+            {
+                print("Critical Damage!");
+                CDmg = playerUnit.CDmg;
+            }
         }
         else CDmg = 1.0f;
         
@@ -124,20 +139,17 @@ public class CombatManager : MonoBehaviour
         {
             mathMult = 1.0f + ((1.0f + playerUnit.ExtraMult) * (0.1f + calculatorScript.currentTime/calculatorScript.maxTime));
             
-            print(mathMult + "A");
             isDead = enemyUnit.TakeDamage(playerUnit.Atk * mathMult * actionMultiplier * actionHit * CDmg);
             print("Attack is succesful");
         }
         else if(calculatorScript.answer_correct == false || calculatorScript.onTime == false)
         {
             mathMult = 0.5f;
-            print(mathMult + "B");
-            isDead = enemyUnit.TakeDamage(playerUnit.Atk * mathMult);  
+            isDead = enemyUnit.TakeDamage(playerUnit.Atk * mathMult * actionMultiplier * actionHit * CDmg);  
             print("Attack not successful");
             goDown = false;
         }
         
-        print("enemy HP " + enemyUnit.currentHP);
         calculatorScript.answer_correct = false;
         
         moves.SetActive(false);
@@ -176,14 +188,42 @@ public class CombatManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         float EnemyMod = Random.Range(0.8f, 1.1f);
+        float critRoller = Random.Range(0.01f, 100.0f);
+        bool isCrit = critRoller <= enemyUnit.CRate;
+        float CDmg = enemyUnit.CDmg;
+
+        if (isCrit)
+        {
+            bool redCrit = enemyUnit.CRate > 100.0f;
+            if (redCrit)
+            {
+                redCrit = Random.Range(0.01f, 100.0f) <= (enemyUnit.CRate - 100.0f);
+            }
+
+            if (redCrit)
+            {
+                print("Red Critical Damage!");
+                CDmg = enemyUnit.CDmg * 1.5f;
+            }
+            else if (!redCrit)
+            {
+                print("Critical Damage!");
+                CDmg = enemyUnit.CDmg;
+            }
+        }
+        else CDmg = 1.0f;
 
         if (isDefend)
         {
-            isDead = playerUnit.TakeDamage(enemyUnit.Atk * EnemyMod * 0.5f);
+            isDead = playerUnit.TakeDamage(enemyUnit.Atk * EnemyMod * CDmg * 0.5f);
         }
         else if(!isDefend)
         {
-            isDead = playerUnit.TakeDamage(enemyUnit.Atk * EnemyMod);
+            Debug.Log(isCrit);
+            Debug.Log(enemyUnit.Atk);
+            Debug.Log(EnemyMod);
+            Debug.Log(CDmg);
+            isDead = playerUnit.TakeDamage(enemyUnit.Atk * EnemyMod * CDmg);
         }
         isDefend = false;
         skeletonAnimator.SetTrigger("is_attacking");

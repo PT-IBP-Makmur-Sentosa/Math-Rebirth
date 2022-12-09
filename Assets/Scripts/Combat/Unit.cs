@@ -19,6 +19,7 @@ public class Unit : MonoBehaviour
     public float Def;
 
     public float CRate;
+    public float CDmg;
 
     public float ExtraTime;
     public float ExtraMult;
@@ -33,11 +34,11 @@ public class Unit : MonoBehaviour
 
     public bool TakeDamage(float dmg)
     {
-        float damageTakenMod = (dmg / (dmg + Def));
+        float damageTakenMod = ((dmg)/ (dmg + Def));
 
-        if (damageTakenMod < 0.3f)
+        if (damageTakenMod < 0.2f)
         {
-            damageTakenMod = 0.5f;
+            damageTakenMod = 0.2f;
         }
 
         float damageTaken = dmg * damageTakenMod;
@@ -73,16 +74,18 @@ public class Unit : MonoBehaviour
         trait = GameObject.Find("GlobalObject").GetComponent<GlobalControl>().TraitGet();
         prevLevel = unitLevel;
 
-        float[] mult = new float[3] { 5.0f, 2.0f, 2.0f };
+        float[] mult;
+        //                    Str,  Agi,  Int,  HP,    Atk,    Def,   CRr,    CDmg,   Mult
+        mult = new float[9] { 5.0f, 2.0f, 2.0f, 40.0f, 100.0f, 10.0f, 0.125f, 400.0f, 200.0f };
         dict.Add("Strong Body", mult);
 
-        mult = new float[3] { 2.0f, 5.0f, 2.0f };
+        mult = new float[9] { 2.0f, 5.0f, 2.0f, 30.0f, 80.0f, 25.0f, 0.25f, 500.0f, 200.0f };
         dict.Add("Agile Body", mult);
 
-        mult = new float[3] { 2.0f, 2.0f, 5.0f };
+        mult = new float[9] { 2.0f, 2.0f, 5.0f, 30.0f, 80.0f, 10.0f, 0.125f, 400.0f, 100.0f };
         dict.Add("Enhanced Mind", mult);
 
-        mult = new float[3] { 3.0f, 3.0f, 3.0f };
+        mult = new float[9] { 3.0f, 3.0f, 3.0f, 40.0f, 120.0f, 15.0f, 0.1875f, 500.0f, 200.0f };
         dict.Add("Average Joe", mult);
 
         LevelUp();
@@ -93,28 +96,32 @@ public class Unit : MonoBehaviour
     {
         trait = GameObject.Find("GlobalObject").GetComponent<GlobalControl>().TraitGet();
 
-        Str = dict[trait][0] * unitLevel;
-        Agi = dict[trait][1] * unitLevel;
-        Int = dict[trait][2] * unitLevel;
+        //Str = dict[trait][0] * unitLevel;
+        //Agi = dict[trait][1] * unitLevel;
+        //Int = dict[trait][2] * unitLevel;
 
-        if (gameObject.CompareTag("Player"))
-        {
-            maxHP = Str * 20.0f;
-            Atk = Str * 3.0f;
-            Def = Agi * 7.0f;
-            CRate = Agi * 0.12f;
-            ExtraMult = Int * 0.004f;
-            ExtraTime = Int * 0.02f;
-        }
-        else if (gameObject.CompareTag("enemy"))
-        {
-            maxHP = unitLevel * 30.0f;
-            Atk = unitLevel * 14.0f;
-            Def = unitLevel * 7.0f;
-            CRate = 0.0f;
-            ExtraMult = 0.0f;
-            ExtraTime = 0.0f;
-        }
+        //if (gameObject.CompareTag("Player"))
+        //{
+        //    maxHP = Str * (8.0f + unitLevel / dict[trait][3]);
+        //    if (trait == "Strong Body") maxHP = Str * (5.0f + unitLevel / dict[trait][3]);
+        //    Atk = Str * (1.25f + unitLevel / dict[trait][4]);
+        //    if (trait == "Strong Body") Atk = Str * (0.6f + unitLevel / dict[trait][4]);
+        //    Def = Agi * (2.5f + unitLevel / dict[trait][5]);
+        //    CRate = 5.0f + Agi * (dict[trait][6]);
+        //    CDmg = 1.5f + Agi * (0.0025f * (1 + unitLevel / dict[trait][7]));
+        //    ExtraMult = Int * (0.004f * (1 + unitLevel / dict[trait][8]));
+        //    ExtraTime = Int * 0.02f;
+        //}
+        //else if (gameObject.CompareTag("enemy"))
+        //{
+        //    maxHP = unitLevel * (10.0f + unitLevel / 3f);
+        //    Atk = unitLevel * (4.5f + unitLevel / 9f);
+        //    Def = unitLevel * (2.0f + unitLevel / 4f);
+        //    CRate = 5.0f;
+        //    CDmg = 1.5f;
+        //    ExtraMult = 0.0f;
+        //    ExtraTime = 0.0f;
+        //}
 
         if (prevLevel != unitLevel) LevelUp();
     }
@@ -129,19 +136,23 @@ public class Unit : MonoBehaviour
 
         if (gameObject.CompareTag("Player"))
         {
-            maxHP = Str * 20.0f;
-            Atk = Str * 3.0f;
-            Def = Agi * 7.0f;
-            CRate = Agi * 0.12f;
-            ExtraMult = Int * 0.004f;
+            maxHP = Str * (8.0f + unitLevel / dict[trait][3]);
+            if (trait == "Strong Body") maxHP = Str * (5.0f + unitLevel / dict[trait][3]);
+            Atk = Str * (1.25f + unitLevel / dict[trait][4]);
+            if (trait == "Strong Body") Atk = Str * (0.75f + unitLevel / dict[trait][4]);
+            Def = Agi * (2.5f + unitLevel / dict[trait][5]);
+            CRate = 5.0f + Agi * (dict[trait][6]);
+            CDmg = 1.5f + Agi * (0.0025f * (1 + unitLevel / dict[trait][7]));
+            ExtraMult = Int * (0.004f * (1 + unitLevel / dict[trait][8]));
             ExtraTime = Int * 0.02f;
         }
         else if (gameObject.CompareTag("enemy"))
         {
-            maxHP = unitLevel * 30.0f;
-            Atk = unitLevel * 14.0f;
-            Def = unitLevel * 7.0f;
-            CRate = 0.0f;
+            maxHP = unitLevel * (10.0f + unitLevel / 3f);
+            Atk = unitLevel * (4.5f + unitLevel / 9f);
+            Def = unitLevel * (2.0f + unitLevel / 4f);
+            CRate = 5.0f;
+            CDmg = 1.5f;
             ExtraMult = 0.0f;
             ExtraTime = 0.0f;
         }
