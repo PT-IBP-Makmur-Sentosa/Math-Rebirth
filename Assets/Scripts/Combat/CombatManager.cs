@@ -55,11 +55,11 @@ public class CombatManager : MonoBehaviour
     void PlayerTurn()
     {   
         print("Player Turn");
-        moves.SetActive(true);
-        // Attack.enabled = true;
-        // Defend.enabled = true;
-        // Special1.enabled = true;
-        // Special2.enabled = true;
+        // moves.SetActive(true);
+        Attack.interactable = true;
+        Defend.interactable = true;
+        Special1.interactable = true;
+        Special2.interactable = true;
     }
     // Update is called once per frame
     void Update()
@@ -95,11 +95,11 @@ public class CombatManager : MonoBehaviour
     public void onDefendButton(){
         if(state != BattleState.PLAYERTURN)
             return;
-        moves.SetActive(false);
-        // Attack.enabled = false;
-        // Defend.enabled = false;
-        // Special1.enabled = false;
-        // Special2.enabled = false;
+        // moves.SetActive(false);
+        Attack.interactable = false;
+        Defend.interactable = false;
+        Special1.interactable = false;
+        Special2.interactable = false;
 
         StartCoroutine(PlayerDefend());
     }
@@ -128,15 +128,15 @@ public class CombatManager : MonoBehaviour
             print("Attack not successful");
             goDown = false;
         }
-        playerHUD.SetHealth(enemyUnit.currentHP);
+        
         print("enemy HP " + enemyUnit.currentHP);
         calculatorScript.answer_correct = false;
         answered = false;
-        moves.SetActive(false);
-        // Attack.enabled = false;
-        // Defend.enabled = false;
-        // Special1.enabled = false;
-        // Special2.enabled = false;
+        // moves.SetActive(false);
+        Attack.interactable = false;
+        Defend.interactable = false;
+        Special1.interactable = false;
+        Special2.interactable = false;
         playerAnimator.SetTrigger("is_attacking");
         yield return new WaitForSeconds(0.4f);
         CalculatorAnimator.SetTrigger("is_throwing");
@@ -144,6 +144,7 @@ public class CombatManager : MonoBehaviour
         skeletonAnimator.SetBool("is_hurt", true);
         yield return new WaitForSeconds(0.5f);
         skeletonAnimator.SetBool("is_hurt", false);
+        playerHUD.SetHealth(enemyUnit.currentHP);
         // yield return new WaitForSeconds(10f);
         if(isDead)
         {
@@ -211,11 +212,11 @@ public class CombatManager : MonoBehaviour
     }
     void EndBattle(){
         CameraSwitch.register(CMVir);
-        moves.SetActive(true);
-        // Attack.enabled = true;
-        // Defend.enabled = true;
-        // Special1.enabled = true;
-        // Special2.enabled = true;
+        // moves.SetActive(true);
+        Attack.interactable = true;
+        Defend.interactable = true;
+        Special1.interactable = true;
+        Special2.interactable = true;
 
         if(state==BattleState.WON)
         {
