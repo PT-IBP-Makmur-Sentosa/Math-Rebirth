@@ -556,11 +556,13 @@ MonoBehaviour:
   inventoryUI: {fileID: 1404645308372618571}
   inventoryData: {fileID: 11400000, guid: 27464683a12a3e54ba4a6b11f7303671, type: 2}
   initialItems:
-  - quantity: 2
+  - quantity: 0
     item: {fileID: 11400000, guid: 3425f5c04297d414eb1e874c0e416dfc, type: 2}
     itemState: []
   dropClip: {fileID: 8300000, guid: d391d87143e10584aac95ac254c08f6d, type: 3}
   audioSource: {fileID: 717583532}
+  shopUI: {fileID: 0}
+  shopData: {fileID: 0}
 --- !u!114 &717583529
 MonoBehaviour:
   m_ObjectHideFlags: 0

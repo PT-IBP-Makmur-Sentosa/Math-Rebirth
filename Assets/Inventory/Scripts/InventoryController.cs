@@ -24,6 +24,13 @@ namespace Inventory
         [SerializeField]
         private AudioSource audioSource;
 
+        [SerializeField]
+        private UIInventoryPage shopUI;
+
+        [SerializeField]
+        private InventorySO shopData;
+
+        private InventorySaveSystem inventorySaveSystem;
         private void Start()
         {
             PrepareUI();
@@ -32,14 +39,31 @@ namespace Inventory
 
         private void PrepareInventoryData()
         {
+            inventorySaveSystem = gameObject.GetComponent<InventorySaveSystem>();
             inventoryData.Initialize();
             inventoryData.OnInventoryUpdated += UpdateInventoryUI;
-            foreach (InventoryItem item in initialItems)
+            if (inventorySaveSystem.InventorySaveExists())
             {
-                if (item.IsEmpty)
-                    continue;
-                inventoryData.AddItem(item);
+                List<InventoryItem> saveditems = inventorySaveSystem.LoadInventorySave();
+                foreach (InventoryItem item in saveditems)
+                {
+                    if (item.IsEmpty)
+                        continue;
+                    inventoryData.AddItem(item);
+                }
             }
+            // foreach (InventoryItem item in initialItems)
+            // {
+            //     if (item.IsEmpty)
+            //         continue;
+            //     inventoryData.AddItem(item);
+            // }
+
+        }
+        private void PrepareShopData()
+        {
+            shopData.Initialize();
+            shopData.OnInventoryUpdated += UpdateShopUI;
         }
 
         private void UpdateInventoryUI(Dictionary<int, InventoryItem> inventoryState)
@@ -48,6 +72,15 @@ namespace Inventory
             foreach (var item in inventoryState)
             {
                 inventoryUI.UpdateData(item.Key, item.Value.item.ItemImage, item.Value.quantity);
+            }
+        }
+
+        private void UpdateShopUI(Dictionary<int, InventoryItem> inventoryState)
+        {
+            shopUI.ResetAllItems();
+            foreach (var item in inventoryState)
+            {
+                shopUI.UpdateData(item.Key, item.Value.item.ItemImage, item.Value.quantity);
             }
         }
 
@@ -155,14 +188,35 @@ namespace Inventory
             if (Input.GetKeyDown(KeyCode.I))
             {
                 GameObject glob = GameObject.Find("GlobalObject");
+                if (inventoryUI.isActiveAndEnabled == false)
+                {
+                    inventoryUI.Show();
+                    foreach (var item in inventoryData.GetCurrentInventoryState())
+                    {
+                        inventoryUI.UpdateData(item.Key,
+                        item.Value.item.ItemImage,
+                        item.Value.quantity);
+                    }
+
+                }
+                else
+                {
+                    inventoryUI.Hide();
+                }
+
+            }
+
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                GameObject glob = GameObject.Find("GlobalObject");
                 if (!glob.GetComponent<GlobalControl>().inCombat)
                 {
-                    if (inventoryUI.isActiveAndEnabled == false)
+                    if (shopUI.isActiveAndEnabled == false)
                     {
-                        inventoryUI.Show();
-                        foreach (var item in inventoryData.GetCurrentInventoryState())
+                        shopUI.Show();
+                        foreach (var item in shopData.GetCurrentInventoryState())
                         {
-                            inventoryUI.UpdateData(item.Key,
+                            shopUI.UpdateData(item.Key,
                             item.Value.item.ItemImage,
                             item.Value.quantity);
                         }
@@ -170,7 +224,7 @@ namespace Inventory
                     }
                     else
                     {
-                        inventoryUI.Hide();
+                        shopUI.Hide();
                     }
                 }
 
