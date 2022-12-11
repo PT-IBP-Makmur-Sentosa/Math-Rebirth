@@ -34,7 +34,9 @@ namespace Inventory
         private void Start()
         {
             PrepareUI();
+            PrepareShopUI();
             PrepareInventoryData();
+            PrepareShopData();
         }
 
         private void PrepareInventoryData()
@@ -64,6 +66,12 @@ namespace Inventory
         {
             shopData.Initialize();
             shopData.OnInventoryUpdated += UpdateShopUI;
+            foreach (InventoryItem item in initialItems)
+            {
+                if (item.IsEmpty)
+                    continue;
+                shopData.AddItem(item);
+            }
         }
 
         private void UpdateInventoryUI(Dictionary<int, InventoryItem> inventoryState)
@@ -93,6 +101,12 @@ namespace Inventory
             inventoryUI.OnItemActionRequested += HandleItemActionRequest;
         }
 
+        private void PrepareShopUI()
+        {
+            shopUI.InitializeInventoryUI(shopData.Size);
+            shopUI.OnDescriptionRequested += HandleDescriptionRequest;
+            shopUI.OnItemActionRequested += HandleShopItemActionRequest;
+        }
         private void HandleItemActionRequest(int itemIndex)
         {
             InventoryItem inventoryItem = inventoryData.GetItemAt(itemIndex);
@@ -114,6 +128,24 @@ namespace Inventory
 
         }
 
+        private void HandleShopItemActionRequest(int itemIndex)
+        {
+            InventoryItem inventoryItem = shopData.GetItemAt(itemIndex);
+            if (inventoryItem.IsEmpty)
+                return;
+            IItemAction itemAction = inventoryItem.item as IItemAction;
+            if (itemAction != null)
+            {
+                shopUI.ShowItemAction(itemIndex);
+                InventoryItem tempInventoryItem = new InventoryItem
+                {
+                    item = inventoryItem.item,
+                    quantity = 1,
+                };
+                shopUI.AddAction("Buy", () => BuyItem(tempInventoryItem));
+            }
+
+        }
         private void DropItem(int itemIndex, int quantity)
         {
             inventoryData.RemoveItem(itemIndex, quantity);
@@ -121,6 +153,12 @@ namespace Inventory
             audioSource.PlayOneShot(dropClip);
         }
 
+        private void BuyItem(InventoryItem inventoryItem)
+        {
+            inventoryData.AddItem(inventoryItem);
+            shopUI.ResetSelection();
+            audioSource.PlayOneShot(dropClip);
+        }
         public void PerformAction(int itemIndex)
         {
             InventoryItem inventoryItem = inventoryData.GetItemAt(itemIndex);

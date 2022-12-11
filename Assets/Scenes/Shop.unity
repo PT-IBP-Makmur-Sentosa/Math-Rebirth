@@ -958,7 +958,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 822546389}
   inventoryData: {fileID: 11400000, guid: 27464683a12a3e54ba4a6b11f7303671, type: 2}
-  initialItems: []
+  initialItems:
+  - quantity: 99
+    item: {fileID: 11400000, guid: 3425f5c04297d414eb1e874c0e416dfc, type: 2}
+    itemState: []
   dropClip: {fileID: 8300000, guid: d391d87143e10584aac95ac254c08f6d, type: 3}
   audioSource: {fileID: 717583528}
   shopUI: {fileID: 2000179079}
