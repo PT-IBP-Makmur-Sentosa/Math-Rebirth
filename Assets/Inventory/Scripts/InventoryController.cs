@@ -31,6 +31,8 @@ namespace Inventory
         private InventorySO shopData;
 
         private InventorySaveSystem inventorySaveSystem;
+
+        private bool inShopArea = false;
         private void Start()
         {
             PrepareUI();
@@ -104,7 +106,7 @@ namespace Inventory
         private void PrepareShopUI()
         {
             shopUI.InitializeInventoryUI(shopData.Size);
-            shopUI.OnDescriptionRequested += HandleDescriptionRequest;
+            shopUI.OnDescriptionRequested += HandleShopDescriptionRequest;
             shopUI.OnItemActionRequested += HandleShopItemActionRequest;
         }
         private void HandleItemActionRequest(int itemIndex)
@@ -206,6 +208,20 @@ namespace Inventory
             inventoryUI.UpdateDescription(itemIndex, item.ItemImage, item.name, description);
         }
 
+        private void HandleShopDescriptionRequest(int itemIndex)
+        {
+            InventoryItem inventoryItem = shopData.GetItemAt(itemIndex);
+            if (inventoryItem.IsEmpty)
+            {
+                inventoryUI.ResetSelection();
+                return;
+
+            }
+            ItemSO item = inventoryItem.item;
+            string description = PrepareDescription(inventoryItem);
+            shopUI.UpdateDescription(itemIndex, item.ItemImage, item.name, description);
+        }
+
         private string PrepareDescription(InventoryItem inventoryItem)
         {
             StringBuilder sb = new StringBuilder();
@@ -226,28 +242,30 @@ namespace Inventory
             if (Input.GetKeyDown(KeyCode.I))
             {
                 GameObject glob = GameObject.Find("GlobalObject");
-                if (inventoryUI.isActiveAndEnabled == false)
+                if (!glob.GetComponent<GlobalControl>().inCombat && !shopUI.isActiveAndEnabled)
                 {
-                    inventoryUI.Show();
-                    foreach (var item in inventoryData.GetCurrentInventoryState())
+                    if (inventoryUI.isActiveAndEnabled == false)
                     {
-                        inventoryUI.UpdateData(item.Key,
-                        item.Value.item.ItemImage,
-                        item.Value.quantity);
+                        inventoryUI.Show();
+                        foreach (var item in inventoryData.GetCurrentInventoryState())
+                        {
+                            inventoryUI.UpdateData(item.Key,
+                            item.Value.item.ItemImage,
+                            item.Value.quantity);
+                        }
+
                     }
-
+                    else
+                    {
+                        inventoryUI.Hide();
+                    }
                 }
-                else
-                {
-                    inventoryUI.Hide();
-                }
-
             }
 
-            if (Input.GetKeyDown(KeyCode.P))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 GameObject glob = GameObject.Find("GlobalObject");
-                if (!glob.GetComponent<GlobalControl>().inCombat)
+                if (!glob.GetComponent<GlobalControl>().inCombat && inShopArea && !inventoryUI.isActiveAndEnabled)
                 {
                     if (shopUI.isActiveAndEnabled == false)
                     {
@@ -267,6 +285,17 @@ namespace Inventory
                 }
 
             }
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.tag == "Shop")
+                inShopArea = true;
+        }
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.gameObject.tag == "Shop")
+                inShopArea = false;
         }
     }
 }
