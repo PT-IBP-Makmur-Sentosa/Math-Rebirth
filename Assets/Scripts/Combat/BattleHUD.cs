@@ -74,6 +74,7 @@ public class BattleHUD : MonoBehaviour
         removed = max_stamina - curr_stamina;
         graphmat_green.SetFloat("_RemovedSegment", removed);
         stamina_text.text = curr_stamina.ToString();
+        combatManagerScript.Attack.OnPointerExit(null);
     }
     public void onPressDefend()
     {   
