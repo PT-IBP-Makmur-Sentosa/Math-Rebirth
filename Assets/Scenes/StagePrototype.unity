@@ -579,6 +579,10 @@ PrefabInstance:
       value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6632216579881130898, guid: cdb765765ff54ba42a1b7b568c032d4f, type: 3}
+      propertyPath: Atk
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6632216579881130898, guid: cdb765765ff54ba42a1b7b568c032d4f, type: 3}
       propertyPath: damage
       value: 50
       objectReference: {fileID: 0}
@@ -705,7 +709,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4661905263343608258, guid: c23418ee7cb1a3042bddda9f83cacfe1, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661905263343608259, guid: c23418ee7cb1a3042bddda9f83cacfe1, type: 3}
+      propertyPath: Atk
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4661905263343608259, guid: c23418ee7cb1a3042bddda9f83cacfe1, type: 3}
       propertyPath: damage
@@ -999,19 +1007,7 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6665861159817385478}
-        m_TargetAssemblyTypeName: BattleHUD, Assembly-CSharp
-        m_MethodName: setHealth
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &467981473
 GameObject:
   m_ObjectHideFlags: 0
@@ -7047,6 +7043,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1864531934}
     - target: {fileID: 7191555589425641892, guid: 5151bcf18fae1164c82bbaf3185d41c8, type: 3}
+      propertyPath: enemyAnimator
+      value: 
+      objectReference: {fileID: 995746734}
+    - target: {fileID: 7191555589425641892, guid: 5151bcf18fae1164c82bbaf3185d41c8, type: 3}
       propertyPath: playerAnimator
       value: 
       objectReference: {fileID: 1039699453}
@@ -7639,7 +7639,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
@@ -7649,7 +7649,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 305590256, guid: a72de299d153a784db7d2f67929a208a, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -8343,7 +8343,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -8353,7 +8353,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: -784955048, guid: a72de299d153a784db7d2f67929a208a, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -8528,7 +8528,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -8538,7 +8538,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: -497438443, guid: a72de299d153a784db7d2f67929a208a, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -8662,7 +8662,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -8672,7 +8672,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: -1304246509, guid: a72de299d153a784db7d2f67929a208a, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}

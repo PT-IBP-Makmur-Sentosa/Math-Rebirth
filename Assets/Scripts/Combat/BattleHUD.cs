@@ -52,7 +52,6 @@ public class BattleHUD : MonoBehaviour
         graphmat_green.SetFloat("_segmentCount", max_stamina);
         graphmat_green.SetFloat("_RemovedSegment", removed);
         graphmat_black.SetFloat("_segmentCount", max_stamina);
-        SetMaxHealth(enemyUnit.maxHP);
     }
     public void SetHUD(Unit unit)
     {   curr_health = playerUnit.currentHP;
