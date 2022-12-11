@@ -5,7 +5,6 @@ using UnityEngine;
 public class SwitchStage : MonoBehaviour
 {
     // Start is called before the first frame update
-    private bool isHeld = false;
     private bool istrigger = false;
     public GameObject map;
 
@@ -21,14 +20,7 @@ public class SwitchStage : MonoBehaviour
     {
         if(istrigger)
         {
-            
-        }
-    }
-    private void OnMouseDown()
-    {
-        if(Input.GetMouseButtonDown(0)  && istrigger)
-        {
-            isHeld = true;
+            map.SetActive(true);
         }
     }
     private void OnTriggerEnter2D(Collider2D coll)
@@ -36,9 +28,8 @@ public class SwitchStage : MonoBehaviour
         
         if(coll.CompareTag("Player"))
         {
-            print("trigger_is");
             istrigger = true;
-            map.SetActive(true);
+            
         }   
     }
     private void OnTriggerExit2D(Collider2D coll)

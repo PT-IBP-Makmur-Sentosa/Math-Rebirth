@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 129425067}
   - component: {fileID: 129425070}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1002,10 +1002,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6665861158541632241}
     m_Modifications:
+    - target: {fileID: 995746736, guid: c23418ee7cb1a3042bddda9f83cacfe1, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4f14c2d1b9dad3d418ded234bf91d42e, type: 2}
+    - target: {fileID: 4661905263343608256, guid: c23418ee7cb1a3042bddda9f83cacfe1, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4661905263343608256, guid: c23418ee7cb1a3042bddda9f83cacfe1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1295884241, guid: 4f7328bca839a427484deba3c2554710, type: 3}
+      objectReference: {fileID: 1254819591, guid: 500b5d92b5cb128478401e11a242d563, type: 3}
     - target: {fileID: 4661905263343608256, guid: c23418ee7cb1a3042bddda9f83cacfe1, type: 3}
       propertyPath: m_SortingOrder
       value: 0
@@ -1344,18 +1352,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.18103683}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.36, y: 0.46}
+  m_Size: {x: 1.2, y: 1.6379263}
   m_EdgeRadius: 0
 --- !u!114 &467752235
 MonoBehaviour:
@@ -1402,18 +1410,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.22, y: -0.01}
+  m_Offset: {x: -0.6336291, y: -0.18103683}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.81, y: 0.43}
+  m_Size: {x: 2.469997, y: 1.6379263}
   m_EdgeRadius: 0
 --- !u!212 &467752238
 SpriteRenderer:
@@ -1476,7 +1484,7 @@ Transform:
   m_GameObject: {fileID: 467752233}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 34.15, y: -0.51446, z: 0}
-  m_LocalScale: {x: 3.95, y: 3.8349516, z: 3.8349516}
+  m_LocalScale: {x: 1, y: 0.97087383, z: 0.97087383}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -1584,7 +1592,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &504474847
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2354,7 +2362,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &695221155
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2647,7 +2655,7 @@ MonoBehaviour:
   enemy: {fileID: 995746730}
   skeleton_animator: {fileID: 9100000, guid: 4f14c2d1b9dad3d418ded234bf91d42e, type: 2}
   skeleton_sprite: {fileID: -1295884241, guid: 4f7328bca839a427484deba3c2554710, type: 3}
-  shade_animator: {fileID: 9100000, guid: c4b2a99ea0a9ab14abea8cd1b1ce739a, type: 2}
+  shade_animator: {fileID: 9100000, guid: 8569323f602e7164c8bcdf78be95cd06, type: 2}
   shade_sprite: {fileID: -1503370741, guid: c9bbec9f021c79d489350dc894f29a69, type: 3}
 --- !u!114 &753033702 stripped
 MonoBehaviour:
@@ -3520,7 +3528,7 @@ GameObject:
   - component: {fileID: 1108208632}
   - component: {fileID: 1108208634}
   m_Layer: 0
-  m_Name: Square (2)
+  m_Name: Finish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3774,6 +3782,9 @@ MonoBehaviour:
   player: {fileID: 717583521}
   checkpoint_1: {fileID: 129425066}
   checkpoint_2: {fileID: 1108208630}
+  finish_map_1: {fileID: 1108208630}
+  button_map_1: {fileID: 695221154}
+  button_map_2: {fileID: 504474846}
 --- !u!1 &1235908365
 GameObject:
   m_ObjectHideFlags: 0

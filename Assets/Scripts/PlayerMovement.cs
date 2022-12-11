@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-
+using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     public float runSpeed = 0.1f;
@@ -22,13 +22,15 @@ public class PlayerMovement : MonoBehaviour
 
     public RuntimeAnimatorController shade_animator;
     public Sprite shade_sprite;
-
+    GameObject glob;
+    GlobalControl globalcontrol;
 
     // Start is called before the first frame update
     void Start()
     {
         enemys = GameObject.FindGameObjectsWithTag("Enemy");
-        
+        glob = GameObject.Find("GlobalObject");
+        globalcontrol = glob.GetComponent<GlobalControl>();
     }
 
     // Update is called once per frame
@@ -69,10 +71,6 @@ public class PlayerMovement : MonoBehaviour
         Vector2 pos = gameObject.transform.position;
         pos += new Vector2(horizontalMove, 0.0f);
         gameObject.transform.position = pos;
-        if (trigger)
-        {
-
-        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -80,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.CompareTag("Skeleton"))
         {
             enemy.GetComponent<SpriteRenderer>().sprite = skeleton_sprite;
+            enemy.GetComponent<SpriteRenderer>().flipX = false;
             enemy.GetComponent<Animator>().runtimeAnimatorController = skeleton_animator;
             GameObject.Find("CombatManager").GetComponent<CombatManager>().StartCombat();
             StartCoroutine(Coroutine());
@@ -88,10 +87,24 @@ public class PlayerMovement : MonoBehaviour
         if (collision.CompareTag("Shade"))
         {
             enemy.GetComponent<SpriteRenderer>().sprite = shade_sprite;
+            enemy.GetComponent<SpriteRenderer>().flipX = true;
             enemy.GetComponent<Animator>().runtimeAnimatorController = shade_animator;
             GameObject.Find("CombatManager").GetComponent<CombatManager>().StartCombat();
             StartCoroutine(Coroutine());
             print("Enemy Found");
+        }
+        if(collision.CompareTag("Finish"))
+        {
+            Scene currScene = SceneManager.GetActiveScene();
+            string sceneName = currScene.name;
+            if(sceneName == "FirstStage")
+            {
+                globalcontrol.StageFinish(1);
+            }
+            if(sceneName == "SecondStage")
+            {
+                globalcontrol.StageFinish(2);
+            }
         }
 
         if(collision.gameObject.name == "Soul"){

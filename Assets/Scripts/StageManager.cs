@@ -11,12 +11,33 @@ public class StageManager : MonoBehaviour
     public GameObject player;
     public GameObject checkpoint_1;
     public GameObject checkpoint_2;
-
-
+    public GameObject finish_map_1;
+    GameObject glob;
+    GlobalControl globalcontrol;
+    private int bool_map_1;
+    private int bool_map_2;
+    public GameObject button_map_1;
+    public GameObject button_map_2;
+    List<int> stagelist = new List<int>();
     // Start is called before the first frame update
     void Start()
     {
-        
+        glob = GameObject.Find("GlobalObject");
+        globalcontrol = glob.GetComponent<GlobalControl>();
+        foreach(int x in globalcontrol.stageList)
+        {
+            stagelist.Add(x);
+        }
+        bool_map_1 = stagelist[0];
+        bool_map_2 = stagelist[1];
+        if(bool_map_1 == 1)
+        {
+            button_map_1.SetActive(true);
+        }
+        if(bool_map_2 == 1)
+        {
+            button_map_2.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -30,7 +51,11 @@ public class StageManager : MonoBehaviour
         string sceneName = currScene.name;
         if(sceneName == "FirstStage")
         {
-            checkpoint_map2.SetActive(false);    
+            checkpoint_map2.SetActive(false); 
+            if(bool_map_1 == 1)
+            {
+               
+            }
             checkpoint_map1.SetActive(true);
         }
         else

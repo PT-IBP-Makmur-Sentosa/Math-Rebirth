@@ -92,7 +92,7 @@ public class CombatManager : MonoBehaviour
     IEnumerator PlayerDefend()
     {  
         isDefend = true;
-        CalculatorAnimator.SetTrigger("is_shielding");
+        CalculatorAnimator.Play("Shield");
         yield return new WaitForSeconds(1.0f);
         state = BattleState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
@@ -118,18 +118,16 @@ public class CombatManager : MonoBehaviour
         calculatorScript.answer_correct = false;
         answered = false;
         moves.SetActive(false);
-        playerAnimator.SetTrigger("is_attacking");
+        playerAnimator.Play("attack");
         yield return new WaitForSeconds(0.4f);
-        CalculatorAnimator.SetTrigger("is_throwing");
-        yield return new WaitForSeconds(1.6f);
-        skeletonAnimator.SetBool("is_hurt", true);
-        yield return new WaitForSeconds(0.5f);
-        skeletonAnimator.SetBool("is_hurt", false);
+        CalculatorAnimator.Play("CalculatorThrow");
+        skeletonAnimator.Play("hurt");
+        skeletonAnimator.Play("idle");
         // yield return new WaitForSeconds(10f);
         if(isDead)
         {
             //end battle
-            skeletonAnimator.SetTrigger("is_death");
+            skeletonAnimator.Play("death");
             yield return new WaitForSeconds(3f);
             state = BattleState.WON;
             EndBattle();
@@ -160,17 +158,15 @@ public class CombatManager : MonoBehaviour
             isDead = playerUnit.TakeDamage(enemyUnit.damage);
         }
         isDefend = false;
-        skeletonAnimator.SetTrigger("is_attacking");
-        yield return new WaitForSeconds(1.5f);
-        playerAnimator.SetBool("if_hurt", true);
-        yield return new WaitForSeconds(0.5f);
-        playerAnimator.SetBool("if_hurt", false);
+        skeletonAnimator.Play("attack");
+        //yield return new WaitForSeconds(1.5f);
+        playerAnimator.Play("hurt");
         playerHUD.SetHUD(playerUnit);
         yield return new WaitForSeconds(2f);
         if(isDead)
         {
             print("player died");
-            playerAnimator.SetTrigger("death");
+            playerAnimator.Play("death");
             yield return new WaitForSeconds(4f);
             state = BattleState.LOST;
             EndBattle();
