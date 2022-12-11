@@ -48,6 +48,8 @@ public class CombatManager : MonoBehaviour
         state = BattleState.START;
         StartCoroutine(SetupBattle());
         curr_position = combatUI.transform.position;
+        playerHUD.SetMaxHealth(enemyUnit.maxHP);
+
     }
     IEnumerator SetupBattle()
     {
@@ -62,6 +64,10 @@ public class CombatManager : MonoBehaviour
     {
         print("Player Turn");
         // moves.SetActive(true);
+        Attack.OnPointerExit(null);
+        Defend.OnPointerExit(null);
+        Special1.OnPointerExit(null);
+        Special2.OnPointerExit(null);
         Attack.interactable = true;
         Defend.interactable = true;
         Special1.interactable = true;
@@ -106,6 +112,10 @@ public class CombatManager : MonoBehaviour
         if (state != BattleState.PLAYERTURN)
             return;
         // moves.SetActive(false);
+        Attack.OnPointerExit(null);
+        Defend.OnPointerExit(null);
+        Special1.OnPointerExit(null);
+        Special2.OnPointerExit(null);
         Attack.interactable = false;
         Defend.interactable = false;
         Special1.interactable = false;
@@ -174,6 +184,10 @@ public class CombatManager : MonoBehaviour
         calculatorScript.answer_correct = false;
         answered = false;
         // moves.SetActive(false);
+        Attack.OnPointerExit(null);
+        Defend.OnPointerExit(null);
+        Special1.OnPointerExit(null);
+        Special2.OnPointerExit(null);
         Attack.interactable = false;
         Defend.interactable = false;
         Special1.interactable = false;
