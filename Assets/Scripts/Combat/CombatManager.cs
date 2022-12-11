@@ -29,16 +29,19 @@ public class CombatManager : MonoBehaviour
     private Vector3 curr_position;
     public GameObject canvas_scroll;
     public Animator playerAnimator;
-    public Animator skeletonAnimator;
+    public Animator enemyAnimator;
     public Animator CalculatorAnimator;
     // Start is called before the first frame update
     Unit playerUnit;
     Unit enemyUnit;
     public BattleState state;
     bool isDead, isDefend = false;
+    float actionMultiplier = 1.0f;
+    float actionHit = 1.0f;
     public void StartCombat()
     {
         calculatorScript.enabled = false;
+        playerHUD.SetHUD(playerUnit);
         state = BattleState.START;
         StartCoroutine(SetupBattle());
         curr_position = combatUI.transform.position;
@@ -89,6 +92,8 @@ public class CombatManager : MonoBehaviour
     }
     public void onAttackButton()
     {
+        actionHit = 1.0f;
+        actionMultiplier = Random.Range(0.9f, 1.1f);
         if (state != BattleState.PLAYERTURN)
             return;
         StartCoroutine(PlayerAttack());
@@ -117,21 +122,52 @@ public class CombatManager : MonoBehaviour
     {
 
         yield return new WaitUntil(() => answered == true);
+        
+        float mathMult;
+        float critRoller = Random.Range(0.01f, 100.0f);
+        bool isCrit = critRoller <= playerUnit.CRate;
+        float CDmg = playerUnit.CDmg;
+
+        if (isCrit)
+        {
+            bool redCrit = playerUnit.CRate > 100.0f;
+            float redCritRoller = Random.Range(0.01f, 100.0f);
+
+            if (redCrit)
+            {
+                redCrit = redCritRoller <= (playerUnit.CRate - 100.0f);
+            }
+
+            if (redCrit)
+            {
+                print("Red Critical Damage! Rate Rolled: " + redCritRoller);
+                CDmg = playerUnit.CDmg * 1.5f;
+            }
+            else if (!redCrit)
+            {
+                print("Critical Damage! Rate Rolled: " + critRoller);
+                CDmg = playerUnit.CDmg;
+            }
+        }
+        else CDmg = 1.0f;
+
 
         if (calculatorScript.answer_correct == true && calculatorScript.onTime == true)
         {
-            isDead = enemyUnit.TakeDamage(playerUnit.damage);
+            mathMult = 1.0f + ((1.0f + playerUnit.ExtraMult) * (0.1f + calculatorScript.currentTime / calculatorScript.maxTime));
 
+            isDead = enemyUnit.TakeDamage(playerUnit.Atk * mathMult * actionMultiplier * actionHit * CDmg);
             print("Attack is succesful");
         }
         else if (calculatorScript.answer_correct == false || calculatorScript.onTime == false)
         {
-            isDead = enemyUnit.TakeDamage(playerUnit.damage * 0.25f);
+            mathMult = 0.5f;
+            isDead = enemyUnit.TakeDamage(playerUnit.Atk * mathMult * actionMultiplier * actionHit * CDmg);
             print("Attack not successful");
             goDown = false;
         }
         
-        print("enemy HP " + enemyUnit.currentHP);
+        
         calculatorScript.answer_correct = false;
         answered = false;
         // moves.SetActive(false);
@@ -143,15 +179,15 @@ public class CombatManager : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         CalculatorAnimator.SetTrigger("is_throwing");
         yield return new WaitForSeconds(1.6f);
-        skeletonAnimator.SetBool("is_hurt", true);
+        enemyAnimator.SetBool("is_hurt", true);
         yield return new WaitForSeconds(0.5f);
-        skeletonAnimator.SetBool("is_hurt", false);
+        enemyAnimator.SetBool("is_hurt", false);
         playerHUD.SetHealth(enemyUnit.currentHP);
         // yield return new WaitForSeconds(10f);
         if (isDead)
         {
             //end battle
-            skeletonAnimator.SetTrigger("is_death");
+            enemyAnimator.SetTrigger("is_death");
             yield return new WaitForSeconds(3f);
             state = BattleState.WON;
             EndBattle();
@@ -174,16 +210,45 @@ public class CombatManager : MonoBehaviour
         calculatorScript.Correct.SetActive(false);
         calculatorScript.TimesUp.SetActive(false);
         yield return new WaitForSeconds(2f);
+
+        float EnemyMod = Random.Range(0.8f, 1.1f);
+        float critRoller = Random.Range(0.01f, 100.0f);
+        bool isCrit = critRoller <= enemyUnit.CRate;
+        float CDmg = enemyUnit.CDmg;
+
+        if (isCrit)
+        {
+            bool redCrit = enemyUnit.CRate > 100.0f;
+            float redCritRoller = Random.Range(0.01f, 100.0f);
+
+            if (redCrit)
+            {
+                redCrit = redCritRoller <= (enemyUnit.CRate - 100.0f);
+            }
+
+            if (redCrit)
+            {
+                print("Red Critical Damage! Rate Rolled: " + redCritRoller);
+                CDmg = enemyUnit.CDmg * 1.5f;
+            }
+            else if (!redCrit)
+            {
+                print("Critical Damage! Rate Rolled: " + critRoller);
+                CDmg = enemyUnit.CDmg;
+            }
+        }
+        else CDmg = 1.0f;
+
         if (isDefend)
         {
-            isDead = playerUnit.TakeDamage(enemyUnit.damage * 0.5f);
+            isDead = playerUnit.TakeDamage(enemyUnit.Atk * EnemyMod * CDmg * 0.5f);
         }
         else if (!isDefend)
         {
-            isDead = playerUnit.TakeDamage(enemyUnit.damage);
+            isDead = playerUnit.TakeDamage(enemyUnit.Atk * EnemyMod * CDmg);
         }
         isDefend = false;
-        skeletonAnimator.SetTrigger("is_attacking");
+        enemyAnimator.SetTrigger("is_attacking");
         yield return new WaitForSeconds(1.5f);
         playerAnimator.SetBool("if_hurt", true);
         yield return new WaitForSeconds(0.5f);
