@@ -12,11 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/TraitSelection.unity
     guid: 37392e6fe6d0942b4a57aafdad069a59
   - enabled: 1
-    path: Assets/Scenes/StagePrototype2.unity
+    path: Assets/Scenes/StagePrototype.unity
     guid: 3f91822c2fc5ab34eb670ef188db8454
-  - enabled: 0
-    path: Assets/Scenes/InventoryPrototype.unity
-    guid: 24c7040691ff9794e827e5bd0ad2467f
   - enabled: 1
     path: Assets/Scenes/Shop.unity
     guid: 20706fbd56ae50245be19ad655615d59

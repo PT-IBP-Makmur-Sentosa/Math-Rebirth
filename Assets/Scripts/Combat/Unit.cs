@@ -100,33 +100,6 @@ public class Unit : MonoBehaviour
     {
         trait = GameObject.Find("GlobalObject").GetComponent<GlobalControl>().TraitGet();
 
-        //Str = dict[trait][0] * unitLevel;
-        //Agi = dict[trait][1] * unitLevel;
-        //Int = dict[trait][2] * unitLevel;
-
-        //if (gameObject.CompareTag("Player"))
-        //{
-        //    maxHP = Str * (8.0f + unitLevel / dict[trait][3]);
-        //    if (trait == "Strong Body") maxHP = Str * (5.0f + unitLevel / dict[trait][3]);
-        //    Atk = Str * (1.25f + unitLevel / dict[trait][4]);
-        //    if (trait == "Strong Body") Atk = Str * (0.6f + unitLevel / dict[trait][4]);
-        //    Def = Agi * (2.5f + unitLevel / dict[trait][5]);
-        //    CRate = 5.0f + Agi * (dict[trait][6]);
-        //    CDmg = 1.5f + Agi * (0.0025f * (1 + unitLevel / dict[trait][7]));
-        //    ExtraMult = Int * (0.004f * (1 + unitLevel / dict[trait][8]));
-        //    ExtraTime = Int * 0.02f;
-        //}
-        //else if (gameObject.CompareTag("enemy"))
-        //{
-        //    maxHP = unitLevel * (10.0f + unitLevel / 3f);
-        //    Atk = unitLevel * (4.5f + unitLevel / 9f);
-        //    Def = unitLevel * (2.0f + unitLevel / 4f);
-        //    CRate = 5.0f;
-        //    CDmg = 1.5f;
-        //    ExtraMult = 0.0f;
-        //    ExtraTime = 0.0f;
-        //}
-
         if (prevLevel != unitLevel) LevelUp();
     }
 

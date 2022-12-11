@@ -40,8 +40,11 @@ public class CombatManager : MonoBehaviour
     float actionHit = 1.0f;
     public void StartCombat()
     {
+        playerUnit = player.GetComponent<Unit>();
+        enemyUnit = enemy.GetComponent<Unit>();
         calculatorScript.enabled = false;
         playerHUD.SetHUD(playerUnit);
+        playerHUD.SetMaxHealth(enemyUnit.maxHP);
         state = BattleState.START;
         StartCoroutine(SetupBattle());
         curr_position = combatUI.transform.position;
