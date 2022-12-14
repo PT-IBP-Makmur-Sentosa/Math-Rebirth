@@ -29,7 +29,7 @@ public class CombatManager : MonoBehaviour
     private Vector3 curr_position;
     public GameObject canvas_scroll;
     public Animator playerAnimator;
-    public Animator enemyAnimator;
+    public Animator skeletonAnimator;
     public Animator CalculatorAnimator;
     // Start is called before the first frame update
     Unit playerUnit;
