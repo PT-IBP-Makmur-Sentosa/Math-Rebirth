@@ -44,7 +44,7 @@ public class Calculator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && combatManagerScript.state == BattleState.PLAYERTURN)
+        if (Input.GetKeyDown(KeyCode.Return) && combatManagerScript.state == BattleState.PLAYERTURN && TMP_InputField_Answer.GetComponent<TMP_InputField>().text!="" && TMP_InputField_Answer.GetComponent<TMP_InputField>().text!="-")
         {
             string answer = TMP_InputField_Answer.GetComponent<TMP_InputField>().text;
             Debug.Log("User Answer: " + answer);
