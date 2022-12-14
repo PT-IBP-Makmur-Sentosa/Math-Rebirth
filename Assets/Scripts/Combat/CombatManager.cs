@@ -119,7 +119,6 @@ public class CombatManager : MonoBehaviour
         answered = false;
         moves.SetActive(false);
         playerAnimator.Play("attack");
-        yield return new WaitForSeconds(0.4f);
         CalculatorAnimator.Play("CalculatorThrow");
         skeletonAnimator.Play("hurt");
         skeletonAnimator.Play("idle");
@@ -159,7 +158,6 @@ public class CombatManager : MonoBehaviour
         }
         isDefend = false;
         skeletonAnimator.Play("attack");
-        //yield return new WaitForSeconds(1.5f);
         playerAnimator.Play("hurt");
         playerHUD.SetHUD(playerUnit);
         yield return new WaitForSeconds(2f);
