@@ -8,7 +8,7 @@ public class GlobalControl : MonoBehaviour
     string playerTrait;
     int id;
     [SerializeField] bool trigger = false;
-    public int [] stageList = new int [15] { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    public int [] stageList = new int [15] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     void Awake()
     {
         if (Instance == null)

@@ -99,11 +99,63 @@ public class PlayerMovement : MonoBehaviour
             string sceneName = currScene.name;
             if(sceneName == "FirstStage")
             {
-                globalcontrol.StageFinish(1);
+                globalcontrol.StageFinish(0);
             }
             if(sceneName == "SecondStage")
             {
+                globalcontrol.StageFinish(1);
+            }
+            if(sceneName == "ThirdStage")
+            {
                 globalcontrol.StageFinish(2);
+            }
+            if(sceneName == "FourthStage")
+            {
+                globalcontrol.StageFinish(3);
+            }
+            if(sceneName == "FifthStage")
+            {
+                globalcontrol.StageFinish(4);
+            }
+            if(sceneName == "SixthStage")
+            {
+                globalcontrol.StageFinish(5);
+            }
+            if(sceneName == "SeventhStage")
+            {
+                globalcontrol.StageFinish(6);
+            }
+            if(sceneName == "EighthStage")
+            {
+                globalcontrol.StageFinish(7);
+            }
+            if(sceneName == "NinthStage")
+            {
+                globalcontrol.StageFinish(8);
+            }
+            if(sceneName == "TenthStage")
+            {
+                globalcontrol.StageFinish(9);
+            }
+            if(sceneName == "EleventhStage")
+            {
+                globalcontrol.StageFinish(10);
+            }
+            if(sceneName == "TwelfthStage")
+            {
+                globalcontrol.StageFinish(11);
+            }
+            if(sceneName == "ThirteenthStage")
+            {
+                globalcontrol.StageFinish(12);
+            }
+            if(sceneName == "FourteenthStage")
+            {
+                globalcontrol.StageFinish(13);
+            }
+            if(sceneName == "FifteenthStage")
+            {
+                globalcontrol.StageFinish(14);
             }
         }
 

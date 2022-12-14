@@ -5,39 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
-    public GameObject map;
-    public GameObject checkpoint_map1;
-    public GameObject checkpoint_map2;
-    public GameObject player;
-    public GameObject checkpoint_1;
-    public GameObject checkpoint_2;
-    public GameObject finish_map_1;
-    GameObject glob;
-    GlobalControl globalcontrol;
-    private int bool_map_1;
-    private int bool_map_2;
-    public GameObject button_map_1;
-    public GameObject button_map_2;
-    List<int> stagelist = new List<int>();
     // Start is called before the first frame update
     void Start()
     {
-        glob = GameObject.Find("GlobalObject");
-        globalcontrol = glob.GetComponent<GlobalControl>();
-        foreach(int x in globalcontrol.stageList)
-        {
-            stagelist.Add(x);
-        }
-        bool_map_1 = stagelist[0];
-        bool_map_2 = stagelist[1];
-        if(bool_map_1 == 1)
-        {
-            button_map_1.SetActive(true);
-        }
-        if(bool_map_2 == 1)
-        {
-            button_map_2.SetActive(true);
-        }
+        Scene currScene = SceneManager.GetActiveScene();
+        string sceneName = currScene.name;
     }
 
     // Update is called once per frame
@@ -45,54 +17,64 @@ public class StageManager : MonoBehaviour
     {
         
     }
-    public void map1()
+    public void stage1()
     {
-        Scene currScene = SceneManager.GetActiveScene();
-        string sceneName = currScene.name;
-        if(sceneName == "FirstStage")
-        {
-            checkpoint_map2.SetActive(false); 
-            if(bool_map_1 == 1)
-            {
-               
-            }
-            checkpoint_map1.SetActive(true);
-        }
-        else
-        {
-            SceneManager.LoadScene("FirstStage", LoadSceneMode.Single);
-        }
-        
+        SceneManager.LoadScene("FirstStage", LoadSceneMode.Single);
     }
-    public void map2()
+    public void stage2()
     {
-        Scene currScene = SceneManager.GetActiveScene();
-        string sceneName = currScene.name;
-        if(sceneName == "SecondStage")
-        {
-            checkpoint_map2.SetActive(false);    
-            checkpoint_map1.SetActive(true);
-        }
-        else
-        {
-            SceneManager.LoadScene("SecondStage", LoadSceneMode.Single);
-        }
+        SceneManager.LoadScene("SecondStage", LoadSceneMode.Single);
     }
-    public void check1()
+    public void stage3()
     {
-        checkpoint_map1.SetActive(false);
-        checkpoint_map2.SetActive(false);
-        map.SetActive(false);
-        player.GetComponent<Transform>().position = checkpoint_1.transform.position;
-        player.GetComponent<Transform>().position = new Vector3( player.GetComponent<Transform>().position.x + 1.2f,  player.GetComponent<Transform>().position.y,  player.GetComponent<Transform>().position.z);
+        SceneManager.LoadScene("ThirdStage", LoadSceneMode.Single);
     }
-    public void check2()
+    public void stage4()
     {
-        checkpoint_map1.SetActive(false);
-        checkpoint_map2.SetActive(false);
-        map.SetActive(false);
-        player.GetComponent<Transform>().position = checkpoint_2.transform.position;
-        player.GetComponent<Transform>().position = new Vector3( player.GetComponent<Transform>().position.x - 1.2f,  player.GetComponent<Transform>().position.y,  player.GetComponent<Transform>().position.z);
-        
+        SceneManager.LoadScene("FourthStage", LoadSceneMode.Single);
+    }
+    public void stage5()
+    {
+        SceneManager.LoadScene("FifthStage", LoadSceneMode.Single);
+    }
+    public void stage6()
+    {
+        SceneManager.LoadScene("SixthStage", LoadSceneMode.Single);
+    }
+    public void stage7()
+    {
+        SceneManager.LoadScene("SeventhStage", LoadSceneMode.Single);
+    }
+    public void stage8()
+    {
+        SceneManager.LoadScene("EighthStage", LoadSceneMode.Single);
+    }
+    public void stage9()
+    {
+        SceneManager.LoadScene("NinthStage", LoadSceneMode.Single);
+    }
+    public void stage10()
+    {
+        SceneManager.LoadScene("TenthStage", LoadSceneMode.Single);
+    }
+    public void stage11()
+    {
+        SceneManager.LoadScene("EleventhStage", LoadSceneMode.Single);
+    }
+    public void stage12()
+    {
+        SceneManager.LoadScene("TwelfthStage", LoadSceneMode.Single);
+    }
+    public void stage13()
+    {
+        SceneManager.LoadScene("ThirteenthStage", LoadSceneMode.Single);
+    }
+    public void stage14()
+    {
+        SceneManager.LoadScene("Fourteenthtage", LoadSceneMode.Single);
+    }
+    public void stage15()
+    {
+        SceneManager.LoadScene("FifteenthStage", LoadSceneMode.Single);
     }
 }
