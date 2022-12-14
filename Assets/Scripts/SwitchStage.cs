@@ -32,7 +32,6 @@ public class SwitchStage : MonoBehaviour
                     string buttonName = "StageSelectionCanvas/map/stage" + (x+2);
                     print(buttonName);
                     GameObject.Find(buttonName).SetActive(true);
-                    //buttons[x].SetActive(true);
                 }
                 
             
