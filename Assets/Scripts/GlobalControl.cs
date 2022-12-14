@@ -7,9 +7,8 @@ public class GlobalControl : MonoBehaviour
     public static GlobalControl Instance;
     string playerTrait = "Strong Body";
     [SerializeField] bool trigger = false;
-
     public bool inCombat = false;
-
+    public int [] stageList = new int [15] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     void Awake()
     {
         if (Instance == null)
@@ -46,5 +45,10 @@ public class GlobalControl : MonoBehaviour
     void printOut()
     {
         print(playerTrait);
+    }
+
+    public void StageFinish(int idx)
+    {
+        stageList[idx] = 1;
     }
 }

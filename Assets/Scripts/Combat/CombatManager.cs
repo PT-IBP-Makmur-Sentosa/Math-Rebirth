@@ -127,7 +127,7 @@ public class CombatManager : MonoBehaviour
     IEnumerator PlayerDefend()
     {
         isDefend = true;
-        CalculatorAnimator.SetTrigger("is_shielding");
+        CalculatorAnimator.Play("Shield");
         yield return new WaitForSeconds(1.0f);
         state = BattleState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
@@ -136,7 +136,7 @@ public class CombatManager : MonoBehaviour
     {
 
         yield return new WaitUntil(() => answered == true);
-        
+
         float mathMult;
         float critRoller = Random.Range(0.01f, 100.0f);
         bool isCrit = critRoller <= playerUnit.CRate;
@@ -180,10 +180,11 @@ public class CombatManager : MonoBehaviour
             print("Attack not successful");
             goDown = false;
         }
-        
-        
+
+
         calculatorScript.answer_correct = false;
         answered = false;
+
         // moves.SetActive(false);
         Attack.OnPointerExit(null);
         Defend.OnPointerExit(null);
@@ -193,19 +194,18 @@ public class CombatManager : MonoBehaviour
         Defend.interactable = false;
         Special1.interactable = false;
         Special2.interactable = false;
-        playerAnimator.SetTrigger("is_attacking");
-        yield return new WaitForSeconds(0.4f);
-        CalculatorAnimator.SetTrigger("is_throwing");
-        yield return new WaitForSeconds(1.6f);
-        enemyAnimator.SetBool("is_hurt", true);
-        yield return new WaitForSeconds(0.5f);
-        enemyAnimator.SetBool("is_hurt", false);
         playerHUD.SetHealth(enemyUnit.currentHP);
+        moves.SetActive(false);
+        playerAnimator.Play("attack");
+        yield return new WaitForSeconds(0.4f);
+        CalculatorAnimator.Play("CalculatorThrow");
+        skeletonAnimator.Play("hurt");
+        skeletonAnimator.Play("idle");
         // yield return new WaitForSeconds(10f);
         if (isDead)
         {
             //end battle
-            enemyAnimator.SetTrigger("is_death");
+            skeletonAnimator.Play("death");
             yield return new WaitForSeconds(3f);
             state = BattleState.WON;
             EndBattle();
@@ -266,17 +266,15 @@ public class CombatManager : MonoBehaviour
             isDead = playerUnit.TakeDamage(enemyUnit.Atk * EnemyMod * CDmg);
         }
         isDefend = false;
-        enemyAnimator.SetTrigger("is_attacking");
-        yield return new WaitForSeconds(1.5f);
-        playerAnimator.SetBool("if_hurt", true);
-        yield return new WaitForSeconds(0.5f);
-        playerAnimator.SetBool("if_hurt", false);
+        skeletonAnimator.Play("attack");
+        //yield return new WaitForSeconds(1.5f);
+        playerAnimator.Play("hurt");
         playerHUD.SetHUD(playerUnit);
         yield return new WaitForSeconds(2f);
         if (isDead)
         {
             print("player died");
-            playerAnimator.SetTrigger("death");
+            playerAnimator.Play("death");
             yield return new WaitForSeconds(4f);
             state = BattleState.LOST;
             EndBattle();
