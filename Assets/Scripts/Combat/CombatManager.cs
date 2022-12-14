@@ -35,6 +35,7 @@ public class CombatManager : MonoBehaviour
     Unit playerUnit;
     Unit enemyUnit;
     public BattleState state;
+    public int dead = 0;
     bool isDead, isDefend = false;
     float actionMultiplier = 1.0f;
     float actionHit = 1.0f;
@@ -346,6 +347,7 @@ public class CombatManager : MonoBehaviour
 
             soul.SetActive(true);
             soul.transform.position = playerMov.transform.position;
+            dead += 1;
 
             playerMov.transform.position = GameObject.Find("Player Start Pos").transform.position;
             StartCoroutine(Coroutine());

@@ -17,6 +17,19 @@ public class PlayerMovement : MonoBehaviour
     public Animator cm_cam1;
     public GameObject canvas_scroll;
 
+    float rayLength = 0.55f;
+    float rayPositionOffset = 0.4f;
+
+    Vector3 RayPosCenter;
+    Vector3 RayPosLeft;
+    Vector3 RayPosRight;
+
+    RaycastHit2D[] HitsCenter;
+    RaycastHit2D[] HitsLeft;
+    RaycastHit2D[] HitsRight;
+
+    RaycastHit2D[][] AllRayHits = new RaycastHit2D[3][];
+    bool grounded;
 
     // Start is called before the first frame update
     void Start()
@@ -27,11 +40,15 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        if (Input.GetKeyDown("w"))
+        if (!GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpPower), ForceMode2D.Force);
+            horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+            if (Input.GetKeyDown("w") && grounded)
+            {
+                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpPower), ForceMode2D.Force);
+            }
         }
+        else horizontalMove = 0.0f;
 
         if (trigger)
         {
@@ -42,6 +59,42 @@ public class PlayerMovement : MonoBehaviour
                 enemy.SetActive(false);
             }
         }
+
+        RayPosCenter = transform.position + new Vector3(0, -0.5f, 0);
+        RayPosLeft = transform.position + new Vector3(-rayPositionOffset, -0.5f, 0);
+        RayPosRight = transform.position + new Vector3(rayPositionOffset, -0.5f, 0);
+
+        HitsCenter = Physics2D.RaycastAll(RayPosCenter, Vector2.down, rayLength);
+        HitsLeft = Physics2D.RaycastAll(RayPosLeft, Vector2.down, rayLength);
+        HitsRight = Physics2D.RaycastAll(RayPosRight, Vector2.down, rayLength);
+
+        AllRayHits[0] = HitsCenter;
+        AllRayHits[1] = HitsLeft;
+        AllRayHits[2] = HitsRight;
+
+        Debug.DrawRay(RayPosCenter, Vector2.down * rayLength, Color.red);
+        Debug.DrawRay(RayPosLeft, Vector2.down * rayLength, Color.red);
+        Debug.DrawRay(RayPosRight, Vector2.down * rayLength, Color.red);
+
+        grounded = grounding(AllRayHits);
+    }
+
+    bool grounding(RaycastHit2D[][] AllRayHits)
+    {
+        foreach (RaycastHit2D[] HitList in AllRayHits)
+        {
+            foreach (RaycastHit2D hit in HitList)
+            {
+                if (hit.collider != null)
+                {
+                    if (hit.collider.tag != "Player" && hit.collider.tag != "Confiner")
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     private void FixedUpdate()
@@ -66,20 +119,25 @@ public class PlayerMovement : MonoBehaviour
         {
 
         }
+
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
         if (collision.CompareTag("Enemy"))
         {
+            
             GameObject.Find("CombatManager").GetComponent<CombatManager>().StartCombat();
             StartCoroutine(Coroutine());
             print("Enemy Found");
+            //collision.tag = "Collided";
         }
 
         if (collision.gameObject.name == "Soul")
         {
             print("Soul collected");
+            GameObject.Find("CombatManager").GetComponent<CombatManager>().dead = 0;
             collision.gameObject.SetActive(false);
         }
     }
@@ -107,11 +165,11 @@ public class PlayerMovement : MonoBehaviour
         //Print the time of when the function is first called.
         Debug.Log("Started Coroutine at timestamp : " + Time.time);
         cm_cam1.SetBool("enter", true);
+        GameObject glob = GameObject.Find("GlobalObject");
+        glob.GetComponent<GlobalControl>().inCombat = true;
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSecondsRealtime(1.6f);
         trigger = true;
-        GameObject glob = GameObject.Find("GlobalObject");
-        glob.GetComponent<GlobalControl>().inCombat = true;
         //After we have waited 5 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class GlobalControl : MonoBehaviour
 {
     public static GlobalControl Instance;
-    string playerTrait;
+    string playerTrait = "Strong Body";
     [SerializeField] bool trigger = false;
 
     public bool inCombat = false;
