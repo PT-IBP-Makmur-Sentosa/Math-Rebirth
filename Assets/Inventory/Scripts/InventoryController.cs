@@ -33,7 +33,7 @@ namespace Inventory
         private InventorySaveSystem inventorySaveSystem;
 
         private bool inShopArea = false;
-        private void Start()
+        private void Awake()
         {
             PrepareUI();
             PrepareShopUI();
