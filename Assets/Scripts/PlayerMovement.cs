@@ -130,6 +130,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.CompareTag("Skeleton"))
         {
+            print("enter collision skeleton");
             enemy.GetComponent<SpriteRenderer>().sprite = skeleton_sprite;
             enemy.GetComponent<SpriteRenderer>().flipX = false;
             enemy.GetComponent<Animator>().runtimeAnimatorController = skeleton_animator;
