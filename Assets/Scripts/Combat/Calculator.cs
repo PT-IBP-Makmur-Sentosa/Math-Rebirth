@@ -24,11 +24,16 @@ public class Calculator : MonoBehaviour
     float lotteryTime = 3f;
     bool runLottery = false;
     Vector2 startingPos;
+    Vector2 rotationPos;
+
     // Start is called before the first frame update
     void Start()
     {
         startingPos.x = hourclock.transform.position.x;
         startingPos.y = hourclock.transform.position.y;
+        rotationPos.x = hourclock.transform.rotation.x;
+        rotationPos.y = hourclock.transform.rotation.y;
+
     }
 
     void OnEnable()
@@ -59,7 +64,7 @@ public class Calculator : MonoBehaviour
 
         // timer
         if(keepTimer && combatManagerScript.state == BattleState.PLAYERTURN)
-        {
+        {   
             currentTime -= 1 * Time.deltaTime;
             countdownText.text = currentTime.ToString("0.0"); 
             print(currentTime);
@@ -68,7 +73,6 @@ public class Calculator : MonoBehaviour
         if(currentTime <= 3)
         {   
             countdownText.color = Color.red;
-            // hourclock.transform.position = new Vector2(startingPos.x + (Mathf.Sin(Time.time * 0.1f) * 0.1f ),startingPos.y);
             hourclockAnimator.Play("hourclock_rotate");
         }
 
@@ -77,7 +81,7 @@ public class Calculator : MonoBehaviour
             onTime = true;
         }
         else if (currentTime <= 0)
-        {
+        {   
             currentTime = 0;
             combatManagerScript.answered = true;
             keepTimer = false;
@@ -166,6 +170,7 @@ public class Calculator : MonoBehaviour
         }
         TMP_InputField_Answer.GetComponent<TMP_InputField>().text = "";
         combatManagerScript.goDown = false;
+        hourclock.transform.rotation = Quaternion.Euler(rotationPos.x,rotationPos.y,0f);
     }
 
     public void setDigit(TextMeshProUGUI digitUI)
