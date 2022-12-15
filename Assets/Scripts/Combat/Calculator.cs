@@ -14,17 +14,21 @@ public class Calculator : MonoBehaviour
     public TextMeshProUGUI PrimaryDigit, SecondaryDigit, SignDigit;
     public GameObject TMP_InputField_Answer;
     public GameObject Correct, Wrong, TimesUp;
+    public GameObject hourclock;
     public Unit player;
     [SerializeField] TextMeshProUGUI countdownText;
     public float currentTime = 0f, startTime = 10f, maxTime = 0.0f;
     int temp;
     public bool onTime = true, answer_correct = false, keepTimer=true;
+    public Animator hourclockAnimator;
     float lotteryTime = 3f;
     bool runLottery = false;
+    Vector2 startingPos;
     // Start is called before the first frame update
     void Start()
     {
-
+        startingPos.x = hourclock.transform.position.x;
+        startingPos.y = hourclock.transform.position.y;
     }
 
     void OnEnable()
@@ -62,8 +66,10 @@ public class Calculator : MonoBehaviour
         }
         
         if(currentTime <= 3)
-        {
+        {   
             countdownText.color = Color.red;
+            // hourclock.transform.position = new Vector2(startingPos.x + (Mathf.Sin(Time.time * 0.1f) * 0.1f ),startingPos.y);
+            hourclockAnimator.Play("hourclock_rotate");
         }
 
         if (currentTime > 0)
@@ -110,6 +116,7 @@ public class Calculator : MonoBehaviour
         }
 
     }
+
     public void CalculatorFn(string operation, int primary, int secondary)
     {
         print("primary" + primary);
