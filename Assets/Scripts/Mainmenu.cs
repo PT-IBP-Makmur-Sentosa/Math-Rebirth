@@ -32,7 +32,13 @@ public class Mainmenu : MonoBehaviour
     }
 
     public void PlayGame() {
-        SceneManager.LoadScene("TraitSelection", LoadSceneMode.Single);
+        GlobalControl glob = GameObject.Find("GlobalObject").GetComponent<GlobalControl>();
+        PlayerData data = glob.LoadGame();
+        if (data != null)
+        {
+            SceneManager.LoadScene(data.scene, LoadSceneMode.Single);
+        }
+        else SceneManager.LoadScene("TraitSelection", LoadSceneMode.Single);
     }  
     public void QuitGame() {  
         Application.Quit(); 
