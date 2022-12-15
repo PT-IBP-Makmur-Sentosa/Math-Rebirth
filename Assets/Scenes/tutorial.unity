@@ -9595,7 +9595,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Back
+  m_text: BACK
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -9855,7 +9855,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -583, y: 359}
+  m_AnchoredPosition: {x: -569, y: 359}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2081775599
@@ -11804,9 +11804,12 @@ MonoBehaviour:
   combatManagerScript: {fileID: 753033703}
   calculatorScript: {fileID: 753033702}
   player: {fileID: 1039699449}
+  enemy: {fileID: 0}
+  enemyhealth_slider: {fileID: 0}
   health: {fileID: 1626042468}
   health_text: {fileID: 6665861159135206275}
   stamina_text: {fileID: 6665861159300765598}
+  battle_text: {fileID: 0}
   graphmat_green: {fileID: 2100000, guid: df21c0571dfab4048b62d007d03c1e6d, type: 2}
   graphmat_black: {fileID: 2100000, guid: 9423ebfe0064e2a40be65884e5ce3260, type: 2}
 --- !u!1 &6665861159817385480
