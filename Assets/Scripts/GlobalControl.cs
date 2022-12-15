@@ -40,7 +40,6 @@ public class GlobalControl : MonoBehaviour
 
         foreach (ItemSO i in allItems)
         {
-            print(i);
             allItemCodes[i.name] = i;
         }
     }

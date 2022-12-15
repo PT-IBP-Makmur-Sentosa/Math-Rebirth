@@ -50,6 +50,7 @@ public class CombatManager : MonoBehaviour
 
     void Start()
     {
+        currencyMult.Add("enemy", 8);
         currencyMult.Add("Skeleton", 8);
         currencyMult.Add("Shade", 14);
         currencyMult.Add("Boss", 30);
@@ -344,7 +345,7 @@ public class CombatManager : MonoBehaviour
             //canvas_scroll.SetActive(true);
             player.GetComponent<Unit>().Reset(1);
 
-            glob.GetComponent<GlobalControl>().playerCurrency += enemyUnit.unitLevel * currencyMult[enemyUnit.tag] * 10 * Random.Range(8, 12);
+            glob.GetComponent<GlobalControl>().playerCurrency += enemyUnit.unitLevel * currencyMult[enemyUnit.tag] * Random.Range(6, 9);
             CameraSwitch.swithcam(CMVir);
             print(CameraSwitch.isActiveCam(CMVir));
         }
