@@ -76,6 +76,7 @@ public class Unit : MonoBehaviour
     void Start()
     {
         trait = GameObject.Find("GlobalObject").GetComponent<GlobalControl>().TraitGet();
+        if (gameObject.tag == "Player") unitLevel = GameObject.Find("GlobalObject").GetComponent<GlobalControl>().LevelGet();
         prevLevel = unitLevel;
 
         float[] mult;
