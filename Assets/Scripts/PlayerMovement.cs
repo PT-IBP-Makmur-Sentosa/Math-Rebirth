@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(trigger);
         if (!GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat)
         {
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
@@ -63,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
         {
             canvas_scroll.SetActive(false);
             CameraSwitch.swithcam(combat_cam);
+            trigger = false;
             foreach (GameObject enemy in enemys)
             {
                 enemy.SetActive(false);
@@ -125,22 +127,26 @@ public class PlayerMovement : MonoBehaviour
         pos += new Vector2(horizontalMove, 0.0f);
         gameObject.transform.position = pos;
     }
+    public GameObject collidedd;
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
         if (collision.CompareTag("Skeleton"))
         {
             print("enter collision skeleton");
+            enemy.tag = collision.tag;
             enemy.GetComponent<SpriteRenderer>().sprite = skeleton_sprite;
             enemy.GetComponent<SpriteRenderer>().flipX = false;
             enemy.GetComponent<Animator>().runtimeAnimatorController = skeleton_animator;
             GameObject.Find("CombatManager").GetComponent<CombatManager>().StartCombat();
             StartCoroutine(Coroutine());
+            collidedd = collision.gameObject;
             print("Enemy Found");
             //collision.tag = "Collided";
         }
         if (collision.CompareTag("Shade"))
         {
+            enemy.tag = collision.tag;
             enemy.GetComponent<SpriteRenderer>().sprite = shade_sprite;
             enemy.GetComponent<SpriteRenderer>().flipX = true;
             enemy.GetComponent<Animator>().runtimeAnimatorController = shade_animator;
@@ -226,7 +232,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Skeleton"))
         {
             trigger = false;
             cm_cam1.SetBool("enter", false);

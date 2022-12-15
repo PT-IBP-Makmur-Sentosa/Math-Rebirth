@@ -31,7 +31,6 @@ public class CombatManager : MonoBehaviour
     public bool goDown = false;
 
     private Vector3 curr_position;
-    public GameObject canvas_scroll;
 
     public Animator playerAnimator;
     public Animator skeletonAnimator;
@@ -212,7 +211,7 @@ public class CombatManager : MonoBehaviour
         Special1.interactable = false;
         Special2.interactable = false;
         playerHUD.SetHealth(enemyUnit.currentHP);
-        moves.SetActive(false);
+        //moves.SetActive(false);
         playerAnimator.Play("attack");
         CalculatorAnimator.Play("CalculatorThrow");
         skeletonAnimator.Play("hurt");
@@ -222,7 +221,7 @@ public class CombatManager : MonoBehaviour
         {
             //end battle
             skeletonAnimator.Play("death");
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
             state = BattleState.WON;
             EndBattle();
         }
@@ -333,6 +332,7 @@ public class CombatManager : MonoBehaviour
             calculatorScript.TimesUp.SetActive(false);
             calculatorScript.enabled = false;
             StartCoroutine(Coroutine());
+            playerMov.collidedd.SetActive(false);
             // foreach (GameObject enemy in playerMov.enemys)
             // {
             //     enemy.SetActive(true);
@@ -356,6 +356,7 @@ public class CombatManager : MonoBehaviour
             calculatorScript.TimesUp.SetActive(false);
             calculatorScript.enabled = false;
 
+            playerMov.collidedd.SetActive(true);
             foreach (GameObject enemy in playerMov.enemys)
             {
                 enemy.SetActive(true);

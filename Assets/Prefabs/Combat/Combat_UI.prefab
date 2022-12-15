@@ -242,7 +242,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &6665861158522666501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1372,9 +1372,12 @@ MonoBehaviour:
   combatManagerScript: {fileID: 0}
   calculatorScript: {fileID: 0}
   player: {fileID: 0}
+  enemy: {fileID: 0}
+  enemyhealth_slider: {fileID: 0}
   health: {fileID: 6066629343894799281}
   health_text: {fileID: 6665861159254509428}
   stamina_text: {fileID: 6665861159348964201}
+  battle_text: {fileID: 0}
   graphmat_green: {fileID: 2100000, guid: df21c0571dfab4048b62d007d03c1e6d, type: 2}
   graphmat_black: {fileID: 2100000, guid: 9423ebfe0064e2a40be65884e5ce3260, type: 2}
 --- !u!1 &6665861159954332848
