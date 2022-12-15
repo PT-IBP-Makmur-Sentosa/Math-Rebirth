@@ -6108,6 +6108,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4514168269651585607, guid: ecedb667b63b71941b85340ebd5ad290, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9085983921702482182, guid: ecedb667b63b71941b85340ebd5ad290, type: 3}
       propertyPath: m_Name
       value: Combat Overlay
@@ -6156,6 +6160,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9085983922603124791, guid: ecedb667b63b71941b85340ebd5ad290, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8569323f602e7164c8bcdf78be95cd06, type: 2}
     - target: {fileID: 9085983922757536897, guid: ecedb667b63b71941b85340ebd5ad290, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
