@@ -41,7 +41,7 @@ namespace Inventory
         private void PrepareInventoryData()
         {
             GlobalControl glob = GameObject.Find("GlobalObject").GetComponent<GlobalControl>();
-            PlayerData data = glob.LoadGame();
+            PlayerData data = SaveSystem.LoadGame();
 
             inventoryData.Initialize();
             inventoryData.OnInventoryUpdated += UpdateInventoryUI;

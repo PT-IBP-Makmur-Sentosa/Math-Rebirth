@@ -1410,7 +1410,6 @@ GameObject:
   - component: {fileID: 717583531}
   - component: {fileID: 717583530}
   - component: {fileID: 717583529}
-  - component: {fileID: 717583532}
   - component: {fileID: 717583528}
   m_Layer: 0
   m_Name: Player Stage
@@ -1796,18 +1795,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &717583532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 717583521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90e4d1c150102284fa3547560157632d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &747133440
 GameObject:
   m_ObjectHideFlags: 0
@@ -2743,6 +2730,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item
       objectReference: {fileID: 0}
+    - target: {fileID: 3371660067732635251, guid: 101c8bf0eed57cb47867f53895fbacd2, type: 3}
+      propertyPath: <InventoryItem>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: a94b5b375d6a3e6458640af11405797a, type: 2}
     - target: {fileID: 3371660067732635254, guid: 101c8bf0eed57cb47867f53895fbacd2, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -7776,6 +7767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inCombat: 0
   playerCurrentHP: 0
+  playerCurrency: 0
   trigger: 0
   save: 0
   InventSO: {fileID: 11400000, guid: 27464683a12a3e54ba4a6b11f7303671, type: 2}

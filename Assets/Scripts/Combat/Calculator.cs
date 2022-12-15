@@ -66,7 +66,6 @@ public class Calculator : MonoBehaviour
         {   
             currentTime -= 1 * Time.deltaTime;
             countdownText.text = currentTime.ToString("0.0"); 
-            print(currentTime);
         }
         
         if(currentTime <= 3)

@@ -137,6 +137,9 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.name == "Soul")
         {
             print("Soul collected");
+            GameObject glob = GameObject.Find("GlobalObject");
+            glob.GetComponent<GlobalControl>().playerCurrency = GameObject.Find("CombatManager").GetComponent<CombatManager>().soulCurrency;
+            GameObject.Find("CombatManager").GetComponent<CombatManager>().soulCurrency = 0;
             GameObject.Find("CombatManager").GetComponent<CombatManager>().dead = 0;
             collision.gameObject.SetActive(false);
         }
