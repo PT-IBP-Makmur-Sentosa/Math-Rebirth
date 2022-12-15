@@ -2743,6 +2743,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item
       objectReference: {fileID: 0}
+    - target: {fileID: 3371660067732635251, guid: 101c8bf0eed57cb47867f53895fbacd2, type: 3}
+      propertyPath: <InventoryItem>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: a94b5b375d6a3e6458640af11405797a, type: 2}
     - target: {fileID: 3371660067732635254, guid: 101c8bf0eed57cb47867f53895fbacd2, type: 3}
       propertyPath: m_RootOrder
       value: 14
