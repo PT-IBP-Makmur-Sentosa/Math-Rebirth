@@ -70,11 +70,23 @@ public class Unit : MonoBehaviour
 
         mult = new float[3] { 3.0f, 3.0f, 3.0f };
         dict.Add("Average Joe", mult);
+
+        LevelUp();
+
+        PlayerData data = SaveSystem.LoadGame();
+        if (gameObject.tag == "Player" && data != null) currentHP = GameObject.Find("GlobalObject").GetComponent<GlobalControl>().playerCurrentHP;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (prevLevel != unitLevel) LevelUp();
+    }
+
+    public void LevelUp()
+    {
+        print(gameObject.tag + " Level up! Now Level: " + unitLevel);
+
         Str = dict[trait][0] * unitLevel;
         Agi = dict[trait][1] * unitLevel;
         Int = dict[trait][2] * unitLevel;

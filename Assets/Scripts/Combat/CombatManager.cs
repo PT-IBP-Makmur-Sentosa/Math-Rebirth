@@ -30,7 +30,18 @@ public class CombatManager : MonoBehaviour
     Unit playerUnit;
     Unit enemyUnit;
     public BattleState state;
-    bool isDead, isDefend=false;
+    public int dead = 0;
+    bool isDead, isDefend = false;
+    float actionMultiplier = 1.0f;
+    float actionHit = 1.0f;
+    Dictionary<string, int> currencyMult = new Dictionary<string, int>();
+
+    private void Start()
+    {
+        currencyMult.Add("Skeleton", 8);
+        currencyMult.Add("Shade", 14);
+        currencyMult.Add("Boss", 30);
+    }
     public void StartCombat()
     {
         calculatorScript.enabled = false;
@@ -210,6 +221,7 @@ public class CombatManager : MonoBehaviour
             //CameraSwitch.register(CMVir);
             //canvas_scroll.SetActive(true);
             player.GetComponent<Unit>().Reset(1);
+            glob.GetComponent<GlobalControl>().playerCurrency += enemyUnit.unitLevel * currencyMult[enemyUnit.tag] * 10 * Random.Range(8, 12);
             CameraSwitch.swithcam(CMVir);
             print(CameraSwitch.isActiveCam(CMVir));
         }
@@ -237,7 +249,8 @@ public class CombatManager : MonoBehaviour
             player.GetComponent<Unit>().Reset(0);
             enemy.GetComponent<Unit>().Reset(0);
             //canvas_scroll.SetActive(true);
-            
+            glob.GetComponent<GlobalControl>().playerCurrency = 0;
+
             CameraSwitch.swithcam(CMVir);
         }
         playerHUD.SetHUD(playerUnit);
