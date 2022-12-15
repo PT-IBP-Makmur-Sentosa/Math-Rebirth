@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Shop.unity
     guid: 20706fbd56ae50245be19ad655615d59
   - enabled: 1
-    path: Assets/Scenes/StagePrototype 1.unity
+    path: Assets/Scenes/StagePrototype.unity
     guid: 59e0c950d239f2b468d365acf0eac01c
   m_configObjects: {}
