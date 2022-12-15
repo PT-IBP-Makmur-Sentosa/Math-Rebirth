@@ -29,9 +29,6 @@ namespace Inventory
 
         [SerializeField]
         private InventorySO shopData;
-
-        private InventorySaveSystem inventorySaveSystem;
-
         private bool inShopArea = false;
         private void Awake()
         {
@@ -46,7 +43,6 @@ namespace Inventory
             GlobalControl glob = GameObject.Find("GlobalObject").GetComponent<GlobalControl>();
             PlayerData data = glob.LoadGame();
 
-            inventorySaveSystem = gameObject.GetComponent<InventorySaveSystem>();
             inventoryData.Initialize();
             inventoryData.OnInventoryUpdated += UpdateInventoryUI;
 
@@ -67,20 +63,7 @@ namespace Inventory
                     inventoryData.AddItem(inventoryItem);
                 }
 
-                //List<InventoryItem> saveditems = inventorySaveSystem.LoadInventorySave();
-                //foreach (InventoryItem item in saveditems)
-                //{
-                //    if (item.IsEmpty)
-                //        continue;
-                //    inventoryData.AddItem(item);
-                //}
             }
-            // foreach (InventoryItem item in initialItems)
-            // {
-            //     if (item.IsEmpty)
-            //         continue;
-            //     inventoryData.AddItem(item);
-            // }
 
         }
         private void PrepareShopData()

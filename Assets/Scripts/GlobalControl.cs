@@ -23,7 +23,7 @@ public class GlobalControl : MonoBehaviour
     string[] playerInventory;
     Dictionary<int, InventoryItem> InventoryDict;
 
-   
+
     void Awake()
     {
         if (Instance == null)
@@ -40,6 +40,7 @@ public class GlobalControl : MonoBehaviour
 
         foreach (ItemSO i in allItems)
         {
+            print(i);
             allItemCodes[i.name] = i;
         }
     }
@@ -85,7 +86,7 @@ public class GlobalControl : MonoBehaviour
         return curScene;
     }
 
-    public string [] InventoryGet()
+    public string[] InventoryGet()
     {
         return playerInventory;
     }
@@ -113,7 +114,7 @@ public class GlobalControl : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene();
         curScene = scene.name;
 
-        
+
         InventoryDict = InventSO.GetCurrentInventoryState();
         playerInventory = new string[InventoryDict.Count];
         int i = 0;
@@ -143,7 +144,7 @@ public class GlobalControl : MonoBehaviour
             playerCurrentHP = data.curHP;
             playerInventory = data.inventory;
             InventoryDict = new Dictionary<int, InventoryItem>();
-            
+
             int i = 0;
             foreach (string items in playerInventory)
             {
