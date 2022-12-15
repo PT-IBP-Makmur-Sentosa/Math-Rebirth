@@ -33,7 +33,6 @@ public class Calculator : MonoBehaviour
         startingPos.y = hourclock.transform.position.y;
         rotationPos.x = hourclock.transform.rotation.x;
         rotationPos.y = hourclock.transform.rotation.y;
-
     }
 
     void OnEnable()
