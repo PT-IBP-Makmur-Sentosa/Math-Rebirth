@@ -715,8 +715,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      magma maptile2_5: -1743733570
       magma maptile2_15: 553691009
+      magma maptile2_2: 975256059
       magma maptile2_25: -1305572556
       magma maptile2_0: -290354544
       magma maptile2_19: -723904609
@@ -742,7 +742,7 @@ TextureImporter:
       magma maptile2_7: -266870806
       magma maptile2_12: -188975878
       magma maptile2_27: -1072746238
-      magma maptile2_2: 975256059
+      magma maptile2_5: -1743733570
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -1283,9 +1283,9 @@ TextureImporter:
       magma maptile 1_5: 1749634354
       magma maptile 1_52: 1282088625
       magma maptile 1_45: 824616918
+      magma maptile 1_22: -1549875324
       magma maptile 1_48: 1771121197
       magma maptile 1_35: -93302692
-      magma maptile 1_22: -1549875324
       magma maptile 1_2: -1014496877
       magma maptile 1_1: 1406945506
       magma maptile 1_20: 524877902
