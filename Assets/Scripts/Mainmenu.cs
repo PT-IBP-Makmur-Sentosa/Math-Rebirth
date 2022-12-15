@@ -36,7 +36,7 @@ public class Mainmenu : MonoBehaviour
         PlayerData data = glob.LoadGame();
         if (data != null)
         {
-            SceneManager.LoadScene("StagePrototype", LoadSceneMode.Single);
+            SceneManager.LoadScene(data.scene, LoadSceneMode.Single);
         }
         else SceneManager.LoadScene("TraitSelection", LoadSceneMode.Single);
     }  

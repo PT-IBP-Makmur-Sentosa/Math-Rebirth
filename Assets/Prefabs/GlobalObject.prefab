@@ -44,5 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5f77698a9fe93b4f9b7d7c2259c40fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: 0
   inCombat: 0
+  trigger: 0
+  save: 0
+  InventSO: {fileID: 11400000, guid: 27464683a12a3e54ba4a6b11f7303671, type: 2}

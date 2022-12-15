@@ -97,6 +97,7 @@ public class InventorySaveSystem : MonoBehaviour
                     item = item,
                     quantity = count
                 };
+
                 inventory.Add(inventoryItem);
             }
         }

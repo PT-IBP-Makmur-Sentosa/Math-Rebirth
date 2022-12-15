@@ -5,9 +5,11 @@ using System.Linq;
 using Inventory.Model;
 using UnityEngine;
 
+
 namespace Inventory.Model
 {
     [CreateAssetMenu]
+    [System.Serializable]
     public class InventorySO : ScriptableObject
     {
         [SerializeField]

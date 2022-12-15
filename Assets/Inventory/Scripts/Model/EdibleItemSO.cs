@@ -6,6 +6,7 @@ using UnityEngine;
 namespace Inventory.Model
 {
     [CreateAssetMenu]
+    [System.Serializable]
     public class EdibleItemSO : ItemSO, IDestroyableItem, IItemAction
     {
         [SerializeField]

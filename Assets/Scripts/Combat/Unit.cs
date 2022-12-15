@@ -94,6 +94,7 @@ public class Unit : MonoBehaviour
         dict.Add("Average Joe", mult);
 
         LevelUp();
+        if (gameObject.tag == "Player") currentHP = GameObject.Find("GlobalObject").GetComponent<GlobalControl>().playerCurrentHP;
     }
 
     // Update is called once per frame

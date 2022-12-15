@@ -43,18 +43,37 @@ namespace Inventory
 
         private void PrepareInventoryData()
         {
+            GlobalControl glob = GameObject.Find("GlobalObject").GetComponent<GlobalControl>();
+            PlayerData data = glob.LoadGame();
+
             inventorySaveSystem = gameObject.GetComponent<InventorySaveSystem>();
             inventoryData.Initialize();
             inventoryData.OnInventoryUpdated += UpdateInventoryUI;
-            if (inventorySaveSystem.InventorySaveExists())
+
+
+            if (data != null && data.inventory.Length != 0)
             {
-                List<InventoryItem> saveditems = inventorySaveSystem.LoadInventorySave();
-                foreach (InventoryItem item in saveditems)
+                foreach (KeyValuePair<int, InventoryItem> kvp in glob.InventoryDictGet())
                 {
-                    if (item.IsEmpty)
-                        continue;
-                    inventoryData.AddItem(item);
+                    ItemSO item = kvp.Value.item;
+                    int count = kvp.Value.quantity;
+
+                    InventoryItem inventoryItem = new InventoryItem
+                    {
+                        item = item,
+                        quantity = count
+                    };
+
+                    inventoryData.AddItem(inventoryItem);
                 }
+
+                //List<InventoryItem> saveditems = inventorySaveSystem.LoadInventorySave();
+                //foreach (InventoryItem item in saveditems)
+                //{
+                //    if (item.IsEmpty)
+                //        continue;
+                //    inventoryData.AddItem(item);
+                //}
             }
             // foreach (InventoryItem item in initialItems)
             // {
@@ -246,6 +265,7 @@ namespace Inventory
                 {
                     if (inventoryUI.isActiveAndEnabled == false)
                     {
+                        inventoryUI.Show();
                         inventoryUI.Show();
                         foreach (var item in inventoryData.GetCurrentInventoryState())
                         {
