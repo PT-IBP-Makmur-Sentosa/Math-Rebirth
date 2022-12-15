@@ -8,7 +8,7 @@ public class BattleHUD : MonoBehaviour
 {   
     public CombatManager combatManagerScript;
     public Calculator calculatorScript;
-    
+      
     public GameObject player;
     Unit playerUnit;
     public GameObject enemy;
@@ -17,7 +17,6 @@ public class BattleHUD : MonoBehaviour
     public Image health;
     public TextMeshProUGUI health_text;
     public TextMeshProUGUI stamina_text;
-    public TextMeshProUGUI battle_text;
     public Material graphmat_green;
     public Material graphmat_black;
 

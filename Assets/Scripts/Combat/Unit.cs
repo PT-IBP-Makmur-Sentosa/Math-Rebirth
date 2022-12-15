@@ -7,7 +7,6 @@ public class Unit : MonoBehaviour
     public string unitName;
     public int unitLevel;
     public int prevLevel;
-    public BattleHUD playerHUD;
 
     string trait;
     Dictionary<string, float[]> dict = new Dictionary<string, float[]>();
@@ -47,7 +46,6 @@ public class Unit : MonoBehaviour
         currentHP -= damageTaken;
 
         Debug.Log(dmg);
-        playerHUD.battle_text.text = unitName + " got hit and lose " + damageTaken.ToString("0.0") + " HP. Current HP left: " + currentHP.ToString("0.0");
         Debug.Log(unitName + " got hit and lose " + damageTaken + " HP. Current HP left: " + currentHP);
         if (currentHP <= 0)
         {

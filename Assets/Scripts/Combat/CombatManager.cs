@@ -64,7 +64,6 @@ public class CombatManager : MonoBehaviour
     void PlayerTurn()
     {
         print("Player Turn");
-        playerHUD.battle_text.text = "Player Turn";
         // moves.SetActive(true);
         Attack.OnPointerExit(null);
         Defend.OnPointerExit(null);
@@ -221,8 +220,7 @@ public class CombatManager : MonoBehaviour
         }
     }
     IEnumerator EnemyTurn()
-    {   
-        playerHUD.battle_text.text = enemyUnit.unitName + " attacks!";
+    {
         print(enemyUnit.unitName + " attacks!");
         calculatorScript.Question.SetActive(false);
         calculatorScript.Result.SetActive(false);

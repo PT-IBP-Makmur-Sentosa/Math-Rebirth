@@ -280,8 +280,8 @@ TextureImporter:
         width: 40
         height: 12
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 4, y: 4, z: 4, w: 4}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -305,7 +305,6 @@ TextureImporter:
     nameFileIdTable:
       GUI_1x_2: -1440728334
       GUI_1x_0: -2111431161
-      GUI_1x_9: 98206803
       GUI_1x_1: 1436970884
       GUI_1x_5: 159532134
       GUI_1x_7: 1051491071
