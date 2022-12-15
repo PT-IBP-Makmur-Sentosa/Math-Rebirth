@@ -14,25 +14,15 @@ public class Calculator : MonoBehaviour
     public TextMeshProUGUI PrimaryDigit, SecondaryDigit, SignDigit;
     public GameObject TMP_InputField_Answer;
     public GameObject Correct, Wrong, TimesUp;
-    public GameObject hourclock;
-    public Unit player;
     [SerializeField] TextMeshProUGUI countdownText;
-    public float currentTime = 0f, startTime = 10f, maxTime = 0.0f;
+    float currentTime = 0f, startTime = 10f;    
     int temp;
-    public bool onTime = true, answer_correct = false, keepTimer=true;
-    public Animator hourclockAnimator;
+    public bool onTime = true,answer_correct = false,keepTimer=true;
     float lotteryTime = 3f;
     bool runLottery = false;
-    Vector2 startingPos;
-    Vector2 rotationPos;
-
     // Start is called before the first frame update
     void Start()
     {
-        startingPos.x = hourclock.transform.position.x;
-        startingPos.y = hourclock.transform.position.y;
-        rotationPos.x = hourclock.transform.rotation.x;
-        rotationPos.y = hourclock.transform.rotation.y;
 
     }
 
@@ -41,11 +31,9 @@ public class Calculator : MonoBehaviour
         print("enabled");
         lotteryTime = 2f;
         runLottery = true;
-        keepTimer = true;
         // CalculatorFn("addition");
         countdownText.color = Color.white;
-        maxTime = startTime + player.ExtraTime;
-        currentTime = maxTime;
+        currentTime = startTime;
         Question.SetActive(true);
         TMP_InputField_Answer.SetActive(false);
     }
@@ -53,7 +41,7 @@ public class Calculator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && combatManagerScript.state == BattleState.PLAYERTURN && TMP_InputField_Answer.GetComponent<TMP_InputField>().text!="" && TMP_InputField_Answer.GetComponent<TMP_InputField>().text!="-")
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             string answer = TMP_InputField_Answer.GetComponent<TMP_InputField>().text;
             Debug.Log("User Answer: " + answer);
@@ -63,26 +51,19 @@ public class Calculator : MonoBehaviour
         }
 
         // timer
-        if(keepTimer && combatManagerScript.state == BattleState.PLAYERTURN)
-        {   
+        if(keepTimer)
+        {
             currentTime -= 1 * Time.deltaTime;
             countdownText.text = currentTime.ToString("0.0"); 
             print(currentTime);
         }
         
         if(currentTime <= 3)
-        {   
-            countdownText.color = Color.red;
-            hourclockAnimator.Play("hourclock_rotate");
-        }
-
-        if (currentTime > 0)
         {
-            onTime = true;
+            countdownText.color = Color.red;
         }
-        else if (currentTime <= 0)
+        if (currentTime <= 0)
         {   
-            currentTime = 0;
             combatManagerScript.answered = true;
             keepTimer = false;
             onTime = false;
@@ -120,7 +101,6 @@ public class Calculator : MonoBehaviour
         }
 
     }
-
     public void CalculatorFn(string operation, int primary, int secondary)
     {
         print("primary" + primary);
@@ -170,7 +150,6 @@ public class Calculator : MonoBehaviour
         }
         TMP_InputField_Answer.GetComponent<TMP_InputField>().text = "";
         combatManagerScript.goDown = false;
-        hourclock.transform.rotation = Quaternion.Euler(rotationPos.x,rotationPos.y,0f);
     }
 
     public void setDigit(TextMeshProUGUI digitUI)

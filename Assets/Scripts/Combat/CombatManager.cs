@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using Cinemachine;
 
-public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
+public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST}
 
 public class CombatManager : MonoBehaviour
 {
@@ -15,10 +14,6 @@ public class CombatManager : MonoBehaviour
 
     public GameObject combatUI;
     public GameObject moves;
-    public Button Attack;
-    public Button Defend;
-    public Button Special1;
-    public Button Special2;
     public GameObject questions;
     public GameObject player;
     public GameObject enemy;
@@ -29,28 +24,19 @@ public class CombatManager : MonoBehaviour
     private Vector3 curr_position;
     public GameObject canvas_scroll;
     public Animator playerAnimator;
-    public Animator enemyAnimator;
+    public Animator skeletonAnimator;
     public Animator CalculatorAnimator;
     // Start is called before the first frame update
     Unit playerUnit;
     Unit enemyUnit;
     public BattleState state;
-    public int dead = 0;
-    bool isDead, isDefend = false;
-    float actionMultiplier = 1.0f;
-    float actionHit = 1.0f;
+    bool isDead, isDefend=false;
     public void StartCombat()
     {
-        playerUnit = player.GetComponent<Unit>();
-        enemyUnit = enemy.GetComponent<Unit>();
         calculatorScript.enabled = false;
-        playerHUD.SetHUD(playerUnit);
-        playerHUD.SetMaxHealth(enemyUnit.maxHP);
         state = BattleState.START;
         StartCoroutine(SetupBattle());
         curr_position = combatUI.transform.position;
-        playerHUD.SetMaxHealth(enemyUnit.maxHP);
-
     }
     IEnumerator SetupBattle()
     {
@@ -62,18 +48,9 @@ public class CombatManager : MonoBehaviour
         PlayerTurn();
     }
     void PlayerTurn()
-    {
+    {   
         print("Player Turn");
-        playerHUD.battle_text.text = "Player Turn";
-        // moves.SetActive(true);
-        Attack.OnPointerExit(null);
-        Defend.OnPointerExit(null);
-        Special1.OnPointerExit(null);
-        Special2.OnPointerExit(null);
-        Attack.interactable = true;
-        Defend.interactable = true;
-        Special1.interactable = true;
-        Special2.interactable = true;
+        moves.SetActive(true);
     }
     // Update is called once per frame
     void Update()
@@ -88,7 +65,7 @@ public class CombatManager : MonoBehaviour
             // print(aPos);
             combatUI.transform.position += aPos;
         }
-        if (!goDown && state == BattleState.PLAYERTURN)
+        if(!goDown && state == BattleState.PLAYERTURN)
         {
             combatUI.transform.position = curr_position;
         }
@@ -101,32 +78,19 @@ public class CombatManager : MonoBehaviour
         calculatorScript.enabled = true;
         questions.SetActive(true);
     }
-    public void onAttackButton()
-    {
-        actionHit = 1.0f;
-        actionMultiplier = Random.Range(0.9f, 1.1f);
-        if (state != BattleState.PLAYERTURN)
+    public void onAttackButton(){
+        if(state != BattleState.PLAYERTURN)
             return;
         StartCoroutine(PlayerAttack());
     }
-    public void onDefendButton()
-    {
-        if (state != BattleState.PLAYERTURN)
+    public void onDefendButton(){
+        if(state != BattleState.PLAYERTURN)
             return;
-        // moves.SetActive(false);
-        Attack.OnPointerExit(null);
-        Defend.OnPointerExit(null);
-        Special1.OnPointerExit(null);
-        Special2.OnPointerExit(null);
-        Attack.interactable = false;
-        Defend.interactable = false;
-        Special1.interactable = false;
-        Special2.interactable = false;
-
+        moves.SetActive(false);
         StartCoroutine(PlayerDefend());
     }
     IEnumerator PlayerDefend()
-    {
+    {  
         isDefend = true;
         CalculatorAnimator.SetTrigger("is_shielding");
         yield return new WaitForSeconds(1.0f);
@@ -134,85 +98,43 @@ public class CombatManager : MonoBehaviour
         StartCoroutine(EnemyTurn());
     }
     IEnumerator PlayerAttack()
-    {
-
-        yield return new WaitUntil(() => answered == true);
+    {   
         
-        float mathMult;
-        float critRoller = Random.Range(0.01f, 100.0f);
-        bool isCrit = critRoller <= playerUnit.CRate;
-        float CDmg = playerUnit.CDmg;
+        yield return new WaitUntil(() => answered == true);
 
-        if (isCrit)
+        if(calculatorScript.answer_correct == true && calculatorScript.onTime == true)
         {
-            bool redCrit = playerUnit.CRate > 100.0f;
-            float redCritRoller = Random.Range(0.01f, 100.0f);
-
-            if (redCrit)
-            {
-                redCrit = redCritRoller <= (playerUnit.CRate - 100.0f);
-            }
-
-            if (redCrit)
-            {
-                print("Red Critical Damage! Rate Rolled: " + redCritRoller);
-                CDmg = playerUnit.CDmg * 1.5f;
-            }
-            else if (!redCrit)
-            {
-                print("Critical Damage! Rate Rolled: " + critRoller);
-                CDmg = playerUnit.CDmg;
-            }
-        }
-        else CDmg = 1.0f;
-
-
-        if (calculatorScript.answer_correct == true && calculatorScript.onTime == true)
-        {
-            mathMult = 1.0f + ((1.0f + playerUnit.ExtraMult) * (0.1f + calculatorScript.currentTime / calculatorScript.maxTime));
-
-            isDead = enemyUnit.TakeDamage(playerUnit.Atk * mathMult * actionMultiplier * actionHit * CDmg);
+            isDead = enemyUnit.TakeDamage(playerUnit.damage);  
             print("Attack is succesful");
         }
-        else if (calculatorScript.answer_correct == false || calculatorScript.onTime == false)
+        else if(calculatorScript.answer_correct == false || calculatorScript.onTime == false)
         {
-            mathMult = 0.5f;
-            isDead = enemyUnit.TakeDamage(playerUnit.Atk * mathMult * actionMultiplier * actionHit * CDmg);
+            isDead = enemyUnit.TakeDamage( playerUnit.damage * 0.25f);  
             print("Attack not successful");
             goDown = false;
         }
         
-        
+        print("enemy HP " + enemyUnit.currentHP);
         calculatorScript.answer_correct = false;
         answered = false;
-        // moves.SetActive(false);
-        Attack.OnPointerExit(null);
-        Defend.OnPointerExit(null);
-        Special1.OnPointerExit(null);
-        Special2.OnPointerExit(null);
-        Attack.interactable = false;
-        Defend.interactable = false;
-        Special1.interactable = false;
-        Special2.interactable = false;
+        moves.SetActive(false);
         playerAnimator.SetTrigger("is_attacking");
         yield return new WaitForSeconds(0.4f);
         CalculatorAnimator.SetTrigger("is_throwing");
         yield return new WaitForSeconds(1.6f);
-        enemyAnimator.SetBool("is_hurt", true);
+        skeletonAnimator.SetBool("is_hurt", true);
         yield return new WaitForSeconds(0.5f);
-        enemyAnimator.SetBool("is_hurt", false);
-        playerHUD.SetHealth(enemyUnit.currentHP);
+        skeletonAnimator.SetBool("is_hurt", false);
         // yield return new WaitForSeconds(10f);
-        if (isDead)
+        if(isDead)
         {
             //end battle
-            enemyAnimator.SetTrigger("is_death");
+            skeletonAnimator.SetTrigger("is_death");
             yield return new WaitForSeconds(3f);
             state = BattleState.WON;
             EndBattle();
         }
-        else
-        {
+        else{
             //enemy turn
             yield return new WaitForSeconds(2f);
             calculatorScript.enabled = false;
@@ -222,7 +144,6 @@ public class CombatManager : MonoBehaviour
     }
     IEnumerator EnemyTurn()
     {   
-        playerHUD.battle_text.text = enemyUnit.unitName + " attacks!";
         print(enemyUnit.unitName + " attacks!");
         calculatorScript.Question.SetActive(false);
         calculatorScript.Result.SetActive(false);
@@ -230,52 +151,23 @@ public class CombatManager : MonoBehaviour
         calculatorScript.Correct.SetActive(false);
         calculatorScript.TimesUp.SetActive(false);
         yield return new WaitForSeconds(2f);
-
-        float EnemyMod = Random.Range(0.8f, 1.1f);
-        float critRoller = Random.Range(0.01f, 100.0f);
-        bool isCrit = critRoller <= enemyUnit.CRate;
-        float CDmg = enemyUnit.CDmg;
-
-        if (isCrit)
+        if(isDefend)
         {
-            bool redCrit = enemyUnit.CRate > 100.0f;
-            float redCritRoller = Random.Range(0.01f, 100.0f);
-
-            if (redCrit)
-            {
-                redCrit = redCritRoller <= (enemyUnit.CRate - 100.0f);
-            }
-
-            if (redCrit)
-            {
-                print("Red Critical Damage! Rate Rolled: " + redCritRoller);
-                CDmg = enemyUnit.CDmg * 1.5f;
-            }
-            else if (!redCrit)
-            {
-                print("Critical Damage! Rate Rolled: " + critRoller);
-                CDmg = enemyUnit.CDmg;
-            }
+            isDead = playerUnit.TakeDamage(enemyUnit.damage * 0.5f);
         }
-        else CDmg = 1.0f;
-
-        if (isDefend)
+        else if(!isDefend)
         {
-            isDead = playerUnit.TakeDamage(enemyUnit.Atk * EnemyMod * CDmg * 0.5f);
-        }
-        else if (!isDefend)
-        {
-            isDead = playerUnit.TakeDamage(enemyUnit.Atk * EnemyMod * CDmg);
+            isDead = playerUnit.TakeDamage(enemyUnit.damage);
         }
         isDefend = false;
-        enemyAnimator.SetTrigger("is_attacking");
+        skeletonAnimator.SetTrigger("is_attacking");
         yield return new WaitForSeconds(1.5f);
         playerAnimator.SetBool("if_hurt", true);
         yield return new WaitForSeconds(0.5f);
         playerAnimator.SetBool("if_hurt", false);
         playerHUD.SetHUD(playerUnit);
         yield return new WaitForSeconds(2f);
-        if (isDead)
+        if(isDead)
         {
             print("player died");
             playerAnimator.SetTrigger("death");
@@ -283,35 +175,25 @@ public class CombatManager : MonoBehaviour
             state = BattleState.LOST;
             EndBattle();
         }
-        else
-        {
+        else{
             state = BattleState.PLAYERTURN;
             goDown = false;
             calculatorScript.enabled = false;
             answered = false;
-            if (playerUnit.currentStamina > 0)
+            if(playerUnit.currentStamina>0)
             {
                 PlayerTurn();
             }
-            else
-            {
+            else{
                 state = BattleState.LOST;
                 EndBattle();
             }
         }
     }
-    void EndBattle()
-    {
+    void EndBattle(){
         CameraSwitch.register(CMVir);
-        GameObject glob = GameObject.Find("GlobalObject");
-        glob.GetComponent<GlobalControl>().inCombat = false;
         moves.SetActive(true);
-        // Attack.enabled = true;
-        // Defend.enabled = true;
-        // Special1.enabled = true;
-        // Special2.enabled = true;
-
-        if (state == BattleState.WON)
+        if(state==BattleState.WON)
         {
             print("You won the battle!");
             calculatorScript.Question.SetActive(false);
@@ -331,7 +213,7 @@ public class CombatManager : MonoBehaviour
             CameraSwitch.swithcam(CMVir);
             print(CameraSwitch.isActiveCam(CMVir));
         }
-        else if (state == BattleState.LOST)
+        else if(state == BattleState.LOST)
         {
             print("You were defeated");
 
@@ -349,20 +231,19 @@ public class CombatManager : MonoBehaviour
 
             soul.SetActive(true);
             soul.transform.position = playerMov.transform.position;
-            dead += 1;
-
+            
             playerMov.transform.position = GameObject.Find("Player Start Pos").transform.position;
             StartCoroutine(Coroutine());
             player.GetComponent<Unit>().Reset(0);
             enemy.GetComponent<Unit>().Reset(0);
             //canvas_scroll.SetActive(true);
-
+            
             CameraSwitch.swithcam(CMVir);
         }
         playerHUD.SetHUD(playerUnit);
     }
 
-    IEnumerator Coroutine()
+        IEnumerator Coroutine()
     {
         yield return new WaitForSecondsRealtime(2);
     }

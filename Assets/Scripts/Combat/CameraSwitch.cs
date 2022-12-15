@@ -15,7 +15,7 @@ public static class CameraSwitch
     {
         camera.Priority = 10;
         activeCam = camera;
-        Debug.Log(camera.Name);
+
         foreach (CinemachineVirtualCamera c in cameras)
         {
             if( c != camera)
