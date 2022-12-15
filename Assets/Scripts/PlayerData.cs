@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerData
 {
     public int level;
+    public int currency;
     public float curHP;
     public string trait;
     public string scene;
@@ -18,6 +19,7 @@ public class PlayerData
         trait = player.TraitGet();
         scene = player.SceneGet();
         curHP = player.playerCurrentHP;
+        currency = player.playerCurrency;
         inventory = player.InventoryGet();
     }
 }

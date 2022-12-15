@@ -15,30 +15,45 @@ public class CombatManager : MonoBehaviour
 
     public GameObject combatUI;
     public GameObject moves;
+
     public Button Attack;
     public Button Defend;
     public Button Special1;
     public Button Special2;
+
     public GameObject questions;
     public GameObject player;
     public GameObject enemy;
     public GameObject soul;
+
     public bool answered = false;
     private float movementSpeed = 400f;
     public bool goDown = false;
+
     private Vector3 curr_position;
     public GameObject canvas_scroll;
+
     public Animator playerAnimator;
     public Animator enemyAnimator;
     public Animator CalculatorAnimator;
-    // Start is called before the first frame update
+    
     Unit playerUnit;
     Unit enemyUnit;
     public BattleState state;
     public int dead = 0;
+    public int soulCurrency = 0;
     bool isDead, isDefend = false;
     float actionMultiplier = 1.0f;
     float actionHit = 1.0f;
+
+    Dictionary<string, int> currencyMult = new Dictionary<string, int>();
+
+    void Start()
+    {
+        currencyMult.Add("Skeleton", 8);
+        currencyMult.Add("Shade", 14);
+        currencyMult.Add("Boss", 30);
+    }
     public void StartCombat()
     {
         playerUnit = player.GetComponent<Unit>();
@@ -328,6 +343,8 @@ public class CombatManager : MonoBehaviour
             //CameraSwitch.register(CMVir);
             //canvas_scroll.SetActive(true);
             player.GetComponent<Unit>().Reset(1);
+
+            glob.GetComponent<GlobalControl>().playerCurrency += enemyUnit.unitLevel * currencyMult[enemyUnit.tag] * 10 * Random.Range(8, 12);
             CameraSwitch.swithcam(CMVir);
             print(CameraSwitch.isActiveCam(CMVir));
         }
@@ -346,16 +363,17 @@ public class CombatManager : MonoBehaviour
             {
                 enemy.SetActive(true);
             }
-
+           
             soul.SetActive(true);
             soul.transform.position = playerMov.transform.position;
+            soulCurrency = glob.GetComponent<GlobalControl>().playerCurrency;
             dead += 1;
 
             playerMov.transform.position = GameObject.Find("Player Start Pos").transform.position;
             StartCoroutine(Coroutine());
             player.GetComponent<Unit>().Reset(0);
             enemy.GetComponent<Unit>().Reset(0);
-            //canvas_scroll.SetActive(true);
+            glob.GetComponent<GlobalControl>().playerCurrency = 0;
 
             CameraSwitch.swithcam(CMVir);
         }

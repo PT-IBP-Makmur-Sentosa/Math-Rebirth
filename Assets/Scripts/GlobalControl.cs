@@ -11,7 +11,7 @@ public class GlobalControl : MonoBehaviour
     string playerTrait = "Strong Body";
     string curScene;
     public float playerCurrentHP = 0;
-    int playerCurrency = 0;
+    public int playerCurrency = 0;
     int playerLevel = 1;
 
     [SerializeField] bool trigger = false;
@@ -106,6 +106,7 @@ public class GlobalControl : MonoBehaviour
         print(playerTrait);
         print(playerLevel);
         print(curScene);
+        print(playerCurrency);
     }
 
     public void SaveGame()
@@ -143,6 +144,7 @@ public class GlobalControl : MonoBehaviour
             curScene = data.scene;
             playerCurrentHP = data.curHP;
             playerInventory = data.inventory;
+            playerCurrency = data.currency;
             InventoryDict = new Dictionary<int, InventoryItem>();
 
             int i = 0;
