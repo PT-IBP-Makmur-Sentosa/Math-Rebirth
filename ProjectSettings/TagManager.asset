@@ -7,6 +7,10 @@ TagManager:
   - enemy
   - Enemy
   - Shop
+  - Skeleton
+  - Stage
+  - Confiner
+  - Shade
   layers:
   - Default
   - TransparentFX
@@ -23,7 +27,7 @@ TagManager:
   - 
   - 
   - 
-  - Background
+  - 
   - 
   - 
   - 
@@ -45,11 +49,11 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Background
-    uniqueID: 1072235127
+    uniqueID: 3924190695
     locked: 0
   - name: Tilemap
-    uniqueID: 4286586049
+    uniqueID: 3642372035
     locked: 0
   - name: Player
-    uniqueID: 3811461199
+    uniqueID: 3106863395
     locked: 0

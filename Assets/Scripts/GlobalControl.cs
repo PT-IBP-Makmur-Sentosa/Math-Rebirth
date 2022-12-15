@@ -22,7 +22,7 @@ public class GlobalControl : MonoBehaviour
 
     string[] playerInventory;
     Dictionary<int, InventoryItem> InventoryDict;
-
+    public int[] stageList = new int[15] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
     void Awake()
     {
@@ -166,5 +166,10 @@ public class GlobalControl : MonoBehaviour
         else print("No saved files! New game...");
 
         return data;
+    }
+
+    public void StageFinish(int idx)
+    {
+        stageList[idx] = 1;
     }
 }

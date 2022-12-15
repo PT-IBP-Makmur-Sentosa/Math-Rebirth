@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-
+using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     public float runSpeed = 0.1f;
@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera combat_cam;
     public Animator cm_cam1;
     public GameObject canvas_scroll;
+    public GameObject enemy;
+    public RuntimeAnimatorController skeleton_animator;
+    public Sprite skeleton_sprite;
 
     float rayLength = 0.55f;
     float rayPositionOffset = 0.4f;
@@ -30,11 +33,17 @@ public class PlayerMovement : MonoBehaviour
 
     RaycastHit2D[][] AllRayHits = new RaycastHit2D[3][];
     bool grounded;
+    public RuntimeAnimatorController shade_animator;
+    public Sprite shade_sprite;
+    GameObject glob;
+    GlobalControl globalcontrol;
 
     // Start is called before the first frame update
     void Start()
     {
         enemys = GameObject.FindGameObjectsWithTag("Enemy");
+        glob = GameObject.Find("GlobalObject");
+        globalcontrol = glob.GetComponent<GlobalControl>();
     }
 
     // Update is called once per frame
@@ -115,23 +124,94 @@ public class PlayerMovement : MonoBehaviour
         Vector2 pos = gameObject.transform.position;
         pos += new Vector2(horizontalMove, 0.0f);
         gameObject.transform.position = pos;
-        if (trigger)
-        {
-
-        }
-
-
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Skeleton"))
         {
-            
+            print("enter collision skeleton");
+            enemy.GetComponent<SpriteRenderer>().sprite = skeleton_sprite;
+            enemy.GetComponent<SpriteRenderer>().flipX = false;
+            enemy.GetComponent<Animator>().runtimeAnimatorController = skeleton_animator;
             GameObject.Find("CombatManager").GetComponent<CombatManager>().StartCombat();
             StartCoroutine(Coroutine());
             print("Enemy Found");
             //collision.tag = "Collided";
+        }
+        if (collision.CompareTag("Shade"))
+        {
+            enemy.GetComponent<SpriteRenderer>().sprite = shade_sprite;
+            enemy.GetComponent<SpriteRenderer>().flipX = true;
+            enemy.GetComponent<Animator>().runtimeAnimatorController = shade_animator;
+            GameObject.Find("CombatManager").GetComponent<CombatManager>().StartCombat();
+            StartCoroutine(Coroutine());
+            print("Enemy Found");
+        }
+        if(collision.CompareTag("Finish"))
+        {
+            Scene currScene = SceneManager.GetActiveScene();
+            string sceneName = currScene.name;
+            if(sceneName == "FirstStage")
+            {
+                globalcontrol.StageFinish(0);
+            }
+            if(sceneName == "SecondStage")
+            {
+                globalcontrol.StageFinish(1);
+            }
+            if(sceneName == "ThirdStage")
+            {
+                globalcontrol.StageFinish(2);
+            }
+            if(sceneName == "FourthStage")
+            {
+                globalcontrol.StageFinish(3);
+            }
+            if(sceneName == "FifthStage")
+            {
+                globalcontrol.StageFinish(4);
+            }
+            if(sceneName == "SixthStage")
+            {
+                globalcontrol.StageFinish(5);
+            }
+            if(sceneName == "SeventhStage")
+            {
+                globalcontrol.StageFinish(6);
+            }
+            if(sceneName == "EighthStage")
+            {
+                globalcontrol.StageFinish(7);
+            }
+            if(sceneName == "NinthStage")
+            {
+                globalcontrol.StageFinish(8);
+            }
+            if(sceneName == "TenthStage")
+            {
+                globalcontrol.StageFinish(9);
+            }
+            if(sceneName == "EleventhStage")
+            {
+                globalcontrol.StageFinish(10);
+            }
+            if(sceneName == "TwelfthStage")
+            {
+                globalcontrol.StageFinish(11);
+            }
+            if(sceneName == "ThirteenthStage")
+            {
+                globalcontrol.StageFinish(12);
+            }
+            if(sceneName == "FourteenthStage")
+            {
+                globalcontrol.StageFinish(13);
+            }
+            if(sceneName == "FifteenthStage")
+            {
+                globalcontrol.StageFinish(14);
+            }
         }
 
         if (collision.gameObject.name == "Soul")
