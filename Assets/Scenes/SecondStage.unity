@@ -7640,6 +7640,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1713675759177938450, guid: e64dc934d79fd4143981f177a6bbf61c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8569323f602e7164c8bcdf78be95cd06, type: 2}
     - target: {fileID: 1713675759589741220, guid: e64dc934d79fd4143981f177a6bbf61c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -7736,6 +7740,10 @@ PrefabInstance:
       propertyPath: combatManagerScript
       value: 
       objectReference: {fileID: 787156799}
+    - target: {fileID: 6303448644456084578, guid: e64dc934d79fd4143981f177a6bbf61c, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7685723592811730029, guid: e64dc934d79fd4143981f177a6bbf61c, type: 3}
       propertyPath: m_IsActive
       value: 0
