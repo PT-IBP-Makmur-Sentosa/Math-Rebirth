@@ -23,6 +23,7 @@ public class Calculator : MonoBehaviour
     public Animator hourclockAnimator;
     float lotteryTime = 3f;
     bool runLottery = false;
+    public int mode;
     Vector2 startingPos;
     Vector2 rotationPos;
 
@@ -58,7 +59,15 @@ public class Calculator : MonoBehaviour
             Debug.Log("User Answer: " + answer);
             combatManagerScript.answered = true;
             keepTimer = false;
-            CheckAnswerFn(final, answer);
+            if(mode == 1){
+                CheckAnswerFn(answer,mode,int.Parse(PrimaryDigit.text),int.Parse(SecondaryDigit.text),SignDigit.text);
+            }
+            else if(mode == 2){
+                CheckAnswerFn(answer,mode,int.Parse(PrimaryDigit.text),int.Parse(TertiaryDigit.text),SignDigit.text);
+            }
+            else if(mode == 3){
+                CheckAnswerFn(answer,mode,int.Parse(SecondaryDigit.text),int.Parse(TertiaryDigit.text),SignDigit.text);
+            } 
         }
 
         // timer
@@ -89,37 +98,116 @@ public class Calculator : MonoBehaviour
             TimesUp.SetActive(true);
             Result.SetActive(true);
         }
-
-        // lottery randomizer counter
-        if (runLottery && lotteryTime > 1)
+        if (runLottery && lotteryTime > 0.2)
         {
             lotteryTime -= 1 * Time.deltaTime;
-            setDigit(PrimaryDigit);
-            setDigit(SecondaryDigit);
             setSign(SignDigit);
-        }
-        else if (runLottery && lotteryTime > 0.75)
-        {
-            lotteryTime -= 1 * Time.deltaTime;
-            setDigit(SecondaryDigit);
-        }
-        else if (runLottery && lotteryTime > 0.5)
-        {
-            lotteryTime -= 1 * Time.deltaTime;
-            setDigit(SecondaryDigit);
+            print("mode: " + mode);
+            if(mode == 1){
+                setDigit(TertiaryDigit);
+                if(SignDigit.text == "/")
+                {
+                    setDigit(SecondaryDigit);
+                    int assignedDigit = int.Parse(SecondaryDigit.text);
+                    PrimaryDigit.text = (UnityEngine.Random.Range(1, 10) * assignedDigit).ToString();
+                }
+                else {
+                    setDigit(PrimaryDigit);
+                    setDigit(SecondaryDigit);
+                }
+            }
+            else if(mode == 2){
+                setDigit(SecondaryDigit);
+                if(SignDigit.text == "*")
+                {
+                    setDigit(PrimaryDigit);
+                    int assignedDigit = int.Parse(PrimaryDigit.text);
+                    TertiaryDigit.text = (UnityEngine.Random.Range(1, 10) * assignedDigit).ToString();
+                }
+                else if (SignDigit.text == "/"){
+                    setDigit(TertiaryDigit);
+                    int assignedDigit = int.Parse(TertiaryDigit.text);
+                    PrimaryDigit.text = (UnityEngine.Random.Range(1, 10) * assignedDigit).ToString();
+                }
+                else if (SignDigit.text == "%"){
+                    setDigit(PrimaryDigit);
+                    int assignedDigit = int.Parse(PrimaryDigit.text);
+                    if(assignedDigit == 1)
+                    {
+                    TertiaryDigit.text = "0";
+                    }
+                    else if(assignedDigit % 2 == 0)
+                    {
+                    TertiaryDigit.text = UnityEngine.Random.Range(0, assignedDigit/2).ToString();                        
+                    }
+                    else if (assignedDigit % 2 != 0)
+                    {
+                    TertiaryDigit.text = UnityEngine.Random.Range(0, assignedDigit/2+1).ToString();
+                    }
+                }
+                else {
+                    setDigit(PrimaryDigit); 
+                    setDigit(TertiaryDigit);
+                }
+            }
+            else if(mode == 3){
+                setDigit(PrimaryDigit);
+                if(SignDigit.text == "*")
+                {
+                    setDigit(SecondaryDigit);
+                    int assignedDigit = int.Parse(SecondaryDigit.text);
+                    TertiaryDigit.text = (UnityEngine.Random.Range(1, 10) * assignedDigit).ToString();
+                }
+                else if (SignDigit.text == "/"){
+                    setDigit(TertiaryDigit);
+                    int assignedDigit = int.Parse(TertiaryDigit.text);
+                    SecondaryDigit.text = (UnityEngine.Random.Range(1, 10)).ToString();
+                }
+                else if (SignDigit.text == "%"){
+                    setDigit(SecondaryDigit);
+                    int assignedDigit = int.Parse(SecondaryDigit.text);
+                    if(assignedDigit == 1)
+                    {
+                    TertiaryDigit.text = "0";
+                    }
+                    else if(assignedDigit % 2 == 0)
+                    {
+                    TertiaryDigit.text = UnityEngine.Random.Range(0, assignedDigit/2).ToString();                        
+                    }
+                    else if (assignedDigit % 2 != 0)
+                    {
+                    TertiaryDigit.text = UnityEngine.Random.Range(0, assignedDigit/2+1).ToString();
+                    }
+                }
+                else {
+                    setDigit(SecondaryDigit);
+                    setDigit(TertiaryDigit);
+                }
+            }                
         }
         else if (runLottery)
-        {
+        {   
             runLottery = false;
+            if(mode == 1)
+            {
+                TertiaryDigit.text = "?";
+            }
+            else if(mode == 2)
+            {
+                SecondaryDigit.text = "?";
+            }
+            else if(mode == 3)
+            {
+                PrimaryDigit.text = "?";
+            }
             TMP_InputField_Answer.SetActive(true);
             TMP_InputField_Answer.GetComponent<TMP_InputField>().Select();
-            TMP_InputField_Answer.GetComponent<TMP_InputField>().ActivateInputField();
-            CalculatorFn(SignDigit.text, int.Parse(PrimaryDigit.text), int.Parse(SecondaryDigit.text));
+            TMP_InputField_Answer.GetComponent<TMP_InputField>().ActivateInputField();  
         }
 
     }
 
-    public void CalculatorFn(string operation, int primary, int secondary)
+    public void CalculatorFn(string operation, int primary, int secondary, int mode)
     {
         print("primary" + primary);
         print("secondary" + secondary);
@@ -145,19 +233,125 @@ public class Calculator : MonoBehaviour
             final = primary % secondary;
         }
     }
-    public void CheckAnswerFn(int final, string answer)
+    public void CheckAnswerFn(string answer,int mode,int a, int b,string operation)
     {   
         int user_answer = Convert.ToInt32(answer);
-        Debug.Log("user_answer: " + answer.GetType() + user_answer + answer + " " + "final: " + final);
-        if (user_answer != final)
-        {
-            Question.SetActive(false);
-            Result.SetActive(true);
-            Wrong.SetActive(true);
-            TimesUp.SetActive(false);
-            Debug.Log("wrong");
+        if(mode == 1){
+            if (operation == "+")
+            {
+                if(a+b == user_answer)
+                {
+                    answer_correct = true;
+                }
+            }
+            else if (operation == "-")
+            {
+                if(a-b == user_answer)
+                {
+                    answer_correct = true;
+                }
+            }
+            else if (operation == "*")
+            {
+                if(a*b == user_answer)
+                {
+                    answer_correct = true;
+                }
+            }
+            else if (operation == "/")
+            {
+                if(a/b == user_answer)
+                {
+                    answer_correct = true;
+                }
+            }
+            else if (operation == "%")
+            {
+                if(a%b == user_answer)
+                {
+                    answer_correct = true;
+                }
+            }
         }
-        else if (user_answer == final)
+        else if(mode == 2)
+        {
+            if (operation == "+")
+            {
+                if(a+user_answer == b)
+                {
+                    answer_correct = true;
+                }
+            }
+            else if (operation == "-")
+            {
+                if(a-user_answer == b)
+                {
+                    answer_correct = true;
+                }
+            }
+            else if (operation == "*")
+            {
+                if(a*user_answer == b)
+                {
+                    answer_correct = true;
+                }
+            }
+            else if (operation == "/")
+            {
+                if(a/user_answer == b)
+                {
+                    answer_correct = true;
+                }
+            }
+            else if (operation == "%")
+            {
+                if(a%user_answer == b)
+                {
+                    answer_correct = true;
+                }
+            }
+        }
+        else if(mode == 3)
+        {
+            if (operation == "+")
+            {
+                if(user_answer+a == b)
+                {
+                    answer_correct = true;
+                }
+            }
+            else if (operation == "-")
+            {
+                if(user_answer-a == b)
+                {
+                    answer_correct = true;
+                }
+            }
+            else if (operation == "*")
+            {
+                if(user_answer*a == b)
+                {
+                    answer_correct = true;
+                }
+            }
+            else if (operation == "/")
+            {
+                if(user_answer/a == b)
+                {
+                    answer_correct = true;
+                }
+            }
+            else if (operation == "%")
+            {
+                if(user_answer%a == b)
+                {
+                    answer_correct = true;
+                }
+            }
+        }
+        // Debug.Log("user_answer: " + answer.GetType() + user_answer + answer + " " + "final: " + final);
+        
+        if (answer_correct)
         {   
             answer_correct = true;
             Question.SetActive(false);
@@ -165,6 +359,14 @@ public class Calculator : MonoBehaviour
             Correct.SetActive(true);
             TimesUp.SetActive(false);
             Debug.Log("Correct");
+        }
+        else if (!answer_correct)
+        {
+            Question.SetActive(false);
+            Result.SetActive(true);
+            Wrong.SetActive(true);
+            TimesUp.SetActive(false);
+            Debug.Log("wrong");
         }
         TMP_InputField_Answer.GetComponent<TMP_InputField>().text = "";
         combatManagerScript.goDown = false;
@@ -179,7 +381,7 @@ public class Calculator : MonoBehaviour
     public void setSign(TextMeshProUGUI signUI)
     {
         string[] signs = { "+", "-", "*", "/", "%" };
-        signUI.text = signs[UnityEngine.Random.Range(0, signs.Length - 1)];
+        signUI.text = signs[UnityEngine.Random.Range(0, signs.Length)];
     }
 
 }

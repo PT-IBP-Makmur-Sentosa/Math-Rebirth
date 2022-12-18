@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(trigger);
+        // print(trigger);
         if (!GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat)
         {
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
