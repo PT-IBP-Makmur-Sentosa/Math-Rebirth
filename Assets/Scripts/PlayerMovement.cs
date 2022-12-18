@@ -1,4 +1,4 @@
-wusing System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // print(trigger);
-        if (!GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat)
+        if (!GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inMap && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inInventory && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inShop)
         {
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
             if (Input.GetKeyDown("w") && grounded)
