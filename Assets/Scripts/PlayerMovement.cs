@@ -1,4 +1,4 @@
-using System.Collections;
+wusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
@@ -53,8 +53,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(trigger);
-        if (!GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inMap && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inInventory && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inShop)
+        // print(trigger);
+        if (!GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat)
         {
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
             if (Input.GetKeyDown("w") && grounded)

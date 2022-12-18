@@ -121,6 +121,8 @@ public class CombatManager : MonoBehaviour
     {
         actionHit = 1.0f;
         actionMultiplier = Random.Range(0.9f, 1.1f);
+        calculatorScript.mode = UnityEngine.Random.Range(1, 4);
+
         if (state != BattleState.PLAYERTURN)
             return;
         StartCoroutine(PlayerAttack());

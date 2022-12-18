@@ -31,7 +31,8 @@ public class Mainmenu : MonoBehaviour
         
     }
 
-    public void PlayGame() {
+    public void PlayGame() 
+    {
         GlobalControl glob = GameObject.Find("GlobalObject").GetComponent<GlobalControl>();
         PlayerData data = glob.LoadGame();
         if (data != null)
@@ -39,18 +40,22 @@ public class Mainmenu : MonoBehaviour
             SceneManager.LoadScene("StagePrototype", LoadSceneMode.Single);
         }
         else SceneManager.LoadScene("TraitSelection", LoadSceneMode.Single);
-    }  
+    }
+
     public void QuitGame() {  
         Application.Quit(); 
-    }  
+    }
+
     public void About() {  
         about.SetActive(true);
         menu.SetActive(false);
-    }  
+    }
+
     public void Setting() {  
         setting.SetActive(true);
         menu.SetActive(false);
-    } 
+    }
+
     public void Help() {  
         help.SetActive(true);
         menu.SetActive(false);
@@ -60,18 +65,20 @@ public class Mainmenu : MonoBehaviour
         help1.SetActive(true);
         help.SetActive(false);
         help2.SetActive(false);
-    }  
+    }
+
     public void Help2() {  
         help2.SetActive(true);
         help1.SetActive(false);
-    }  public void backmenu() {  
+    }  
+    
+    public void backmenu() {  
         menu.SetActive(true);
         help.SetActive(false);
         help1.SetActive(false);
         help2.SetActive(false);
         about.SetActive(false);
         setting.SetActive(false);
-
     }  
 }
 

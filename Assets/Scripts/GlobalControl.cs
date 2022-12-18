@@ -16,6 +16,8 @@ public class GlobalControl : MonoBehaviour
     public float playerCurrentHP = 0;
     public int playerCurrency = 0;
     int playerLevel = 1;
+    float musicVol= 0.5f;
+    float soundVol;
 
     [SerializeField] bool trigger = false;
     [SerializeField] bool save = false;
@@ -60,7 +62,24 @@ public class GlobalControl : MonoBehaviour
             save = false;
             SaveGame();
         }
+    }
 
+    public void SetVolume(float vol)
+    {
+        musicVol = vol;
+        foreach (AudioSource audios in GameObject.FindObjectsOfType<AudioSource>())
+        {
+            if(audios.tag == "BGM") audios.volume = musicVol;
+        }
+    }
+
+    public void SetSFX(float vol)
+    {
+        soundVol = vol;
+        foreach (AudioSource audios in GameObject.FindObjectsOfType<AudioSource>())
+        {
+            if (audios.tag != "BGM") audios.volume = soundVol;
+        }
     }
 
     public void TraitSet(string trait)
