@@ -44,6 +44,7 @@ public class CombatManager : MonoBehaviour
     bool isDead, isDefend = false;
     float actionMultiplier = 1.0f;
     float actionHit = 1.0f;
+    string actionName = "Attack";
 
     Dictionary<string, int> currencyMult = new Dictionary<string, int>();
 
@@ -88,8 +89,19 @@ public class CombatManager : MonoBehaviour
         Special2.OnPointerExit(null);
         Attack.interactable = true;
         Defend.interactable = true;
-        Special1.interactable = true;
-        Special2.interactable = true;
+        if (playerUnit.currentStamina >= 2)
+        {
+            Special1.interactable = true;
+        }
+        else Special1.interactable = false;
+
+        if (playerUnit.currentStamina >= 3)
+        {
+            Special2.interactable = true;
+        }
+        else Special2.interactable = false;
+
+
     }
     // Update is called once per frame
     void Update()
@@ -117,8 +129,10 @@ public class CombatManager : MonoBehaviour
         calculatorScript.enabled = true;
         questions.SetActive(true);
     }
+
     public void onAttackButton()
     {
+        actionName = "Attack";
         actionHit = 1.0f;
         actionMultiplier = Random.Range(0.9f, 1.1f);
         calculatorScript.mode = UnityEngine.Random.Range(1, 4);
@@ -127,6 +141,7 @@ public class CombatManager : MonoBehaviour
             return;
         StartCoroutine(PlayerAttack());
     }
+
     public void onDefendButton()
     {
         if (state != BattleState.PLAYERTURN)
@@ -142,6 +157,30 @@ public class CombatManager : MonoBehaviour
         Special2.interactable = false;
 
         StartCoroutine(PlayerDefend());
+    }
+
+    public void onSkill1Button()
+    {
+        actionName = "Skill1";
+        actionHit = 1.0f;
+        actionMultiplier = Random.Range(1.2f, 1.5f);
+        calculatorScript.mode = UnityEngine.Random.Range(1, 4);
+
+        if (state != BattleState.PLAYERTURN)
+            return;
+        StartCoroutine(PlayerAttack());
+    }
+
+    public void onSkill2Button()
+    {
+        actionName = "Skill2";
+        actionHit = 1.0f;
+        actionMultiplier = Random.Range(1.8f, 2.0f);
+        calculatorScript.mode = UnityEngine.Random.Range(1, 4);
+
+        if (state != BattleState.PLAYERTURN)
+            return;
+        StartCoroutine(PlayerAttack());
     }
     IEnumerator PlayerDefend()
     {
@@ -214,17 +253,37 @@ public class CombatManager : MonoBehaviour
         Special1.interactable = false;
         Special2.interactable = false;
         playerHUD.SetHealth(enemyUnit.currentHP);
+        playerHUD.SetHUD(playerUnit);
         //moves.SetActive(false);
-        playerAnimator.Play("attack");
-        CalculatorAnimator.Play("CalculatorThrow");
-        skeletonAnimator.Play("hurt");
-        skeletonAnimator.Play("idle");
+        if (actionName == "Attack")
+        {
+            playerAnimator.Play("attack");
+            CalculatorAnimator.Play("CalculatorThrow");
+            skeletonAnimator.Play("hurt");
+            skeletonAnimator.Play("idle");
+        }
+        else if (actionName == "Skill1")
+        {
+            //playerAnimator.Play("attack");
+            //CalculatorAnimator.Play("CalculatorThrow");
+            skeletonAnimator.Play("hurt");
+            skeletonAnimator.Play("idle");
+        }
+        else if (actionName == "Skill2")
+        {
+            //playerAnimator.Play("attack");
+            //CalculatorAnimator.Play("CalculatorThrow");
+            skeletonAnimator.Play("hurt");
+            skeletonAnimator.Play("idle");
+        }
+
         // yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(1f);
         if (isDead)
         {
             //end battle
             skeletonAnimator.Play("death");
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(2.5f);
             state = BattleState.WON;
             EndBattle();
         }
@@ -288,12 +347,12 @@ public class CombatManager : MonoBehaviour
         skeletonAnimator.Play("attack");
         playerAnimator.Play("hurt");
         playerHUD.SetHUD(playerUnit);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         if (isDead)
         {
             print("player died");
             playerAnimator.Play("death");
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(2f);
             state = BattleState.LOST;
             EndBattle();
         }
@@ -309,6 +368,9 @@ public class CombatManager : MonoBehaviour
             }
             else
             {
+                print("player died");
+                playerAnimator.Play("death");
+                yield return new WaitForSeconds(2f);
                 state = BattleState.LOST;
                 EndBattle();
             }
@@ -334,19 +396,14 @@ public class CombatManager : MonoBehaviour
             calculatorScript.Correct.SetActive(false);
             calculatorScript.TimesUp.SetActive(false);
             calculatorScript.enabled = false;
-            StartCoroutine(Coroutine());
             playerMov.collidedd.SetActive(false);
-            // foreach (GameObject enemy in playerMov.enemys)
-            // {
-            //     enemy.SetActive(true);
-            // }
-            //CameraSwitch.register(CMVir);
-            //canvas_scroll.SetActive(true);
-            player.GetComponent<Unit>().Reset(1);
+            StartCoroutine(Coroutine());
 
             glob.GetComponent<GlobalControl>().playerCurrency += enemyUnit.unitLevel * currencyMult[enemyUnit.tag] * Random.Range(6, 9);
+            
             CameraSwitch.swithcam(CMVir);
-            print(CameraSwitch.isActiveCam(CMVir));
+            //print(CameraSwitch.isActiveCam(CMVir));
+            player.GetComponent<Unit>().Reset(1);
         }
         else if (state == BattleState.LOST)
         {
@@ -358,11 +415,10 @@ public class CombatManager : MonoBehaviour
             calculatorScript.Correct.SetActive(false);
             calculatorScript.TimesUp.SetActive(false);
             calculatorScript.enabled = false;
-            foreach(GameObject enemy in playerMov.unityGameObjects)
+            foreach (GameObject enemy in playerMov.unityGameObjects)
             {
                 enemy.SetActive(true);
             }
-            //playerMov.collidedd.SetActive(true);
            
             soul.SetActive(true);
             soul.transform.position = playerMov.transform.position;
@@ -371,11 +427,12 @@ public class CombatManager : MonoBehaviour
 
             playerMov.transform.position = GameObject.Find("Player Start Pos").transform.position;
             StartCoroutine(Coroutine());
-            player.GetComponent<Unit>().Reset(0);
-            enemy.GetComponent<Unit>().Reset(0);
+            
             glob.GetComponent<GlobalControl>().playerCurrency = 0;
 
             CameraSwitch.swithcam(CMVir);
+            player.GetComponent<Unit>().Reset(0);
+            enemy.GetComponent<Unit>().Reset(0);
         }
         playerHUD.SetHUD(playerUnit);
     }

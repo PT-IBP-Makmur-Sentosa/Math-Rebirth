@@ -86,13 +86,21 @@ public class BattleHUD : MonoBehaviour
         graphmat_green.SetFloat("_RemovedSegment", removed);
         stamina_text.text = curr_stamina.ToString();     
     }
-    public void onPressSpecial_1()
+    public void onPressSkill1()
     {
-        
+        curr_stamina -= 2;
+        playerUnit.currentStamina -= 2;
+        removed = max_stamina - curr_stamina;
+        graphmat_green.SetFloat("_RemovedSegment", removed);
+        stamina_text.text = curr_stamina.ToString();
     }
-    public void onPressSpecial_2()
+    public void onPressSkill2()
     {
-        
+        curr_stamina -= 3;
+        playerUnit.currentStamina -= 3;
+        removed = max_stamina - curr_stamina;
+        graphmat_green.SetFloat("_RemovedSegment", removed);
+        stamina_text.text = curr_stamina.ToString();
     }
     // Update is called once per frame
     void Update()

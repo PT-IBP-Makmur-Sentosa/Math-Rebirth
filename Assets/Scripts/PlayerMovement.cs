@@ -68,7 +68,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (trigger)
         {
-            canvas_scroll.SetActive(false);
             CameraSwitch.swithcam(combat_cam);
             trigger = false;
         }
@@ -243,11 +242,11 @@ public class PlayerMovement : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Skeleton"))
-        {
-            trigger = false;
-            cm_cam1.SetBool("enter", false);
-        }
+        //if (other.CompareTag("Skeleton"))
+        //{
+        //    trigger = false;
+        //    cm_cam1.SetBool("enter", false);
+        //}
     }
 
     private void OnEnable()
@@ -269,6 +268,7 @@ public class PlayerMovement : MonoBehaviour
         glob.GetComponent<GlobalControl>().inCombat = true;
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSecondsRealtime(1.6f);
+        cm_cam1.SetBool("enter", false);
         trigger = true;
         //After we have waited 5 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
