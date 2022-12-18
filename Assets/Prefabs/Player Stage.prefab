@@ -173,16 +173,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 0.1
   jumpPower: 400
-  enemys: []
-  walk_cam: {fileID: 2179513152186379290, guid: e4ac822f693aff6488bf256904893f8e, type: 3}
-  combat_cam: {fileID: 4769371305589841262, guid: 65a55ba8d0030574fbd4bc9210ff3568, type: 3}
-  cm_cam1: {fileID: 2179513152186379288, guid: e4ac822f693aff6488bf256904893f8e, type: 3}
-  canvas_scroll: {fileID: 8291005669633090534, guid: fe2a477aecf50784d896b453dcb4ff54, type: 3}
-  enemy: {fileID: 4661905263343608258, guid: c23418ee7cb1a3042bddda9f83cacfe1, type: 3}
+  skeletons: []
+  shades: []
+  walk_cam: {fileID: 0}
+  combat_cam: {fileID: 0}
+  cm_cam1: {fileID: 0}
+  canvas_scroll: {fileID: 0}
+  enemy: {fileID: 0}
   skeleton_animator: {fileID: 9100000, guid: 4f14c2d1b9dad3d418ded234bf91d42e, type: 2}
   skeleton_sprite: {fileID: 1254819591, guid: 500b5d92b5cb128478401e11a242d563, type: 3}
   shade_animator: {fileID: 9100000, guid: 8569323f602e7164c8bcdf78be95cd06, type: 2}
   shade_sprite: {fileID: -1503370741, guid: c9bbec9f021c79d489350dc894f29a69, type: 3}
+  unityGameObjects: []
+  StringTagEnemy:
+  - Shade
+  - Skeleton
   collidedd: {fileID: 0}
 --- !u!82 &8632127650947564625
 AudioSource:

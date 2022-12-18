@@ -14,6 +14,7 @@ public class SwitchStage : MonoBehaviour
     {
         glob = GameObject.Find("GlobalObject");
         globalcontrol = glob.GetComponent<GlobalControl>();
+        glob.GetComponent<GlobalControl>().inMap = false;
         
     }
 
@@ -24,6 +25,7 @@ public class SwitchStage : MonoBehaviour
         string sceneName = currScene.name;
         if(istrigger)
         {
+          
             istrigger = false;
             map.SetActive(true);
             for (int x = 0; x < 15; x++)
@@ -42,6 +44,7 @@ public class SwitchStage : MonoBehaviour
         
         if(coll.CompareTag("Player"))
         {
+            glob.GetComponent<GlobalControl>().inMap = true;
             print("col_true");
             istrigger = true; 
         } 

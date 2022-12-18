@@ -126,7 +126,7 @@ public class Unit : MonoBehaviour
             ExtraMult = Int * (0.004f * (1 + unitLevel / dict[trait][8]));
             ExtraTime = Int * 0.02f;
         }
-        else if (gameObject.CompareTag("enemy"))
+        else if (gameObject.CompareTag("Skeleton"))
         {
             maxHP = unitLevel * (10.0f + unitLevel / 3f);
             Atk = unitLevel * (4.5f + unitLevel / 9f);

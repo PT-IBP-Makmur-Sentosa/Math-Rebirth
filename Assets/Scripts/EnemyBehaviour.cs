@@ -10,12 +10,16 @@ public class EnemyBehaviour : MonoBehaviour
     int dir = -1;
     int face = -1;
     bool trigger = false;
-    Vector2 move;
 
+    Vector2 move;
+    public int level;
+    [SerializeField] int levelMin;
+    [SerializeField] int levelMax;
     // Start is called before the first frame update
     void Start()
     {
         startingX = gameObject.transform.position.x;
+        level = UnityEngine.Random.Range(levelMin, levelMax);
         move = new Vector2(0, 0);
     }
 

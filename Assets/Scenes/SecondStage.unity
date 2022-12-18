@@ -714,6 +714,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1280394811539358901, guid: 348246761724e5440baacb55a140ba2f, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280394811539358901, guid: 348246761724e5440baacb55a140ba2f, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280394811539358901, guid: 348246761724e5440baacb55a140ba2f, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280394811539358901, guid: 348246761724e5440baacb55a140ba2f, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1280394811539358903, guid: 348246761724e5440baacb55a140ba2f, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -7740,6 +7756,10 @@ PrefabInstance:
       propertyPath: combatManagerScript
       value: 
       objectReference: {fileID: 787156799}
+    - target: {fileID: 5459047542329666168, guid: e64dc934d79fd4143981f177a6bbf61c, type: 3}
+      propertyPath: unitLevel
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6303448644456084578, guid: e64dc934d79fd4143981f177a6bbf61c, type: 3}
       propertyPath: m_FlipX
       value: 1

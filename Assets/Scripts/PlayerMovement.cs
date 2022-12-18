@@ -11,7 +11,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool trigger = false;
     //public GameObject CombatScene;
-    public GameObject[] enemys;
+    public GameObject[] skeletons;
+    public GameObject[] shades;
     [SerializeField] CinemachineVirtualCamera walk_cam;
     [SerializeField] CinemachineVirtualCamera combat_cam;
     public Animator cm_cam1;
@@ -37,11 +38,14 @@ public class PlayerMovement : MonoBehaviour
     public Sprite shade_sprite;
     GameObject glob;
     GlobalControl globalcontrol;
+    public List<GameObject> unityGameObjects = new List<GameObject>();
+    public List<string> StringTagEnemy = new List<string>() {"Shade","Skeleton"};
 
     // Start is called before the first frame update
     void Start()
     {
-        enemys = GameObject.FindGameObjectsWithTag("Enemy");
+        skeletons = GameObject.FindGameObjectsWithTag("Skeleton");
+        shades = GameObject.FindGameObjectsWithTag("Shade");
         glob = GameObject.Find("GlobalObject");
         globalcontrol = glob.GetComponent<GlobalControl>();
     }
@@ -50,13 +54,15 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         print(trigger);
-        if (!GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat)
+        if (!GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inMap && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inInventory && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inShop)
         {
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
             if (Input.GetKeyDown("w") && grounded)
             {
+                this.gameObject.GetComponent<Animator>().Play("Jump");
                 gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpPower), ForceMode2D.Force);
             }
+            gameObject.GetComponent<Animator>().SetFloat("velocity", Mathf.Abs(horizontalMove));
         }
         else horizontalMove = 0.0f;
 
@@ -65,10 +71,6 @@ public class PlayerMovement : MonoBehaviour
             canvas_scroll.SetActive(false);
             CameraSwitch.swithcam(combat_cam);
             trigger = false;
-            foreach (GameObject enemy in enemys)
-            {
-                enemy.SetActive(false);
-            }
         }
 
         RayPosCenter = transform.position + new Vector3(0, -0.5f, 0);
@@ -134,10 +136,16 @@ public class PlayerMovement : MonoBehaviour
         if (collision.CompareTag("Skeleton"))
         {
             print("enter collision skeleton");
+            unityGameObjects.Add(collision.gameObject);
             enemy.tag = collision.tag;
             enemy.GetComponent<SpriteRenderer>().sprite = skeleton_sprite;
             enemy.GetComponent<SpriteRenderer>().flipX = false;
             enemy.GetComponent<Animator>().runtimeAnimatorController = skeleton_animator;
+            print(enemy.GetComponent<Unit>().unitLevel);
+            print(collision.GetComponent<EnemyBehaviour>().level);
+            enemy.GetComponent<Unit>().unitLevel = collision.GetComponent<EnemyBehaviour>().level;
+            print(enemy.GetComponent<Unit>().unitLevel);
+            enemy.GetComponent<Unit>().unitName = collision.tag;
             GameObject.Find("CombatManager").GetComponent<CombatManager>().StartCombat();
             StartCoroutine(Coroutine());
             collidedd = collision.gameObject;
@@ -146,10 +154,13 @@ public class PlayerMovement : MonoBehaviour
         }
         if (collision.CompareTag("Shade"))
         {
+            unityGameObjects.Add(collision.gameObject);
             enemy.tag = collision.tag;
             enemy.GetComponent<SpriteRenderer>().sprite = shade_sprite;
             enemy.GetComponent<SpriteRenderer>().flipX = true;
             enemy.GetComponent<Animator>().runtimeAnimatorController = shade_animator;
+            enemy.GetComponent<Unit>().unitLevel = collision.GetComponent<EnemyBehaviour>().level;
+            enemy.GetComponent<Unit>().unitName = collision.tag;
             GameObject.Find("CombatManager").GetComponent<CombatManager>().StartCombat();
             StartCoroutine(Coroutine());
             print("Enemy Found");

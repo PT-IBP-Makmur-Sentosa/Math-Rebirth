@@ -58,6 +58,7 @@ public class CombatManager : MonoBehaviour
     {
         playerUnit = player.GetComponent<Unit>();
         enemyUnit = enemy.GetComponent<Unit>();
+        enemyUnit.currentHP = enemyUnit.maxHP;
         calculatorScript.enabled = false;
         playerHUD.SetHUD(playerUnit);
         playerHUD.SetMaxHealth(enemyUnit.maxHP);
@@ -355,12 +356,11 @@ public class CombatManager : MonoBehaviour
             calculatorScript.Correct.SetActive(false);
             calculatorScript.TimesUp.SetActive(false);
             calculatorScript.enabled = false;
-
-            playerMov.collidedd.SetActive(true);
-            foreach (GameObject enemy in playerMov.enemys)
+            foreach(GameObject enemy in playerMov.unityGameObjects)
             {
                 enemy.SetActive(true);
             }
+            //playerMov.collidedd.SetActive(true);
            
             soul.SetActive(true);
             soul.transform.position = playerMov.transform.position;

@@ -8,6 +8,9 @@ public class GlobalControl : MonoBehaviour
 {
     public static GlobalControl Instance;
     public bool inCombat = false;
+    public bool inMap = false;
+    public bool inInventory = false;
+    public bool inShop = false;
     string playerTrait = "Strong Body";
     string curScene;
     public float playerCurrentHP = 0;

@@ -244,8 +244,10 @@ namespace Inventory
             if (Input.GetKeyDown(KeyCode.I))
             {
                 GameObject glob = GameObject.Find("GlobalObject");
+                
                 if (!glob.GetComponent<GlobalControl>().inCombat && !shopUI.isActiveAndEnabled)
                 {
+                    glob.GetComponent<GlobalControl>().inInventory = true;
                     if (inventoryUI.isActiveAndEnabled == false)
                     {
                         inventoryUI.Show();
@@ -261,6 +263,7 @@ namespace Inventory
                     else
                     {
                         inventoryUI.Hide();
+                        glob.GetComponent<GlobalControl>().inInventory = false;
                     }
                 }
             }
@@ -270,6 +273,7 @@ namespace Inventory
                 GameObject glob = GameObject.Find("GlobalObject");
                 if (!glob.GetComponent<GlobalControl>().inCombat && inShopArea && !inventoryUI.isActiveAndEnabled)
                 {
+                    glob.GetComponent<GlobalControl>().inShop = true;
                     if (shopUI.isActiveAndEnabled == false)
                     {
                         shopUI.Show();
@@ -284,6 +288,7 @@ namespace Inventory
                     else
                     {
                         shopUI.Hide();
+                        glob.GetComponent<GlobalControl>().inShop = false;
                     }
                 }
 
