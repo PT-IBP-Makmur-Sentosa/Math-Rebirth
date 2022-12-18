@@ -183,6 +183,7 @@ MonoBehaviour:
   skeleton_sprite: {fileID: 1254819591, guid: 500b5d92b5cb128478401e11a242d563, type: 3}
   shade_animator: {fileID: 9100000, guid: 8569323f602e7164c8bcdf78be95cd06, type: 2}
   shade_sprite: {fileID: -1503370741, guid: c9bbec9f021c79d489350dc894f29a69, type: 3}
+  collidedd: {fileID: 0}
 --- !u!82 &8632127650947564625
 AudioSource:
   m_ObjectHideFlags: 0
@@ -306,7 +307,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 0}
   inventoryData: {fileID: 11400000, guid: 27464683a12a3e54ba4a6b11f7303671, type: 2}
-  initialItems: []
+  initialItems:
+  - quantity: 99
+    item: {fileID: 11400000, guid: a94b5b375d6a3e6458640af11405797a, type: 2}
+    itemState: []
   dropClip: {fileID: 8300000, guid: d391d87143e10584aac95ac254c08f6d, type: 3}
   audioSource: {fileID: 8632127650947564626}
   shopUI: {fileID: 0}
