@@ -11,7 +11,7 @@ public class Calculator : MonoBehaviour
     public BattleHUD playerHUD;
 
     public GameObject Question, Result;
-    public TextMeshProUGUI PrimaryDigit, SecondaryDigit, SignDigit;
+    public TextMeshProUGUI PrimaryDigit, SecondaryDigit, TertiaryDigit, SignDigit;
     public GameObject TMP_InputField_Answer;
     public GameObject Correct, Wrong, TimesUp;
     public GameObject hourclock;
