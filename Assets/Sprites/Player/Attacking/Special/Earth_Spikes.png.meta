@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3b638f0a649094ec887ff60a358072bb
+guid: 6d808bcd9dd7a4ab39e1b3f7412d488c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,349 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_Text_0
+      name: Earth_Spikes_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
+        y: 0
         width: 64
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8205d6c25c0bf431eaa2f5c169419429
-      internalID: -1540262003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Text_1
-      rect:
-        serializedVersion: 2
-        x: 79
-        y: 32
-        width: 54
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 66428cae9951b427dac07ab34ceaed9e
-      internalID: -2033967382
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Text_2
-      rect:
-        serializedVersion: 2
-        x: 159
-        y: 32
-        width: 64
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d230925e0d254d16ae49e4ac20426d0
-      internalID: -520162292
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Text_3
-      rect:
-        serializedVersion: 2
-        x: 239
-        y: 32
-        width: 64
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cf836dadb50f34e409b1bf50455f3fd4
-      internalID: -1191496277
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Text_4
-      rect:
-        serializedVersion: 2
-        x: 319
-        y: 32
-        width: 64
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d587f3eb180794e2584405ec97b1566e
-      internalID: -284694336
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Text_5
-      rect:
-        serializedVersion: 2
-        x: 399
-        y: 32
-        width: 64
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 74234ac15ccb1462b9715d41b99e778f
-      internalID: -2146427870
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Text_6
-      rect:
-        serializedVersion: 2
-        x: 479
-        y: 32
-        width: 64
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 97277d77b22004cfdb92d621b402612f
-      internalID: 1706065348
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Text_7
-      rect:
-        serializedVersion: 2
-        x: 559
-        y: 32
-        width: 64
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a421a709d07294bc9a8fd46b2a17997e
-      internalID: 1472654848
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Text_9
-      rect:
-        serializedVersion: 2
-        x: 26
-        y: 6
-        width: 44
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0bddd7cba487d4f239ed412584d30010
-      internalID: -1342079323
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Text_11
-      rect:
-        serializedVersion: 2
-        x: 106
-        y: 6
-        width: 44
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1ef7e817495264fc7b79f7b5b67d7ed1
-      internalID: -335951231
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Text_14
-      rect:
-        serializedVersion: 2
-        x: 186
-        y: 4
-        width: 44
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2bb8aea0be14a4bc4bf5902e21a5b145
-      internalID: -1984322281
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Text_16
-      rect:
-        serializedVersion: 2
-        x: 266
-        y: 4
-        width: 44
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9eb88ae164ee448aa9b80f8bb59479df
-      internalID: -436791598
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Text_19
-      rect:
-        serializedVersion: 2
-        x: 346
-        y: 5
-        width: 44
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 24d3cccf12c8d43118bd3a4645b49158
-      internalID: -1524523662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Text_22
-      rect:
-        serializedVersion: 2
-        x: 426
-        y: 5
-        width: 44
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4eca069c6e1364954be1a3e67fca48ac
-      internalID: -333405807
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Text_24
-      rect:
-        serializedVersion: 2
-        x: 507
-        y: 6
-        width: 44
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5c81e41629d4d40018e76cb425021e74
-      internalID: -1154981844
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Text_27
-      rect:
-        serializedVersion: 2
-        x: 587
-        y: 6
-        width: 44
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3c69504247a6f406fbcbc5e4c0757304
-      internalID: 697030180
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Text_8
-      rect:
-        serializedVersion: 2
-        x: 241
-        y: 4
-        width: 14
-        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -466,8 +130,323 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f59d0afce8ca149618dbfb8b6941042a
-      internalID: -1223176072
+      spriteID: 07f7e1993a2bb4053ba260a2727d4821
+      internalID: 471609299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Earth_Spikes_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ef8a292fbde74a698501613cf774d31
+      internalID: -714402074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Earth_Spikes_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8f7ac00897de49f5986e111f153cc78
+      internalID: -238259911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Earth_Spikes_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1326634eba194e308f881056a02fd83
+      internalID: 166100458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Earth_Spikes_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e191ff8b9bb3a41bcad89b72a005f231
+      internalID: 182793241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Earth_Spikes_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e1891b42c2cf420487b0a8950f19072
+      internalID: 1101086910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Earth_Spikes_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2ffcead73f2d49ba86ab6b2a7c662a8
+      internalID: 1098555201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Earth_Spikes_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd95d65d0b6d641758f2c8de91de33d2
+      internalID: -932831319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Earth_Spikes_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b145d6a9908084f0783d2d150a4b9421
+      internalID: -1274443355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Earth_Spikes_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b5dd548ceb164a81af50373c38d24d6
+      internalID: 1813882441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Earth_Spikes_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a939bd75c854a49018602c58476e70cd
+      internalID: -667361425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Earth_Spikes_11
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fee601195aff147de957dca7aff5597e
+      internalID: -1300369302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Earth_Spikes_12
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4014bbec14964555b620bc57e2a0443
+      internalID: 1998414845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Earth_Spikes_13
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ba834b47c8be42b397bd184cef35b3b
+      internalID: 127187154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Earth_Spikes_14
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57fc6c5642cb74c27b909fa57323197f
+      internalID: 767784473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Earth_Spikes_15
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e5fa7dacaff64483b70506102ae76f0
+      internalID: -182844468
       vertices: []
       indices: 
       edges: []
@@ -483,34 +462,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_Text_11: -335951231
-      UI_Text_4: -284694336
-      UI_Text_14: -1984322281
-      UI_Text_12: -1874615807
-      UI_Text_23: 1340785656
-      UI_Text_0: -1540262003
-      UI_Text_8: -1223176072
-      UI_Text_27: 697030180
-      UI_Text_18: 371087505
-      UI_Text_19: -1524523662
-      UI_Text_9: -1342079323
-      UI_Text_3: -1191496277
-      UI_Text_6: 1706065348
-      UI_Text_7: 1472654848
-      UI_Text_13: 306471276
-      UI_Text_15: 259493934
-      UI_Text_2: -520162292
-      UI_Text_1: -2033967382
-      UI_Text_25: -722700106
-      UI_Text_5: -2146427870
-      UI_Text_24: -1154981844
-      UI_Text_16: -436791598
-      UI_Text_21: -1727874664
-      UI_Text_26: -1636125482
-      UI_Text_17: 2096781724
-      UI_Text_10: -2014655480
-      UI_Text_20: -294873531
-      UI_Text_22: -333405807
+      Earth_Spikes_8: -1274443355
+      Earth_Spikes_1: -714402074
+      Earth_Spikes_7: -932831319
+      Earth_Spikes_10: -667361425
+      Earth_Spikes_12: 1998414845
+      Earth_Spikes_2: -238259911
+      Earth_Spikes_5: 1101086910
+      Earth_Spikes_9: 1813882441
+      Earth_Spikes_15: -182844468
+      Earth_Spikes_11: -1300369302
+      Earth_Spikes_13: 127187154
+      Earth_Spikes_3: 166100458
+      Earth_Spikes_14: 767784473
+      Earth_Spikes_6: 1098555201
+      Earth_Spikes_0: 471609299
+      Earth_Spikes_4: 182793241
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
