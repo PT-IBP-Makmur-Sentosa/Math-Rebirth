@@ -264,10 +264,11 @@ public class CombatManager : MonoBehaviour
         }
         else if (actionName == "Skill1")
         {
-            //playerAnimator.Play("attack");
-            //CalculatorAnimator.Play("CalculatorThrow");
+            playerAnimator.Play("attack");
+            CalculatorAnimator.Play("NumbersTomb");
             skeletonAnimator.Play("hurt");
             skeletonAnimator.Play("idle");
+            CalculatorAnimator.Play("CalculatorIdle");
         }
         else if (actionName == "Skill2")
         {
