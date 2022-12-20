@@ -136,6 +136,16 @@ public class Unit : MonoBehaviour
             ExtraMult = 0.0f;
             ExtraTime = 0.0f;
         }
+        else if (gameObject.CompareTag("Shade"))
+        {
+            maxHP = unitLevel * (10.0f + unitLevel / 3f);
+            Atk = unitLevel * (4.5f + unitLevel / 9f);
+            Def = unitLevel * (2.0f + unitLevel / 4f);
+            CRate = 5.0f;
+            CDmg = 1.5f;
+            ExtraMult = 0.0f;
+            ExtraTime = 0.0f;
+        }
 
         currentHP = maxHP;
         prevLevel = unitLevel;
