@@ -25,11 +25,15 @@ public class StageManager : MonoBehaviour
     {
         globalcontrol.SaveGame();
         SceneManager.LoadScene("FirstStage", LoadSceneMode.Single);
+        globalcontrol.LoadGame();
+        print("load");
     }
     public void stage2()
     {
         globalcontrol.SaveGame();
         SceneManager.LoadScene("SecondStage", LoadSceneMode.Single);
+        globalcontrol.LoadGame();
+        print("load");
     }
     public void stage3()
     {

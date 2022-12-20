@@ -166,6 +166,7 @@ public class GlobalControl : MonoBehaviour
             playerCurrentHP = data.curHP;
             playerInventory = data.inventory;
             playerCurrency = data.currency;
+            stageList = data.stageList;
             InventoryDict = new Dictionary<int, InventoryItem>();
 
             int i = 0;

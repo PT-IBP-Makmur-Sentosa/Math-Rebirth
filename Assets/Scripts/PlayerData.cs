@@ -12,6 +12,7 @@ public class PlayerData
     public string trait;
     public string scene;
     public string[] inventory;
+    public int[] stageList;
 
     public PlayerData(GlobalControl player)
     {
@@ -21,5 +22,6 @@ public class PlayerData
         curHP = player.playerCurrentHP;
         currency = player.playerCurrency;
         inventory = player.InventoryGet();
+        stageList = player.stageList;
     }
 }
