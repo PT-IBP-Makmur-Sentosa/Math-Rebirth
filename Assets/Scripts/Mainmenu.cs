@@ -11,7 +11,6 @@ public class Mainmenu : MonoBehaviour
     public GameObject help1;
     public GameObject help2;
     public GameObject setting;
-    public GameObject about;
     // public Canvas menuScreens;
 
     // Start is called before the first frame update
@@ -21,7 +20,6 @@ public class Mainmenu : MonoBehaviour
         help.SetActive(false);
         help1.SetActive(false);
         help2.SetActive(false);
-        about.SetActive(false);
         setting.SetActive(false);
     }
 
@@ -44,11 +42,6 @@ public class Mainmenu : MonoBehaviour
 
     public void QuitGame() {  
         Application.Quit(); 
-    }
-
-    public void About() {  
-        about.SetActive(true);
-        menu.SetActive(false);
     }
 
     public void Setting() {  
@@ -77,7 +70,6 @@ public class Mainmenu : MonoBehaviour
         help.SetActive(false);
         help1.SetActive(false);
         help2.SetActive(false);
-        about.SetActive(false);
         setting.SetActive(false);
     }  
 }
