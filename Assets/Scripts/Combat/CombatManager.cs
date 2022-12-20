@@ -272,8 +272,8 @@ public class CombatManager : MonoBehaviour
         }
         else if (actionName == "Skill2")
         {
-            //playerAnimator.Play("attack");
-            //CalculatorAnimator.Play("CalculatorThrow");
+            playerAnimator.Play("AttackSpike");
+            CalculatorAnimator.Play("EarthSpke");
             skeletonAnimator.Play("hurt");
             skeletonAnimator.Play("idle");
         }
