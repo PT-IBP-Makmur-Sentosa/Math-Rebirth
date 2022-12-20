@@ -1301,17 +1301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe233a7c3d3dd1b41b84acddeae0f46f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &783409960 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2179513152186379290, guid: e4ac822f693aff6488bf256904893f8e, type: 3}
-  m_PrefabInstance: {fileID: 2179513152900534066}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &783409962 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2179513152186379288, guid: e4ac822f693aff6488bf256904893f8e, type: 3}
@@ -2399,7 +2388,7 @@ PrefabInstance:
     - target: {fileID: 7191555589425641892, guid: 5151bcf18fae1164c82bbaf3185d41c8, type: 3}
       propertyPath: CMVir
       value: 
-      objectReference: {fileID: 783409960}
+      objectReference: {fileID: 2179513152186379290, guid: e4ac822f693aff6488bf256904893f8e, type: 3}
     - target: {fileID: 7191555589425641892, guid: 5151bcf18fae1164c82bbaf3185d41c8, type: 3}
       propertyPath: enemy
       value: 
@@ -9173,6 +9162,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CM vcam1
       objectReference: {fileID: 0}
+    - target: {fileID: 2179513152186379285, guid: e4ac822f693aff6488bf256904893f8e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2179513152186379289, guid: e4ac822f693aff6488bf256904893f8e, type: 3}
       propertyPath: m_BoundingShape2D
       value: 
@@ -10366,7 +10359,7 @@ PrefabInstance:
     - target: {fileID: 8632127650947564637, guid: ebaf13f207d822d4181b74707be5656a, type: 3}
       propertyPath: walk_cam
       value: 
-      objectReference: {fileID: 783409960}
+      objectReference: {fileID: 2179513152186379290, guid: e4ac822f693aff6488bf256904893f8e, type: 3}
     - target: {fileID: 8632127650947564637, guid: ebaf13f207d822d4181b74707be5656a, type: 3}
       propertyPath: combat_cam
       value: 
