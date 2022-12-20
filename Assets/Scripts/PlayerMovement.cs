@@ -34,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
 
     RaycastHit2D[][] AllRayHits = new RaycastHit2D[3][];
     bool grounded;
+    bool isFalling => gameObject.GetComponent<Rigidbody2D>().velocity.y <= 0 && !grounded;
+    bool isRising => !isFalling && !grounded;
     public RuntimeAnimatorController shade_animator;
     public Sprite shade_sprite;
     GameObject glob;
@@ -59,9 +61,35 @@ public class PlayerMovement : MonoBehaviour
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
             if (Input.GetKeyDown("w") && grounded)
             {
-                this.gameObject.GetComponent<Animator>().Play("Jump");
+                
+                
                 gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpPower), ForceMode2D.Force);
             }
+            if(isRising)
+            {
+                gameObject.GetComponent<Animator>().Play("Jump");
+            }
+            else if(isFalling)
+            {
+                if(gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+                {
+                    gameObject.GetComponent<Animator>().Play("JumpFall");
+                }
+                else if(gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("JumpFall"))
+                {
+                    gameObject.GetComponent<Animator>().Play("Fall");
+                }
+                else
+                {
+                    gameObject.GetComponent<Animator>().Play("Fall");
+                }
+            }
+            else if(horizontalMove == 0)
+            {
+                 gameObject.GetComponent<Animator>().Play("idle");
+            }
+
+            
             gameObject.GetComponent<Animator>().SetFloat("velocity", Mathf.Abs(horizontalMove));
         }
         else horizontalMove = 0.0f;
@@ -272,5 +300,9 @@ public class PlayerMovement : MonoBehaviour
         trigger = true;
         //After we have waited 5 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+    }
+    IEnumerator DoSomething()
+    {
+        yield return new WaitForSecondsRealtime(1.6f);
     }
 }
