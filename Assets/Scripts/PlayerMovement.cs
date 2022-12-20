@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     GlobalControl globalcontrol;
     public List<GameObject> unityGameObjects = new List<GameObject>();
     public List<string> StringTagEnemy = new List<string>() {"Shade","Skeleton"};
+    [SerializeField] AudioClip clips;
 
     // Start is called before the first frame update
     void Start()
@@ -261,6 +262,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.name == "Soul")
         {
             print("Soul collected");
+            gameObject.GetComponent<AudioSource>().PlayOneShot(clips);
             GameObject glob = GameObject.Find("GlobalObject");
             glob.GetComponent<GlobalControl>().playerCurrency = GameObject.Find("CombatManager").GetComponent<CombatManager>().soulCurrency;
             GameObject.Find("CombatManager").GetComponent<CombatManager>().soulCurrency = 0;
