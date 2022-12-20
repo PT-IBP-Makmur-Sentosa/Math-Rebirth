@@ -161,5 +161,19 @@ namespace Inventory.UI
                 item.Deselect();
             }
         }
+        public void DestroyUI(int inventorysize)
+        {
+            for (int i = 0; i < inventorysize; i++)
+            {
+                UIInventoryItem uiItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
+                uiItem.transform.SetParent(contentPanel);
+                listofUIItems.Add(uiItem);
+                uiItem.OnItemClicked -= HandleItemSelection;
+                uiItem.OnItemBeginDrag -= HandleBeginDrag;
+                uiItem.OnItemDroppedOn -= HandleSwap;
+                uiItem.OnItemEndDrag -= HandleEndDrag;
+                uiItem.OnRightMouseBtnClick -= HandleShowItemActions;
+            }
+        }
     }
 }

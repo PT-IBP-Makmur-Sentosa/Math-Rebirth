@@ -244,7 +244,7 @@ namespace Inventory
             if (Input.GetKeyDown(KeyCode.I))
             {
                 GameObject glob = GameObject.Find("GlobalObject");
-                
+
                 if (!glob.GetComponent<GlobalControl>().inCombat && !shopUI.isActiveAndEnabled)
                 {
                     glob.GetComponent<GlobalControl>().inInventory = true;
@@ -304,6 +304,25 @@ namespace Inventory
         {
             if (other.gameObject.tag == "Shop")
                 inShopArea = false;
+        }
+
+        private void OnDisable()
+        {
+            inventoryUI.DestroyUI(inventoryData.Size);
+            shopUI.DestroyUI(shopData.Size);
+
+            inventoryData.OnInventoryUpdated -= UpdateInventoryUI;
+            shopData.OnInventoryUpdated -= UpdateShopUI;
+
+            inventoryUI.OnDescriptionRequested -= HandleDescriptionRequest;
+            inventoryUI.OnSwapItems -= HandleSwapItems;
+            inventoryUI.OnStartDragging -= HandleDragging;
+            inventoryUI.OnItemActionRequested -= HandleItemActionRequest;
+
+            shopUI.OnDescriptionRequested -= HandleShopDescriptionRequest;
+            shopUI.OnItemActionRequested -= HandleShopItemActionRequest;
+
+
         }
     }
 }
