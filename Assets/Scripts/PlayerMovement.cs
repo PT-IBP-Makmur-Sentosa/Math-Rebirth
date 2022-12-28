@@ -75,8 +75,6 @@ public class PlayerMovement : MonoBehaviour
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
             if (Input.GetKeyDown("w") && grounded)
             {
-                
-                
                 gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpPower), ForceMode2D.Force);
             }
             if(isRising)
@@ -93,6 +91,10 @@ public class PlayerMovement : MonoBehaviour
                 {
                     gameObject.GetComponent<Animator>().Play("Fall");
                 }
+                else if(gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Fall") && horizontalMove > 0 && grounded)
+                {
+                    gameObject.GetComponent<Animator>().SetFloat("velocity", Mathf.Abs(horizontalMove));
+                }
                 else
                 {
                     gameObject.GetComponent<Animator>().Play("Fall");
@@ -102,9 +104,12 @@ public class PlayerMovement : MonoBehaviour
             {
                  gameObject.GetComponent<Animator>().Play("idle");
             }
-
+            else if(horizontalMove > 0 && grounded)
+            {
+                gameObject.GetComponent<Animator>().SetFloat("velocity", Mathf.Abs(horizontalMove));
+            }
             
-            gameObject.GetComponent<Animator>().SetFloat("velocity", Mathf.Abs(horizontalMove));
+            
         }
         else horizontalMove = 0.0f;
 
