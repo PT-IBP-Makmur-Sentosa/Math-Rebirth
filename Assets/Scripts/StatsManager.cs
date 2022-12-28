@@ -23,10 +23,15 @@ public class StatsManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI MathTime;
     [SerializeField] TextMeshProUGUI MathMult;
 
+    [SerializeField] GameObject LevelUpPrompt;
+    [SerializeField] TextMeshProUGUI LevelUpPromptText;
+    public GameObject LevelUpResult;
+    [SerializeField] TextMeshProUGUI LevelUpResultText;
+    GlobalControl glob;
     // Start is called before the first frame update
     void Start()
     {
-        
+        glob = GameObject.Find("GlobalObject").GetComponent<GlobalControl>();
     }
 
     // Update is called once per frame
@@ -61,7 +66,7 @@ public class StatsManager : MonoBehaviour
 
         Atk.text = playerUnit.Atk.ToString();
         Def.text = playerUnit.Def.ToString();
-        MaxHP.text = playerUnit.maxHP.ToString();
+        MaxHP.text = playerUnit.currentHP.ToString("0.0") + " / " + playerUnit.maxHP.ToString("0.0");
         Crit.text = playerUnit.CRate.ToString("0.00") + "%" + "\n" + (playerUnit.CDmg * 100.0f).ToString("0.0") + "%";
         MathTime.text = playerUnit.ExtraMult.ToString("0.000");
         MathMult.text = playerUnit.ExtraTime.ToString("0.00");
@@ -71,6 +76,54 @@ public class StatsManager : MonoBehaviour
     public void closePage()
     {
         gameObject.SetActive(false);
-        GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCharPage = false;
+        glob.inCharPage = false;
+    }
+
+    public void levelUp()
+    {
+        if (playerUnit.unitLevel + 1 > 100)
+        {
+            print("Max Level");
+        }
+        else playerUnit.unitLevel += 1;
+    }
+
+    public void levelUpPrompt()
+    {
+        float cost = 100 * playerUnit.unitLevel * (1 + playerUnit.unitLevel/25.0f);
+        int levelUpCost = (int)cost;
+        if (glob.playerCurrency >= levelUpCost)
+        {
+            LevelUpResultText.text = "Player Level Up!";
+            LevelUpResult.SetActive(true);
+            glob.playerCurrency -= levelUpCost;
+            StartCoroutine(Coroutine());
+            levelUp();
+        }
+        else
+        {
+            LevelUpResultText.text = "Not Enough Soul!";
+            LevelUpResult.SetActive(true);
+            StartCoroutine(Coroutine());
+        }
+        closeWindow();
+    }
+
+    public void openWindow()
+    {
+        float cost = 100 * playerUnit.unitLevel * (1 + playerUnit.unitLevel / 25.0f);
+        int levelUpCost = (int)cost;
+        LevelUpPrompt.SetActive(true);
+        LevelUpPromptText.text = "Spend " + levelUpCost.ToString() + " Soul to Level Up?";
+    }
+    public void closeWindow()
+    {
+        LevelUpPrompt.SetActive(false);
+    }
+
+    IEnumerator Coroutine()
+    {
+        yield return new WaitForSecondsRealtime(3);
+        LevelUpResult.SetActive(false);
     }
 }

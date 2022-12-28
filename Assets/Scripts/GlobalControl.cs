@@ -12,6 +12,7 @@ public class GlobalControl : MonoBehaviour
     public bool inInventory = false;
     public bool inShop = false;
     public bool inCharPage = false;
+    public bool inProgress = false;
     string playerTrait = "Strong Body";
     string curScene;
     public float playerCurrentHP = 0;

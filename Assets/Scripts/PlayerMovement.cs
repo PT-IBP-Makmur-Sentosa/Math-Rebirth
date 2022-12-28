@@ -22,8 +22,8 @@ public class PlayerMovement : MonoBehaviour
     public RuntimeAnimatorController skeleton_animator;
     public Sprite skeleton_sprite;
 
-    float rayLength = 0.55f;
-    float rayPositionOffset = 0.4f;
+    public float rayLength = 0.55f;
+    public float rayPositionOffset = 0.4f;
 
     Vector3 RayPosCenter;
     Vector3 RayPosLeft;
@@ -57,11 +57,21 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C) && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inMap && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inInventory && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inShop)
+        if (GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCharPage && Input.GetKeyDown(KeyCode.C))
+        {
+            characterPage.SetActive(false);
+            characterPage.GetComponent<StatsManager>().closeWindow();
+            characterPage.GetComponent<StatsManager>().LevelUpResult.SetActive(false);
+            GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCharPage = false;
+        }
+
+        else if (Input.GetKeyDown(KeyCode.C) && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inMap && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inInventory && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inShop)
         {
             characterPage.SetActive(true);
             GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCharPage = true;
         }
+
+        
 
         if (glob.GetComponent<GlobalControl>().inCombat || glob.GetComponent<GlobalControl>().inMap)
         {
