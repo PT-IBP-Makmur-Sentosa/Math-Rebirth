@@ -265,7 +265,7 @@ public class CombatManager : MonoBehaviour
         else if (actionName == "Skill1")
         {
             playerAnimator.Play("attack");
-            CalculatorAnimator.Play("NumbersTomb");
+            CalculatorAnimator.Play("Pulse");
             skeletonAnimator.Play("hurt");
             skeletonAnimator.Play("idle");
             CalculatorAnimator.Play("CalculatorIdle");
@@ -273,7 +273,7 @@ public class CombatManager : MonoBehaviour
         else if (actionName == "Skill2")
         {
             playerAnimator.Play("AttackSpike");
-            CalculatorAnimator.Play("SparkLightning");
+            CalculatorAnimator.Play("CrossedPulse");
             skeletonAnimator.Play("hurt");
             skeletonAnimator.Play("idle");
         }
