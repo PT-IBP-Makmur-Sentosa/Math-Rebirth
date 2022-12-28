@@ -31,6 +31,7 @@ public class StageManager : MonoBehaviour
     }
     public void stage2()
     {
+        glob.GetComponent<GlobalControl>().inMap = false;
         globalcontrol.SaveGame();
         SceneManager.LoadScene("SecondStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
@@ -38,6 +39,7 @@ public class StageManager : MonoBehaviour
     }
     public void stage3()
     {
+        glob.GetComponent<GlobalControl>().inMap = false;
         globalcontrol.SaveGame();
         SceneManager.LoadScene("ThirdStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
@@ -45,6 +47,7 @@ public class StageManager : MonoBehaviour
     }
     public void stage4()
     {
+        glob.GetComponent<GlobalControl>().inMap = false;
         globalcontrol.SaveGame();
         SceneManager.LoadScene("FourthStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
@@ -52,6 +55,7 @@ public class StageManager : MonoBehaviour
     }
     public void stage5()
     {
+        glob.GetComponent<GlobalControl>().inMap = false;
         globalcontrol.SaveGame();
         SceneManager.LoadScene("FifthStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
@@ -59,6 +63,7 @@ public class StageManager : MonoBehaviour
     }
     public void stage6()
     {
+        glob.GetComponent<GlobalControl>().inMap = false;
         globalcontrol.SaveGame();
         SceneManager.LoadScene("SixthStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
@@ -66,6 +71,7 @@ public class StageManager : MonoBehaviour
     }
     public void stage7()
     {
+        glob.GetComponent<GlobalControl>().inMap = false;
         globalcontrol.SaveGame();
         SceneManager.LoadScene("SeventhStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
@@ -73,6 +79,7 @@ public class StageManager : MonoBehaviour
     }
     public void stage8()
     {
+        glob.GetComponent<GlobalControl>().inMap = false;
         globalcontrol.SaveGame();
         SceneManager.LoadScene("EighthStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
@@ -80,6 +87,7 @@ public class StageManager : MonoBehaviour
     }
     public void stage9()
     {
+        glob.GetComponent<GlobalControl>().inMap = false;
         globalcontrol.SaveGame();
         SceneManager.LoadScene("NinthStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
@@ -87,6 +95,7 @@ public class StageManager : MonoBehaviour
     }
     public void stage10()
     {
+        glob.GetComponent<GlobalControl>().inMap = false;
         globalcontrol.SaveGame();
         SceneManager.LoadScene("TenthStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
@@ -94,6 +103,7 @@ public class StageManager : MonoBehaviour
     }
     public void stage11()
     {
+        glob.GetComponent<GlobalControl>().inMap = false;
         globalcontrol.SaveGame();
         SceneManager.LoadScene("EleventhStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
@@ -101,6 +111,7 @@ public class StageManager : MonoBehaviour
     }
     public void stage12()
     {
+        glob.GetComponent<GlobalControl>().inMap = false;
         globalcontrol.SaveGame();
         SceneManager.LoadScene("TwelfthStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
@@ -108,6 +119,7 @@ public class StageManager : MonoBehaviour
     }
     public void stage13()
     {
+        glob.GetComponent<GlobalControl>().inMap = false;
         globalcontrol.SaveGame();
         SceneManager.LoadScene("ThirteenthStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
@@ -115,6 +127,7 @@ public class StageManager : MonoBehaviour
     }
     public void stage14()
     {
+        glob.GetComponent<GlobalControl>().inMap = false;
         globalcontrol.SaveGame();
         SceneManager.LoadScene("Fourteenthtage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
@@ -122,6 +135,7 @@ public class StageManager : MonoBehaviour
     }
     public void stage15()
     {
+        glob.GetComponent<GlobalControl>().inMap = false;
         globalcontrol.SaveGame();
         SceneManager.LoadScene("FifteenthStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();

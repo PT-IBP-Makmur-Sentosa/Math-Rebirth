@@ -396,6 +396,7 @@ MonoBehaviour:
   inInventory: 0
   inShop: 0
   inCharPage: 0
+  inProgress: 0
   playerCurrentHP: 0
   playerCurrency: 0
   trigger: 0
@@ -1412,11 +1413,11 @@ PrefabInstance:
       objectReference: {fileID: 648379766}
     - target: {fileID: 8897262284234139919, guid: 928213b51eba9904886605a6e2054bd1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -74.07
+      value: -74.24
       objectReference: {fileID: 0}
     - target: {fileID: 8897262284234139919, guid: 928213b51eba9904886605a6e2054bd1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.37
+      value: -8.58
       objectReference: {fileID: 0}
     - target: {fileID: 8897262284422949945, guid: 928213b51eba9904886605a6e2054bd1, type: 3}
       propertyPath: m_RootOrder
@@ -3025,6 +3026,7 @@ MonoBehaviour:
   inInventory: 0
   inShop: 0
   inCharPage: 0
+  inProgress: 0
   playerCurrentHP: 0
   playerCurrency: 0
   trigger: 0
