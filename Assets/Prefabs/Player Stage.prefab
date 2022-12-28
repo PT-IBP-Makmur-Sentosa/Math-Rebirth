@@ -105,7 +105,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.12869}
+  m_Offset: {x: -0.040797323, y: -0.12869}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -116,7 +116,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 1.75}
+  m_Size: {x: 0.81840533, y: 1.75}
   m_EdgeRadius: 0
 --- !u!95 &8632127650947564639
 Animator:
@@ -175,8 +175,9 @@ MonoBehaviour:
   jumpPower: 400
   skeletons: []
   shades: []
-  walk_cam: {fileID: 0}
+  walk_cam: {fileID: 2179513152186379290, guid: e4ac822f693aff6488bf256904893f8e, type: 3}
   combat_cam: {fileID: 0}
+  characterPage: {fileID: 0}
   cm_cam1: {fileID: 0}
   canvas_scroll: {fileID: 0}
   enemy: {fileID: 0}
@@ -188,6 +189,7 @@ MonoBehaviour:
   StringTagEnemy:
   - Shade
   - Skeleton
+  clips: {fileID: 0}
   collidedd: {fileID: 0}
 --- !u!82 &8632127650947564625
 AudioSource:
