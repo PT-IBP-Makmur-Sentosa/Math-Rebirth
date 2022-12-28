@@ -242,7 +242,7 @@ namespace Inventory
         public void Update()
         {
             GameObject glob = GameObject.Find("GlobalObject");
-            if (glob.GetComponent<GlobalControl>().inCombat  || glob.GetComponent<GlobalControl>().inMap)
+            if (glob.GetComponent<GlobalControl>().inCombat || glob.GetComponent<GlobalControl>().inMap)
             {
                 inventoryUI.Hide();
                 glob.GetComponent<GlobalControl>().inInventory = false;

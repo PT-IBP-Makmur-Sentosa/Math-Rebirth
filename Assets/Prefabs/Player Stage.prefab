@@ -315,8 +315,17 @@ MonoBehaviour:
   inventoryUI: {fileID: 0}
   inventoryData: {fileID: 11400000, guid: 27464683a12a3e54ba4a6b11f7303671, type: 2}
   initialItems:
-  - quantity: 99
-    item: {fileID: 11400000, guid: a94b5b375d6a3e6458640af11405797a, type: 2}
+  - quantity: 100
+    item: {fileID: 11400000, guid: 497bb9e8c7a92b244a604321c93a9689, type: 2}
+    itemState: []
+  - quantity: 1000
+    item: {fileID: 11400000, guid: 5f9ce395d1e84604cb5852bd77c0a432, type: 2}
+    itemState: []
+  - quantity: 5000
+    item: {fileID: 11400000, guid: 63ab9ba7e82685b428134f6864741c62, type: 2}
+    itemState: []
+  - quantity: 10000
+    item: {fileID: 11400000, guid: 2511653b02a7c7541aa7044d575e1c1f, type: 2}
     itemState: []
   dropClip: {fileID: 8300000, guid: d391d87143e10584aac95ac254c08f6d, type: 3}
   audioSource: {fileID: 8632127650947564626}
