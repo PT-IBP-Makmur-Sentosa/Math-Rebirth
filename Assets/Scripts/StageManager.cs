@@ -23,6 +23,7 @@ public class StageManager : MonoBehaviour
     }
     public void stage1()
     {
+        glob.GetComponent<GlobalControl>().inMap = false;
         globalcontrol.SaveGame();
         SceneManager.LoadScene("FirstStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
@@ -128,6 +129,7 @@ public class StageManager : MonoBehaviour
     }
     public void shop()
     {
+        glob.GetComponent<GlobalControl>().inMap = false;
         globalcontrol.SaveGame();
         SceneManager.LoadScene("Shop", LoadSceneMode.Single);
         globalcontrol.LoadGame();
