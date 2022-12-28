@@ -241,11 +241,16 @@ namespace Inventory
 
         public void Update()
         {
+            GameObject glob = GameObject.Find("GlobalObject");
+            if (glob.GetComponent<GlobalControl>().inCombat  || glob.GetComponent<GlobalControl>().inMap)
+            {
+                inventoryUI.Hide();
+                glob.GetComponent<GlobalControl>().inInventory = false;
+            }
+
             if (Input.GetKeyDown(KeyCode.I))
             {
-                GameObject glob = GameObject.Find("GlobalObject");
-
-                if (!glob.GetComponent<GlobalControl>().inCombat && !shopUI.isActiveAndEnabled)
+                if (!glob.GetComponent<GlobalControl>().inCombat && !shopUI.isActiveAndEnabled && !glob.GetComponent<GlobalControl>().inCharPage && !glob.GetComponent<GlobalControl>().inMap)
                 {
                     glob.GetComponent<GlobalControl>().inInventory = true;
                     if (inventoryUI.isActiveAndEnabled == false)
@@ -270,7 +275,6 @@ namespace Inventory
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                GameObject glob = GameObject.Find("GlobalObject");
                 if (!glob.GetComponent<GlobalControl>().inCombat && inShopArea && !inventoryUI.isActiveAndEnabled)
                 {
                     glob.GetComponent<GlobalControl>().inShop = true;

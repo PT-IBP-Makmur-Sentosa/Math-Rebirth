@@ -9,12 +9,12 @@ public class Unit : MonoBehaviour
     public int prevLevel;
     public BattleHUD playerHUD;
 
-    string trait;
+    public string trait;
     Dictionary<string, float[]> dict = new Dictionary<string, float[]>();
 
-    float Str;
-    float Agi;
-    float Int;
+    public float Str;
+    public float Agi;
+    public float Int;
 
     public float Atk;
     public float Def;

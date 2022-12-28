@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject[] shades;
     [SerializeField] CinemachineVirtualCamera walk_cam;
     [SerializeField] CinemachineVirtualCamera combat_cam;
+    [SerializeField] GameObject characterPage;
     public Animator cm_cam1;
     public GameObject canvas_scroll;
     public GameObject enemy;
@@ -56,14 +57,24 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.C) && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inMap && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inInventory && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inShop)
+        {
+            characterPage.SetActive(true);
+            GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCharPage = true;
+        }
+
+        if (glob.GetComponent<GlobalControl>().inCombat || glob.GetComponent<GlobalControl>().inMap)
+        {
+            characterPage.GetComponent<StatsManager>().closePage();
+            glob.GetComponent<GlobalControl>().inCharPage = false;
+        }
+
         // print(trigger);
-        if (!GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inMap && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inInventory && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inShop)
+        if (!GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inMap && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inInventory && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inShop && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCharPage)
         {
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
             if (Input.GetKeyDown("w") && grounded)
             {
-                
-                
                 gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpPower), ForceMode2D.Force);
             }
             if(isRising)
@@ -80,6 +91,10 @@ public class PlayerMovement : MonoBehaviour
                 {
                     gameObject.GetComponent<Animator>().Play("Fall");
                 }
+                else if(gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Fall") && horizontalMove > 0 && grounded)
+                {
+                    gameObject.GetComponent<Animator>().SetFloat("velocity", Mathf.Abs(horizontalMove));
+                }
                 else
                 {
                     gameObject.GetComponent<Animator>().Play("Fall");
@@ -89,9 +104,12 @@ public class PlayerMovement : MonoBehaviour
             {
                  gameObject.GetComponent<Animator>().Play("idle");
             }
-
+            else if(horizontalMove > 0 && grounded)
+            {
+                gameObject.GetComponent<Animator>().SetFloat("velocity", Mathf.Abs(horizontalMove));
+            }
             
-            gameObject.GetComponent<Animator>().SetFloat("velocity", Mathf.Abs(horizontalMove));
+            
         }
         else horizontalMove = 0.0f;
 
