@@ -45,6 +45,8 @@ public class CombatManager : MonoBehaviour
     float actionMultiplier = 1.0f;
     float actionHit = 1.0f;
     string actionName = "Attack";
+    int buffTurns = 0;
+    int debuffTurns = 0;
 
     GameObject glob;
     GlobalControl globc;
@@ -62,44 +64,35 @@ public class CombatManager : MonoBehaviour
 
         string[] animations;
         //                           player  , calculator
-        animations = new string[2] { "attack", "Pulse" };
+        animations = new string[2] { "AttackSpike", "NumbersTomb" };
         skillList.Add("Default_Skill1", animations);
 
-        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        animations = new string[2] { "AttackSpike", "EarthSpike" };
         skillList.Add("Str_Skill1", animations);
-        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        animations = new string[2] { "AttackSpike", "Fireball" };
         skillList.Add("Str_Skill2", animations);
-        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        animations = new string[2] { "AttackSpike", "EarthCrusher" };
         skillList.Add("Str_Skill3", animations);
-        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        animations = new string[2] { "AttackSpike", "FireExplode" };
         skillList.Add("Str_Skill4", animations);
 
-        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        animations = new string[2] { "AttackSpike", "Waterball" };
         skillList.Add("Agi_Skill1", animations);
-        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        animations = new string[2] { "AttackSpike", "DarkBolt" };
         skillList.Add("Agi_Skill2", animations);
-        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        animations = new string[2] { "AttackSpike", "ShadowGhost" };
         skillList.Add("Agi_Skill3", animations);
-        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        animations = new string[2] { "AttackSpike", "SparkLightning" };
         skillList.Add("Agi_Skill4", animations);
 
-        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        animations = new string[2] { "AttackSpike", "Pulse" };
         skillList.Add("Int_Skill1", animations);
         animations = new string[2] { "AttackSpike", "CrossedPulse" };
         skillList.Add("Int_Skill2", animations);
-        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        animations = new string[2] { "AttackSpike", "HolyHeal" };
         skillList.Add("Int_Skill3", animations);
-        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        animations = new string[2] { "AttackSpike", "WaterBlast" };
         skillList.Add("Int_Skill4", animations);
-
-        animations = new string[2] { "AttackSpike", "CrossedPulse" };
-        skillList.Add("Joe_Skill1", animations);
-        animations = new string[2] { "AttackSpike", "CrossedPulse" };
-        skillList.Add("Joe_Skill2", animations);
-        animations = new string[2] { "AttackSpike", "CrossedPulse" };
-        skillList.Add("Joe_Skill3", animations);
-        animations = new string[2] { "AttackSpike", "CrossedPulse" };
-        skillList.Add("Joe_Skill4", animations);
 
         // Area 1
         currencyMult.Add("Skeleton", 8);
@@ -172,7 +165,11 @@ public class CombatManager : MonoBehaviour
         }
         else Special2.interactable = false;
 
+        if (buffTurns == 0) playerUnit.ReStat();
+        if (debuffTurns == 0) enemyUnit.ReStat();
 
+        buffTurns -= 1;
+        debuffTurns -= 1;
     }
     // Update is called once per frame
     void Update()
@@ -338,8 +335,25 @@ public class CombatManager : MonoBehaviour
         {
             playerAnimator.Play(skillList[globc.skill1][0]);
             CalculatorAnimator.Play(skillList[globc.skill1][1]);
-            skeletonAnimator.Play("hurt");
-            skeletonAnimator.Play("idle");
+            if(skillDict[globc.skill1][5] == 1.0f)
+            {
+                skeletonAnimator.Play("hurt");
+                skeletonAnimator.Play("idle");
+            }
+            else if (skillDict[globc.skill1][5] == 2.0f)
+            {
+                playerUnit.currentHP = playerUnit.maxHP;
+                playerUnit.Def *= 1.3f;
+                playerHUD.SetHUD(playerUnit);
+                buffTurns = 1;
+
+            }
+            else if (skillDict[globc.skill1][5] == 3.0f)
+            {
+                enemyUnit.Def *= 0.7f;
+                debuffTurns = 1;
+            }
+
             if (skillDict[globc.skill1][3] > 0)
             {
                 CalculatorAnimator.Play("CalculatorIdle");
@@ -349,8 +363,23 @@ public class CombatManager : MonoBehaviour
         {
             playerAnimator.Play(skillList[globc.skill2][0]);
             CalculatorAnimator.Play(skillList[globc.skill2][1]);
-            skeletonAnimator.Play("hurt");
-            skeletonAnimator.Play("idle");
+            if (skillDict[globc.skill1][5] == 1.0f)
+            {
+                skeletonAnimator.Play("hurt");
+                skeletonAnimator.Play("idle");
+            }
+            else if (skillDict[globc.skill2][5] == 2.0f)
+            {
+                playerUnit.currentHP = playerUnit.maxHP;
+                playerUnit.Def *= 1.3f;
+                playerHUD.SetHUD(playerUnit);
+                buffTurns = 1;
+            }
+            else if (skillDict[globc.skill2][5] == 3.0f)
+            {
+                enemyUnit.Def *= 0.7f;
+                debuffTurns = 1;
+            }
             if (skillDict[globc.skill2][3] > 0)
             {
                 CalculatorAnimator.Play("CalculatorIdle");
@@ -483,6 +512,7 @@ public class CombatManager : MonoBehaviour
 
             CameraSwitch.swithcam(CMVir);
             //print(CameraSwitch.isActiveCam(CMVir));
+            playerUnit.ReStat();
             player.GetComponent<Unit>().Reset(1);
         }
         else if (state == BattleState.LOST)
@@ -511,6 +541,7 @@ public class CombatManager : MonoBehaviour
             glob.GetComponent<GlobalControl>().playerCurrency = 0;
 
             CameraSwitch.swithcam(CMVir);
+            playerUnit.ReStat();
             player.GetComponent<Unit>().Reset(0);
             enemy.GetComponent<Unit>().Reset(0);
         }
