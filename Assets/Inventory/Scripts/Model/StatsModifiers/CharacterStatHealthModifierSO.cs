@@ -11,11 +11,11 @@ public class CharacterStatHealthModifierSO : CharacterStatModifierSO
         float currentHP = GameObject.Find("Combat Overlay/Combat_UI/Player").GetComponent<Unit>().currentHP;
         if (currentHP + val >= maxHP)
         {
-            currentHP = maxHP;
+            GameObject.Find("Combat Overlay/Combat_UI/Player").GetComponent<Unit>().currentHP = maxHP;
         }
         else
         {
-            currentHP += val;
+            GameObject.Find("Combat Overlay/Combat_UI/Player").GetComponent<Unit>().currentHP += val;
         }
     }
 }
