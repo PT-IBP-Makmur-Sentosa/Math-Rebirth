@@ -107,10 +107,10 @@ TextureImporter:
       name: Fire-bomb_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 55
-        width: 33
-        height: 9
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,10 +128,10 @@ TextureImporter:
       name: Fire-bomb_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
-        width: 9
-        height: 36
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,10 +149,10 @@ TextureImporter:
       name: Fire-bomb_2
       rect:
         serializedVersion: 2
-        x: 58
-        y: 21
-        width: 6
-        height: 29
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,10 +170,10 @@ TextureImporter:
       name: Fire-bomb_3
       rect:
         serializedVersion: 2
-        x: 74
-        y: 14
-        width: 12
-        height: 34
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,10 +191,10 @@ TextureImporter:
       name: Fire-bomb_4
       rect:
         serializedVersion: 2
-        x: 88
-        y: 51
-        width: 17
-        height: 4
+        x: 256
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,10 +212,10 @@ TextureImporter:
       name: Fire-bomb_5
       rect:
         serializedVersion: 2
-        x: 108
-        y: 36
-        width: 10
-        height: 15
+        x: 320
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,10 +233,10 @@ TextureImporter:
       name: Fire-bomb_6
       rect:
         serializedVersion: 2
-        x: 648
-        y: 8
-        width: 47
-        height: 39
+        x: 384
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,10 +254,10 @@ TextureImporter:
       name: Fire-bomb_7
       rect:
         serializedVersion: 2
-        x: 709
-        y: 8
-        width: 54
-        height: 44
+        x: 448
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,10 +275,10 @@ TextureImporter:
       name: Fire-bomb_8
       rect:
         serializedVersion: 2
-        x: 771
-        y: 22
-        width: 58
-        height: 33
+        x: 512
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -296,10 +296,10 @@ TextureImporter:
       name: Fire-bomb_9
       rect:
         serializedVersion: 2
-        x: 835
-        y: 12
-        width: 26
-        height: 35
+        x: 576
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -317,10 +317,10 @@ TextureImporter:
       name: Fire-bomb_10
       rect:
         serializedVersion: 2
-        x: 845
-        y: 45
-        width: 8
-        height: 5
+        x: 640
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -338,10 +338,10 @@ TextureImporter:
       name: Fire-bomb_11
       rect:
         serializedVersion: 2
-        x: 852
-        y: 44
-        width: 24
-        height: 11
+        x: 704
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -359,10 +359,10 @@ TextureImporter:
       name: Fire-bomb_12
       rect:
         serializedVersion: 2
-        x: 876
-        y: 44
-        width: 6
-        height: 6
+        x: 768
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -380,10 +380,10 @@ TextureImporter:
       name: Fire-bomb_13
       rect:
         serializedVersion: 2
-        x: 878
-        y: 12
-        width: 15
-        height: 33
+        x: 832
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -393,468 +393,6 @@ TextureImporter:
       bones: []
       spriteID: 055eb776ad5b0514cb7cf2574f4a50cc
       internalID: -709168366
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_14
-      rect:
-        serializedVersion: 2
-        x: 95
-        y: 10
-        width: 23
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 71df01125cce0854aa3b3e8450929fda
-      internalID: -739460343
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_15
-      rect:
-        serializedVersion: 2
-        x: 148
-        y: 22
-        width: 18
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16ab281a13d90244182cea68cb830a60
-      internalID: -1728559499
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_16
-      rect:
-        serializedVersion: 2
-        x: 166
-        y: 29
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 41a7185a76ccd80468919b462da8a711
-      internalID: 724933215
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_17
-      rect:
-        serializedVersion: 2
-        x: 347
-        y: 9
-        width: 11
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e0b18f592e97e334698719363fa43241
-      internalID: 1064810073
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_18
-      rect:
-        serializedVersion: 2
-        x: 399
-        y: 9
-        width: 35
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3e9fda08f1127ba46a37175247b22f1f
-      internalID: -560046990
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_19
-      rect:
-        serializedVersion: 2
-        x: 532
-        y: 15
-        width: 24
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f058c5e338b43194fb308eecd4dbc669
-      internalID: -592431426
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_20
-      rect:
-        serializedVersion: 2
-        x: 590
-        y: 11
-        width: 36
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 512c4aa8043b8394fa5df7b61bb4ab44
-      internalID: -1425630277
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_21
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 2
-        width: 14
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cd49f5f1292145d448635dc6d14d17a0
-      internalID: 1215975335
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_22
-      rect:
-        serializedVersion: 2
-        x: 29
-        y: 0
-        width: 26
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a1cc50d5d7ef5c34dbf54d5a2527f1d5
-      internalID: 1947828372
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_23
-      rect:
-        serializedVersion: 2
-        x: 150
-        y: 13
-        width: 17
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 81fc4d7b892d65b4a9f506c5120a8c95
-      internalID: -883642029
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_24
-      rect:
-        serializedVersion: 2
-        x: 169
-        y: 17
-        width: 4
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aeb7de0d040c48d44bc49086505818db
-      internalID: -163590861
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_25
-      rect:
-        serializedVersion: 2
-        x: 222
-        y: 18
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ddde9d10b68b26f468dfaa86b074b31d
-      internalID: -745678281
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_26
-      rect:
-        serializedVersion: 2
-        x: 283
-        y: 14
-        width: 11
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 98c831bb72025ee43809d7ce6c0a6395
-      internalID: -1202046509
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_27
-      rect:
-        serializedVersion: 2
-        x: 476
-        y: 18
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c2c1488d61fb27e489321417fa7e30a4
-      internalID: 1832058077
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_28
-      rect:
-        serializedVersion: 2
-        x: 772
-        y: 15
-        width: 26
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60974b247f73da146a51c44dce180f4c
-      internalID: -1460935669
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_29
-      rect:
-        serializedVersion: 2
-        x: 779
-        y: 10
-        width: 18
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ffa6b2055d5a1d24987eac42f2637d07
-      internalID: 1928227348
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_30
-      rect:
-        serializedVersion: 2
-        x: 794
-        y: 7
-        width: 29
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a876558ab7a150c4993d4d3379d9c79a
-      internalID: -1807138917
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_31
-      rect:
-        serializedVersion: 2
-        x: 798
-        y: 16
-        width: 7
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba460b676c068a141bba7d08b7d824d4
-      internalID: 2011708399
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_32
-      rect:
-        serializedVersion: 2
-        x: 806
-        y: 17
-        width: 10
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 09a7299e2bdceda4d9411a9883f40e6c
-      internalID: -980999421
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_33
-      rect:
-        serializedVersion: 2
-        x: 816
-        y: 19
-        width: 12
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 394ef93e6bc7030459ba8a2fb820612b
-      internalID: 240616179
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_34
-      rect:
-        serializedVersion: 2
-        x: 821
-        y: 16
-        width: 5
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f76a233ff56af394080f34060f01775e
-      internalID: 1335809020
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_35
-      rect:
-        serializedVersion: 2
-        x: 862
-        y: 7
-        width: 18
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e91accd4cf63fe345ba0e5511d9f1891
-      internalID: -1426077174
       vertices: []
       indices: 
       edges: []
@@ -870,42 +408,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Fire-bomb_30: -1807138917
-      Fire-bomb_35: -1426077174
-      Fire-bomb_32: -980999421
       Fire-bomb_10: 137331744
       Fire-bomb_9: -471114573
-      Fire-bomb_22: 1947828372
       Fire-bomb_13: -709168366
-      Fire-bomb_19: -592431426
-      Fire-bomb_23: -883642029
       Fire-bomb_1: 44452050
       Fire-bomb_11: 1116709391
-      Fire-bomb_25: -745678281
-      Fire-bomb_20: -1425630277
-      Fire-bomb_34: 1335809020
       Fire-bomb_7: -2088363933
       Fire-bomb_8: -1752963509
-      Fire-bomb_31: 2011708399
-      Fire-bomb_33: 240616179
-      Fire-bomb_29: 1928227348
-      Fire-bomb_24: -163590861
       Fire-bomb_4: -1821883134
-      Fire-bomb_18: -560046990
       Fire-bomb_12: 467786318
-      Fire-bomb_26: -1202046509
-      Fire-bomb_17: 1064810073
       Fire-bomb_3: 1573047966
-      Fire-bomb_14: -739460343
       Fire-bomb_5: 995695389
-      Fire-bomb_16: 724933215
       Fire-bomb_6: -1972345380
-      Fire-bomb_21: 1215975335
       Fire-bomb_0: -1263360694
-      Fire-bomb_27: 1832058077
-      Fire-bomb_15: -1728559499
       Fire-bomb_2: -602719065
-      Fire-bomb_28: -1460935669
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

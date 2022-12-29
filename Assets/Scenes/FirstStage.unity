@@ -498,6 +498,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cec80440a08f8d4ca4a580eb5e6a202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1
+  leftRange: 4
+  rightRange: 0
   level: 1
   levelMin: 1
   levelMax: 1
@@ -597,6 +600,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cec80440a08f8d4ca4a580eb5e6a202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1
+  leftRange: 4
+  rightRange: 0
   level: 2
   levelMin: 1
   levelMax: 1
@@ -1751,6 +1757,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cec80440a08f8d4ca4a580eb5e6a202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1
+  leftRange: 4
+  rightRange: 0
   level: 1
   levelMin: 1
   levelMax: 1
@@ -2660,6 +2669,8 @@ MonoBehaviour:
   inShop: 0
   inCharPage: 0
   inProgress: 0
+  skill1: Default_skill1
+  skill2: 
   playerCurrentHP: 0
   playerCurrency: 0
   trigger: 0

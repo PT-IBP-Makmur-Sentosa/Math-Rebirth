@@ -5,8 +5,9 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
     float startingX;
-    float speed = 1f;
-    float range = 4f;
+    public float speed = 1f;
+    public float leftRange = 4f;
+    public float rightRange = 0f;
     int dir = -1;
     int face = -1;
     bool trigger = false;
@@ -45,12 +46,12 @@ public class EnemyBehaviour : MonoBehaviour
             move = Vector2.right * speed * Time.deltaTime * dir;
             transform.Translate(move);
             // print(move);
-            if (transform.position.x < startingX - range)
+            if (transform.position.x < startingX - leftRange)
             {
                 dir = -1;
                 face = 1;
             }
-            else if (transform.position.x > startingX)
+            else if (transform.position.x > startingX + rightRange)
             {
                 dir = -1;
                 face = -1;
