@@ -6944,6 +6944,7 @@ MonoBehaviour:
   inInventory: 0
   inShop: 0
   inCharPage: 0
+  inProgress: 0
   playerCurrentHP: 0
   playerCurrency: 0
   trigger: 0
@@ -8168,6 +8169,10 @@ PrefabInstance:
       propertyPath: currentHP
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6066865888152103499, guid: e884c5e3f262ab241bf462a26d51b06a, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2147374, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
     - target: {fileID: 6066865888219771719, guid: e884c5e3f262ab241bf462a26d51b06a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

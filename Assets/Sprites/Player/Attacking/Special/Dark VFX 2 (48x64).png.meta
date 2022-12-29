@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c4d1aec1ede17ee4dba11392282fdef3
+guid: b8ce7c6829caafa4499ffc5446c69121
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,12 +104,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fire-bomb_0
+      name: Dark VFX 2 (48x64)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
+        width: 48
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -118,19 +118,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fbfb7b5c93f1aa41bebda6cb0fd15b1
-      internalID: -1263360694
+      spriteID: 379b6fc7425a14a44b04a5d037b82a1e
+      internalID: -876402828
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire-bomb_1
+      name: Dark VFX 2 (48x64)_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 48
         y: 0
-        width: 64
+        width: 48
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -139,19 +139,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b956521f17a271449b53d5488279489
-      internalID: 44452050
+      spriteID: ed6777c141b77cb4da5c589f50861fcf
+      internalID: -666955170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire-bomb_2
+      name: Dark VFX 2 (48x64)_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 96
         y: 0
-        width: 64
+        width: 48
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -160,19 +160,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 512da47c2890f924489e453707db7aed
-      internalID: -602719065
+      spriteID: bba414d8ac0c4af4ba2673606c0403d3
+      internalID: -1393595116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire-bomb_3
+      name: Dark VFX 2 (48x64)_3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a1a5ac9d05a60b45b8c36f3d6f9e91d
+      internalID: 1021201788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dark VFX 2 (48x64)_4
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 64
+        width: 48
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -181,19 +202,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 405c1b1bc94bc1d46a55b2c98c3f4711
-      internalID: 1573047966
+      spriteID: 31c3fdeccd39f374d93a508c68b96198
+      internalID: -1347709044
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire-bomb_4
+      name: Dark VFX 2 (48x64)_5
       rect:
         serializedVersion: 2
-        x: 256
+        x: 240
         y: 0
-        width: 64
+        width: 48
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -202,19 +223,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32740788f872af04d8a440273e024096
-      internalID: -1821883134
+      spriteID: cab2d31adf19d4b47bc0a3e1efbc3f8c
+      internalID: 774985420
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire-bomb_5
+      name: Dark VFX 2 (48x64)_6
       rect:
         serializedVersion: 2
-        x: 320
+        x: 288
         y: 0
-        width: 64
+        width: 48
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -223,19 +244,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49b0bb5e94141e347a2d63c5bef94e64
-      internalID: 995695389
+      spriteID: 1ec0c21e3fc951e45bac6772a4dc5634
+      internalID: 1184365149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire-bomb_6
+      name: Dark VFX 2 (48x64)_7
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cb6290166d1bce41bb3dd98760d468c
+      internalID: 430869884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dark VFX 2 (48x64)_8
       rect:
         serializedVersion: 2
         x: 384
         y: 0
-        width: 64
+        width: 48
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -244,19 +286,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1529b5221f830504e968554e6af42bc9
-      internalID: -1972345380
+      spriteID: 2c6db2e594b84bf4686696b09bb59be5
+      internalID: 1175918212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire-bomb_7
+      name: Dark VFX 2 (48x64)_9
       rect:
         serializedVersion: 2
-        x: 448
+        x: 432
         y: 0
-        width: 64
+        width: 48
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -265,19 +307,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2dcb79a77e5648d4d8c41d487f4df1ad
-      internalID: -2088363933
+      spriteID: f057b2e107ee3ce4a94a506c93f91cb2
+      internalID: -2130919280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire-bomb_8
+      name: Dark VFX 2 (48x64)_10
       rect:
         serializedVersion: 2
-        x: 512
+        x: 480
         y: 0
-        width: 64
+        width: 48
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -286,19 +328,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61429676825f02d488ed84605f1c322b
-      internalID: -1752963509
+      spriteID: 28deaf7d3e33e9543b45736106ab2b0b
+      internalID: 913757310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire-bomb_9
+      name: Dark VFX 2 (48x64)_11
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 0
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32e74c37efaf6904ab3ed268f6519498
+      internalID: -1934236868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dark VFX 2 (48x64)_12
       rect:
         serializedVersion: 2
         x: 576
         y: 0
-        width: 64
+        width: 48
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -307,19 +370,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a73b131cc8358e49942e26f4776362d
-      internalID: -471114573
+      spriteID: b1b13cf4b8401cf49a808b07cd497714
+      internalID: -1678436011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire-bomb_10
+      name: Dark VFX 2 (48x64)_13
       rect:
         serializedVersion: 2
-        x: 640
+        x: 624
         y: 0
-        width: 64
+        width: 48
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -328,19 +391,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30c9a2b4450ff9244b7874417a88139c
-      internalID: 137331744
+      spriteID: e35af1a12a8c6ab4fb664b4487455a12
+      internalID: 795072631
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire-bomb_11
+      name: Dark VFX 2 (48x64)_14
       rect:
         serializedVersion: 2
-        x: 704
+        x: 672
         y: 0
-        width: 64
+        width: 48
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -349,50 +412,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ad6d2f888e214c498eeb99e943135dc
-      internalID: 1116709391
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_12
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b2cb0475c77e2134fbda2c5f6a5d205d
-      internalID: 467786318
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire-bomb_13
-      rect:
-        serializedVersion: 2
-        x: 832
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 055eb776ad5b0514cb7cf2574f4a50cc
-      internalID: -709168366
+      spriteID: 6bd4606cac4e0854ca88a4b87028e3cd
+      internalID: -705049297
       vertices: []
       indices: 
       edges: []
@@ -408,20 +429,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Fire-bomb_10: 137331744
-      Fire-bomb_9: -471114573
-      Fire-bomb_13: -709168366
-      Fire-bomb_1: 44452050
-      Fire-bomb_11: 1116709391
-      Fire-bomb_7: -2088363933
-      Fire-bomb_8: -1752963509
-      Fire-bomb_4: -1821883134
-      Fire-bomb_12: 467786318
-      Fire-bomb_3: 1573047966
-      Fire-bomb_5: 995695389
-      Fire-bomb_6: -1972345380
-      Fire-bomb_0: -1263360694
-      Fire-bomb_2: -602719065
+      Dark VFX 2 (48x64)_14: -705049297
+      Dark VFX 2 (48x64)_0: -876402828
+      Dark VFX 2 (48x64)_2: -1393595116
+      Dark VFX 2 (48x64)_3: 1021201788
+      Dark VFX 2 (48x64)_7: 430869884
+      Dark VFX 2 (48x64)_5: 774985420
+      Dark VFX 2 (48x64)_6: 1184365149
+      Dark VFX 2 (48x64)_1: -666955170
+      Dark VFX 2 (48x64)_12: -1678436011
+      Dark VFX 2 (48x64)_4: -1347709044
+      Dark VFX 2 (48x64)_9: -2130919280
+      Dark VFX 2 (48x64)_11: -1934236868
+      Dark VFX 2 (48x64)_10: 913757310
+      Dark VFX 2 (48x64)_13: 795072631
+      Dark VFX 2 (48x64)_8: 1175918212
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
