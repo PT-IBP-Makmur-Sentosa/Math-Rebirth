@@ -8,6 +8,13 @@ public class StageManager : MonoBehaviour
     GameObject glob;
     GlobalControl globalcontrol;
     // Start is called before the first frame update
+    /// <summary>
+    /// Awake is called when the script instance is being loaded.
+    /// </summary>
+    void Awake()
+    {
+        //globalcontrol.LoadGame();
+    }
     void Start()
     {
         Scene currScene = SceneManager.GetActiveScene();

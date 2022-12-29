@@ -276,6 +276,7 @@ public class CombatManager : MonoBehaviour
             CalculatorAnimator.Play("CrossedPulse");
             skeletonAnimator.Play("hurt");
             skeletonAnimator.Play("idle");
+             CalculatorAnimator.Play("CalculatorIdle");
         }
 
         // yield return new WaitForSeconds(10f);

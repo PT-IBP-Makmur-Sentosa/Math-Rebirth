@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -119,12 +119,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 336
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 34
+        y: 385
+        width: 28
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -140,12 +140,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_1
       rect:
         serializedVersion: 2
-        x: 96
-        y: 336
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 129
+        y: 385
+        width: 30
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -161,12 +161,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_2
       rect:
         serializedVersion: 2
-        x: 192
-        y: 336
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 225
+        y: 384
+        width: 30
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -182,12 +182,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_3
       rect:
         serializedVersion: 2
-        x: 288
-        y: 336
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 322
+        y: 384
+        width: 28
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -203,12 +203,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_4
       rect:
         serializedVersion: 2
-        x: 384
-        y: 336
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 415
+        y: 385
+        width: 31
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -224,12 +224,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_5
       rect:
         serializedVersion: 2
-        x: 480
-        y: 336
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 443
+        y: 403
+        width: 5
+        height: 4
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -245,12 +245,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_6
       rect:
         serializedVersion: 2
-        x: 576
-        y: 336
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 505
+        y: 385
+        width: 41
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -266,12 +266,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_7
       rect:
         serializedVersion: 2
-        x: 672
-        y: 336
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 605
+        y: 385
+        width: 36
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -287,12 +287,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 224
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 703
+        y: 384
+        width: 35
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -308,12 +308,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_9
       rect:
         serializedVersion: 2
-        x: 96
-        y: 224
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 741
+        y: 400
+        width: 4
+        height: 4
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -329,12 +329,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_10
       rect:
         serializedVersion: 2
-        x: 192
-        y: 224
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 546
+        y: 395
+        width: 4
+        height: 5
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -350,12 +350,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_11
       rect:
         serializedVersion: 2
-        x: 288
-        y: 224
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 34
+        y: 289
+        width: 28
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -371,12 +371,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_12
       rect:
         serializedVersion: 2
-        x: 384
-        y: 224
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 416
+        y: 307
+        width: 5
+        height: 4
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -392,12 +392,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_13
       rect:
         serializedVersion: 2
-        x: 480
-        y: 224
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 418
+        y: 289
+        width: 31
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -413,12 +413,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_14
       rect:
         serializedVersion: 2
-        x: 576
-        y: 224
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 598
+        y: 299
+        width: 19
+        height: 14
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -434,12 +434,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_15
       rect:
         serializedVersion: 2
-        x: 672
-        y: 224
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 627
+        y: 310
+        width: 4
+        height: 4
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -455,12 +455,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_16
       rect:
         serializedVersion: 2
-        x: 0
-        y: 112
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 638
+        y: 292
+        width: 17
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -476,12 +476,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_17
       rect:
         serializedVersion: 2
-        x: 96
-        y: 112
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 129
+        y: 289
+        width: 30
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -497,12 +497,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_18
       rect:
         serializedVersion: 2
-        x: 192
-        y: 112
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 225
+        y: 288
+        width: 30
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -518,12 +518,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_19
       rect:
         serializedVersion: 2
-        x: 288
-        y: 112
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 322
+        y: 288
+        width: 28
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -539,12 +539,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_20
       rect:
         serializedVersion: 2
-        x: 384
-        y: 112
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 506
+        y: 299
+        width: 4
+        height: 5
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -560,12 +560,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_21
       rect:
         serializedVersion: 2
-        x: 480
-        y: 112
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 510
+        y: 289
+        width: 41
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -581,12 +581,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_22
       rect:
         serializedVersion: 2
-        x: 576
-        y: 112
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 607
+        y: 288
+        width: 35
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -602,12 +602,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_23
       rect:
         serializedVersion: 2
-        x: 672
-        y: 112
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 595
+        y: 293
+        width: 4
+        height: 4
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -623,12 +623,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_24
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 680
+        y: 287
+        width: 19
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -644,12 +644,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_25
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 704
+        y: 288
+        width: 35
+        height: 8
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -665,12 +665,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_26
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 741
+        y: 287
+        width: 17
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -686,12 +686,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_27
       rect:
         serializedVersion: 2
-        x: 288
-        y: 0
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 33
+        y: 160
+        width: 30
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -707,12 +707,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_28
       rect:
         serializedVersion: 2
-        x: 384
-        y: 0
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 127
+        y: 160
+        width: 32
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -728,12 +728,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_29
       rect:
         serializedVersion: 2
-        x: 480
-        y: 0
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 218
+        y: 160
+        width: 41
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -749,12 +749,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_30
       rect:
         serializedVersion: 2
-        x: 576
-        y: 0
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 311
+        y: 160
+        width: 53
+        height: 34
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -770,12 +770,12 @@ TextureImporter:
       name: Slime_Sapp_Sheet_01_31
       rect:
         serializedVersion: 2
-        x: 672
-        y: 0
-        width: 96
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 408
+        y: 149
+        width: 44
+        height: 54
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -783,6 +783,279 @@ TextureImporter:
       bones: []
       spriteID: 5c194fe44b7b0460e9b424ef446cb40e
       internalID: -655385305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Sapp_Sheet_01_32
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 147
+        width: 45
+        height: 55
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b41d6a2528b251a498e0573336062036
+      internalID: 1405952387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Sapp_Sheet_01_33
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 160
+        width: 43
+        height: 34
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 010a209b469037746b0ee58ca07cc3f4
+      internalID: -130842272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Sapp_Sheet_01_34
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 160
+        width: 30
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51f45dc94d56a58478358c79d486b9da
+      internalID: -1885169277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Sapp_Sheet_01_35
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 32
+        width: 30
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1620f98b78d8be4469532a98d2a4c3b0
+      internalID: -762364983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Sapp_Sheet_01_36
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 32
+        width: 32
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 049e5ee0fc989b0419accd7648d44cc2
+      internalID: -628620626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Sapp_Sheet_01_37
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 32
+        width: 41
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 256b92bf928538e48b1f291959bfd251
+      internalID: 1499205510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Sapp_Sheet_01_38
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 32
+        width: 53
+        height: 34
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d26b2f142cc64b42827af217cb63c3b
+      internalID: 161976868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Sapp_Sheet_01_39
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 21
+        width: 44
+        height: 54
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8565ff5987e70fb468c59ce74d6fdfb8
+      internalID: -1245080294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Sapp_Sheet_01_40
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 19
+        width: 45
+        height: 55
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a49c1182fd7024c4f9c8d61579f630cd
+      internalID: 2133045689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Sapp_Sheet_01_41
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 32
+        width: 43
+        height: 34
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0a5faf76b790fe448ac32280e4feb1f
+      internalID: -1695821504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Sapp_Sheet_01_42
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 32
+        width: 30
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05610146e4ca27a4abb40e1cd88f5c7e
+      internalID: 1718553793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Sapp_Sheet_01_43
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 278
+        width: 76
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 677acb8f006b7774ca7e1cb4706f5356
+      internalID: 1683582917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Sapp_Sheet_01_44
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 273
+        width: 88
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa557afb3d9d7434f86b2ade8fb2a258
+      internalID: 1506098674
       vertices: []
       indices: 
       edges: []
@@ -798,11 +1071,28 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Slime_Sapp_Sheet_01_14: -66917040
+      Slime_Sapp_Sheet_01_39: -1245080294
+      Slime_Sapp_Sheet_01_16: 2145989345
+      Slime_Sapp_Sheet_01_41: -1695821504
+      Slime_Sapp_Sheet_01_26: -2078946324
+      Slime_Sapp_Sheet_01_34: -1885169277
+      Slime_Sapp_Sheet_01_22: 212450124
+      Slime_Sapp_Sheet_01_40: 2133045689
+      Slime_Sapp_Sheet_01_2: -1658255114
+      Slime_Sapp_Sheet_01_8: -1239700432
+      Slime_Sapp_Sheet_01_38: 161976868
+      Slime_Sapp_Sheet_01_24: 318248618
+      Slime_Sapp_Sheet_01_43: 1683582917
+      Slime_Sapp_Sheet_01_10: 360707103
+      Slime_Sapp_Sheet_01_32: 1405952387
+      Slime_Sapp_Sheet_01_42: 1718553793
+      Slime_Sapp_Sheet_01_5: 93869279
+      Slime_Sapp_Sheet_01_15: 1902492292
       Slime_Sapp_Sheet_01_6: -995364751
       Slime_Sapp_Sheet_01_0: 138962822
       Slime_Sapp_Sheet_01_1: 783831488
       Slime_Sapp_Sheet_01_19: 1170646625
-      Slime_Sapp_Sheet_01_14: -66917040
       Slime_Sapp_Sheet_01_18: 856279021
       Slime_Sapp_Sheet_01_12: -1717988377
       Slime_Sapp_Sheet_01_25: -583134293
@@ -811,25 +1101,21 @@ TextureImporter:
       Slime_Sapp_Sheet_01_23: 2063257918
       Slime_Sapp_Sheet_01_29: -1883955337
       Slime_Sapp_Sheet_01_9: 373829466
-      Slime_Sapp_Sheet_01_16: 2145989345
       Slime_Sapp_Sheet_01_31: -655385305
-      Slime_Sapp_Sheet_01_26: -2078946324
-      Slime_Sapp_Sheet_01_22: 212450124
-      Slime_Sapp_Sheet_01_2: -1658255114
-      Slime_Sapp_Sheet_01_8: -1239700432
+      Slime_Sapp_Sheet_01_33: -130842272
       Slime_Sapp_Sheet_01_4: 1942426679
-      Slime_Sapp_Sheet_01_24: 318248618
       Slime_Sapp_Sheet_01_21: 1437967465
+      Slime_Sapp_Sheet_01_36: -628620626
       Slime_Sapp_Sheet_01_11: -935336696
       Slime_Sapp_Sheet_01_3: 110147545
       Slime_Sapp_Sheet_01_30: -1798798070
-      Slime_Sapp_Sheet_01_10: 360707103
-      Slime_Sapp_Sheet_01_7: -785239579
       Slime_Sapp_Sheet_01_17: 84831433
+      Slime_Sapp_Sheet_01_7: -785239579
+      Slime_Sapp_Sheet_01_37: 1499205510
+      Slime_Sapp_Sheet_01_35: -762364983
       Slime_Sapp_Sheet_01_20: 271040787
       Slime_Sapp_Sheet_01_13: 1926992563
-      Slime_Sapp_Sheet_01_5: 93869279
-      Slime_Sapp_Sheet_01_15: 1902492292
+      Slime_Sapp_Sheet_01_44: 1506098674
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
