@@ -5,8 +5,8 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
     public string unitName;
-    public int unitLevel;
-    public int prevLevel;
+    public int unitLevel = 1;
+    public int prevLevel = 0;
     public BattleHUD playerHUD;
 
     public string trait;
@@ -126,6 +126,7 @@ public class Unit : MonoBehaviour
             ExtraMult = Int * (0.004f * (1 + unitLevel / dict[trait][8]));
             ExtraTime = Int * 0.02f;
         }
+        // Area 1
         else if (gameObject.CompareTag("Skeleton"))
         {
             maxHP = unitLevel * (10.0f + unitLevel / 3f);
@@ -137,6 +138,168 @@ public class Unit : MonoBehaviour
             ExtraTime = 0.0f;
         }
         else if (gameObject.CompareTag("Shade"))
+        {
+            maxHP = unitLevel * (10.0f + unitLevel / 3f);
+            Atk = unitLevel * (4.5f + unitLevel / 9f);
+            Def = unitLevel * (2.0f + unitLevel / 4f);
+            CRate = 5.0f;
+            CDmg = 1.5f;
+            ExtraMult = 0.0f;
+            ExtraTime = 0.0f;
+        }
+        else if (gameObject.CompareTag("Bat"))
+        {
+            maxHP = unitLevel * (10.0f + unitLevel / 3f);
+            Atk = unitLevel * (4.5f + unitLevel / 9f);
+            Def = unitLevel * (2.0f + unitLevel / 4f);
+            CRate = 5.0f;
+            CDmg = 1.5f;
+            ExtraMult = 0.0f;
+            ExtraTime = 0.0f;
+        }
+        else if (gameObject.CompareTag("TrashCave"))
+        {
+            maxHP = unitLevel * (10.0f + unitLevel / 3f);
+            Atk = unitLevel * (4.5f + unitLevel / 9f);
+            Def = unitLevel * (2.0f + unitLevel / 4f);
+            CRate = 5.0f;
+            CDmg = 1.5f;
+            ExtraMult = 0.0f;
+            ExtraTime = 0.0f;
+        }
+        else if (gameObject.CompareTag("Zombie"))
+        {
+            maxHP = unitLevel * (10.0f + unitLevel / 3f);
+            Atk = unitLevel * (4.5f + unitLevel / 9f);
+            Def = unitLevel * (2.0f + unitLevel / 4f);
+            CRate = 5.0f;
+            CDmg = 1.5f;
+            ExtraMult = 0.0f;
+            ExtraTime = 0.0f;
+        }
+        else if (gameObject.CompareTag("Boss1"))
+        {
+            maxHP = unitLevel * (10.0f + unitLevel / 3f);
+            Atk = unitLevel * (4.5f + unitLevel / 9f);
+            Def = unitLevel * (2.0f + unitLevel / 4f);
+            CRate = 5.0f;
+            CDmg = 1.5f;
+            ExtraMult = 0.0f;
+            ExtraTime = 0.0f;
+        }
+        // Area 2
+        else if (gameObject.CompareTag("Goblin"))
+        {
+            maxHP = unitLevel * (10.0f + unitLevel / 3f);
+            Atk = unitLevel * (4.5f + unitLevel / 9f);
+            Def = unitLevel * (2.0f + unitLevel / 4f);
+            CRate = 5.0f;
+            CDmg = 1.5f;
+            ExtraMult = 0.0f;
+            ExtraTime = 0.0f;
+        }
+        else if (gameObject.CompareTag("Mushroom"))
+        {
+            maxHP = unitLevel * (10.0f + unitLevel / 3f);
+            Atk = unitLevel * (4.5f + unitLevel / 9f);
+            Def = unitLevel * (2.0f + unitLevel / 4f);
+            CRate = 5.0f;
+            CDmg = 1.5f;
+            ExtraMult = 0.0f;
+            ExtraTime = 0.0f;
+        }
+        else if (gameObject.CompareTag("SlimeForest"))
+        {
+            maxHP = unitLevel * (10.0f + unitLevel / 3f);
+            Atk = unitLevel * (4.5f + unitLevel / 9f);
+            Def = unitLevel * (2.0f + unitLevel / 4f);
+            CRate = 5.0f;
+            CDmg = 1.5f;
+            ExtraMult = 0.0f;
+            ExtraTime = 0.0f;
+        }
+        else if (gameObject.CompareTag("Tooth"))
+        {
+            maxHP = unitLevel * (10.0f + unitLevel / 3f);
+            Atk = unitLevel * (4.5f + unitLevel / 9f);
+            Def = unitLevel * (2.0f + unitLevel / 4f);
+            CRate = 5.0f;
+            CDmg = 1.5f;
+            ExtraMult = 0.0f;
+            ExtraTime = 0.0f;
+        }
+        else if (gameObject.CompareTag("TrashForest"))
+        {
+            maxHP = unitLevel * (10.0f + unitLevel / 3f);
+            Atk = unitLevel * (4.5f + unitLevel / 9f);
+            Def = unitLevel * (2.0f + unitLevel / 4f);
+            CRate = 5.0f;
+            CDmg = 1.5f;
+            ExtraMult = 0.0f;
+            ExtraTime = 0.0f;
+        }
+        else if (gameObject.CompareTag("Boss2"))
+        {
+            maxHP = unitLevel * (10.0f + unitLevel / 3f);
+            Atk = unitLevel * (4.5f + unitLevel / 9f);
+            Def = unitLevel * (2.0f + unitLevel / 4f);
+            CRate = 5.0f;
+            CDmg = 1.5f;
+            ExtraMult = 0.0f;
+            ExtraTime = 0.0f;
+        }
+        // Area 3
+        else if (gameObject.CompareTag("Eyeball"))
+        {
+            maxHP = unitLevel * (10.0f + unitLevel / 3f);
+            Atk = unitLevel * (4.5f + unitLevel / 9f);
+            Def = unitLevel * (2.0f + unitLevel / 4f);
+            CRate = 5.0f;
+            CDmg = 1.5f;
+            ExtraMult = 0.0f;
+            ExtraTime = 0.0f;
+        }
+        else if (gameObject.CompareTag("Fireworm"))
+        {
+            maxHP = unitLevel * (10.0f + unitLevel / 3f);
+            Atk = unitLevel * (4.5f + unitLevel / 9f);
+            Def = unitLevel * (2.0f + unitLevel / 4f);
+            CRate = 5.0f;
+            CDmg = 1.5f;
+            ExtraMult = 0.0f;
+            ExtraTime = 0.0f;
+        }
+        else if (gameObject.CompareTag("FlyEye"))
+        {
+            maxHP = unitLevel * (10.0f + unitLevel / 3f);
+            Atk = unitLevel * (4.5f + unitLevel / 9f);
+            Def = unitLevel * (2.0f + unitLevel / 4f);
+            CRate = 5.0f;
+            CDmg = 1.5f;
+            ExtraMult = 0.0f;
+            ExtraTime = 0.0f;
+        }
+        else if (gameObject.CompareTag("Demon"))
+        {
+            maxHP = unitLevel * (10.0f + unitLevel / 3f);
+            Atk = unitLevel * (4.5f + unitLevel / 9f);
+            Def = unitLevel * (2.0f + unitLevel / 4f);
+            CRate = 5.0f;
+            CDmg = 1.5f;
+            ExtraMult = 0.0f;
+            ExtraTime = 0.0f;
+        }
+        else if (gameObject.CompareTag("Imp"))
+        {
+            maxHP = unitLevel * (10.0f + unitLevel / 3f);
+            Atk = unitLevel * (4.5f + unitLevel / 9f);
+            Def = unitLevel * (2.0f + unitLevel / 4f);
+            CRate = 5.0f;
+            CDmg = 1.5f;
+            ExtraMult = 0.0f;
+            ExtraTime = 0.0f;
+        }
+        else if (gameObject.CompareTag("Boss3"))
         {
             maxHP = unitLevel * (10.0f + unitLevel / 3f);
             Atk = unitLevel * (4.5f + unitLevel / 9f);

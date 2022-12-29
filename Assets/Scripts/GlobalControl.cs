@@ -13,6 +13,8 @@ public class GlobalControl : MonoBehaviour
     public bool inShop = false;
     public bool inCharPage = false;
     public bool inProgress = false;
+    public string skill1 = "Default_Skill1";
+    public string skill2 = null;
     string playerTrait = "Strong Body";
     string curScene;
     public float playerCurrentHP = 0;
@@ -30,7 +32,7 @@ public class GlobalControl : MonoBehaviour
     string[] playerInventory;
     Dictionary<int, InventoryItem> InventoryDict;
     public int[] stageList = new int[15] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-
+    public Dictionary<string, float[]> skillDict = new Dictionary<string, float[]>();
     void Awake()
     {
         if (Instance == null)
@@ -49,6 +51,48 @@ public class GlobalControl : MonoBehaviour
         {
             allItemCodes[i.name] = i;
         }
+
+        float[] mult;
+        //                    Hit , Low , High, Bool, Stamina
+        mult = new float[5] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f };
+        skillDict.Add("Default_Skill1", mult);
+
+
+        mult = new float[5] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f };
+        skillDict.Add("Str_Skill1", mult);
+        mult = new float[5] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f };
+        skillDict.Add("Str_Skill2", mult);
+        mult = new float[5] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f };
+        skillDict.Add("Str_Skill3", mult);
+        mult = new float[5] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f };
+        skillDict.Add("Str_Skill4", mult);
+
+        mult = new float[5] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f };
+        skillDict.Add("Agi_Skill1", mult);
+        mult = new float[5] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f };
+        skillDict.Add("Agi_Skill2", mult);
+        mult = new float[5] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f };
+        skillDict.Add("Agi_Skill3", mult);
+        mult = new float[5] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f };
+        skillDict.Add("Agi_Skill4", mult);
+
+        mult = new float[5] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f };
+        skillDict.Add("Int_Skill1", mult);
+        mult = new float[5] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f };
+        skillDict.Add("Int_Skill2", mult);
+        mult = new float[5] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f };
+        skillDict.Add("Int_Skill3", mult);
+        mult = new float[5] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f };
+        skillDict.Add("Int_Skill4", mult);
+
+        mult = new float[5] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f };
+        skillDict.Add("Joe_Skill1", mult);
+        mult = new float[5] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f };
+        skillDict.Add("Joe_Skill2", mult);
+        mult = new float[5] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f };
+        skillDict.Add("Joe_Skill3", mult);
+        mult = new float[5] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f };
+        skillDict.Add("Joe_Skill4", mult);
     }
 
     private void Update()
@@ -169,6 +213,8 @@ public class GlobalControl : MonoBehaviour
             playerInventory = data.inventory;
             playerCurrency = data.currency;
             stageList = data.stageList;
+            skill1 = data.skill1;
+            skill2 = data.skill2;
             InventoryDict = new Dictionary<int, InventoryItem>();
 
             int i = 0;
@@ -188,7 +234,27 @@ public class GlobalControl : MonoBehaviour
                 i++;
             }
         }
-        else print("No saved files! New game...");
+        else
+        {
+            print("No saved files! New game...");
+
+            if (playerTrait == "Strong Body")
+            {
+                skill2 = "Str_Skill1";
+            }
+            else if (playerTrait == "Agile Body")
+            {
+                skill2 = "Agi_Skill1";
+            }
+            else if (playerTrait == "Enhanced Mind")
+            {
+                skill2 = "Int_Skill1";
+            }
+            else if (playerTrait == "Average Joe")
+            {
+                skill2 = "Joe_Skill1";
+            }
+        }
 
         return data;
     }

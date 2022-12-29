@@ -27,6 +27,7 @@ public class StageManager : MonoBehaviour
         globalcontrol.SaveGame();
         SceneManager.LoadScene("FirstStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
+        globalcontrol.SaveGame();
         print("load");
     }
     public void stage2()
@@ -35,6 +36,7 @@ public class StageManager : MonoBehaviour
         globalcontrol.SaveGame();
         SceneManager.LoadScene("SecondStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
+        globalcontrol.SaveGame();
         print("load");
     }
     public void stage3()
@@ -43,6 +45,7 @@ public class StageManager : MonoBehaviour
         globalcontrol.SaveGame();
         SceneManager.LoadScene("ThirdStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
+        globalcontrol.SaveGame();
         print("load");
     }
     public void stage4()
@@ -51,6 +54,7 @@ public class StageManager : MonoBehaviour
         globalcontrol.SaveGame();
         SceneManager.LoadScene("FourthStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
+        globalcontrol.SaveGame();
         print("load");
     }
     public void stage5()
@@ -59,6 +63,7 @@ public class StageManager : MonoBehaviour
         globalcontrol.SaveGame();
         SceneManager.LoadScene("FifthStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
+        globalcontrol.SaveGame();
         print("load");
     }
     public void stage6()
@@ -67,6 +72,7 @@ public class StageManager : MonoBehaviour
         globalcontrol.SaveGame();
         SceneManager.LoadScene("SixthStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
+        globalcontrol.SaveGame();
         print("load");
     }
     public void stage7()
@@ -75,6 +81,7 @@ public class StageManager : MonoBehaviour
         globalcontrol.SaveGame();
         SceneManager.LoadScene("SeventhStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
+        globalcontrol.SaveGame();
         print("load");
     }
     public void stage8()
@@ -83,6 +90,7 @@ public class StageManager : MonoBehaviour
         globalcontrol.SaveGame();
         SceneManager.LoadScene("EighthStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
+        globalcontrol.SaveGame();
         print("load");
     }
     public void stage9()
@@ -91,6 +99,7 @@ public class StageManager : MonoBehaviour
         globalcontrol.SaveGame();
         SceneManager.LoadScene("NinthStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
+        globalcontrol.SaveGame();
         print("load");
     }
     public void stage10()
@@ -99,6 +108,7 @@ public class StageManager : MonoBehaviour
         globalcontrol.SaveGame();
         SceneManager.LoadScene("TenthStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
+        globalcontrol.SaveGame();
         print("load");
     }
     public void stage11()
@@ -107,6 +117,7 @@ public class StageManager : MonoBehaviour
         globalcontrol.SaveGame();
         SceneManager.LoadScene("EleventhStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
+        globalcontrol.SaveGame();
         print("load");
     }
     public void stage12()
@@ -115,6 +126,7 @@ public class StageManager : MonoBehaviour
         globalcontrol.SaveGame();
         SceneManager.LoadScene("TwelfthStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
+        globalcontrol.SaveGame();
         print("load");
     }
     public void stage13()
@@ -123,6 +135,7 @@ public class StageManager : MonoBehaviour
         globalcontrol.SaveGame();
         SceneManager.LoadScene("ThirteenthStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
+        globalcontrol.SaveGame();
         print("load");
     }
     public void stage14()
@@ -131,6 +144,7 @@ public class StageManager : MonoBehaviour
         globalcontrol.SaveGame();
         SceneManager.LoadScene("Fourteenthtage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
+        globalcontrol.SaveGame();
         print("load");
     }
     public void stage15()
@@ -139,6 +153,7 @@ public class StageManager : MonoBehaviour
         globalcontrol.SaveGame();
         SceneManager.LoadScene("FifteenthStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
+        globalcontrol.SaveGame();
         print("load");
     }
     public void shop()
@@ -147,6 +162,7 @@ public class StageManager : MonoBehaviour
         globalcontrol.SaveGame();
         SceneManager.LoadScene("Shop", LoadSceneMode.Single);
         globalcontrol.LoadGame();
+        globalcontrol.SaveGame();
         print("load");
     }
 }

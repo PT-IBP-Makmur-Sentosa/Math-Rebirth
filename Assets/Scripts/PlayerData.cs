@@ -13,6 +13,8 @@ public class PlayerData
     public string scene;
     public string[] inventory;
     public int[] stageList;
+    public string skill1;
+    public string skill2;
 
     public PlayerData(GlobalControl player)
     {
@@ -23,5 +25,7 @@ public class PlayerData
         currency = player.playerCurrency;
         inventory = player.InventoryGet();
         stageList = player.stageList;
+        skill1 = player.skill1;
+        skill2 = player.skill2;
     }
 }

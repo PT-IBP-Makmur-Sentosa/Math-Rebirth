@@ -46,14 +46,85 @@ public class CombatManager : MonoBehaviour
     float actionHit = 1.0f;
     string actionName = "Attack";
 
+    GameObject glob;
+    GlobalControl globc;
+
     Dictionary<string, int> currencyMult = new Dictionary<string, int>();
+    Dictionary<string, float[]> skillDict = new Dictionary<string, float[]>();
+    Dictionary<string, string[]> skillList = new Dictionary<string, string[]>();
 
     void Start()
     {
-        currencyMult.Add("enemy", 8);
+        glob = GameObject.Find("GlobalObject");
+        globc = glob.GetComponent<GlobalControl>();
+
+        skillDict = globc.skillDict;
+
+        string[] animations;
+        //                           player  , calculator
+        animations = new string[2] { "attack", "Pulse" };
+        skillList.Add("Default_Skill1", animations);
+
+        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        skillList.Add("Str_Skill1", animations);
+        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        skillList.Add("Str_Skill2", animations);
+        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        skillList.Add("Str_Skill3", animations);
+        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        skillList.Add("Str_Skill4", animations);
+
+        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        skillList.Add("Agi_Skill1", animations);
+        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        skillList.Add("Agi_Skill2", animations);
+        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        skillList.Add("Agi_Skill3", animations);
+        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        skillList.Add("Agi_Skill4", animations);
+
+        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        skillList.Add("Int_Skill1", animations);
+        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        skillList.Add("Int_Skill2", animations);
+        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        skillList.Add("Int_Skill3", animations);
+        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        skillList.Add("Int_Skill4", animations);
+
+        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        skillList.Add("Joe_Skill1", animations);
+        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        skillList.Add("Joe_Skill2", animations);
+        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        skillList.Add("Joe_Skill3", animations);
+        animations = new string[2] { "AttackSpike", "CrossedPulse" };
+        skillList.Add("Joe_Skill4", animations);
+
+        // Area 1
         currencyMult.Add("Skeleton", 8);
-        currencyMult.Add("Shade", 14);
-        currencyMult.Add("Boss", 30);
+        currencyMult.Add("Shade", 12);
+        currencyMult.Add("Bat", 8);
+        currencyMult.Add("TrashCave", 14);
+        currencyMult.Add("Zombie", 10);
+        currencyMult.Add("Boss1", 30);
+
+        // Area 2
+        currencyMult.Add("Goblin", 12);
+        currencyMult.Add("Mushroom", 8);
+        currencyMult.Add("SlimeForest", 8);
+        currencyMult.Add("Tooth", 10);
+        currencyMult.Add("TrashForest", 14);
+        currencyMult.Add("Boss2", 40);
+
+        // Area 3
+        currencyMult.Add("Eyeball", 8);
+        currencyMult.Add("Fireworm", 10);
+        currencyMult.Add("FlyEye", 8);
+        currencyMult.Add("Demon", 14);
+        currencyMult.Add("Imp", 12);
+        currencyMult.Add("Boss3", 50);
+
     }
     public void StartCombat()
     {
@@ -89,13 +160,13 @@ public class CombatManager : MonoBehaviour
         Special2.OnPointerExit(null);
         Attack.interactable = true;
         Defend.interactable = true;
-        if (playerUnit.currentStamina >= 2)
+        if (playerUnit.currentStamina >= (int)skillDict[globc.skill1][4])
         {
             Special1.interactable = true;
         }
         else Special1.interactable = false;
 
-        if (playerUnit.currentStamina >= 3)
+        if (playerUnit.currentStamina >= (int)skillDict[globc.skill2][4])
         {
             Special2.interactable = true;
         }
@@ -162,8 +233,8 @@ public class CombatManager : MonoBehaviour
     public void onSkill1Button()
     {
         actionName = "Skill1";
-        actionHit = 1.0f;
-        actionMultiplier = Random.Range(1.2f, 1.5f);
+        actionHit = skillDict[globc.skill1][0];
+        actionMultiplier = Random.Range(skillDict[globc.skill1][1], skillDict[globc.skill1][2]);
         calculatorScript.mode = UnityEngine.Random.Range(1, 4);
 
         if (state != BattleState.PLAYERTURN)
@@ -174,8 +245,8 @@ public class CombatManager : MonoBehaviour
     public void onSkill2Button()
     {
         actionName = "Skill2";
-        actionHit = 1.0f;
-        actionMultiplier = Random.Range(1.8f, 2.0f);
+        actionHit = skillDict[globc.skill2][0];
+        actionMultiplier = Random.Range(skillDict[globc.skill2][1], skillDict[globc.skill2][2]);
         calculatorScript.mode = UnityEngine.Random.Range(1, 4);
 
         if (state != BattleState.PLAYERTURN)
@@ -261,21 +332,29 @@ public class CombatManager : MonoBehaviour
             CalculatorAnimator.Play("CalculatorThrow");
             skeletonAnimator.Play("hurt");
             skeletonAnimator.Play("idle");
+            CalculatorAnimator.Play("CalculatorIdle");
         }
         else if (actionName == "Skill1")
         {
-            playerAnimator.Play("attack");
-            CalculatorAnimator.Play("ShadowGhost");
+            playerAnimator.Play(skillList[globc.skill1][0]);
+            CalculatorAnimator.Play(skillList[globc.skill1][1]);
             skeletonAnimator.Play("hurt");
             skeletonAnimator.Play("idle");
-            CalculatorAnimator.Play("CalculatorIdle");
+            if (skillDict[globc.skill1][3] > 0)
+            {
+                CalculatorAnimator.Play("CalculatorIdle");
+            }
         }
         else if (actionName == "Skill2")
         {
-            playerAnimator.Play("AttackSpike");
-            CalculatorAnimator.Play("EarthCrusher");
+            playerAnimator.Play(skillList[globc.skill2][0]);
+            CalculatorAnimator.Play(skillList[globc.skill2][1]);
             skeletonAnimator.Play("hurt");
             skeletonAnimator.Play("idle");
+            if (skillDict[globc.skill2][3] > 0)
+            {
+                CalculatorAnimator.Play("CalculatorIdle");
+            }
         }
 
         // yield return new WaitForSeconds(10f);
@@ -380,7 +459,7 @@ public class CombatManager : MonoBehaviour
     void EndBattle()
     {
         CameraSwitch.register(CMVir);
-        GameObject glob = GameObject.Find("GlobalObject");
+        
         glob.GetComponent<GlobalControl>().inCombat = false;
         moves.SetActive(true);
         // Attack.enabled = true;
@@ -443,3 +522,4 @@ public class CombatManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(2);
     }
 }
+

@@ -22,12 +22,13 @@ public class BattleHUD : MonoBehaviour
     public Material graphmat_black;
 
 
-
-    private float curr_health;
-    private float max_health;
-    private float curr_stamina;
-    private float max_stamina;
-    private float removed;
+    GameObject glob;
+    GlobalControl globc;
+    float curr_health;
+    float max_health;
+    float curr_stamina;
+    float max_stamina;
+    float removed;
     public void SetMaxHealth(float health)
     {
         enemyhealth_slider.maxValue = health;
@@ -39,6 +40,9 @@ public class BattleHUD : MonoBehaviour
     }
     void Start()
     {
+        glob = GameObject.Find("GlobalObject");
+        globc = glob.GetComponent<GlobalControl>();
+
         playerUnit = player.GetComponent<Unit>();
         enemyUnit = enemy.GetComponent<Unit>();
         curr_health = playerUnit.currentHP;
@@ -88,16 +92,16 @@ public class BattleHUD : MonoBehaviour
     }
     public void onPressSkill1()
     {
-        curr_stamina -= 2;
-        playerUnit.currentStamina -= 2;
+        curr_stamina -= globc.skillDict[globc.skill1][4];
+        playerUnit.currentStamina -= (int)globc.skillDict[globc.skill1][4];
         removed = max_stamina - curr_stamina;
         graphmat_green.SetFloat("_RemovedSegment", removed);
         stamina_text.text = curr_stamina.ToString();
     }
     public void onPressSkill2()
     {
-        curr_stamina -= 3;
-        playerUnit.currentStamina -= 3;
+        curr_stamina -= globc.skillDict[globc.skill2][4];
+        playerUnit.currentStamina -= (int)globc.skillDict[globc.skill2][4];
         removed = max_stamina - curr_stamina;
         graphmat_green.SetFloat("_RemovedSegment", removed);
         stamina_text.text = curr_stamina.ToString();
