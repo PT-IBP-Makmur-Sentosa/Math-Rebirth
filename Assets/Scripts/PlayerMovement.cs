@@ -74,9 +74,11 @@ public class PlayerMovement : MonoBehaviour
         
 
         if (glob.GetComponent<GlobalControl>().inCombat || glob.GetComponent<GlobalControl>().inMap)
-        {
-            characterPage.GetComponent<StatsManager>().closePage();
-            glob.GetComponent<GlobalControl>().inCharPage = false;
+        {  
+           if(glob.GetComponent<GlobalControl>().inCharPage){
+                characterPage.GetComponent<StatsManager>().closePage();
+                glob.GetComponent<GlobalControl>().inCharPage = false;
+           }
         }
 
         // print(trigger);
