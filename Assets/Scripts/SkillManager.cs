@@ -37,8 +37,8 @@ public class SkillManager : MonoBehaviour
         // skill2 = glob.GetComponent<GlobalControl>().skill2;
         // Trait = glob.GetComponent<GlobalControl>().playerTrait;
         skill1 = "Default_Skill1";
-        skill2 = "Int_Skill1";
-        Trait = "Enhanced Mind";
+        skill2 = "Str_Skill1";
+        Trait = "Average Joe";
 
         switch (Trait)
         {
