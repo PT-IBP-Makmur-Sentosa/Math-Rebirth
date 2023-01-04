@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255624062387143140}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.0195827, y: -2.9646237, z: -92.18712}
+  m_LocalPosition: {x: 2.0195827, y: 0, z: -92.18712}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -150,6 +150,7 @@ MonoBehaviour:
   leftRange: 4
   rightRange: 0
   level: 1
+  m_anim: {fileID: 9100000, guid: 5a01ba094ad4edc41b6b29eee5fe8ad6, type: 2}
   levelMin: 1
   levelMax: 3
   spot: {fileID: 1255624063415792305}
@@ -190,7 +191,7 @@ GameObject:
   - component: {fileID: 1255624062584981110}
   m_Layer: 0
   m_Name: Tooth
-  m_TagString: Untagged
+  m_TagString: Tooth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -203,7 +204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255624062584981001}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.36, y: -0.4, z: 92.18712}
+  m_LocalPosition: {x: 22.36, y: -3.38, z: 92.18712}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

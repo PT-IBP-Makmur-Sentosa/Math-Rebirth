@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 6913068556932549401}
   m_Layer: 0
   m_Name: FlyEye
-  m_TagString: Untagged
+  m_TagString: FlyEye
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,7 +143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6913068556932549400}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.85, y: -0.4153765, z: 92.18712}
+  m_LocalPosition: {x: 29.85, y: -3.38, z: 92.18712}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -181,7 +181,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6913068557577056528}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.0195827, y: -2.9646237, z: -92.18712}
+  m_LocalPosition: {x: 2.0195827, y: 0, z: -92.18712}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -302,6 +302,7 @@ MonoBehaviour:
   leftRange: 4
   rightRange: 0
   level: 1
+  m_anim: {fileID: 9100000, guid: 17416659cc086114ba98756fe74c76f2, type: 2}
   levelMin: 1
   levelMax: 3
   spot: {fileID: 6913068556704095264}

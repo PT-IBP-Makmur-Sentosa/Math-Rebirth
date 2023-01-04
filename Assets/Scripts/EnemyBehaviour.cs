@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
@@ -15,6 +16,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     Vector2 move;
     public int level;
+    public AnimatorController m_anim;
     [SerializeField] int levelMin;
     [SerializeField] int levelMax;
     public GameObject spot;

@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3679229207428661569}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.0195827, y: -2.9646237, z: -92.18712}
+  m_LocalPosition: {x: 2.0195827, y: 0, z: -92.18712}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -150,6 +150,7 @@ MonoBehaviour:
   leftRange: 4
   rightRange: 0
   level: 1
+  m_anim: {fileID: 9100000, guid: 0664a20731c694c7cba7952eb9609880, type: 2}
   levelMin: 1
   levelMax: 3
   spot: {fileID: 3679229207607209621}
@@ -309,7 +310,7 @@ GameObject:
   - component: {fileID: 3679229208129073020}
   m_Layer: 0
   m_Name: TrashCave
-  m_TagString: Untagged
+  m_TagString: TrashCave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -322,7 +323,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3679229208129073021}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.85, y: -0.4153765, z: 92.18712}
+  m_LocalPosition: {x: 29.85, y: -3.38, z: 92.18712}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

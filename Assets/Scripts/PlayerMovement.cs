@@ -20,8 +20,6 @@ public class PlayerMovement : MonoBehaviour
     public Animator cm_cam1;
     public GameObject canvas_scroll;
     public GameObject enemy;
-    public RuntimeAnimatorController skeleton_animator;
-    public Sprite skeleton_sprite;
 
     public float rayLength = 0.55f;
     public float rayPositionOffset = 0.4f;
@@ -38,8 +36,8 @@ public class PlayerMovement : MonoBehaviour
     bool grounded;
     bool isFalling => gameObject.GetComponent<Rigidbody2D>().velocity.y <= 0 && !grounded;
     bool isRising => !isFalling && !grounded;
-    public RuntimeAnimatorController shade_animator;
-    public Sprite shade_sprite;
+    bool flipped = false;
+
     GameObject glob;
     GlobalControl globalcontrol;
     public List<GameObject> unityGameObjects = new List<GameObject>();
@@ -54,7 +52,10 @@ public class PlayerMovement : MonoBehaviour
         glob = GameObject.Find("GlobalObject");
         globalcontrol = glob.GetComponent<GlobalControl>();
     }
-
+    private void LateUpdate()
+    {
+        enemy.GetComponent<SpriteRenderer>().flipX = flipped;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -197,40 +198,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject collidedd;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (collision.CompareTag("Skeleton"))
-        {
-            print("enter collision skeleton");
-            unityGameObjects.Add(collision.gameObject);
-            enemy.tag = collision.tag;
-            enemy.GetComponent<SpriteRenderer>().sprite = skeleton_sprite;
-            enemy.GetComponent<SpriteRenderer>().flipX = false;
-            enemy.GetComponent<Animator>().runtimeAnimatorController = skeleton_animator;
-            print(enemy.GetComponent<Unit>().unitLevel);
-            print(collision.GetComponent<EnemyBehaviour>().level);
-            enemy.GetComponent<Unit>().unitLevel = collision.GetComponent<EnemyBehaviour>().level;
-            print(enemy.GetComponent<Unit>().unitLevel);
-            enemy.GetComponent<Unit>().unitName = collision.tag;
-            GameObject.Find("CombatManager").GetComponent<CombatManager>().StartCombat();
-            StartCoroutine(Coroutine());
-            collidedd = collision.gameObject;
-            print("Enemy Found");
-            //collision.tag = "Collided";
-        }
-        if (collision.CompareTag("Shade"))
-        {
-            unityGameObjects.Add(collision.gameObject);
-            enemy.tag = collision.tag;
-            enemy.GetComponent<SpriteRenderer>().sprite = shade_sprite;
-            enemy.GetComponent<SpriteRenderer>().flipX = true;
-            enemy.GetComponent<Animator>().runtimeAnimatorController = shade_animator;
-            enemy.GetComponent<Unit>().unitLevel = collision.GetComponent<EnemyBehaviour>().level;
-            enemy.GetComponent<Unit>().unitName = collision.tag;
-            GameObject.Find("CombatManager").GetComponent<CombatManager>().StartCombat();
-            StartCoroutine(Coroutine());
-            print("Enemy Found");
-        }
-        if(collision.CompareTag("Finish"))
+        if (collision.CompareTag("Finish"))
         {
             Scene currScene = SceneManager.GetActiveScene();
             string sceneName = currScene.name;
@@ -294,6 +262,27 @@ public class PlayerMovement : MonoBehaviour
             {
                 globalcontrol.StageFinish(14);
             }
+        }
+        else if (collision.tag != "Stage" && collision.tag != "Untagged" && collision.tag != "Confiner" && collision.tag != "Player" && collision.tag != "Shop")
+        {
+            unityGameObjects.Add(collision.gameObject);
+            enemy.tag = collision.tag;
+            if (collision.CompareTag("Bat") || collision.CompareTag("Shade") || collision.CompareTag("TrashCave") || collision.CompareTag("TrashForest") || collision.CompareTag("SlimeForest") || collision.CompareTag("Boss2"))
+            {
+                flipped = true;
+            }
+            else
+            {
+                flipped = false;
+            }
+
+            enemy.GetComponent<Animator>().runtimeAnimatorController = collision.GetComponent<EnemyBehaviour>().m_anim;
+            enemy.GetComponent<Unit>().unitLevel = collision.GetComponent<EnemyBehaviour>().level;
+            enemy.GetComponent<Unit>().unitName = collision.tag;
+            collidedd = collision.gameObject;
+            GameObject.Find("CombatManager").GetComponent<CombatManager>().StartCombat();
+            StartCoroutine(Coroutine());
+            print("Enemy Found");
         }
 
         if (collision.gameObject.name == "Soul")

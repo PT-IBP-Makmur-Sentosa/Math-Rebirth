@@ -407,8 +407,8 @@ public class CombatManager : MonoBehaviour
     }
     IEnumerator EnemyTurn()
     {
-        playerHUD.battle_text.text = enemyUnit.unitName + " attacks!";
-        print(enemyUnit.unitName + " attacks!");
+        playerHUD.battle_text.text = enemyUnit.tag + " attacks!";
+        print(enemyUnit.tag + " attacks!");
         calculatorScript.Question.SetActive(false);
         calculatorScript.Result.SetActive(false);
         calculatorScript.Wrong.SetActive(false);

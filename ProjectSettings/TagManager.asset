@@ -25,6 +25,9 @@ TagManager:
   - Fireworm
   - FlyEye
   - Imp
+  - Boss1
+  - Boss2
+  - Boss3
   layers:
   - Default
   - TransparentFX
