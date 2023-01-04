@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed = 0.1f;
     public float jumpPower = 400f;
     float horizontalMove = 0f;
+    private bool fallingKey;
 
     private bool trigger = false;
     //public GameObject CombatScene;
@@ -92,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
             if(isRising)
             {
                 gameObject.GetComponent<Animator>().Play("Jump");
+            
             }
             else if(isFalling)
             {
@@ -99,26 +101,31 @@ public class PlayerMovement : MonoBehaviour
                 {
                     gameObject.GetComponent<Animator>().Play("JumpFall");
                 }
-                else if(gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("JumpFall"))
+                else if(gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("JumpFall") && !fallingKey)
                 {
                     gameObject.GetComponent<Animator>().Play("Fall");
+                    fallingKey = true;
                 }
                 else if(gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Fall") && horizontalMove > 0 && grounded)
                 {
                     gameObject.GetComponent<Animator>().SetFloat("velocity", Mathf.Abs(horizontalMove));
                 }
-                else
+                else if(!fallingKey)
                 {
                     gameObject.GetComponent<Animator>().Play("Fall");
+                    fallingKey = true;
                 }
             }
-            else if(horizontalMove == 0)
+            else if(horizontalMove == 0 && grounded)
             {
-                 gameObject.GetComponent<Animator>().Play("idle");
+                //gameObject.GetComponent<Animator>().Play("idle");
+                gameObject.GetComponent<Animator>().SetBool("isMoving", false);
+                fallingKey = false;
             }
-            else if(horizontalMove > 0 && grounded)
+            else if(horizontalMove != 0 && grounded)
             {
-                gameObject.GetComponent<Animator>().SetFloat("velocity", Mathf.Abs(horizontalMove));
+                // gameObject.GetComponent<Animator>().SetFloat("velocity", Mathf.Abs(horizontalMove));
+                gameObject.GetComponent<Animator>().SetBool("isMoving", true);
             }
             
             
