@@ -96,26 +96,26 @@ public class CombatManager : MonoBehaviour
 
         // Area 1
         currencyMult.Add("Skeleton", 8);
-        currencyMult.Add("Shade", 12);
         currencyMult.Add("Bat", 8);
-        currencyMult.Add("TrashCave", 14);
         currencyMult.Add("Zombie", 10);
+        currencyMult.Add("Shade", 12);
+        currencyMult.Add("TrashCave", 14);
         currencyMult.Add("Boss1", 30);
 
         // Area 2
-        currencyMult.Add("Goblin", 12);
-        currencyMult.Add("Mushroom", 8);
         currencyMult.Add("SlimeForest", 8);
+        currencyMult.Add("Mushroom", 8);
         currencyMult.Add("Tooth", 10);
+        currencyMult.Add("Goblin", 12);
         currencyMult.Add("TrashForest", 14);
         currencyMult.Add("Boss2", 40);
 
         // Area 3
         currencyMult.Add("Eyeball", 8);
-        currencyMult.Add("Fireworm", 10);
         currencyMult.Add("FlyEye", 8);
-        currencyMult.Add("Demon", 14);
+        currencyMult.Add("Fireworm", 10);
         currencyMult.Add("Imp", 12);
+        currencyMult.Add("Demon", 14);
         currencyMult.Add("Boss3", 50);
 
     }
@@ -202,7 +202,7 @@ public class CombatManager : MonoBehaviour
     {
         actionName = "Attack";
         actionHit = 1.0f;
-        actionMultiplier = Random.Range(0.9f, 1.1f);
+        actionMultiplier = Random.Range(0.8f, 1.0f);
         calculatorScript.mode = UnityEngine.Random.Range(1, 4);
 
         if (state != BattleState.PLAYERTURN)
@@ -343,7 +343,7 @@ public class CombatManager : MonoBehaviour
             else if (skillDict[globc.skill1][5] == 2.0f)
             {
                 playerUnit.currentHP = playerUnit.maxHP;
-                playerUnit.Def *= 1.3f;
+                playerUnit.Def *= 1.6f;
                 playerHUD.SetHUD(playerUnit);
                 buffTurns = 1;
 
@@ -371,7 +371,7 @@ public class CombatManager : MonoBehaviour
             else if (skillDict[globc.skill2][5] == 2.0f)
             {
                 playerUnit.currentHP = playerUnit.maxHP;
-                playerUnit.Def *= 1.3f;
+                playerUnit.Def *= 1.6f;
                 playerHUD.SetHUD(playerUnit);
                 buffTurns = 1;
             }

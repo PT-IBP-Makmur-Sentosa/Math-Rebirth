@@ -298,7 +298,7 @@ public class Calculator : MonoBehaviour
             }
             else if (operation == "/")
             {
-                if(a/user_answer == b)
+                if(user_answer != 0 && a / user_answer == b)
                 {
                     answer_correct = true;
                 }

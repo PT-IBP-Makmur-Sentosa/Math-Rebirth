@@ -15,7 +15,7 @@ public class GlobalControl : MonoBehaviour
     public bool inProgress = false;
     public string skill1 = "Default_Skill1";
     public string skill2 = null;
-    string playerTrait = "Strong Body";
+    public string playerTrait = "Strong Body";
     string curScene;
     public float playerCurrentHP = 0;
     public int playerCurrency = 0;
@@ -54,35 +54,35 @@ public class GlobalControl : MonoBehaviour
 
         float[] mult;                                
         //                    Hit , Low , High, Bool, Stamina, Type (1 Offensive, 2 Buff, 3 Debuff)
-        mult = new float[6] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f   , 1.0f };
+        mult = new float[6] { 1.0f, 1.0f, 1.2f, 1.0f, 2.0f   , 1.0f };
         skillDict.Add("Default_Skill1", mult);
 
 
-        mult = new float[6] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f  , 1.0f };
+        mult = new float[6] { 1.0f, 1.1f, 1.2f, 1.0f, 2.0f  , 1.0f };
         skillDict.Add("Str_Skill1", mult);
-        mult = new float[6] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f  , 1.0f };
+        mult = new float[6] { 1.0f, 1.2f, 1.3f, 1.0f, 2.0f  , 1.0f };
         skillDict.Add("Str_Skill2", mult);
-        mult = new float[6] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f  , 1.0f };
+        mult = new float[6] { 1.0f, 1.3f, 1.4f, 1.0f, 2.0f  , 1.0f };
         skillDict.Add("Str_Skill3", mult);
-        mult = new float[6] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f  , 1.0f };
+        mult = new float[6] { 1.0f, 1.4f, 1.8f, 1.0f, 3.0f  , 1.0f };
         skillDict.Add("Str_Skill4", mult);
 
-        mult = new float[6] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f  , 1.0f };
+        mult = new float[6] { 1.0f, 1.1f, 1.2f, 1.0f, 2.0f  , 1.0f };
         skillDict.Add("Agi_Skill1", mult);
-        mult = new float[6] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f  , 1.0f };
+        mult = new float[6] { 1.0f, 1.2f, 1.3f, 1.0f, 2.0f  , 1.0f };
         skillDict.Add("Agi_Skill2", mult);
-        mult = new float[6] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f  , 3.0f };
+        mult = new float[6] { 0.0f, 0.0f, 0.0f, 1.0f, 2.0f  , 3.0f };
         skillDict.Add("Agi_Skill3", mult);
-        mult = new float[6] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f  , 1.0f };
+        mult = new float[6] { 1.0f, 1.4f, 1.8f, 1.0f, 3.0f  , 1.0f };
         skillDict.Add("Agi_Skill4", mult);
 
-        mult = new float[6] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f  , 1.0f };
+        mult = new float[6] { 1.0f, 1.1f, 1.2f, 1.0f, 2.0f  , 1.0f };
         skillDict.Add("Int_Skill1", mult);
-        mult = new float[6] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f  , 1.0f };
+        mult = new float[6] { 1.0f, 1.2f, 1.3f, 1.0f, 2.0f  , 1.0f };
         skillDict.Add("Int_Skill2", mult);
-        mult = new float[6] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f  , 2.0f };
+        mult = new float[6] { 0.0f, 0.0f, 0.0f, 1.0f, 2.0f  , 2.0f };
         skillDict.Add("Int_Skill3", mult);
-        mult = new float[6] { 1.0f, 1.5f, 1.8f, 1.0f, 3.0f  , 1.0f };
+        mult = new float[6] { 1.0f, 1.4f, 1.8f, 1.0f, 3.0f  , 1.0f };
         skillDict.Add("Int_Skill4", mult);
     }
 
@@ -243,7 +243,7 @@ public class GlobalControl : MonoBehaviour
             }
             else if (playerTrait == "Average Joe")
             {
-                skill2 = "Joe_Skill1";
+                skill2 = "Str_Skill1";
             }
         }
 
