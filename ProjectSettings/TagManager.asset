@@ -12,6 +12,19 @@ TagManager:
   - Confiner
   - Shade
   - BGM
+  - TrashCave
+  - Bat
+  - Zombie
+  - Goblin
+  - Mushroom
+  - SlimeForest
+  - Tooth
+  - TrashForest
+  - Demon
+  - Eyeball
+  - Fireworm
+  - FlyEye
+  - Imp
   layers:
   - Default
   - TransparentFX

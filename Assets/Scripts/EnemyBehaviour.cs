@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
+    
     float startingX;
     public float speed = 1f;
     public float leftRange = 4f;
@@ -16,6 +17,7 @@ public class EnemyBehaviour : MonoBehaviour
     public int level;
     [SerializeField] int levelMin;
     [SerializeField] int levelMax;
+    public GameObject spot;
     // Start is called before the first frame update
     void Start()
     {
@@ -67,7 +69,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            gameObject.GetComponent<Animator>().SetBool("Triggered", true);
+            spot.SetActive(true);
             trigger = true;
             print("A");
         }
@@ -77,7 +79,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            gameObject.GetComponent<Animator>().SetBool("Triggered", false);
+            spot.SetActive(false);
             trigger = false;
             print("B");
         }
