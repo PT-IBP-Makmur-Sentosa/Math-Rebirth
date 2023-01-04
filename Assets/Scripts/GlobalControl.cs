@@ -20,7 +20,7 @@ public class GlobalControl : MonoBehaviour
     public float playerCurrentHP = 0;
     public int playerCurrency = 0;
     int playerLevel = 1;
-    float musicVol= 0.5f;
+    float musicVol = 0.5f;
     float soundVol;
 
     [SerializeField] bool trigger = false;
@@ -52,37 +52,37 @@ public class GlobalControl : MonoBehaviour
             allItemCodes[i.name] = i;
         }
 
-        float[] mult;                                
+        float[] mult;
         //                    Hit , Low , High, Bool, Stamina, Type (1 Offensive, 2 Buff, 3 Debuff)
-        mult = new float[6] { 1.0f, 1.0f, 1.2f, 1.0f, 2.0f   , 1.0f };
+        mult = new float[6] { 1.0f, 1.0f, 1.2f, 1.0f, 2.0f, 1.0f };
         skillDict.Add("Default_Skill1", mult);
 
 
-        mult = new float[6] { 1.0f, 1.1f, 1.2f, 1.0f, 2.0f  , 1.0f };
+        mult = new float[6] { 1.0f, 1.1f, 1.2f, 1.0f, 2.0f, 1.0f };
         skillDict.Add("Str_Skill1", mult);
-        mult = new float[6] { 1.0f, 1.2f, 1.3f, 1.0f, 2.0f  , 1.0f };
+        mult = new float[6] { 1.0f, 1.2f, 1.3f, 1.0f, 2.0f, 1.0f };
         skillDict.Add("Str_Skill2", mult);
-        mult = new float[6] { 1.0f, 1.3f, 1.4f, 1.0f, 2.0f  , 1.0f };
+        mult = new float[6] { 1.0f, 1.3f, 1.4f, 1.0f, 2.0f, 1.0f };
         skillDict.Add("Str_Skill3", mult);
-        mult = new float[6] { 1.0f, 1.4f, 1.8f, 1.0f, 3.0f  , 1.0f };
+        mult = new float[6] { 1.0f, 1.4f, 1.8f, 1.0f, 3.0f, 1.0f };
         skillDict.Add("Str_Skill4", mult);
 
-        mult = new float[6] { 1.0f, 1.1f, 1.2f, 1.0f, 2.0f  , 1.0f };
+        mult = new float[6] { 1.0f, 1.1f, 1.2f, 1.0f, 2.0f, 1.0f };
         skillDict.Add("Agi_Skill1", mult);
-        mult = new float[6] { 1.0f, 1.2f, 1.3f, 1.0f, 2.0f  , 1.0f };
+        mult = new float[6] { 1.0f, 1.2f, 1.3f, 1.0f, 2.0f, 1.0f };
         skillDict.Add("Agi_Skill2", mult);
-        mult = new float[6] { 0.0f, 0.0f, 0.0f, 1.0f, 2.0f  , 3.0f };
+        mult = new float[6] { 0.0f, 0.0f, 0.0f, 1.0f, 2.0f, 3.0f };
         skillDict.Add("Agi_Skill3", mult);
-        mult = new float[6] { 1.0f, 1.4f, 1.8f, 1.0f, 3.0f  , 1.0f };
+        mult = new float[6] { 1.0f, 1.4f, 1.8f, 1.0f, 3.0f, 1.0f };
         skillDict.Add("Agi_Skill4", mult);
 
-        mult = new float[6] { 1.0f, 1.1f, 1.2f, 1.0f, 2.0f  , 1.0f };
+        mult = new float[6] { 1.0f, 1.1f, 1.2f, 1.0f, 2.0f, 1.0f };
         skillDict.Add("Int_Skill1", mult);
-        mult = new float[6] { 1.0f, 1.2f, 1.3f, 1.0f, 2.0f  , 1.0f };
+        mult = new float[6] { 1.0f, 1.2f, 1.3f, 1.0f, 2.0f, 1.0f };
         skillDict.Add("Int_Skill2", mult);
-        mult = new float[6] { 0.0f, 0.0f, 0.0f, 1.0f, 2.0f  , 2.0f };
+        mult = new float[6] { 0.0f, 0.0f, 0.0f, 1.0f, 2.0f, 2.0f };
         skillDict.Add("Int_Skill3", mult);
-        mult = new float[6] { 1.0f, 1.4f, 1.8f, 1.0f, 3.0f  , 1.0f };
+        mult = new float[6] { 1.0f, 1.4f, 1.8f, 1.0f, 3.0f, 1.0f };
         skillDict.Add("Int_Skill4", mult);
     }
 
@@ -106,7 +106,7 @@ public class GlobalControl : MonoBehaviour
         musicVol = vol;
         foreach (AudioSource audios in GameObject.FindObjectsOfType<AudioSource>())
         {
-            if(audios.tag == "BGM") audios.volume = musicVol;
+            if (audios.tag == "BGM") audios.volume = musicVol;
         }
     }
 
