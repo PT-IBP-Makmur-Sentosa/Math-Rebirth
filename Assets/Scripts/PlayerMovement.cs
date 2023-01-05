@@ -272,6 +272,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (collision.tag != "Stage" && collision.tag != "Untagged" && collision.tag != "Confiner" && collision.tag != "Player" && collision.tag != "Shop")
         {
+            collision.GetComponent<Animator>().Play("idle");
             unityGameObjects.Add(collision.gameObject);
             enemy.tag = collision.tag;
             if (collision.CompareTag("Bat") || collision.CompareTag("Shade") || collision.CompareTag("TrashCave") || collision.CompareTag("TrashForest") || collision.CompareTag("SlimeForest") || collision.CompareTag("Boss2"))
