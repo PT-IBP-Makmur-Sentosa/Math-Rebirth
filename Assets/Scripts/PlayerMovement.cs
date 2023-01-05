@@ -5,6 +5,8 @@ using Cinemachine;
 using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement instance;
+
     public float runSpeed = 0.1f;
     public float jumpPower = 400f;
     float horizontalMove = 0f;
@@ -43,6 +45,11 @@ public class PlayerMovement : MonoBehaviour
     public List<GameObject> unityGameObjects = new List<GameObject>();
     public List<string> StringTagEnemy = new List<string>() {"Shade","Skeleton"};
     [SerializeField] AudioClip clips;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -280,6 +287,7 @@ public class PlayerMovement : MonoBehaviour
             enemy.GetComponent<Unit>().unitLevel = collision.GetComponent<EnemyBehaviour>().level;
             enemy.GetComponent<Unit>().unitName = collision.tag;
             collidedd = collision.gameObject;
+            gameObject.GetComponent<Animator>().SetBool("inCombat", true);
             GameObject.Find("CombatManager").GetComponent<CombatManager>().StartCombat();
             StartCoroutine(Coroutine());
             print("Enemy Found");

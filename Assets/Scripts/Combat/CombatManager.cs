@@ -489,6 +489,7 @@ public class CombatManager : MonoBehaviour
     {
         CameraSwitch.register(CMVir);
 
+        PlayerMovement.instance.gameObject.GetComponent<Animator>().SetBool("inCombat", false);
         glob.GetComponent<GlobalControl>().inCombat = false;
         moves.SetActive(true);
         // Attack.enabled = true;
@@ -545,6 +546,7 @@ public class CombatManager : MonoBehaviour
             player.GetComponent<Unit>().Reset(0);
             enemy.GetComponent<Unit>().Reset(0);
         }
+        
         playerHUD.SetHUD(playerUnit);
     }
 
