@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Animations;
 using UnityEngine;
+using TMPro;
 
 public class EnemyBehaviour : MonoBehaviour
 {
@@ -20,12 +21,15 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] int levelMin;
     [SerializeField] int levelMax;
     public GameObject spot;
+    public GameObject infoText;
+    public TMP_Text level_txt;
     // Start is called before the first frame update
     void Start()
     {
         startingX = gameObject.transform.position.x;
         level = UnityEngine.Random.Range(levelMin, levelMax);
         move = new Vector2(0, 0);
+        level_txt.text = "lvl. " + level;
     }
 
     // Update is called once per frame
@@ -72,6 +76,7 @@ public class EnemyBehaviour : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             spot.SetActive(true);
+            infoText.SetActive(false);
             trigger = true;
             print("A");
         }
@@ -82,6 +87,7 @@ public class EnemyBehaviour : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             spot.SetActive(false);
+            infoText.SetActive(true);
             trigger = false;
             print("B");
         }

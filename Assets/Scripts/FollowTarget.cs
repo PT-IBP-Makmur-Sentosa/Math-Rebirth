@@ -6,8 +6,8 @@ public class FollowTarget : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform objectToFollow;
-
-    float offset = -0.7f;
+    public float offsetY = 0.5f;
+    public float offsetX;
     
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -19,6 +19,15 @@ public class FollowTarget : MonoBehaviour
     }
     void Update()
     {
-        transform.position = new Vector3(objectToFollow.position.x , objectToFollow.position.y/2 + offset, transform.position.z);
+        transform.position = new Vector3(objectToFollow.position.x + offsetX, objectToFollow.position.y + offsetY, transform.position.z);
+    }
+    /// <summary>
+    /// OnCollisionEnter is called when this collider/rigidbody has begun
+    /// touching another rigidbody/collider.
+    /// </summary>
+    /// <param name="other">The Collision data associated with this collision.</param>
+    void OnCollisionEnter(Collision other)
+    {
+        
     }
 }

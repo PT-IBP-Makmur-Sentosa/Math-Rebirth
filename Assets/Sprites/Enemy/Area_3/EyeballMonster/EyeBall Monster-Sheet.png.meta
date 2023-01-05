@@ -665,9 +665,9 @@ TextureImporter:
       name: EyeBall Monster-Sheet_26
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
         y: 1104
-        width: 128
+        width: 54
         height: 48
       alignment: 9
       pivot: {x: 0.3, y: 0.68}
@@ -686,9 +686,9 @@ TextureImporter:
       name: EyeBall Monster-Sheet_27
       rect:
         serializedVersion: 2
-        x: 0
+        x: 13
         y: 1056
-        width: 128
+        width: 54
         height: 48
       alignment: 9
       pivot: {x: 0.3, y: 0.68}
@@ -707,9 +707,9 @@ TextureImporter:
       name: EyeBall Monster-Sheet_28
       rect:
         serializedVersion: 2
-        x: 0
+        x: 26
         y: 1008
-        width: 128
+        width: 54
         height: 48
       alignment: 9
       pivot: {x: 0.3, y: 0.68}
@@ -728,9 +728,9 @@ TextureImporter:
       name: EyeBall Monster-Sheet_29
       rect:
         serializedVersion: 2
-        x: 0
+        x: 40
         y: 960
-        width: 128
+        width: 54
         height: 48
       alignment: 9
       pivot: {x: 0.3, y: 0.68}
@@ -749,9 +749,9 @@ TextureImporter:
       name: EyeBall Monster-Sheet_30
       rect:
         serializedVersion: 2
-        x: 0
+        x: 56
         y: 912
-        width: 128
+        width: 54
         height: 48
       alignment: 9
       pivot: {x: 0.3, y: 0.68}
@@ -770,10 +770,10 @@ TextureImporter:
       name: EyeBall Monster-Sheet_31
       rect:
         serializedVersion: 2
-        x: 0
-        y: 864
-        width: 128
-        height: 48
+        x: 79
+        y: 863
+        width: 48
+        height: 49
       alignment: 9
       pivot: {x: 0.3, y: 0.68}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -791,10 +791,10 @@ TextureImporter:
       name: EyeBall Monster-Sheet_32
       rect:
         serializedVersion: 2
-        x: 0
+        x: 81
         y: 816
-        width: 128
-        height: 48
+        width: 47
+        height: 47
       alignment: 9
       pivot: {x: 0.3, y: 0.68}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -812,9 +812,9 @@ TextureImporter:
       name: EyeBall Monster-Sheet_33
       rect:
         serializedVersion: 2
-        x: 0
+        x: 85
         y: 768
-        width: 128
+        width: 43
         height: 48
       alignment: 9
       pivot: {x: 0.3, y: 0.68}
@@ -833,9 +833,9 @@ TextureImporter:
       name: EyeBall Monster-Sheet_34
       rect:
         serializedVersion: 2
-        x: 0
+        x: 88
         y: 720
-        width: 128
+        width: 40
         height: 48
       alignment: 9
       pivot: {x: 0.3, y: 0.68}
@@ -1205,8 +1205,8 @@ TextureImporter:
       EyeBall Monster-Sheet_18: -211165887
       EyeBall Monster-Sheet_22: -509474080
       EyeBall Monster-Sheet_42: -422937141
-      EyeBall Monster-Sheet_20: 1136334069
       EyeBall Monster-Sheet_43: 395220934
+      EyeBall Monster-Sheet_20: 1136334069
       EyeBall Monster-Sheet_24: 483320935
       EyeBall Monster-Sheet_26: -1961283003
       EyeBall Monster-Sheet_44: -2079394844
