@@ -625,6 +625,7 @@ MonoBehaviour:
   leftRange: 4
   rightRange: 0
   level: 1
+  m_anim: {fileID: 0}
   levelMin: 1
   levelMax: 1
   spot: {fileID: 0}
@@ -728,6 +729,7 @@ MonoBehaviour:
   leftRange: 4
   rightRange: 0
   level: 2
+  m_anim: {fileID: 0}
   levelMin: 1
   levelMax: 1
   spot: {fileID: 0}
@@ -2493,6 +2495,7 @@ MonoBehaviour:
   leftRange: 4
   rightRange: 0
   level: 1
+  m_anim: {fileID: 0}
   levelMin: 1
   levelMax: 1
   spot: {fileID: 0}
@@ -4162,6 +4165,7 @@ MonoBehaviour:
   EquipSkillPrompt: {fileID: 1175050117}
   SkillButtons: []
   JoeSkillButtons: []
+  playerUnit: {fileID: 0}
   strImage: []
   agiImage: []
   intImage: []
@@ -5068,6 +5072,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7297934558129303382, guid: 43e01e25b96d80d4294ae1f5b9592644, type: 3}
+      propertyPath: playerUnit
+      value: 
+      objectReference: {fileID: 226167555}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43e01e25b96d80d4294ae1f5b9592644, type: 3}
 --- !u!1001 &4769371305531069586
