@@ -69,7 +69,7 @@ Trait is equally distributed, +3 for all Stats per Level.";
     {
         GameObject glob = GameObject.Find("GlobalObject");
         glob.GetComponent<GlobalControl>().TraitSet(Tname[idx]);
-
+        glob.GetComponent<GlobalControl>().LoadGame();
         sec = 1.0f;
         globStr = scene;
         Invoke("changeScene", sec);

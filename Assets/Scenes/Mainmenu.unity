@@ -668,10 +668,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlobalObject
       objectReference: {fileID: 0}
-    - target: {fileID: 6986483853537870710, guid: bca64bbd057890e42a5bd96314e777ab, type: 3}
-      propertyPath: skill1
-      value: Default_Skill1
-      objectReference: {fileID: 0}
     - target: {fileID: 6986483853537870711, guid: bca64bbd057890e42a5bd96314e777ab, type: 3}
       propertyPath: m_RootOrder
       value: 11

@@ -307,21 +307,6 @@ public class CombatManager : MonoBehaviour
             goDown = false;
         }
 
-
-        calculatorScript.answer_correct = false;
-        answered = false;
-
-        // moves.SetActive(false);
-        Attack.OnPointerExit(null);
-        Defend.OnPointerExit(null);
-        Special1.OnPointerExit(null);
-        Special2.OnPointerExit(null);
-        Attack.interactable = false;
-        Defend.interactable = false;
-        Special1.interactable = false;
-        Special2.interactable = false;
-        playerHUD.SetHealth(enemyUnit.currentHP);
-        playerHUD.SetHUD(playerUnit);
         //moves.SetActive(false);
         if (actionName == "Attack")
         {
@@ -371,13 +356,21 @@ public class CombatManager : MonoBehaviour
             else if (skillDict[globc.skill2][5] == 2.0f)
             {
                 playerUnit.currentHP = playerUnit.maxHP;
-                playerUnit.Def *= 1.6f;
+                if (calculatorScript.answer_correct && calculatorScript.onTime)
+                {
+                    playerUnit.Def *= 1.0f + 0.6f * (0.1f + calculatorScript.currentTime / calculatorScript.maxTime);
+                }
+                else playerUnit.Def *= 1.0f + 0.6f * 0.2f;
                 playerHUD.SetHUD(playerUnit);
                 buffTurns = 1;
             }
             else if (skillDict[globc.skill2][5] == 3.0f)
             {
-                enemyUnit.Def *= 0.7f;
+                if (calculatorScript.answer_correct && calculatorScript.onTime)
+                {
+                    enemyUnit.Def *= 1.0f - 0.3f * (0.1f + calculatorScript.currentTime / calculatorScript.maxTime);
+                }
+                else enemyUnit.Def *= 1.0f - 0.3f * 0.2f;
                 debuffTurns = 1;
             }
             if (skillDict[globc.skill2][3] > 0)
@@ -385,6 +378,21 @@ public class CombatManager : MonoBehaviour
                 CalculatorAnimator.Play("CalculatorIdle");
             }
         }
+
+        calculatorScript.answer_correct = false;
+        answered = false;
+
+        // moves.SetActive(false);
+        Attack.OnPointerExit(null);
+        Defend.OnPointerExit(null);
+        Special1.OnPointerExit(null);
+        Special2.OnPointerExit(null);
+        Attack.interactable = false;
+        Defend.interactable = false;
+        Special1.interactable = false;
+        Special2.interactable = false;
+        playerHUD.SetHealth(enemyUnit.currentHP);
+        playerHUD.SetHUD(playerUnit);
 
         // yield return new WaitForSeconds(10f);
         yield return new WaitForSeconds(1f);

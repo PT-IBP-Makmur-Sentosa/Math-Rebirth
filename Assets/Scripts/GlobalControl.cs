@@ -20,8 +20,8 @@ public class GlobalControl : MonoBehaviour
     public float playerCurrentHP = 0;
     public int playerCurrency = 0;
     int playerLevel = 1;
-    float musicVol = 0.5f;
-    float soundVol;
+    float musicVol = 0.25f;
+    float soundVol = 0.5f;
 
     [SerializeField] bool trigger = false;
     [SerializeField] bool save = false;
@@ -99,6 +99,8 @@ public class GlobalControl : MonoBehaviour
             save = false;
             SaveGame();
         }
+        SetVolume(musicVol);
+        SetSFX(soundVol);
     }
 
     public void SetVolume(float vol)
