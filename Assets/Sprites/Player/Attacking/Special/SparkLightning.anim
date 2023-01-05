@@ -277,15 +277,15 @@ AnimationClip:
       value: {fileID: -351863427, guid: b7a678a4c8a53744393651aeb6c55527, type: 3}
     - time: 1.45
       value: {fileID: 2123893612, guid: 8ddde9ed9284ae64db81cf4d11c51827, type: 3}
-    - time: 1.5833334
+    - time: 1.55
       value: {fileID: 1578375687, guid: ff2de3d33819cb24482e9527b16c3fd2, type: 3}
     - time: 1.6166667
       value: {fileID: -351863427, guid: b7a678a4c8a53744393651aeb6c55527, type: 3}
-    - time: 1.6333333
+    - time: 1.6833333
       value: {fileID: -1234192439, guid: ff2de3d33819cb24482e9527b16c3fd2, type: 3}
     - time: 1.75
       value: {fileID: 1030516503, guid: ff2de3d33819cb24482e9527b16c3fd2, type: 3}
-    - time: 1.7666667
+    - time: 1.8
       value: {fileID: 2069478182, guid: ff2de3d33819cb24482e9527b16c3fd2, type: 3}
     - time: 1.8666667
       value: {fileID: 223369767, guid: ff2de3d33819cb24482e9527b16c3fd2, type: 3}
