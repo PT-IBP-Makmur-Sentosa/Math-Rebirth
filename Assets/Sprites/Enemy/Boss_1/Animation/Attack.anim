@@ -59,6 +59,15 @@ AnimationClip:
     path: 
     classID: 212
     script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 0}
+    - time: 2.0166667
+      value: {fileID: 0}
+    attribute: m_Sprite
+    path: Enemy_Attack
+    classID: 212
+    script: {fileID: 0}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -68,6 +77,13 @@ AnimationClip:
     genericBindings:
     - serializedVersion: 2
       path: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 3698952253
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -92,12 +108,14 @@ AnimationClip:
     - {fileID: -6766038691376649458, guid: 1914d95466e3d4341a618c35a56d5f82, type: 3}
     - {fileID: 2483782727947890954, guid: 1914d95466e3d4341a618c35a56d5f82, type: 3}
     - {fileID: 3687449107416671509, guid: 1914d95466e3d4341a618c35a56d5f82, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 2.0166667
+    m_StopTime: 2.0333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
