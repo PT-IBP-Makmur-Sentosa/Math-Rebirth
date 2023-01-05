@@ -26,7 +26,13 @@ public class StageManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void closeWindow()
+    {
+        gameObject.SetActive(false);
+        globalcontrol.inMap = false;
     }
     public void stage1()
     {

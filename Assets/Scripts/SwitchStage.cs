@@ -9,13 +9,13 @@ public class SwitchStage : MonoBehaviour
     public GameObject map;
     GameObject glob;
     GlobalControl globalcontrol;
-    public GameObject [] buttons;
+    public GameObject[] buttons;
     void Start()
     {
         glob = GameObject.Find("GlobalObject");
         globalcontrol = glob.GetComponent<GlobalControl>();
         glob.GetComponent<GlobalControl>().inMap = false;
-        
+
     }
 
     // Update is called once per frame
@@ -23,40 +23,40 @@ public class SwitchStage : MonoBehaviour
     {
         Scene currScene = SceneManager.GetActiveScene();
         string sceneName = currScene.name;
-        if(istrigger)
+        if (istrigger)
         {
-          
+
             istrigger = false;
             map.SetActive(true);
             for (int x = 0; x < 15; x++)
-                if(globalcontrol.stageList[x] == 1 && x != 14)
+                if (globalcontrol.stageList[x] == 1 && x != 14)
                 {
-                    string buttonName = "StageSelectionCanvas/map/stage" + (x+2);
+                    string buttonName = "StageSelectionCanvas/map/stage" + (x + 2);
                     print(buttonName);
                     GameObject.Find(buttonName).SetActive(true);
                 }
-                
-            
+
+
         }
     }
     private void OnTriggerEnter2D(Collider2D coll)
     {
-        
-        if(coll.CompareTag("Player"))
+
+        if (coll.CompareTag("Player"))
         {
             glob.GetComponent<GlobalControl>().inMap = true;
             print("col_true");
-            istrigger = true; 
-        } 
-        
+            istrigger = true;
+        }
+
     }
     private void OnTriggerExit2D(Collider2D coll)
     {
-        if(coll.CompareTag("Player"))
+        if (coll.CompareTag("Player"))
         {
             istrigger = false;
         }
 
     }
-    
+
 }

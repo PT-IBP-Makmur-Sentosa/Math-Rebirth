@@ -57,7 +57,7 @@ public class StatsManager : MonoBehaviour
                 break;
 
         }
-        
+
         Level.text = playerUnit.unitLevel.ToString();
 
         Str.text = playerUnit.Str.ToString();
@@ -90,7 +90,7 @@ public class StatsManager : MonoBehaviour
 
     public void levelUpPrompt()
     {
-        float cost = 100 * playerUnit.unitLevel * (1 + playerUnit.unitLevel/25.0f);
+        float cost = 100 * playerUnit.unitLevel * (1 + playerUnit.unitLevel / 25.0f);
         int levelUpCost = (int)cost;
         if (glob.playerCurrency >= levelUpCost)
         {
