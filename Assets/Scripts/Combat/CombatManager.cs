@@ -290,22 +290,7 @@ public class CombatManager : MonoBehaviour
             }
         }
         else CDmg = 1.0f;
-
-
-        if (calculatorScript.answer_correct == true && calculatorScript.onTime == true)
-        {
-            mathMult = 1.0f + ((1.0f + playerUnit.ExtraMult) * (0.1f + calculatorScript.currentTime / calculatorScript.maxTime));
-
-            isDead = enemyUnit.TakeDamage(playerUnit.Atk * mathMult * actionMultiplier * actionHit * CDmg);
-            print("Attack is succesful");
-        }
-        else if (calculatorScript.answer_correct == false || calculatorScript.onTime == false)
-        {
-            mathMult = 0.5f;
-            isDead = enemyUnit.TakeDamage(playerUnit.Atk * mathMult * actionMultiplier * actionHit * CDmg);
-            print("Attack not successful");
-            goDown = false;
-        }
+        
 
         //moves.SetActive(false);
         if (actionName == "Attack")
@@ -379,6 +364,22 @@ public class CombatManager : MonoBehaviour
             }
         }
 
+        yield return new WaitForSeconds(2.0f);
+        if (calculatorScript.answer_correct == true && calculatorScript.onTime == true)
+        {
+            mathMult = 1.0f + ((1.0f + playerUnit.ExtraMult) * (0.1f + calculatorScript.currentTime / calculatorScript.maxTime));
+
+            isDead = enemyUnit.TakeDamage(playerUnit.Atk * mathMult * actionMultiplier * actionHit * CDmg);
+            print("Attack is succesful");
+        }
+        else if (calculatorScript.answer_correct == false || calculatorScript.onTime == false)
+        {
+            mathMult = 0.5f;
+            isDead = enemyUnit.TakeDamage(playerUnit.Atk * mathMult * actionMultiplier * actionHit * CDmg);
+            print("Attack not successful");
+            goDown = false;
+        }
+
         calculatorScript.answer_correct = false;
         answered = false;
 
@@ -394,8 +395,6 @@ public class CombatManager : MonoBehaviour
         playerHUD.SetHealth(enemyUnit.currentHP);
         playerHUD.SetHUD(playerUnit);
 
-        // yield return new WaitForSeconds(10f);
-        yield return new WaitForSeconds(1f);
         if (isDead)
         {
             //end battle
@@ -408,7 +407,7 @@ public class CombatManager : MonoBehaviour
         else
         {
             //enemy turn
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(2.0f);
             calculatorScript.enabled = false;
             state = BattleState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
@@ -416,15 +415,16 @@ public class CombatManager : MonoBehaviour
     }
     IEnumerator EnemyTurn()
     {
-        playerHUD.battle_text.text = enemyUnit.tag + " attacks!";
+        playerHUD.battle_text.text = enemyUnit.tag + " Turn";
         print(enemyUnit.tag + " attacks!");
         calculatorScript.Question.SetActive(false);
         calculatorScript.Result.SetActive(false);
         calculatorScript.Wrong.SetActive(false);
         calculatorScript.Correct.SetActive(false);
         calculatorScript.TimesUp.SetActive(false);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.0f);
 
+        playerHUD.battle_text.text = enemyUnit.tag + " attacks!";
         float EnemyMod = Random.Range(0.8f, 1.1f);
         float critRoller = Random.Range(0.01f, 100.0f);
         bool isCrit = critRoller <= enemyUnit.CRate;
@@ -452,6 +452,12 @@ public class CombatManager : MonoBehaviour
             }
         }
         else CDmg = 1.0f;
+        
+        isDefend = false;
+        skeletonAnimator.Play("attack");
+        playerAnimator.Play("hurt");
+        playerHUD.SetHUD(playerUnit);
+        yield return new WaitForSeconds(2.0f);
 
         if (isDefend)
         {
@@ -461,16 +467,14 @@ public class CombatManager : MonoBehaviour
         {
             isDead = playerUnit.TakeDamage(enemyUnit.Atk * EnemyMod * CDmg);
         }
-        isDefend = false;
-        skeletonAnimator.Play("attack");
-        playerAnimator.Play("hurt");
-        playerHUD.SetHUD(playerUnit);
-        yield return new WaitForSeconds(1f);
+
+        yield return new WaitForSeconds(1.0f);
+
         if (isDead)
         {
             print("player died");
             playerAnimator.Play("death");
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(2.0f);
             state = BattleState.LOST;
             EndBattle();
         }
@@ -488,7 +492,7 @@ public class CombatManager : MonoBehaviour
             {
                 print("player died");
                 playerAnimator.Play("death");
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(2.0f);
                 state = BattleState.LOST;
                 EndBattle();
             }
@@ -509,6 +513,7 @@ public class CombatManager : MonoBehaviour
         if (state == BattleState.WON)
         {
             print("You won the battle!");
+            playerHUD.battle_text.text = "You Won the Battle!";
             calculatorScript.Question.SetActive(false);
             calculatorScript.Result.SetActive(false);
             calculatorScript.Wrong.SetActive(false);
@@ -528,6 +533,7 @@ public class CombatManager : MonoBehaviour
         else if (state == BattleState.LOST)
         {
             print("You were defeated");
+            playerHUD.battle_text.text = "You Were Defeated!";
 
             calculatorScript.Question.SetActive(false);
             calculatorScript.Result.SetActive(false);
@@ -562,6 +568,6 @@ public class CombatManager : MonoBehaviour
 
     IEnumerator Coroutine()
     {
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSecondsRealtime(2.0f);
     }
 }
