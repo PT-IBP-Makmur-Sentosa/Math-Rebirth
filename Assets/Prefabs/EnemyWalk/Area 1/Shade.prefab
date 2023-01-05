@@ -638,7 +638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e13b8ba51a1094983ff159c752f4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToFollow: {fileID: 0}
+  objectToFollow: {fileID: 1177647515766239488}
   offsetY: 0.8
   offsetX: -0.2
 --- !u!1 &7735034148954421139

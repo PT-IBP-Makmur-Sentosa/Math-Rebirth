@@ -123,6 +123,7 @@ public class CombatManager : MonoBehaviour
     {
         playerUnit = player.GetComponent<Unit>();
         enemyUnit = enemy.GetComponent<Unit>();
+        enemyUnit.ReStat();
         enemyUnit.currentHP = enemyUnit.maxHP;
         calculatorScript.enabled = false;
         playerHUD.SetHUD(playerUnit);

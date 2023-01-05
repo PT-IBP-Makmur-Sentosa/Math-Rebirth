@@ -306,6 +306,7 @@ public class PlayerMovement : MonoBehaviour
 
             enemy.GetComponent<Animator>().runtimeAnimatorController = collision.GetComponent<EnemyBehaviour>().m_anim;
             enemy.GetComponent<Unit>().unitLevel = collision.GetComponent<EnemyBehaviour>().level;
+            enemy.GetComponent<Unit>().prevLevel = collision.GetComponent<EnemyBehaviour>().level - 1;
             enemy.GetComponent<Unit>().unitName = collision.tag;
             collidedd = collision.gameObject;
             gameObject.GetComponent<Animator>().SetBool("inCombat", true);
