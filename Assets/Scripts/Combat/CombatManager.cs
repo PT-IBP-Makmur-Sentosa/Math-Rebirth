@@ -400,7 +400,8 @@ public class CombatManager : MonoBehaviour
         {
             //end battle
             skeletonAnimator.Play("death");
-            yield return new WaitForSeconds(2.5f);
+            if(skeletonAnimator.tag == "Boss1" || skeletonAnimator.tag == "Boss2" || skeletonAnimator.tag == "Boss3") yield return new WaitForSeconds(7.0f);
+            else yield return new WaitForSeconds(2.5f);
             state = BattleState.WON;
             EndBattle();
         }
@@ -554,7 +555,8 @@ public class CombatManager : MonoBehaviour
             player.GetComponent<Unit>().Reset(0);
             enemy.GetComponent<Unit>().Reset(0);
         }
-        
+
+        playerMov.collidedd.GetComponent<Animator>().Play("walk");
         playerHUD.SetHUD(playerUnit);
     }
 

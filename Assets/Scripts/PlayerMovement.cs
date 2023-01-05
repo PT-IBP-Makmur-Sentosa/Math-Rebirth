@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera walk_cam;
     [SerializeField] CinemachineVirtualCamera combat_cam;
     [SerializeField] GameObject characterPage;
+    [SerializeField] GameObject skillPage;
     public Animator cm_cam1;
     public GameObject canvas_scroll;
     public GameObject enemy;
@@ -74,13 +75,26 @@ public class PlayerMovement : MonoBehaviour
             GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCharPage = false;
         }
 
-        else if (Input.GetKeyDown(KeyCode.C) && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inMap && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inInventory && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inShop)
+        else if (Input.GetKeyDown(KeyCode.C) && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inMap && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inInventory && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inShop && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inSkillPage)
         {
             characterPage.SetActive(true);
             GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCharPage = true;
         }
 
-        
+        if (GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inSkillPage && Input.GetKeyDown(KeyCode.K))
+        {
+            skillPage.SetActive(false);
+            skillPage.GetComponent<SkillManager>().closeWindow();
+            GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inSkillPage = false;
+        }
+
+        else if (Input.GetKeyDown(KeyCode.K) && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inMap && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inInventory && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inShop && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCharPage)
+        {
+            skillPage.SetActive(true);
+            GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inSkillPage = true;
+        }
+
+
 
         if (glob.GetComponent<GlobalControl>().inCombat || glob.GetComponent<GlobalControl>().inMap)
         {  
@@ -88,6 +102,12 @@ public class PlayerMovement : MonoBehaviour
                 characterPage.GetComponent<StatsManager>().closePage();
                 glob.GetComponent<GlobalControl>().inCharPage = false;
            }
+           else if (glob.GetComponent<GlobalControl>().inSkillPage)
+            {
+                skillPage.SetActive(false);
+                skillPage.GetComponent<SkillManager>().closeWindow();
+                glob.GetComponent<GlobalControl>().inSkillPage = false;
+            }
         }
 
         // print(trigger);
@@ -275,7 +295,7 @@ public class PlayerMovement : MonoBehaviour
             collision.GetComponent<Animator>().Play("idle");
             unityGameObjects.Add(collision.gameObject);
             enemy.tag = collision.tag;
-            if (collision.CompareTag("Bat") || collision.CompareTag("Shade") || collision.CompareTag("TrashCave") || collision.CompareTag("TrashForest") || collision.CompareTag("SlimeForest") || collision.CompareTag("Boss2"))
+            if (collision.CompareTag("Bat") || collision.CompareTag("Shade") || collision.CompareTag("TrashCave") || collision.CompareTag("TrashForest") || collision.CompareTag("SlimeForest") || collision.CompareTag("Boss1") || collision.CompareTag("Boss2"))
             {
                 flipped = true;
             }

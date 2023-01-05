@@ -36,12 +36,12 @@ public class SkillManager : MonoBehaviour
     {
         glob = GameObject.Find("GlobalObject");
         skillDict = glob.GetComponent<GlobalControl>().skillDict;
-        // skill1 = glob.GetComponent<GlobalControl>().skill1;
-        // skill2 = glob.GetComponent<GlobalControl>().skill2;
-        // Trait = glob.GetComponent<GlobalControl>().playerTrait;
-        skill1 = "Default_Skill1";
-        skill2 = "Agi_Skill1";
-        Trait = "Agile Body";
+        skill1 = glob.GetComponent<GlobalControl>().skill1;
+        skill2 = glob.GetComponent<GlobalControl>().skill2;
+        Trait = glob.GetComponent<GlobalControl>().playerTrait;
+        //skill1 = "Default_Skill1";
+        //skill2 = "Agi_Skill1";
+        //Trait = "Agile Body";
 
         skillText.Add("Default_Skill1", new string[] { "Numbers Tomb", "Summon the help of calculator that rushes at nearby enemies and attacks them rapidly." });
 

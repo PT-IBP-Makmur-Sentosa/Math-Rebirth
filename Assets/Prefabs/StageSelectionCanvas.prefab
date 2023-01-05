@@ -258,7 +258,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1280394812818261350}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
-        m_MethodName: map2
+        m_MethodName: stage12
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -661,7 +661,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1280394812818261350}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
-        m_MethodName: map2
+        m_MethodName: stage6
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -795,7 +795,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1280394812818261350}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
-        m_MethodName: map2
+        m_MethodName: stage14
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1021,7 +1021,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1280394812818261350}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
-        m_MethodName: map2
+        m_MethodName: stage4
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1290,7 +1290,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1280394812818261350}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
-        m_MethodName: map2
+        m_MethodName: stage8
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1424,7 +1424,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1280394812818261350}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
-        m_MethodName: map2
+        m_MethodName: stage13
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1827,7 +1827,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1280394812818261350}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
-        m_MethodName: map2
+        m_MethodName: stage9
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2366,7 +2366,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1280394812818261350}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
-        m_MethodName: map2
+        m_MethodName: stage7
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2905,7 +2905,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1280394812818261350}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
-        m_MethodName: map2
+        m_MethodName: stage11
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3174,7 +3174,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1280394812818261350}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
-        m_MethodName: map2
+        m_MethodName: stage10
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3308,7 +3308,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1280394812818261350}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
-        m_MethodName: map2
+        m_MethodName: stage3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3826,7 +3826,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1280394812818261350}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
-        m_MethodName: map2
+        m_MethodName: stage15
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3960,7 +3960,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1280394812818261350}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
-        m_MethodName: map2
+        m_MethodName: stage5
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

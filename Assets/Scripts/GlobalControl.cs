@@ -12,7 +12,7 @@ public class GlobalControl : MonoBehaviour
     public bool inInventory = false;
     public bool inShop = false;
     public bool inCharPage = false;
-    public bool inProgress = false;
+    public bool inSkillPage = false;
     public string skill1 = "Default_Skill1";
     public string skill2 = null;
     public string playerTrait = "Strong Body";
@@ -20,7 +20,7 @@ public class GlobalControl : MonoBehaviour
     public float playerCurrentHP = 0;
     public int playerCurrency = 0;
     int playerLevel = 1;
-    float musicVol = 0.25f;
+    float musicVol = 0.5f;
     float soundVol = 0.5f;
 
     [SerializeField] bool trigger = false;

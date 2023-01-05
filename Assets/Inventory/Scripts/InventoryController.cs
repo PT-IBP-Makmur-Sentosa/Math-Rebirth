@@ -250,7 +250,7 @@ namespace Inventory
 
             if (Input.GetKeyDown(KeyCode.I))
             {
-                if (!glob.GetComponent<GlobalControl>().inCombat && !shopUI.isActiveAndEnabled && !glob.GetComponent<GlobalControl>().inCharPage && !glob.GetComponent<GlobalControl>().inMap)
+                if (!glob.GetComponent<GlobalControl>().inCombat && !shopUI.isActiveAndEnabled && !glob.GetComponent<GlobalControl>().inCharPage && !glob.GetComponent<GlobalControl>().inSkillPage && !glob.GetComponent<GlobalControl>().inMap)
                 {
                     glob.GetComponent<GlobalControl>().inInventory = true;
                     if (inventoryUI.isActiveAndEnabled == false)
@@ -273,7 +273,7 @@ namespace Inventory
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && !glob.GetComponent<GlobalControl>().inCharPage && !glob.GetComponent<GlobalControl>().inSkillPage && !glob.GetComponent<GlobalControl>().inInventory)
             {
                 if (!glob.GetComponent<GlobalControl>().inCombat && inShopArea && !inventoryUI.isActiveAndEnabled)
                 {
