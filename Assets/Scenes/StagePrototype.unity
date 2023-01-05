@@ -1528,6 +1528,7 @@ GameObject:
   - component: {fileID: 658084907}
   - component: {fileID: 658084906}
   - component: {fileID: 658084908}
+  - component: {fileID: 658084909}
   m_Layer: 0
   m_Name: Soul
   m_TagString: Untagged
@@ -1575,8 +1576,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1188103901
   m_SortingLayer: 3
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 1642673403, guid: 5185c168adce7294e84d0290c436d478, type: 3}
   m_Color: {r: 1, g: 0.84846, b: 0.6289308, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1596,7 +1597,7 @@ Transform:
   m_GameObject: {fileID: 658084905}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 21.05, y: -11.63, z: 0}
-  m_LocalScale: {x: 0.43431, y: 0.43431, z: 0.43431}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -1618,6 +1619,26 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!95 &658084909
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658084905}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e741ff44a4bef64e87727b4e22c65c6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &661490211
 GameObject:
   m_ObjectHideFlags: 0
@@ -10576,6 +10597,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8632127650947564625, guid: ebaf13f207d822d4181b74707be5656a, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8632127650947564627, guid: ebaf13f207d822d4181b74707be5656a, type: 3}
       propertyPath: shopUI
       value: 
@@ -10633,6 +10658,10 @@ PrefabInstance:
       value: Player Stage
       objectReference: {fileID: 0}
     - target: {fileID: 8632127650947564637, guid: ebaf13f207d822d4181b74707be5656a, type: 3}
+      propertyPath: clips
+      value: 
+      objectReference: {fileID: 8300000, guid: 89a950e099c92df43bf151f72f7d9aa9, type: 3}
+    - target: {fileID: 8632127650947564637, guid: ebaf13f207d822d4181b74707be5656a, type: 3}
       propertyPath: enemy
       value: 
       objectReference: {fileID: 995746730}
@@ -10660,7 +10689,8 @@ PrefabInstance:
       propertyPath: characterPage
       value: 
       objectReference: {fileID: 1850990444}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8632127650947564626, guid: ebaf13f207d822d4181b74707be5656a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ebaf13f207d822d4181b74707be5656a, type: 3}
 --- !u!1 &9034537395959934588 stripped
 GameObject:
