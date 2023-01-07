@@ -7715,6 +7715,10 @@ PrefabInstance:
       propertyPath: combatManagerScript
       value: 
       objectReference: {fileID: 753033703}
+    - target: {fileID: 6066865888033953777, guid: e884c5e3f262ab241bf462a26d51b06a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ccee253ff083e9e45ac8d4d553de6318, type: 2}
     - target: {fileID: 6066865888219771719, guid: e884c5e3f262ab241bf462a26d51b06a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -7725,6 +7729,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e884c5e3f262ab241bf462a26d51b06a, type: 3}
+--- !u!82 &6066865887383935753 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 995746735, guid: e884c5e3f262ab241bf462a26d51b06a, type: 3}
+  m_PrefabInstance: {fileID: 6066865887383935752}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6066865887383935754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995746730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b69b60e91623f664b8f6be71a78eb2b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: []
+  soundToPlay: -1
+  sfx: {fileID: 6066865887383935753}
 --- !u!1001 &6069501207526206980
 PrefabInstance:
   m_ObjectHideFlags: 0
