@@ -2,6 +2,7 @@ using Inventory.Model;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GlobalControl : MonoBehaviour
@@ -13,6 +14,7 @@ public class GlobalControl : MonoBehaviour
     public bool inShop = false;
     public bool inCharPage = false;
     public bool inSkillPage = false;
+    public bool inOptions = false;
     public string skill1 = "Default_Skill1";
     public string skill2 = null;
     public string playerTrait = "Strong Body";
@@ -20,8 +22,8 @@ public class GlobalControl : MonoBehaviour
     public float playerCurrentHP = 0;
     public int playerCurrency = 0;
     int playerLevel = 1;
-    float musicVol = 0.5f;
-    float soundVol = 0.5f;
+    public float musicVol = 0.5f;
+    public float soundVol = 0.5f;
 
     [SerializeField] bool trigger = false;
     [SerializeField] bool save = false;
@@ -99,8 +101,28 @@ public class GlobalControl : MonoBehaviour
             save = false;
             SaveGame();
         }
-        SetVolume(musicVol);
-        SetSFX(soundVol);
+
+        foreach (AudioSource audios in GameObject.FindObjectsOfType<AudioSource>())
+        {
+            if (audios.tag == "BGM") audios.volume = musicVol * 0.5f;
+        }
+        foreach (GameObject sliders in GameObject.FindGameObjectsWithTag("MusicSlider"))
+        {
+            sliders.GetComponent<Slider>().value = musicVol;
+            sliders.GetComponent<Slider>().onValueChanged.AddListener((value) => { musicVol = value; });
+        }
+
+        foreach (AudioSource audios in GameObject.FindObjectsOfType<AudioSource>())
+        {
+            if (audios.tag != "BGM") audios.volume = soundVol * 0.8f;
+        }
+        foreach (GameObject sliders in GameObject.FindGameObjectsWithTag("SFXSlider"))
+        {
+            sliders.GetComponent<Slider>().value = soundVol;
+            sliders.GetComponent<Slider>().onValueChanged.AddListener((value) => { soundVol = value; });
+        }
+        //SetVolume(musicVol);
+        //SetSFX(soundVol);
     }
 
     public void SetVolume(float vol)
@@ -108,7 +130,12 @@ public class GlobalControl : MonoBehaviour
         musicVol = vol;
         foreach (AudioSource audios in GameObject.FindObjectsOfType<AudioSource>())
         {
-            if (audios.tag == "BGM") audios.volume = musicVol;
+            if (audios.tag == "BGM") audios.volume = musicVol * 0.6f;
+        }
+
+        foreach (GameObject sliders in GameObject.FindGameObjectsWithTag("MusicSlider"))
+        {
+            sliders.GetComponent<Slider>().value = musicVol;
         }
     }
 
@@ -118,6 +145,11 @@ public class GlobalControl : MonoBehaviour
         foreach (AudioSource audios in GameObject.FindObjectsOfType<AudioSource>())
         {
             if (audios.tag != "BGM") audios.volume = soundVol;
+        }
+
+        foreach (GameObject sliders in GameObject.FindGameObjectsWithTag("SFXSlider"))
+        {
+            sliders.GetComponent<Slider>().value = soundVol;
         }
     }
 

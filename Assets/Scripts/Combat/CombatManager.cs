@@ -51,6 +51,7 @@ public class CombatManager : MonoBehaviour
     GameObject glob;
     GlobalControl globc;
 
+    Dictionary<EnemyBehaviour, float> speedHolder;
     Dictionary<string, int> currencyMult = new Dictionary<string, int>();
     Dictionary<string, float[]> skillDict = new Dictionary<string, float[]>();
     Dictionary<string, string[]> skillList = new Dictionary<string, string[]>();
@@ -121,6 +122,14 @@ public class CombatManager : MonoBehaviour
     }
     public void StartCombat()
     {
+        speedHolder = new Dictionary<EnemyBehaviour, float>();
+        foreach (EnemyBehaviour enemies in GameObject.FindObjectsOfType<EnemyBehaviour>())
+        {
+            speedHolder.Add(enemies, enemies.speed);
+            enemies.speed = 0;
+            enemies.startIdle();
+        }
+
         playerUnit = player.GetComponent<Unit>();
         enemyUnit = enemy.GetComponent<Unit>();
         enemyUnit.ReStat();
@@ -261,13 +270,21 @@ public class CombatManager : MonoBehaviour
     }
     IEnumerator PlayerAttack()
     {
-
         yield return new WaitUntil(() => answered == true);
 
         float mathMult;
         float critRoller = Random.Range(0.01f, 100.0f);
         bool isCrit = critRoller <= playerUnit.CRate;
         float CDmg = playerUnit.CDmg;
+
+        Attack.OnPointerExit(null);
+        Defend.OnPointerExit(null);
+        Special1.OnPointerExit(null);
+        Special2.OnPointerExit(null);
+        Attack.interactable = false;
+        Defend.interactable = false;
+        Special1.interactable = false;
+        Special2.interactable = false;
 
         if (isCrit)
         {
@@ -299,7 +316,7 @@ public class CombatManager : MonoBehaviour
             playerAnimator.Play("attack");
             CalculatorAnimator.Play("CalculatorThrow");
             skeletonAnimator.Play("hurt");
-            skeletonAnimator.Play("idle");
+            //skeletonAnimator.Play("idle");
             CalculatorAnimator.Play("CalculatorIdle");
         }
         else if (actionName == "Skill1")
@@ -309,7 +326,7 @@ public class CombatManager : MonoBehaviour
             if(skillDict[globc.skill1][5] == 1.0f)
             {
                 skeletonAnimator.Play("hurt");
-                skeletonAnimator.Play("idle");
+                //skeletonAnimator.Play("idle");
             }
             else if (skillDict[globc.skill1][5] == 2.0f)
             {
@@ -337,7 +354,7 @@ public class CombatManager : MonoBehaviour
             if (skillDict[globc.skill1][5] == 1.0f)
             {
                 skeletonAnimator.Play("hurt");
-                skeletonAnimator.Play("idle");
+                //skeletonAnimator.Play("idle");
             }
             else if (skillDict[globc.skill2][5] == 2.0f)
             {
@@ -384,24 +401,17 @@ public class CombatManager : MonoBehaviour
         calculatorScript.answer_correct = false;
         answered = false;
 
-        // moves.SetActive(false);
-        Attack.OnPointerExit(null);
-        Defend.OnPointerExit(null);
-        Special1.OnPointerExit(null);
-        Special2.OnPointerExit(null);
-        Attack.interactable = false;
-        Defend.interactable = false;
-        Special1.interactable = false;
-        Special2.interactable = false;
         playerHUD.SetHealth(enemyUnit.currentHP);
         playerHUD.SetHUD(playerUnit);
 
         if (isDead)
         {
             //end battle
+            yield return new WaitForSeconds(1.0f);
+            playerHUD.battle_text.text = "You Won the Battle!";
             skeletonAnimator.Play("death");
             if(skeletonAnimator.tag == "Boss1" || skeletonAnimator.tag == "Boss2" || skeletonAnimator.tag == "Boss3") yield return new WaitForSeconds(7.0f);
-            else yield return new WaitForSeconds(2.5f);
+            else yield return new WaitForSeconds(2.8f);
             state = BattleState.WON;
             EndBattle();
         }
@@ -454,10 +464,9 @@ public class CombatManager : MonoBehaviour
         }
         else CDmg = 1.0f;
         
-        isDefend = false;
         skeletonAnimator.Play("attack");
         playerAnimator.Play("hurt");
-        playerHUD.SetHUD(playerUnit);
+        
         yield return new WaitForSeconds(2.0f);
 
         if (isDefend)
@@ -469,31 +478,37 @@ public class CombatManager : MonoBehaviour
             isDead = playerUnit.TakeDamage(enemyUnit.Atk * EnemyMod * CDmg);
         }
 
-        yield return new WaitForSeconds(1.0f);
+        playerHUD.SetHUD(playerUnit);
+        isDefend = false;
 
         if (isDead)
         {
+            yield return new WaitForSeconds(1.0f);
             print("player died");
+            playerHUD.battle_text.text = "You Were Defeated!";
             playerAnimator.Play("death");
-            yield return new WaitForSeconds(2.0f);
+            yield return new WaitForSeconds(3.5f);
             state = BattleState.LOST;
             EndBattle();
         }
         else
         {
-            state = BattleState.PLAYERTURN;
             goDown = false;
             calculatorScript.enabled = false;
             answered = false;
             if (playerUnit.currentStamina > 0)
             {
+                yield return new WaitForSeconds(2.0f);
+                state = BattleState.PLAYERTURN;
                 PlayerTurn();
             }
             else
             {
+                yield return new WaitForSeconds(1.0f);
                 print("player died");
+                playerHUD.battle_text.text = "You Were Defeated!";
                 playerAnimator.Play("death");
-                yield return new WaitForSeconds(2.0f);
+                yield return new WaitForSeconds(3.5f);
                 state = BattleState.LOST;
                 EndBattle();
             }
@@ -561,6 +576,12 @@ public class CombatManager : MonoBehaviour
             playerUnit.ReStat();
             player.GetComponent<Unit>().Reset(0);
             enemy.GetComponent<Unit>().Reset(0);
+        }
+
+        foreach (EnemyBehaviour enemies in GameObject.FindObjectsOfType<EnemyBehaviour>())
+        {
+            enemies.speed = speedHolder[enemies];
+            enemies.startWalk();
         }
 
         playerMov.collidedd.GetComponent<Animator>().Play("walk");

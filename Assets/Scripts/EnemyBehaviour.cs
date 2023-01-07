@@ -92,4 +92,14 @@ public class EnemyBehaviour : MonoBehaviour
             print("B");
         }
     }
+
+    public void startIdle()
+    {
+        GetComponent<Animator>().Play("idle");
+    }
+
+    public void startWalk()
+    {
+        GetComponent<Animator>().Play("walk");
+    }
 }

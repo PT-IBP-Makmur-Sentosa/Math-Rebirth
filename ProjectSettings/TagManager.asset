@@ -28,6 +28,8 @@ TagManager:
   - Boss1
   - Boss2
   - Boss3
+  - SFXSlider
+  - MusicSlider
   layers:
   - Default
   - TransparentFX

@@ -49,6 +49,7 @@ public class Unit : MonoBehaviour
         Debug.Log(dmg);
         playerHUD.battle_text.text = unitName + " got hit and lose " + damageTaken.ToString("0.0") + " HP. Current HP left: " + currentHP.ToString("0.0");
         Debug.Log(unitName + " got hit and lose " + damageTaken + " HP. Current HP left: " + currentHP);
+
         if (currentHP <= 0)
         {
             return true;
@@ -521,5 +522,10 @@ public class Unit : MonoBehaviour
 
         currentHP = maxHP;
         prevLevel = unitLevel;
+    }
+
+    IEnumerator Coroutine(float time)
+    {
+        yield return new WaitForSecondsRealtime(time);
     }
 }

@@ -111,13 +111,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // print(trigger);
-        if (!GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inMap && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inInventory && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inShop && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCharPage)
+        if (!GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inMap && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inInventory && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inShop && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCharPage && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inSkillPage && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inOptions)
         {
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
             if (Input.GetKeyDown("w") && grounded)
             {
                 gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpPower), ForceMode2D.Force);
             }
+
             if(isRising)
             {
                 gameObject.GetComponent<Animator>().Play("Jump");
@@ -144,15 +145,17 @@ public class PlayerMovement : MonoBehaviour
                     fallingKey = true;
                 }
             }
-            else if(horizontalMove == 0 && grounded)
+
+            if(horizontalMove == 0 && grounded)
             {
-                //gameObject.GetComponent<Animator>().Play("idle");
+                gameObject.GetComponent<Animator>().Play("idle");
                 gameObject.GetComponent<Animator>().SetBool("isMoving", false);
                 fallingKey = false;
             }
             else if(horizontalMove != 0 && grounded)
             {
                 // gameObject.GetComponent<Animator>().SetFloat("velocity", Mathf.Abs(horizontalMove));
+                gameObject.GetComponent<Animator>().Play("Run");
                 gameObject.GetComponent<Animator>().SetBool("isMoving", true);
             }
             

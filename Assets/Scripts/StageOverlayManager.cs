@@ -11,7 +11,9 @@ public class StageOverlayManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI Stages;
     [SerializeField] Unit playerUnit;
     [SerializeField] GameObject child;
+    [SerializeField] GameObject childPrompt;
 
+    Dictionary<EnemyBehaviour, float> speedHolder;
     Dictionary<string, string> stageDict = new Dictionary<string, string>();
 
     GameObject glob;
@@ -61,6 +63,31 @@ public class StageOverlayManager : MonoBehaviour
     
     public void openMenu()
     {
+        globc.SaveGame();
+        SceneManager.LoadScene("Mainmenu", LoadSceneMode.Single);
+    }
 
+    public void openPrompt()
+    {
+        childPrompt.SetActive(true);
+        globc.inOptions = true;
+        speedHolder = new Dictionary<EnemyBehaviour, float>();
+        foreach (EnemyBehaviour enemies in GameObject.FindObjectsOfType<EnemyBehaviour>())
+        {
+            speedHolder.Add(enemies, enemies.speed);
+            enemies.speed = 0;
+            enemies.startIdle();
+        }
+    }
+
+    public void closePrompt()
+    {
+        childPrompt.SetActive(false);
+        globc.inOptions = false;
+        foreach (EnemyBehaviour enemies in GameObject.FindObjectsOfType<EnemyBehaviour>())
+        {
+            enemies.speed = speedHolder[enemies];
+            enemies.startWalk();
+        }
     }
 }

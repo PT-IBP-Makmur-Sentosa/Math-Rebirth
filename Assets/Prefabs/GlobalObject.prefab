@@ -49,12 +49,15 @@ MonoBehaviour:
   inInventory: 0
   inShop: 0
   inCharPage: 0
-  inProgress: 0
+  inSkillPage: 0
+  inOptions: 0
   skill1: Default_Skill1
   skill2: 
   playerTrait: Strong Body
   playerCurrentHP: 0
   playerCurrency: 0
+  musicVol: 0.5
+  soundVol: 0.5
   trigger: 0
   save: 0
   InventSO: {fileID: 11400000, guid: 27464683a12a3e54ba4a6b11f7303671, type: 2}
