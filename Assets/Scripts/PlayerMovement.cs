@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpPower = 400f;
     float horizontalMove = 0f;
     private bool fallingKey;
+    public ParticleSystem runpart;
 
     private bool trigger = false;
     //public GameObject CombatScene;
@@ -156,6 +157,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 // gameObject.GetComponent<Animator>().SetFloat("velocity", Mathf.Abs(horizontalMove));
                 gameObject.GetComponent<Animator>().Play("Run");
+                runpart.Play();
                 gameObject.GetComponent<Animator>().SetBool("isMoving", true);
             }
             
