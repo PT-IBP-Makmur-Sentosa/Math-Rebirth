@@ -397,9 +397,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cec80440a08f8d4ca4a580eb5e6a202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1
+  leftRange: 4
+  rightRange: 0
   level: 1
+  m_anim: {fileID: 0}
   levelMin: 1
   levelMax: 1
+  spot: {fileID: 0}
+  infoText: {fileID: 0}
+  level_txt: {fileID: 0}
 --- !u!61 &129300277
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -496,9 +503,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cec80440a08f8d4ca4a580eb5e6a202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1
+  leftRange: 4
+  rightRange: 0
   level: 2
+  m_anim: {fileID: 0}
   levelMin: 1
   levelMax: 1
+  spot: {fileID: 0}
+  infoText: {fileID: 0}
+  level_txt: {fileID: 0}
 --- !u!95 &252825121
 Animator:
   serializedVersion: 4
@@ -1201,6 +1215,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageSelectionCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1280394812818261277, guid: 348246761724e5440baacb55a140ba2f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 348246761724e5440baacb55a140ba2f, type: 3}
 --- !u!1 &747133440
@@ -1771,9 +1789,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cec80440a08f8d4ca4a580eb5e6a202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1
+  leftRange: 4
+  rightRange: 0
   level: 1
+  m_anim: {fileID: 0}
   levelMin: 1
   levelMax: 1
+  spot: {fileID: 0}
+  infoText: {fileID: 0}
+  level_txt: {fileID: 0}
 --- !u!95 &1265160564
 Animator:
   serializedVersion: 4
@@ -2674,9 +2699,15 @@ MonoBehaviour:
   inInventory: 0
   inShop: 0
   inCharPage: 0
-  inProgress: 0
+  inSkillPage: 0
+  inOptions: 0
+  skill1: Default_Skill1
+  skill2: 
+  playerTrait: Strong Body
   playerCurrentHP: 0
   playerCurrency: 0
+  musicVol: 0.5
+  soundVol: 0.5
   trigger: 0
   save: 0
   InventSO: {fileID: 11400000, guid: 27464683a12a3e54ba4a6b11f7303671, type: 2}
