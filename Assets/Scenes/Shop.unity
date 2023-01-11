@@ -530,11 +530,14 @@ MonoBehaviour:
   inShop: 0
   inCharPage: 0
   inSkillPage: 0
+  inOptions: 0
   skill1: Default_Skill1
   skill2: 
   playerTrait: Strong Body
   playerCurrentHP: 0
   playerCurrency: 0
+  musicVol: 0.5
+  soundVol: 0.5
   trigger: 0
   save: 0
   InventSO: {fileID: 11400000, guid: 27464683a12a3e54ba4a6b11f7303671, type: 2}
@@ -1531,6 +1534,18 @@ PrefabInstance:
       value: Player Stage
       objectReference: {fileID: 0}
     - target: {fileID: 8632127650947564637, guid: ebaf13f207d822d4181b74707be5656a, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 1845109734}
+    - target: {fileID: 8632127650947564637, guid: ebaf13f207d822d4181b74707be5656a, type: 3}
+      propertyPath: cm_cam1
+      value: 
+      objectReference: {fileID: 783409962}
+    - target: {fileID: 8632127650947564637, guid: ebaf13f207d822d4181b74707be5656a, type: 3}
+      propertyPath: walk_cam
+      value: 
+      objectReference: {fileID: 783409960}
+    - target: {fileID: 8632127650947564637, guid: ebaf13f207d822d4181b74707be5656a, type: 3}
       propertyPath: skillPage
       value: 
       objectReference: {fileID: 808219463}
@@ -1936,9 +1951,11 @@ GameObject:
   - component: {fileID: 1617229702}
   - component: {fileID: 1617229701}
   - component: {fileID: 1617229703}
+  - component: {fileID: 1617229705}
+  - component: {fileID: 1617229704}
   m_Layer: 0
   m_Name: Purple
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1996,8 +2013,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -8381247
-  m_SortingLayer: 0
+  m_SortingLayerID: -652595261
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -2763,10 +2780,79 @@ TilemapCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!66 &1617229704
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617229699}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 1
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1617229703}
+    m_ColliderPaths:
+    - - X: 80000000
+        Y: 80000000
+      - X: -120000000
+        Y: 80000000
+      - X: -120000000
+        Y: -50000000
+      - X: 80000000
+        Y: -50000000
+    - - X: -110000000
+        Y: -40000000
+      - X: -110000000
+        Y: 70000000
+      - X: 70000000
+        Y: 70000000
+      - X: 70000000
+        Y: -40000000
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 7.9999704, y: -5}
+      - {x: 7.9999704, y: 8}
+      - {x: -12, y: 7.9999704}
+      - {x: -11.99997, y: -5}
+    - - {x: 7, y: -3.9999704}
+      - {x: -11, y: -3.9999704}
+      - {x: -10.99997, y: 7}
+      - {x: 7, y: 6.9999704}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+--- !u!50 &1617229705
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617229699}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1641750834
 GameObject:
   m_ObjectHideFlags: 0
@@ -2997,6 +3083,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1845109734 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1478232096667702659, guid: e884c5e3f262ab241bf462a26d51b06a, type: 3}
+  m_PrefabInstance: {fileID: 169370972}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1864531934
 GameObject:
   m_ObjectHideFlags: 0
@@ -3179,11 +3270,14 @@ MonoBehaviour:
   inShop: 0
   inCharPage: 0
   inSkillPage: 0
+  inOptions: 0
   skill1: Default_Skill1
   skill2: 
   playerTrait: Strong Body
   playerCurrentHP: 0
   playerCurrency: 0
+  musicVol: 0.5
+  soundVol: 0.5
   trigger: 0
   save: 0
   InventSO: {fileID: 0}
@@ -3476,7 +3570,7 @@ GameObject:
   - component: {fileID: 6950882021111954226}
   m_Layer: 15
   m_Name: Confiner
-  m_TagString: Untagged
+  m_TagString: Confiner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
