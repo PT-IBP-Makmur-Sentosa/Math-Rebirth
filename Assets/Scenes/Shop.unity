@@ -399,7 +399,7 @@ PrefabInstance:
     - target: {fileID: 1202045673, guid: 99c50650c8dac10438ae6007acc8c12e, type: 3}
       propertyPath: playerUnit
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 169370974}
     - target: {fileID: 4414544927559823687, guid: 99c50650c8dac10438ae6007acc8c12e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -683,6 +683,10 @@ PrefabInstance:
     - target: {fileID: 1280394812818261277, guid: 348246761724e5440baacb55a140ba2f, type: 3}
       propertyPath: m_Name
       value: StageSelectionCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280394812818261277, guid: 348246761724e5440baacb55a140ba2f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 348246761724e5440baacb55a140ba2f, type: 3}
@@ -1093,7 +1097,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1188103901
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 176715312, guid: 06317004f57f047abb5dfee2882f1896, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1

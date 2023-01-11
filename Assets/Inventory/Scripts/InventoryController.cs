@@ -19,7 +19,7 @@ namespace Inventory
         public List<InventoryItem> initialItems = new List<InventoryItem>();
 
         [SerializeField]
-        private AudioClip dropClip;
+        private AudioClip [] Clips;
 
         [SerializeField]
         private AudioSource audioSource;
@@ -144,7 +144,7 @@ namespace Inventory
                 InventoryItem tempInventoryItem = new InventoryItem
                 {
                     item = inventoryItem.item,
-                    quantity = 1,
+                    quantity = inventoryItem.quantity,
                 };
                 shopUI.AddAction("Buy", () => BuyItem(tempInventoryItem));
             }
@@ -154,14 +154,26 @@ namespace Inventory
         {
             inventoryData.RemoveItem(itemIndex, quantity);
             inventoryUI.ResetSelection();
-            audioSource.PlayOneShot(dropClip);
+            audioSource.PlayOneShot(Clips[0]);
         }
 
         private void BuyItem(InventoryItem inventoryItem)
         {
-            inventoryData.AddItem(inventoryItem);
+            GlobalControl glob = GameObject.Find("GlobalObject").GetComponent<GlobalControl>();
+            if (glob.playerCurrency >= inventoryItem.quantity)
+            {
+                glob.playerCurrency -= inventoryItem.quantity;
+                InventoryItem tempInventoryItem = new InventoryItem
+                {
+                    item = inventoryItem.item,
+                    quantity = 1,
+                };
+                inventoryData.AddItem(tempInventoryItem);
+                audioSource.PlayOneShot(Clips[1]);
+            }
+            
             shopUI.ResetSelection();
-            audioSource.PlayOneShot(dropClip);
+            
         }
         public void PerformAction(int itemIndex)
         {
@@ -178,7 +190,7 @@ namespace Inventory
             if (itemAction != null)
             {
                 itemAction.PerformAction(gameObject, inventoryItem.itemState);
-                audioSource.PlayOneShot(itemAction.actionSFX);
+                audioSource.PlayOneShot(Clips[2]);
                 if (inventoryData.GetItemAt(itemIndex).IsEmpty)
                     inventoryUI.ResetSelection();
             }
