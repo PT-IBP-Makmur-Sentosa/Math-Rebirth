@@ -19,7 +19,8 @@ public class FollowTarget : MonoBehaviour
     }
     void Update()
     {
-        transform.position = new Vector3(objectToFollow.position.x + offsetX, objectToFollow.position.y + offsetY, transform.position.z);
+        transform.position = new Vector3(objectToFollow.position.x + offsetX, objectToFollow.position.y + offsetY, -2.2f);
+        transform.localRotation = objectToFollow.rotation;
     }
     /// <summary>
     /// OnCollisionEnter is called when this collider/rigidbody has begun
