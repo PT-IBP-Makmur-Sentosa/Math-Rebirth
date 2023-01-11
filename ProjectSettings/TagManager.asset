@@ -30,6 +30,7 @@ TagManager:
   - Boss3
   - SFXSlider
   - MusicSlider
+  - Checkpoints
   layers:
   - Default
   - TransparentFX

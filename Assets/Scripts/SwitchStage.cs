@@ -45,6 +45,7 @@ public class SwitchStage : MonoBehaviour
         if (coll.CompareTag("Player"))
         {
             glob.GetComponent<GlobalControl>().inMap = true;
+            glob.GetComponent<GlobalControl>().SaveGame();
             print("col_true");
             istrigger = true;
         }

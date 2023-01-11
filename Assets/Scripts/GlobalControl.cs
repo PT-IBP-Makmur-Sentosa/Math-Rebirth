@@ -60,31 +60,31 @@ public class GlobalControl : MonoBehaviour
         skillDict.Add("Default_Skill1", mult);
 
 
-        mult = new float[6] { 1.0f, 1.1f, 1.2f, 1.0f, 2.0f, 1.0f };
+        mult = new float[6] { 1.0f, 1.1f, 1.3f, 1.0f, 2.0f, 1.0f };
         skillDict.Add("Str_Skill1", mult);
-        mult = new float[6] { 1.0f, 1.2f, 1.3f, 1.0f, 2.0f, 1.0f };
+        mult = new float[6] { 1.0f, 1.3f, 1.5f, 1.0f, 2.0f, 1.0f };
         skillDict.Add("Str_Skill2", mult);
-        mult = new float[6] { 1.0f, 1.3f, 1.4f, 1.0f, 2.0f, 1.0f };
+        mult = new float[6] { 1.0f, 1.4f, 1.8f, 1.0f, 2.0f, 1.0f };
         skillDict.Add("Str_Skill3", mult);
-        mult = new float[6] { 1.0f, 1.4f, 1.8f, 1.0f, 3.0f, 1.0f };
+        mult = new float[6] { 1.0f, 1.8f, 2.5f, 1.0f, 3.0f, 1.0f };
         skillDict.Add("Str_Skill4", mult);
 
-        mult = new float[6] { 1.0f, 1.1f, 1.2f, 1.0f, 2.0f, 1.0f };
+        mult = new float[6] { 1.0f, 1.2f, 1.4f, 1.0f, 2.0f, 1.0f };
         skillDict.Add("Agi_Skill1", mult);
-        mult = new float[6] { 1.0f, 1.2f, 1.3f, 1.0f, 2.0f, 1.0f };
+        mult = new float[6] { 1.0f, 1.5f, 1.8f, 1.0f, 2.0f, 1.0f };
         skillDict.Add("Agi_Skill2", mult);
         mult = new float[6] { 0.0f, 0.0f, 0.0f, 1.0f, 2.0f, 3.0f };
         skillDict.Add("Agi_Skill3", mult);
-        mult = new float[6] { 1.0f, 1.4f, 1.8f, 1.0f, 3.0f, 1.0f };
+        mult = new float[6] { 1.0f, 1.8f, 2.2f, 1.0f, 3.0f, 1.0f };
         skillDict.Add("Agi_Skill4", mult);
 
-        mult = new float[6] { 1.0f, 1.1f, 1.2f, 1.0f, 2.0f, 1.0f };
+        mult = new float[6] { 1.0f, 1.2f, 1.4f, 1.0f, 2.0f, 1.0f };
         skillDict.Add("Int_Skill1", mult);
-        mult = new float[6] { 1.0f, 1.2f, 1.3f, 1.0f, 2.0f, 1.0f };
+        mult = new float[6] { 1.0f, 1.6f, 2.0f, 1.0f, 2.0f, 1.0f };
         skillDict.Add("Int_Skill2", mult);
         mult = new float[6] { 0.0f, 0.0f, 0.0f, 1.0f, 2.0f, 2.0f };
         skillDict.Add("Int_Skill3", mult);
-        mult = new float[6] { 1.0f, 1.4f, 1.8f, 1.0f, 3.0f, 1.0f };
+        mult = new float[6] { 1.0f, 2.0f, 2.4f, 1.0f, 3.0f, 1.0f };
         skillDict.Add("Int_Skill4", mult);
     }
 

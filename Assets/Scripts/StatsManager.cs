@@ -94,11 +94,20 @@ public class StatsManager : MonoBehaviour
         int levelUpCost = (int)cost;
         if (glob.playerCurrency >= levelUpCost)
         {
-            LevelUpResultText.text = "Player Level Up!";
-            LevelUpResult.SetActive(true);
-            glob.playerCurrency -= levelUpCost;
-            StartCoroutine(Coroutine());
-            levelUp();
+            if(playerUnit.unitLevel >= 100)
+            {
+                LevelUpResultText.text = "Player Already Reached Max Level!";
+                LevelUpResult.SetActive(true);
+                StartCoroutine(Coroutine());
+            }
+            else
+            {
+                LevelUpResultText.text = "Player Level Up!";
+                LevelUpResult.SetActive(true);
+                glob.playerCurrency -= levelUpCost;
+                StartCoroutine(Coroutine());
+                levelUp();
+            }
         }
         else
         {
