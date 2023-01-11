@@ -291,6 +291,8 @@ public class CombatManager : MonoBehaviour
         Special1.interactable = false;
         Special2.interactable = false;
         flag = 0;
+        enemy.GetComponent<SpriteRenderer>().sortingOrder = 0;
+        player.GetComponent<SpriteRenderer>().sortingOrder = 1;
 
         if (isCrit && (skillDict[globc.skill1][5] == 1.0f && actionName == "Skill1" || skillDict[globc.skill2][5] == 1.0f && actionName == "Skill2" || actionName == "Attack"))
         {
@@ -485,7 +487,8 @@ public class CombatManager : MonoBehaviour
         float CDmg = enemyUnit.CDmg;
 
         playerHUD.battle_text.text = enemyUnit.tag + " attacks!";
-
+        enemy.GetComponent<SpriteRenderer>().sortingOrder = 1;
+        player.GetComponent<SpriteRenderer>().sortingOrder = 0;
         if (isCrit)
         {
             bool redCrit = enemyUnit.CRate > 100.0f;
