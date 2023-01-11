@@ -7800,6 +7800,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClip:
   - {fileID: 8300000, guid: be9218690a5a5c747bd5df47a480abba, type: 3}
+  - {fileID: 8300000, guid: 323e15cfe809e114ab92c9f4b25e8bc2, type: 3}
+  - {fileID: 8300000, guid: 56703418e3aed4c47a5f6622816b8e41, type: 3}
+  - {fileID: 8300000, guid: fd25a15f9797641458336cccfb445343, type: 3}
+  - {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
+  - {fileID: 8300000, guid: 88b1cbe3caa3fee4b8b103b5edd7aba9, type: 3}
+  - {fileID: 8300000, guid: 9e2c484e4a089c742badca433f7037ef, type: 3}
+  - {fileID: 8300000, guid: c89d50fe4164a8642bf20f9d4077e95f, type: 3}
+  - {fileID: 8300000, guid: ac0968943c5fcae4a9aa473953224875, type: 3}
+  - {fileID: 8300000, guid: 19d6f6dac562b8e46be5ff6ede77b0d5, type: 3}
+  - {fileID: 8300000, guid: 70a847f8faa54ef47883077a292e9d33, type: 3}
+  - {fileID: 8300000, guid: 8997b45da7ac3844aade26ae8b7de86e, type: 3}
+  - {fileID: 8300000, guid: 8b23b175a78d6b5458322e3a6c9905d0, type: 3}
   soundToPlay: -1
   sfx: {fileID: 6066865887383935753}
 --- !u!1001 &6069501207526206980
