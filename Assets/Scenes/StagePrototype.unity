@@ -7739,10 +7739,14 @@ PrefabInstance:
       propertyPath: combatManagerScript
       value: 
       objectReference: {fileID: 753033703}
+    - target: {fileID: 1478232096667702657, guid: e884c5e3f262ab241bf462a26d51b06a, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6066865888033953777, guid: e884c5e3f262ab241bf462a26d51b06a, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: ccee253ff083e9e45ac8d4d553de6318, type: 2}
+      objectReference: {fileID: 9100000, guid: 0664a20731c694c7cba7952eb9609880, type: 2}
     - target: {fileID: 6066865888219771719, guid: e884c5e3f262ab241bf462a26d51b06a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
