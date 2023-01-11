@@ -866,16 +866,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '+  ->  Plus
-
-    -  ->  Minus
-
-    :  ->  Divide
-
-    x  ->  Times
-
-    % 
-    ->  Modulus'
+  m_text: "+\t->  Plus\n-\t->  Minus\n:\t->  Divide\nx\t->  Times\n%\t->  Modulus"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -5734,7 +5725,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -275, y: -26}
+  m_AnchoredPosition: {x: -275, y: -70.34}
   m_SizeDelta: {x: 250, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1831493320
@@ -5757,8 +5748,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "WASD \t - Movement\nMouse \t - Inventory\nMouse \t - Setting\nKeyboard 
-    - Answer"
+  m_text: "WASD\t\t- Movement\nMouse\t\t- Inventory\nMouse\t\t- Settings\nKeyboard\t-
+    Answer\nKey I\t\t- Inventory\nKey C\t\t- Character Page\nKey K\t\t- Skill Page"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
