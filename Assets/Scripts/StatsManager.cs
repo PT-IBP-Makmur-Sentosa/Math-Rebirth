@@ -64,7 +64,7 @@ public class StatsManager : MonoBehaviour
         Agi.text = playerUnit.Agi.ToString();
         Int.text = playerUnit.Int.ToString();
 
-        Atk.text = playerUnit.Atk.ToString();
+        Atk.text = playerUnit.Atk.ToString("0.0");
         Def.text = playerUnit.Def.ToString();
         MaxHP.text = playerUnit.currentHP.ToString("0.0") + " / " + playerUnit.maxHP.ToString("0.0");
         Crit.text = playerUnit.CRate.ToString("0.00") + "%" + "\n" + (playerUnit.CDmg * 100.0f).ToString("0.0") + "%";

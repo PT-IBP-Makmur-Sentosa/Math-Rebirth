@@ -23,9 +23,16 @@ public class EnemyBehaviour : MonoBehaviour
     public GameObject spot;
     public GameObject infoText;
     public TMP_Text level_txt;
+
+    GameObject glob;
+    GlobalControl globc;
+
     // Start is called before the first frame update
     void Start()
     {
+        glob = GameObject.Find("GlobalObject");
+        globc = glob.GetComponent<GlobalControl>();
+
         startingX = gameObject.transform.position.x;
         level = UnityEngine.Random.Range(levelMin, levelMax);
         move = new Vector2(0, 0);
@@ -35,6 +42,18 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(tag == "Boss1" && globc.stageList[4] == 1)
+        {
+            gameObject.SetActive(false);
+        }
+        if(tag == "Boss2" && globc.stageList[9] == 1)
+        {
+            gameObject.SetActive(false);
+        }
+        if(tag == "Boss3" && globc.stageList[14] == 1)
+        {
+            gameObject.SetActive(false);
+        }
         if (face == -1)
         {
             Quaternion rot = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
@@ -45,6 +64,7 @@ public class EnemyBehaviour : MonoBehaviour
             Quaternion rot = new Quaternion(0.0f, 180.0f, 0.0f, 0.0f);
             transform.rotation = rot;
         }
+
     }
 
     private void FixedUpdate()
