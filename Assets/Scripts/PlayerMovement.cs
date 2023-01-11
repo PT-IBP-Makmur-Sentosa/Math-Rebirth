@@ -196,7 +196,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (hit.collider != null)
                 {
-                    if (hit.collider.tag != "Player" && hit.collider.tag != "Confiner")
+                    if (hit.collider.tag != "Player" && hit.collider.tag != "Confiner" && hit.collider.tag != "Shop" && hit.collider.tag != "Checkpoints" && hit.collider.tag != "Finish")
                     {
                         return true;
                     }

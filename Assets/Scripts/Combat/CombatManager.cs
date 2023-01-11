@@ -41,12 +41,14 @@ public class CombatManager : MonoBehaviour
     public BattleState state;
     public int dead = 0;
     public int soulCurrency = 0;
+    public int roundCounter = 0;
     bool isDead, isDefend = false;
     float actionMultiplier = 1.0f;
     float actionHit = 1.0f;
     string actionName = "Attack";
     int buffTurns = 0;
     int debuffTurns = 0;
+    int flag = 0;
 
     GameObject glob;
     GlobalControl globc;
@@ -101,7 +103,7 @@ public class CombatManager : MonoBehaviour
         currencyMult.Add("Zombie", 10);
         currencyMult.Add("Shade", 12);
         currencyMult.Add("TrashCave", 14);
-        currencyMult.Add("Boss1", 30);
+        currencyMult.Add("Boss1", 90);
 
         // Area 2
         currencyMult.Add("SlimeForest", 8);
@@ -109,7 +111,7 @@ public class CombatManager : MonoBehaviour
         currencyMult.Add("Tooth", 10);
         currencyMult.Add("Goblin", 12);
         currencyMult.Add("TrashForest", 14);
-        currencyMult.Add("Boss2", 40);
+        currencyMult.Add("Boss2", 120);
 
         // Area 3
         currencyMult.Add("Eyeball", 8);
@@ -117,11 +119,12 @@ public class CombatManager : MonoBehaviour
         currencyMult.Add("Fireworm", 10);
         currencyMult.Add("Imp", 12);
         currencyMult.Add("Demon", 14);
-        currencyMult.Add("Boss3", 50);
+        currencyMult.Add("Boss3", 150);
 
     }
     public void StartCombat()
     {
+        roundCounter = 0;
         speedHolder = new Dictionary<EnemyBehaviour, float>();
         foreach (EnemyBehaviour enemies in GameObject.FindObjectsOfType<EnemyBehaviour>())
         {
@@ -154,6 +157,8 @@ public class CombatManager : MonoBehaviour
     }
     void PlayerTurn()
     {
+        playerHUD.battle_text.color = Color.white;
+        roundCounter += 1;
         print("Player Turn");
         playerHUD.battle_text.text = "Player Turn";
         // moves.SetActive(true);
@@ -285,8 +290,9 @@ public class CombatManager : MonoBehaviour
         Defend.interactable = false;
         Special1.interactable = false;
         Special2.interactable = false;
+        flag = 0;
 
-        if (isCrit)
+        if (isCrit && (skillDict[globc.skill1][5] == 1.0f && actionName == "Skill1" || skillDict[globc.skill2][5] == 1.0f && actionName == "Skill2" || actionName == "Attack"))
         {
             bool redCrit = playerUnit.CRate > 100.0f;
             float redCritRoller = Random.Range(0.01f, 100.0f);
@@ -300,11 +306,13 @@ public class CombatManager : MonoBehaviour
             {
                 print("Red Critical Damage! Rate Rolled: " + redCritRoller);
                 CDmg = playerUnit.CDmg * 1.5f;
+                flag = 2;
             }
             else if (!redCrit)
             {
                 print("Critical Damage! Rate Rolled: " + critRoller);
                 CDmg = playerUnit.CDmg;
+                flag = 1;
             }
         }
         else CDmg = 1.0f;
@@ -331,14 +339,28 @@ public class CombatManager : MonoBehaviour
             else if (skillDict[globc.skill1][5] == 2.0f)
             {
                 playerUnit.currentHP = playerUnit.maxHP;
-                playerUnit.Def *= 1.6f;
+                if (calculatorScript.answer_correct && calculatorScript.onTime)
+                {
+                    playerUnit.Def *= 1.0f + 0.7f * (0.1f + calculatorScript.currentTime / calculatorScript.maxTime);
+                }
+                else playerUnit.Def *= 1.0f + 0.7f * 0.2f;
+                playerHUD.battle_text.text = playerUnit.tag + " got buffed! Fully healed and defense increased to " + playerUnit.Def.ToString("0");
                 playerHUD.SetHUD(playerUnit);
                 buffTurns = 1;
-
             }
             else if (skillDict[globc.skill1][5] == 3.0f)
             {
-                enemyUnit.Def *= 0.7f;
+                if (calculatorScript.answer_correct && calculatorScript.onTime)
+                {
+                    enemyUnit.Def *= 1.0f - 0.8f * (0.1f + calculatorScript.currentTime / calculatorScript.maxTime);
+                    enemyUnit.Atk *= 1.0f - 0.2f * (0.1f + calculatorScript.currentTime / calculatorScript.maxTime);
+                }
+                else
+                {
+                    enemyUnit.Def *= 1.0f - 0.8f * 0.2f;
+                    enemyUnit.Atk *= 1.0f - 0.2f * 0.2f;
+                }
+                playerHUD.battle_text.text = enemyUnit.tag + " got debuffed! Defense decreased to " + enemyUnit.Def.ToString("0") + " and Attack decreased to " + enemyUnit.Atk.ToString("0");
                 debuffTurns = 1;
             }
 
@@ -351,19 +373,22 @@ public class CombatManager : MonoBehaviour
         {
             playerAnimator.Play(skillList[globc.skill2][0]);
             CalculatorAnimator.Play(skillList[globc.skill2][1]);
-            if (skillDict[globc.skill1][5] == 1.0f)
+            if (skillDict[globc.skill2][5] == 1.0f)
             {
                 skeletonAnimator.Play("hurt");
+                print("nope");
                 //skeletonAnimator.Play("idle");
             }
             else if (skillDict[globc.skill2][5] == 2.0f)
             {
+                print("CCCCCC");
                 playerUnit.currentHP = playerUnit.maxHP;
                 if (calculatorScript.answer_correct && calculatorScript.onTime)
                 {
-                    playerUnit.Def *= 1.0f + 0.6f * (0.1f + calculatorScript.currentTime / calculatorScript.maxTime);
+                    playerUnit.Def *= 1.0f + 0.7f * (0.1f + calculatorScript.currentTime / calculatorScript.maxTime);
                 }
-                else playerUnit.Def *= 1.0f + 0.6f * 0.2f;
+                else playerUnit.Def *= 1.0f + 0.7f * 0.2f;
+                playerHUD.battle_text.text = playerUnit.tag + " got buffed! Fully healed and defense increased to " + playerUnit.Def.ToString("0");
                 playerHUD.SetHUD(playerUnit);
                 buffTurns = 1;
             }
@@ -371,9 +396,15 @@ public class CombatManager : MonoBehaviour
             {
                 if (calculatorScript.answer_correct && calculatorScript.onTime)
                 {
-                    enemyUnit.Def *= 1.0f - 0.3f * (0.1f + calculatorScript.currentTime / calculatorScript.maxTime);
+                    enemyUnit.Def *= 1.0f - 0.8f * (0.1f + calculatorScript.currentTime / calculatorScript.maxTime);
+                    enemyUnit.Atk *= 1.0f - 0.2f * (0.1f + calculatorScript.currentTime / calculatorScript.maxTime);
                 }
-                else enemyUnit.Def *= 1.0f - 0.3f * 0.2f;
+                else
+                {
+                    enemyUnit.Def *= 1.0f - 0.8f * 0.2f;
+                    enemyUnit.Atk *= 1.0f - 0.2f * 0.2f;
+                }
+                playerHUD.battle_text.text = enemyUnit.tag + " got debuffed! Defense decreased to " + enemyUnit.Def.ToString("0") + " and Attack decreased to " + enemyUnit.Atk.ToString("0");
                 debuffTurns = 1;
             }
             if (skillDict[globc.skill2][3] > 0)
@@ -385,15 +416,25 @@ public class CombatManager : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         if (calculatorScript.answer_correct == true && calculatorScript.onTime == true)
         {
-            mathMult = 1.0f + ((1.0f + playerUnit.ExtraMult) * (0.1f + calculatorScript.currentTime / calculatorScript.maxTime));
+            mathMult = 1.0f + ((1.0f + playerUnit.ExtraMult) * (0.12f + calculatorScript.currentTime / calculatorScript.maxTime));
 
-            isDead = enemyUnit.TakeDamage(playerUnit.Atk * mathMult * actionMultiplier * actionHit * CDmg);
+            if (skillDict[globc.skill1][5] == 1.0f && actionName == "Skill1" || skillDict[globc.skill2][5] == 1.0f && actionName == "Skill2" || actionName == "Attack")
+            {
+                isDead = enemyUnit.TakeDamage(playerUnit.Atk * mathMult * actionMultiplier * actionHit * CDmg, flag);
+            }
+            else isDead = false;
+                
             print("Attack is succesful");
         }
         else if (calculatorScript.answer_correct == false || calculatorScript.onTime == false)
         {
             mathMult = 0.5f;
-            isDead = enemyUnit.TakeDamage(playerUnit.Atk * mathMult * actionMultiplier * actionHit * CDmg);
+            if (skillDict[globc.skill1][5] == 1.0f && actionName == "Skill1" || skillDict[globc.skill2][5] == 1.0f && actionName == "Skill2" || actionName == "Attack")
+            {
+                isDead = enemyUnit.TakeDamage(playerUnit.Atk * mathMult * actionMultiplier * actionHit * CDmg, flag);
+            }
+            else isDead = false;
+
             print("Attack not successful");
             goDown = false;
         }
@@ -408,6 +449,7 @@ public class CombatManager : MonoBehaviour
         {
             //end battle
             yield return new WaitForSeconds(1.0f);
+            playerHUD.battle_text.color = Color.white;
             playerHUD.battle_text.text = "You Won the Battle!";
             skeletonAnimator.Play("death");
             if(skeletonAnimator.tag == "Boss1" || skeletonAnimator.tag == "Boss2" || skeletonAnimator.tag == "Boss3") yield return new WaitForSeconds(7.0f);
@@ -426,6 +468,7 @@ public class CombatManager : MonoBehaviour
     }
     IEnumerator EnemyTurn()
     {
+        playerHUD.battle_text.color = Color.white;
         playerHUD.battle_text.text = enemyUnit.tag + " Turn";
         print(enemyUnit.tag + " attacks!");
         calculatorScript.Question.SetActive(false);
@@ -433,13 +476,15 @@ public class CombatManager : MonoBehaviour
         calculatorScript.Wrong.SetActive(false);
         calculatorScript.Correct.SetActive(false);
         calculatorScript.TimesUp.SetActive(false);
+        flag = 0;
         yield return new WaitForSeconds(2.0f);
 
-        playerHUD.battle_text.text = enemyUnit.tag + " attacks!";
         float EnemyMod = Random.Range(0.8f, 1.1f);
         float critRoller = Random.Range(0.01f, 100.0f);
         bool isCrit = critRoller <= enemyUnit.CRate;
         float CDmg = enemyUnit.CDmg;
+
+        playerHUD.battle_text.text = enemyUnit.tag + " attacks!";
 
         if (isCrit)
         {
@@ -455,27 +500,52 @@ public class CombatManager : MonoBehaviour
             {
                 print("Red Critical Damage! Rate Rolled: " + redCritRoller);
                 CDmg = enemyUnit.CDmg * 1.5f;
+                flag = 2;
             }
             else if (!redCrit)
             {
                 print("Critical Damage! Rate Rolled: " + critRoller);
                 CDmg = enemyUnit.CDmg;
+                flag = 1;
             }
         }
         else CDmg = 1.0f;
+
+        if (enemyUnit.CompareTag("Boss1") || enemyUnit.CompareTag("Boss2") || enemyUnit.CompareTag("Boss3"))
+        {
+            int bossAttackMode = 0;
+            if(roundCounter % 3 == 0)
+            {
+                bossAttackMode = 1;
+            }
+
+            if (bossAttackMode == 0)
+            {
+                EnemyMod = Random.Range(0.8f, 1.1f);
+                skeletonAnimator.Play("attack");
+            }
+            else if(bossAttackMode == 1)
+            {
+                EnemyMod = Random.Range(1.5f, 2.5f);
+                skeletonAnimator.Play("special");
+            }
+        }
+        else
+        {
+            skeletonAnimator.Play("attack");
+        }
         
-        skeletonAnimator.Play("attack");
         playerAnimator.Play("hurt");
-        
+
         yield return new WaitForSeconds(2.0f);
 
         if (isDefend)
         {
-            isDead = playerUnit.TakeDamage(enemyUnit.Atk * EnemyMod * CDmg * 0.5f);
+            isDead = playerUnit.TakeDamage(enemyUnit.Atk * EnemyMod * CDmg * 0.5f, flag);
         }
         else if (!isDefend)
         {
-            isDead = playerUnit.TakeDamage(enemyUnit.Atk * EnemyMod * CDmg);
+            isDead = playerUnit.TakeDamage(enemyUnit.Atk * EnemyMod * CDmg, flag);
         }
 
         playerHUD.SetHUD(playerUnit);
@@ -484,6 +554,7 @@ public class CombatManager : MonoBehaviour
         if (isDead)
         {
             yield return new WaitForSeconds(1.0f);
+            playerHUD.battle_text.color = Color.white;
             print("player died");
             playerHUD.battle_text.text = "You Were Defeated!";
             playerAnimator.Play("death");
@@ -505,6 +576,7 @@ public class CombatManager : MonoBehaviour
             else
             {
                 yield return new WaitForSeconds(1.0f);
+                playerHUD.battle_text.color = Color.white;
                 print("player died");
                 playerHUD.battle_text.text = "You Were Defeated!";
                 playerAnimator.Play("death");

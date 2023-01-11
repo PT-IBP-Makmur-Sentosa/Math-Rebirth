@@ -371,10 +371,10 @@ MonoBehaviour:
   speed: 0
   leftRange: 4
   rightRange: 0
-  level: 1
+  level: 35
   m_anim: {fileID: 9100000, guid: ccee253ff083e9e45ac8d4d553de6318, type: 2}
-  levelMin: 1
-  levelMax: 3
+  levelMin: 35
+  levelMax: 35
   spot: {fileID: 6550254937825099944}
   infoText: {fileID: 6550254938725383056}
   level_txt: {fileID: 6550254936939236788}
