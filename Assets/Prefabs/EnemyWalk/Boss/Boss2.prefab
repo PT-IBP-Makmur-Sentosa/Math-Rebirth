@@ -239,8 +239,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.9, y: -0.94}
-  m_SizeDelta: {x: 0.4658, y: 0.34}
+  m_AnchoredPosition: {x: -0.9, y: -1.6}
+  m_SizeDelta: {x: 5, y: 0.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &5755781776521935984
 MeshRenderer:
@@ -304,9 +304,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Bringer of Death
-
-'
+  m_text: Beelzebub, The Insatiable Demon Slime
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6cf10a25364d34bebab312c6548dc28e, type: 2}
   m_sharedMaterial: {fileID: 2678118318800362071, guid: 6cf10a25364d34bebab312c6548dc28e, type: 2}
@@ -715,7 +713,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1188103901
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -2066535010, guid: 3b80c1236dcb8430baa4e7c993518652, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -610,7 +610,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.9, y: -0.94}
-  m_SizeDelta: {x: 0.4658, y: 0.34}
+  m_SizeDelta: {x: 5, y: 0.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6550254938805213822
 MeshRenderer:
@@ -674,9 +674,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Bringer of Death
-
-'
+  m_text: Prae' Gerrim, The Bringer of Death
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6cf10a25364d34bebab312c6548dc28e, type: 2}
   m_sharedMaterial: {fileID: 2678118318800362071, guid: 6cf10a25364d34bebab312c6548dc28e, type: 2}

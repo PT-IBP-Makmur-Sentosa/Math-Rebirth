@@ -24,6 +24,7 @@ public class Calculator : MonoBehaviour
     float lotteryTime = 3f;
     bool runLottery = false;
     public int mode;
+    public string actions = "Attack";
     Vector2 startingPos;
     Vector2 rotationPos;
 
@@ -380,8 +381,41 @@ public class Calculator : MonoBehaviour
 
     public void setSign(TextMeshProUGUI signUI)
     {
+        GlobalControl globc = GameObject.Find("GlobalObject").GetComponent<GlobalControl>();
         string[] signs = { "+", "-", "*", "/", "%" };
-        signUI.text = signs[UnityEngine.Random.Range(0, signs.Length)];
+        string[] low_signs = { "+", "-" };
+        string[] high_signs = { "*", "/", "%" };
+        string[] splitted;
+        //print(actions + " AAAAAAAAAAAAAAAAA");
+        if (actions == "Attack")
+        {
+            signUI.text = signs[UnityEngine.Random.Range(0, signs.Length)];
+        }
+        else if (actions == "Skill1")
+        {
+            splitted = globc.skill1.Split("_");
+            if (splitted[1] == "Skill1" || splitted[1] == "Skill2")
+            {
+                signUI.text = low_signs[UnityEngine.Random.Range(0, low_signs.Length)];
+            }
+            else if (splitted[1] == "Skill3" || splitted[1] == "Skill4")
+            {
+                signUI.text = high_signs[UnityEngine.Random.Range(0, high_signs.Length)];
+            }
+        }
+        else if (actions == "Skill2")
+        {
+            splitted = globc.skill2.Split("_");
+            if (splitted[1] == "Skill" || splitted[1] == "Skill1" || splitted[1] == "Skill2")
+            {
+                signUI.text = low_signs[UnityEngine.Random.Range(0, low_signs.Length)];
+            }
+            else if (splitted[1] == "Skill3" || splitted[1] == "Skill4")
+            {
+                signUI.text = high_signs[UnityEngine.Random.Range(0, high_signs.Length)];
+            }
+        }
+
     }
 
 }
