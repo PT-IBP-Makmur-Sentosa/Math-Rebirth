@@ -368,7 +368,7 @@ public class CombatManager : MonoBehaviour
                     enemyUnit.Def *= 1.0f - 0.8f * 0.2f;
                     enemyUnit.Atk *= 1.0f - 0.2f * 0.2f;
                 }
-                playerHUD.battle_text.text = enemyUnit.tag + " got debuffed! Defense decreased to " + enemyUnit.Def.ToString("0") + " and Attack decreased to " + enemyUnit.Atk.ToString("0");
+                playerHUD.battle_text.text = enemyUnit.unitName + " got debuffed! Defense decreased to " + enemyUnit.Def.ToString("0") + " and Attack decreased to " + enemyUnit.Atk.ToString("0");
                 debuffTurns = 1;
             }
 
@@ -409,7 +409,7 @@ public class CombatManager : MonoBehaviour
                     enemyUnit.Def *= 1.0f - 0.8f * 0.2f;
                     enemyUnit.Atk *= 1.0f - 0.2f * 0.2f;
                 }
-                playerHUD.battle_text.text = enemyUnit.tag + " got debuffed! Defense decreased to " + enemyUnit.Def.ToString("0") + " and Attack decreased to " + enemyUnit.Atk.ToString("0");
+                playerHUD.battle_text.text = enemyUnit.unitName + " got debuffed! Defense decreased to " + enemyUnit.Def.ToString("0") + " and Attack decreased to " + enemyUnit.Atk.ToString("0");
                 debuffTurns = 1;
             }
             if (skillDict[globc.skill2][3] > 0)
@@ -474,7 +474,7 @@ public class CombatManager : MonoBehaviour
     IEnumerator EnemyTurn()
     {
         playerHUD.battle_text.color = Color.white;
-        playerHUD.battle_text.text = enemyUnit.tag + " Turn";
+        playerHUD.battle_text.text = enemyUnit.unitName + " Turn";
         print(enemyUnit.tag + " attacks!");
         calculatorScript.Question.SetActive(false);
         calculatorScript.Result.SetActive(false);
@@ -489,7 +489,7 @@ public class CombatManager : MonoBehaviour
         bool isCrit = critRoller <= enemyUnit.CRate;
         float CDmg = enemyUnit.CDmg;
 
-        playerHUD.battle_text.text = enemyUnit.tag + " attacks!";
+        playerHUD.battle_text.text = enemyUnit.unitName + " attacks!";
         enemy.GetComponent<SpriteRenderer>().sortingOrder = 1;
         player.GetComponent<SpriteRenderer>().sortingOrder = 0;
         if (isCrit)

@@ -111,6 +111,24 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        RayPosCenter = transform.position + new Vector3(0, -0.5f, 0);
+        RayPosLeft = transform.position + new Vector3(-rayPositionOffset, -0.5f, 0);
+        RayPosRight = transform.position + new Vector3(rayPositionOffset, -0.5f, 0);
+
+        HitsCenter = Physics2D.RaycastAll(RayPosCenter, Vector2.down, rayLength);
+        HitsLeft = Physics2D.RaycastAll(RayPosLeft, Vector2.down, rayLength);
+        HitsRight = Physics2D.RaycastAll(RayPosRight, Vector2.down, rayLength);
+
+        AllRayHits[0] = HitsCenter;
+        AllRayHits[1] = HitsLeft;
+        AllRayHits[2] = HitsRight;
+
+        Debug.DrawRay(RayPosCenter, Vector2.down * rayLength, Color.red);
+        Debug.DrawRay(RayPosLeft, Vector2.down * rayLength, Color.red);
+        Debug.DrawRay(RayPosRight, Vector2.down * rayLength, Color.red);
+
+        grounded = grounding(AllRayHits);
+
         // print(trigger);
         if (!GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inMap && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inInventory && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inShop && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCharPage && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inSkillPage && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inOptions)
         {
@@ -161,7 +179,6 @@ public class PlayerMovement : MonoBehaviour
                 gameObject.GetComponent<Animator>().SetBool("isMoving", true);
             }
             
-            
         }
         else horizontalMove = 0.0f;
 
@@ -170,24 +187,6 @@ public class PlayerMovement : MonoBehaviour
             CameraSwitch.swithcam(combat_cam);
             trigger = false;
         }
-
-        RayPosCenter = transform.position + new Vector3(0, -0.5f, 0);
-        RayPosLeft = transform.position + new Vector3(-rayPositionOffset, -0.5f, 0);
-        RayPosRight = transform.position + new Vector3(rayPositionOffset, -0.5f, 0);
-
-        HitsCenter = Physics2D.RaycastAll(RayPosCenter, Vector2.down, rayLength);
-        HitsLeft = Physics2D.RaycastAll(RayPosLeft, Vector2.down, rayLength);
-        HitsRight = Physics2D.RaycastAll(RayPosRight, Vector2.down, rayLength);
-
-        AllRayHits[0] = HitsCenter;
-        AllRayHits[1] = HitsLeft;
-        AllRayHits[2] = HitsRight;
-
-        Debug.DrawRay(RayPosCenter, Vector2.down * rayLength, Color.red);
-        Debug.DrawRay(RayPosLeft, Vector2.down * rayLength, Color.red);
-        Debug.DrawRay(RayPosRight, Vector2.down * rayLength, Color.red);
-
-        grounded = grounding(AllRayHits);
     }
 
     bool grounding(RaycastHit2D[][] AllRayHits)
