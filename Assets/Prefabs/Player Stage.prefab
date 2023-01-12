@@ -80,7 +80,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1188103901
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 159703513, guid: 6d8016c48a8124c9eba7a5bbac20ad61, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 0.1
   jumpPower: 400
-  runpart: {fileID: 0}
+  runpart: {fileID: 677635687493889527}
   skeletons: []
   shades: []
   walk_cam: {fileID: 0}
@@ -185,7 +185,7 @@ MonoBehaviour:
   canvas_scroll: {fileID: 0}
   enemy: {fileID: 0}
   rayLength: 0.55
-  rayPositionOffset: 0.37
+  rayPositionOffset: 0.35
   unityGameObjects: []
   StringTagEnemy:
   - Shade
@@ -390,8 +390,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Smoke
       objectReference: {fileID: 0}
+    - target: {fileID: 462339752059627052, guid: f7b132a65f5fc4a2d930753b53d9bb70, type: 3}
+      propertyPath: lengthInSec
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 462339752059627052, guid: f7b132a65f5fc4a2d930753b53d9bb70, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7b132a65f5fc4a2d930753b53d9bb70, type: 3}
+--- !u!198 &677635687493889527 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 462339752059627052, guid: f7b132a65f5fc4a2d930753b53d9bb70, type: 3}
+  m_PrefabInstance: {fileID: 1084801945802968027}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &839955665134589771 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 334922947222412432, guid: f7b132a65f5fc4a2d930753b53d9bb70, type: 3}
@@ -426,7 +439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 753327437137437082, guid: de3db45df4cc84b54afd5a78a88655cc, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 7.5
+      value: 6.6
       objectReference: {fileID: 0}
     - target: {fileID: 753327437137437082, guid: de3db45df4cc84b54afd5a78a88655cc, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size
@@ -454,7 +467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 753327437137437083, guid: de3db45df4cc84b54afd5a78a88655cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 753327437137437083, guid: de3db45df4cc84b54afd5a78a88655cc, type: 3}
       propertyPath: m_LocalPosition.z
