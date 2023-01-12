@@ -17084,6 +17084,34 @@ PrefabInstance:
       propertyPath: combatManagerScript
       value: 
       objectReference: {fileID: 753033703}
+    - target: {fileID: 3928054121269016856, guid: e884c5e3f262ab241bf462a26d51b06a, type: 3}
+      propertyPath: audioClip.Array.data[42]
+      value: 
+      objectReference: {fileID: 8300000, guid: e1ade8f9e410bdb45a6a11b37b1fa510, type: 3}
+    - target: {fileID: 3928054121269016856, guid: e884c5e3f262ab241bf462a26d51b06a, type: 3}
+      propertyPath: audioClip.Array.data[43]
+      value: 
+      objectReference: {fileID: 8300000, guid: 99869df6e2cebe242a8b396ce6828265, type: 3}
+    - target: {fileID: 3928054121269016856, guid: e884c5e3f262ab241bf462a26d51b06a, type: 3}
+      propertyPath: audioClip.Array.data[44]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8fcb3994f976c4f4fbaf92a562faa3a8, type: 3}
+    - target: {fileID: 3928054121269016856, guid: e884c5e3f262ab241bf462a26d51b06a, type: 3}
+      propertyPath: audioClip.Array.data[45]
+      value: 
+      objectReference: {fileID: 8300000, guid: a652877b012108e41871f867ada9f176, type: 3}
+    - target: {fileID: 3928054121269016856, guid: e884c5e3f262ab241bf462a26d51b06a, type: 3}
+      propertyPath: audioClip.Array.data[46]
+      value: 
+      objectReference: {fileID: 8300000, guid: 93c4b600720651d4aa582f39432bc28f, type: 3}
+    - target: {fileID: 3928054121269016856, guid: e884c5e3f262ab241bf462a26d51b06a, type: 3}
+      propertyPath: audioClip.Array.data[47]
+      value: 
+      objectReference: {fileID: 8300000, guid: fa31c78d2b23009459dea6705ed8e58d, type: 3}
+    - target: {fileID: 3928054121269016856, guid: e884c5e3f262ab241bf462a26d51b06a, type: 3}
+      propertyPath: audioClip.Array.data[48]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a3d8ba4aaae58c41beed9969e721543, type: 3}
     - target: {fileID: 6066865888219771719, guid: e884c5e3f262ab241bf462a26d51b06a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
