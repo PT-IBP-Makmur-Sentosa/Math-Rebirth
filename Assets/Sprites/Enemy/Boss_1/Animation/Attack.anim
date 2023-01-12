@@ -31,7 +31,7 @@ AnimationClip:
         outWeight: 0
       - serializedVersion: 3
         time: 2
-        value: 25
+        value: 42
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -40,7 +40,7 @@ AnimationClip:
         outWeight: 0
       - serializedVersion: 3
         time: 2.5833333
-        value: 25
+        value: 42
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -222,7 +222,7 @@ AnimationClip:
         outWeight: 0
       - serializedVersion: 3
         time: 2
-        value: 25
+        value: 42
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -231,7 +231,7 @@ AnimationClip:
         outWeight: 0
       - serializedVersion: 3
         time: 2.5833333
-        value: 25
+        value: 42
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
