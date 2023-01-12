@@ -151,7 +151,7 @@ namespace Inventory
                     shopUI.AddAction("Buy", () => BuyItem(tempInventoryItem));
                 }
                 else{
-                    shopUI.AddAction("Soul ?", () => CantBuyItem(tempInventoryItem));
+                    shopUI.AddAction("No Soul", () => CantBuyItem(tempInventoryItem));
                 }
                 
             }
