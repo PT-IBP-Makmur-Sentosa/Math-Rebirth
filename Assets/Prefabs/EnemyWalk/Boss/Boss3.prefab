@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.9, y: -0.94}
-  m_SizeDelta: {x: 0.4658, y: 0.34}
+  m_AnchoredPosition: {x: -0.71, y: -1.39}
+  m_SizeDelta: {x: 5, y: 0.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &4975875952248566802
 MeshRenderer:
@@ -100,9 +100,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Bringer of Death
-
-'
+  m_text: Tsarleiche, The Lich of the Greater Hell
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6cf10a25364d34bebab312c6548dc28e, type: 2}
   m_sharedMaterial: {fileID: 2678118318800362071, guid: 6cf10a25364d34bebab312c6548dc28e, type: 2}
@@ -209,7 +207,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.031, y: 0.066}
+  m_AnchoredPosition: {x: 0, y: 0.066}
   m_SizeDelta: {x: 1.0505, y: 0.3811}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &4975875952378547242
@@ -554,7 +552,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4975875952551916426}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5380015, y: 2.6333332, z: 0}
+  m_LocalPosition: {x: 0, y: 2.6333332, z: 0}
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -602,7 +600,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4975875952651631915}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.09, y: 0.19, z: 0}
+  m_LocalPosition: {x: 0, y: 0.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

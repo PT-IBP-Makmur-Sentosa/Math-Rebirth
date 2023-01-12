@@ -216,6 +216,8 @@ public class CombatManager : MonoBehaviour
     public void onAttackButton()
     {
         actionName = "Attack";
+        calculatorScript.actions = actionName;
+        //print(actionName);
         actionHit = 1.0f;
         actionMultiplier = Random.Range(0.8f, 1.0f);
         calculatorScript.mode = UnityEngine.Random.Range(1, 4);
@@ -245,6 +247,8 @@ public class CombatManager : MonoBehaviour
     public void onSkill1Button()
     {
         actionName = "Skill1";
+        calculatorScript.actions = actionName;
+        //print(actionName);
         actionHit = skillDict[globc.skill1][0];
         actionMultiplier = Random.Range(skillDict[globc.skill1][1], skillDict[globc.skill1][2]);
         calculatorScript.mode = UnityEngine.Random.Range(1, 4);
@@ -257,6 +261,8 @@ public class CombatManager : MonoBehaviour
     public void onSkill2Button()
     {
         actionName = "Skill2";
+        calculatorScript.actions = actionName;
+        //print(actionName);
         actionHit = skillDict[globc.skill2][0];
         actionMultiplier = Random.Range(skillDict[globc.skill2][1], skillDict[globc.skill2][2]);
         calculatorScript.mode = UnityEngine.Random.Range(1, 4);
@@ -378,12 +384,9 @@ public class CombatManager : MonoBehaviour
             if (skillDict[globc.skill2][5] == 1.0f)
             {
                 skeletonAnimator.Play("hurt");
-                print("nope");
-                //skeletonAnimator.Play("idle");
             }
             else if (skillDict[globc.skill2][5] == 2.0f)
             {
-                print("CCCCCC");
                 playerUnit.currentHP = playerUnit.maxHP;
                 if (calculatorScript.answer_correct && calculatorScript.onTime)
                 {

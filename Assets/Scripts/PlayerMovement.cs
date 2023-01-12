@@ -312,7 +312,23 @@ public class PlayerMovement : MonoBehaviour
             enemy.GetComponent<Animator>().runtimeAnimatorController = collision.GetComponent<EnemyBehaviour>().m_anim;
             enemy.GetComponent<Unit>().unitLevel = collision.GetComponent<EnemyBehaviour>().level;
             enemy.GetComponent<Unit>().prevLevel = collision.GetComponent<EnemyBehaviour>().level - 1;
-            enemy.GetComponent<Unit>().unitName = collision.tag;
+
+            if (collision.CompareTag("Boss1"))
+            {
+                enemy.GetComponent<Unit>().unitName = "Prae' Gerrim, The Bringer of Death";
+            }
+            else if (collision.CompareTag("Boss2"))
+            {
+                enemy.GetComponent<Unit>().unitName = "Beelzebub, The Insatiable Demon Slime";
+            }
+            else if (collision.CompareTag("Boss3"))
+            {
+                enemy.GetComponent<Unit>().unitName = "Tsarleiche, The Lich of the Greater Hell";
+            }
+            else
+            {
+                enemy.GetComponent<Unit>().unitName = collision.tag;
+            }
             collidedd = collision.gameObject;
             gameObject.GetComponent<Animator>().SetBool("inCombat", true);
             GameObject.Find("CombatManager").GetComponent<CombatManager>().StartCombat();
