@@ -389,7 +389,6 @@ TextureImporter:
     nameFileIdTable:
       UI_Button_16: 1420807377
       UI_Button_20: 626637096
-      UI_Button_23: -1304246509
       UI_Button_18: -230626932
       UI_Button_9: -1988050366
       UI_Button_3: 1436041546
@@ -407,10 +406,11 @@ TextureImporter:
       UI_Button_7: -546543822
       UI_Button_8: -296687367
       UI_Button_10: 321411715
+      UI_Button_23: -1304246509
       UI_Button_4: 1759653885
       UI_Button_15: -88790264
-      UI_Button_19: -497438443
       UI_Button_0: 1177536770
+      UI_Button_19: -497438443
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
