@@ -172,6 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 0.1
   jumpPower: 400
+  runpart: {fileID: 0}
   skeletons: []
   shades: []
   walk_cam: {fileID: 0}
