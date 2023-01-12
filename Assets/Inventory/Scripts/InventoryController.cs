@@ -134,19 +134,26 @@ namespace Inventory
 
         private void HandleShopItemActionRequest(int itemIndex)
         {
+            shopUI.ShowItemAction(itemIndex);
             InventoryItem inventoryItem = shopData.GetItemAt(itemIndex);
             if (inventoryItem.IsEmpty)
                 return;
             IItemAction itemAction = inventoryItem.item as IItemAction;
             if (itemAction != null)
             {
-                shopUI.ShowItemAction(itemIndex);
                 InventoryItem tempInventoryItem = new InventoryItem
                 {
                     item = inventoryItem.item,
                     quantity = inventoryItem.quantity,
                 };
-                shopUI.AddAction("Buy", () => BuyItem(tempInventoryItem));
+                GlobalControl glob = GameObject.Find("GlobalObject").GetComponent<GlobalControl>();
+                if(glob.playerCurrency >= inventoryItem.quantity){
+                    shopUI.AddAction("Buy", () => BuyItem(tempInventoryItem));
+                }
+                else{
+                    shopUI.AddAction("Soul ?", () => CantBuyItem(tempInventoryItem));
+                }
+                
             }
 
         }
@@ -156,7 +163,10 @@ namespace Inventory
             inventoryUI.ResetSelection();
             audioSource.PlayOneShot(Clips[0]);
         }
-
+        private void CantBuyItem(InventoryItem inventoryItem)
+        {
+            shopUI.ResetSelection();
+        }
         private void BuyItem(InventoryItem inventoryItem)
         {
             GlobalControl glob = GameObject.Find("GlobalObject").GetComponent<GlobalControl>();
