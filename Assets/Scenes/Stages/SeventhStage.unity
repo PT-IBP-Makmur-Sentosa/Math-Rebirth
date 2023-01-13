@@ -40340,6 +40340,10 @@ PrefabInstance:
       propertyPath: sfx
       value: 
       objectReference: {fileID: 995746738}
+    - target: {fileID: 6986588162200324386, guid: e884c5e3f262ab241bf462a26d51b06a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e884c5e3f262ab241bf462a26d51b06a, type: 3}
 --- !u!1001 &6069501207526206980
