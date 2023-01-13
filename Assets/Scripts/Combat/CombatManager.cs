@@ -614,7 +614,14 @@ public class CombatManager : MonoBehaviour
             calculatorScript.Correct.SetActive(false);
             calculatorScript.TimesUp.SetActive(false);
             calculatorScript.enabled = false;
-            playerMov.collidedd.SetActive(false);
+
+            foreach (Collider2D col in playerMov.collidedd.GetComponents<Collider2D>())
+                {
+                    col.enabled = false;
+                }
+            playerMov.collidedd.GetComponent<SpriteRenderer>().enabled = false;
+            playerMov.collidedd.GetComponent<EnemyBehaviour>().infoText.SetActive(false);
+
             StartCoroutine(Coroutine());
 
             glob.GetComponent<GlobalControl>().playerCurrency += enemyUnit.unitLevel * currencyMult[enemyUnit.tag] * Random.Range(6, 9);
@@ -637,7 +644,12 @@ public class CombatManager : MonoBehaviour
             calculatorScript.enabled = false;
             foreach (GameObject enemy in playerMov.unityGameObjects)
             {
-                enemy.SetActive(true);
+                foreach (Collider2D col in enemy.GetComponents<Collider2D>())
+                {
+                    col.enabled = true;
+                }
+                enemy.GetComponent<SpriteRenderer>().enabled = true;
+                enemy.GetComponent<EnemyBehaviour>().infoText.SetActive(false);
             }
 
             soul.SetActive(true);
@@ -659,7 +671,7 @@ public class CombatManager : MonoBehaviour
         foreach (EnemyBehaviour enemies in GameObject.FindObjectsOfType<EnemyBehaviour>())
         {
             enemies.speed = speedHolder[enemies];
-            enemies.startWalk();
+            enemies.startWalk(speedHolder[enemies]);
         }
 
         playerMov.collidedd.GetComponent<Animator>().Play("walk");

@@ -122,8 +122,9 @@ public class EnemyBehaviour : MonoBehaviour
         GetComponent<Animator>().Play("idle");
     }
 
-    public void startWalk()
+    public void startWalk(float speeds)
     {
         GetComponent<Animator>().Play("walk");
+        speed = speeds;
     }
 }
