@@ -631,6 +631,12 @@ public class CombatManager : MonoBehaviour
             playerMov.collidedd.GetComponent<SpriteRenderer>().enabled = false;
             playerMov.collidedd.GetComponent<EnemyBehaviour>().infoText.SetActive(false);
 
+            foreach (EnemyBehaviour enemies in GameObject.FindObjectsOfType<EnemyBehaviour>())
+            {
+                enemies.speed = speedHolder[enemies];
+                enemies.startWalk(speedHolder[enemies]);
+            }
+
             StartCoroutine(Coroutine());
 
             glob.GetComponent<GlobalControl>().playerCurrency += enemyUnit.unitLevel * currencyMult[enemyUnit.tag] * Random.Range(6, 9);
@@ -667,6 +673,11 @@ public class CombatManager : MonoBehaviour
             dead += 1;
 
             playerMov.transform.position = GameObject.Find("Player Start Pos").transform.position;
+            foreach (EnemyBehaviour enemies in GameObject.FindObjectsOfType<EnemyBehaviour>())
+            {
+                enemies.speed = speedHolder[enemies];
+                enemies.startWalk(speedHolder[enemies]);
+            }
             StartCoroutine(Coroutine());
 
             glob.GetComponent<GlobalControl>().playerCurrency = 0;

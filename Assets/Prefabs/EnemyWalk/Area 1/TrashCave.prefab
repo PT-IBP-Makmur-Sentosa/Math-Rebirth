@@ -377,7 +377,7 @@ MonoBehaviour:
   levelMax: 3
   spot: {fileID: 7016847432092807517}
   infoText: {fileID: 9184744673185409248}
-  level_txt: {fileID: 0}
+  level_txt: {fileID: 7330357229642655756}
 --- !u!61 &3679229207428661583
 BoxCollider2D:
   m_ObjectHideFlags: 0

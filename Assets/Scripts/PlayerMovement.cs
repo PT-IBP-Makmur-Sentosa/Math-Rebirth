@@ -60,6 +60,8 @@ public class PlayerMovement : MonoBehaviour
         shades = GameObject.FindGameObjectsWithTag("Shade");
         glob = GameObject.Find("GlobalObject");
         globalcontrol = glob.GetComponent<GlobalControl>();
+        CameraSwitch.register(walk_cam);
+        CameraSwitch.register(combat_cam);
     }
     private void LateUpdate()
     {
@@ -184,6 +186,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (trigger)
         {
+            CameraSwitch.register(walk_cam);
+            CameraSwitch.register(combat_cam);
             CameraSwitch.swithcam(combat_cam);
             trigger = false;
         }
