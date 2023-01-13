@@ -1699,7 +1699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1199220176254950221, guid: f323ab8c17b4f7a4fb0a8a6cbcc788f5, type: 3}
       propertyPath: levelMax
-      value: 16
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1199220176254950221, guid: f323ab8c17b4f7a4fb0a8a6cbcc788f5, type: 3}
       propertyPath: levelMin
@@ -2142,7 +2142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1199220176254950221, guid: f323ab8c17b4f7a4fb0a8a6cbcc788f5, type: 3}
       propertyPath: levelMax
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1199220176254950221, guid: f323ab8c17b4f7a4fb0a8a6cbcc788f5, type: 3}
       propertyPath: levelMin
@@ -2372,7 +2372,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1199220176254950221, guid: f323ab8c17b4f7a4fb0a8a6cbcc788f5, type: 3}
       propertyPath: levelMax
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1199220176254950221, guid: f323ab8c17b4f7a4fb0a8a6cbcc788f5, type: 3}
       propertyPath: levelMin
@@ -4102,7 +4102,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7677438271399609714, guid: 892d18abb787d724cbd3b904b89afbe6, type: 3}
       propertyPath: levelMax
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7677438271399609714, guid: 892d18abb787d724cbd3b904b89afbe6, type: 3}
       propertyPath: levelMin
@@ -4387,11 +4387,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7677438271399609714, guid: 892d18abb787d724cbd3b904b89afbe6, type: 3}
       propertyPath: levelMax
-      value: 15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7677438271399609714, guid: 892d18abb787d724cbd3b904b89afbe6, type: 3}
       propertyPath: levelMin
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7677438271399609714, guid: 892d18abb787d724cbd3b904b89afbe6, type: 3}
       propertyPath: leftRange
@@ -7292,7 +7292,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7677438271399609714, guid: 892d18abb787d724cbd3b904b89afbe6, type: 3}
       propertyPath: levelMax
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7677438271399609714, guid: 892d18abb787d724cbd3b904b89afbe6, type: 3}
       propertyPath: levelMin
@@ -16819,7 +16819,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1322572644369353258, guid: 41ea15ba87de0504a936e5128faefed4, type: 3}
       propertyPath: levelMax
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1322572644369353258, guid: 41ea15ba87de0504a936e5128faefed4, type: 3}
       propertyPath: levelMin
