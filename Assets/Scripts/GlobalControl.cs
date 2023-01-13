@@ -206,6 +206,7 @@ public class GlobalControl : MonoBehaviour
     public void SaveGame()
     {
         print("Saving game files...");
+        print(Application.dataPath);
         Scene scene = SceneManager.GetActiveScene();
         curScene = scene.name;
 

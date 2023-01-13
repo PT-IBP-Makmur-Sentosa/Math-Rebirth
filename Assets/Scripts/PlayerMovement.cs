@@ -294,7 +294,7 @@ public class PlayerMovement : MonoBehaviour
                 globalcontrol.StageFinish(14);
             }
         }
-        else if (collision.tag != "Stage" && collision.tag != "Untagged" && collision.tag != "Confiner" && collision.tag != "Player" && collision.tag != "Shop"&& collision.tag != "spikes")
+        else if (collision.tag != "Stage" && collision.tag != "Untagged" && collision.tag != "Confiner" && collision.tag != "Player" && collision.tag != "Shop" && collision.tag != "spikes" && collision.tag != "Checkpoints" && collision.tag != "Finish")
         {
             collision.GetComponent<Animator>().Play("idle");
             unityGameObjects.Add(collision.gameObject);
