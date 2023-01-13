@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.UI;
 using Cinemachine;
 
@@ -457,7 +458,15 @@ public class CombatManager : MonoBehaviour
             playerHUD.battle_text.color = Color.white;
             playerHUD.battle_text.text = "You Won the Battle!";
             skeletonAnimator.Play("death");
-            if(skeletonAnimator.tag == "Boss1" || skeletonAnimator.tag == "Boss2" || skeletonAnimator.tag == "Boss3") yield return new WaitForSeconds(7.0f);
+            if (skeletonAnimator.tag == "Boss1" || skeletonAnimator.tag == "Boss2" || skeletonAnimator.tag == "Boss3")
+            {
+                yield return new WaitForSeconds(1.0f);
+
+                AudioClip winning = (AudioClip) AssetDatabase.LoadAssetAtPath("Assets/SFX/win.mp3", typeof(AudioClip));
+
+                enemy.GetComponent<AudioSource>().PlayOneShot(winning);
+                yield return new WaitForSeconds(6.0f);
+            }
             else yield return new WaitForSeconds(2.8f);
             state = BattleState.WON;
             EndBattle();
