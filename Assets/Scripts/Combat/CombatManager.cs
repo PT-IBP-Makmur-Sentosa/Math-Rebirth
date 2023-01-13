@@ -658,7 +658,7 @@ public class CombatManager : MonoBehaviour
                     col.enabled = true;
                 }
                 enemy.GetComponent<SpriteRenderer>().enabled = true;
-                enemy.GetComponent<EnemyBehaviour>().infoText.SetActive(false);
+                enemy.GetComponent<EnemyBehaviour>().infoText.SetActive(true);
             }
 
             soul.SetActive(true);
