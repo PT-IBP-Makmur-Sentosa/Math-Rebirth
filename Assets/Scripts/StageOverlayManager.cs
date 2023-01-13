@@ -34,7 +34,7 @@ public class StageOverlayManager : MonoBehaviour
 
         stageDict.Add("SixthStage", "Stage 2-1");
         stageDict.Add("SeventhStage", "Stage 2-2");
-        stageDict.Add("EigthStage", "Stage 2-3");
+        stageDict.Add("EightStage", "Stage 2-3");
         stageDict.Add("NinthStage", "Stage 2-4");
         stageDict.Add("TenthStage", "Stage 2-5");
 
