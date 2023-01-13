@@ -10,5 +10,9 @@ public class NextScene : MonoBehaviour
     void OnEnable()
     {
         SceneManager.LoadScene(nextScene, LoadSceneMode.Single);
-    } 
+    }
+    public void skip()
+    {
+        SceneManager.LoadScene(nextScene, LoadSceneMode.Single);
+    }
 }
