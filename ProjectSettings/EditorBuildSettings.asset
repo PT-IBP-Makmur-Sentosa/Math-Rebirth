@@ -51,9 +51,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Stages/NinthStage.unity
     guid: c305373888479054593781aefd41be4c
   - enabled: 1
-    path: Assets/Scenes/Stages/Boss/TenthStage.unity
-    guid: cd28777e60d944249809d8470aa52b87
-  - enabled: 1
     path: Assets/Scenes/Stages/EleventhStage.unity
     guid: 3ebcabdb05fc64444858a5094cc273bd
   - enabled: 1
@@ -65,7 +62,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stages/FourteenthStage.unity
     guid: 97bccefca7248466dbfc80b00f8ef5d6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Stages/Boss/FifteenthStage.unity
     guid: 10dfbdbc2c1f64f4d93413272ca4258d
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: 009ed005b5f0b41588f30a6d0039fa51
   m_configObjects: {}
