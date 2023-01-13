@@ -1801,7 +1801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0431b84c6c4bc40238cd92442393b406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: tutorial stagepro
+  nextScene: TutorialStage
 --- !u!4 &528697450
 Transform:
   m_ObjectHideFlags: 0
