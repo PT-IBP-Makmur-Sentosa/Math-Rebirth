@@ -60,7 +60,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Stages/TwelfthStage.unity
     guid: fb606fca8d1b04ac29f5bcc7c3afdc86
   - enabled: 1
-    path: Assets/Scenes/Stages/ThirdteenthStage.unity
+    path: Assets/Scenes/Stages/ThirteenthStage.unity
     guid: 00921c96d5fce4855964a223b4db2603
   - enabled: 1
     path: Assets/Scenes/Stages/FourteenthStage.unity
