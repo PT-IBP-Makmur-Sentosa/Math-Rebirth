@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
             GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCharPage = false;
         }
 
-        else if (Input.GetKeyDown(KeyCode.C) && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inMap && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inInventory && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inShop && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inSkillPage)
+        else if (Input.GetKeyDown(KeyCode.C) && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inMap && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inInventory && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inShop && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inSkillPage && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inOptions)
         {
             characterPage.SetActive(true);
             GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCharPage = true;
@@ -89,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
             GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inSkillPage = false;
         }
 
-        else if (Input.GetKeyDown(KeyCode.K) && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inMap && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inInventory && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inShop && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCharPage)
+        else if (Input.GetKeyDown(KeyCode.K) && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inMap && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inInventory && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inShop && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCharPage && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inOptions)
         {
             skillPage.SetActive(true);
             GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inSkillPage = true;
