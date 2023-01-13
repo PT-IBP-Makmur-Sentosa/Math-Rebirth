@@ -395,6 +395,14 @@ PrefabInstance:
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3731245899426668980, guid: 40ddc8ff48e8dfe4587ae2168a3ba3fa, type: 3}
+      propertyPath: levelMax
+      value: 74
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731245899426668980, guid: 40ddc8ff48e8dfe4587ae2168a3ba3fa, type: 3}
+      propertyPath: levelMin
+      value: 73
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731245899426668980, guid: 40ddc8ff48e8dfe4587ae2168a3ba3fa, type: 3}
       propertyPath: leftRange
       value: 1
       objectReference: {fileID: 0}
@@ -14268,6 +14276,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Demon (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5313931764725971051, guid: f727f9dae9755ab4a9ea9cce9d2e7185, type: 3}
+      propertyPath: levelMax
+      value: 74
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313931764725971051, guid: f727f9dae9755ab4a9ea9cce9d2e7185, type: 3}
+      propertyPath: levelMin
+      value: 71
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f727f9dae9755ab4a9ea9cce9d2e7185, type: 3}
 --- !u!1 &1205092920
@@ -14870,6 +14886,14 @@ PrefabInstance:
     - target: {fileID: 5313931764725971051, guid: f727f9dae9755ab4a9ea9cce9d2e7185, type: 3}
       propertyPath: speed
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313931764725971051, guid: f727f9dae9755ab4a9ea9cce9d2e7185, type: 3}
+      propertyPath: levelMax
+      value: 77
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313931764725971051, guid: f727f9dae9755ab4a9ea9cce9d2e7185, type: 3}
+      propertyPath: levelMin
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 5313931764725971051, guid: f727f9dae9755ab4a9ea9cce9d2e7185, type: 3}
       propertyPath: leftRange
@@ -23462,6 +23486,14 @@ PrefabInstance:
       propertyPath: speed
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 8616055863755627684, guid: 5dda82000377a3c44a5ecd21b39c4210, type: 3}
+      propertyPath: levelMax
+      value: 73
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616055863755627684, guid: 5dda82000377a3c44a5ecd21b39c4210, type: 3}
+      propertyPath: levelMin
+      value: 71
+      objectReference: {fileID: 0}
     - target: {fileID: 8616055865287869107, guid: 5dda82000377a3c44a5ecd21b39c4210, type: 3}
       propertyPath: m_Name
       value: Fireworm
@@ -24178,6 +24210,14 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6244066069546056624, guid: 3a1173d8d6d9d0346b323793d93f25f9, type: 3}
+      propertyPath: levelMax
+      value: 77
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244066069546056624, guid: 3a1173d8d6d9d0346b323793d93f25f9, type: 3}
+      propertyPath: levelMin
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244066069546056624, guid: 3a1173d8d6d9d0346b323793d93f25f9, type: 3}
       propertyPath: leftRange
       value: 2
       objectReference: {fileID: 0}
@@ -24371,6 +24411,14 @@ PrefabInstance:
     - target: {fileID: 8616055863755627684, guid: 5dda82000377a3c44a5ecd21b39c4210, type: 3}
       propertyPath: speed
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616055863755627684, guid: 5dda82000377a3c44a5ecd21b39c4210, type: 3}
+      propertyPath: levelMax
+      value: 77
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616055863755627684, guid: 5dda82000377a3c44a5ecd21b39c4210, type: 3}
+      propertyPath: levelMin
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 8616055863755627684, guid: 5dda82000377a3c44a5ecd21b39c4210, type: 3}
       propertyPath: leftRange
@@ -24860,6 +24908,14 @@ PrefabInstance:
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6244066069546056624, guid: 3a1173d8d6d9d0346b323793d93f25f9, type: 3}
+      propertyPath: levelMax
+      value: 77
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244066069546056624, guid: 3a1173d8d6d9d0346b323793d93f25f9, type: 3}
+      propertyPath: levelMin
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244066069546056624, guid: 3a1173d8d6d9d0346b323793d93f25f9, type: 3}
       propertyPath: leftRange
       value: 0.5
       objectReference: {fileID: 0}
@@ -25172,6 +25228,14 @@ PrefabInstance:
     - target: {fileID: 6913068557577056531, guid: 477e9b3847e6a0a46b19e021117fd1c6, type: 3}
       propertyPath: speed
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6913068557577056531, guid: 477e9b3847e6a0a46b19e021117fd1c6, type: 3}
+      propertyPath: levelMax
+      value: 77
+      objectReference: {fileID: 0}
+    - target: {fileID: 6913068557577056531, guid: 477e9b3847e6a0a46b19e021117fd1c6, type: 3}
+      propertyPath: levelMin
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 6913068557577056531, guid: 477e9b3847e6a0a46b19e021117fd1c6, type: 3}
       propertyPath: leftRange

@@ -715,6 +715,14 @@ PrefabInstance:
       propertyPath: speed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7481937252903497988, guid: 5a7446d49e418cf449780218add5c897, type: 3}
+      propertyPath: levelMax
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481937252903497988, guid: 5a7446d49e418cf449780218add5c897, type: 3}
+      propertyPath: levelMin
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a7446d49e418cf449780218add5c897, type: 3}
 --- !u!1 &84551028
@@ -1616,6 +1624,14 @@ PrefabInstance:
     - target: {fileID: 3867712268252829593, guid: 0636ff25929ea8f458cbd0842c847da1, type: 3}
       propertyPath: speed
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3867712268252829593, guid: 0636ff25929ea8f458cbd0842c847da1, type: 3}
+      propertyPath: levelMax
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 3867712268252829593, guid: 0636ff25929ea8f458cbd0842c847da1, type: 3}
+      propertyPath: levelMin
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 3867712268252829593, guid: 0636ff25929ea8f458cbd0842c847da1, type: 3}
       propertyPath: leftRange
@@ -11503,6 +11519,14 @@ PrefabInstance:
       propertyPath: m_text
       value: lvl. 37
       objectReference: {fileID: 0}
+    - target: {fileID: 5005607424814166834, guid: 5bb5d295002e0564eaf7222d7b7f172f, type: 3}
+      propertyPath: levelMax
+      value: 39
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005607424814166834, guid: 5bb5d295002e0564eaf7222d7b7f172f, type: 3}
+      propertyPath: levelMin
+      value: 36
+      objectReference: {fileID: 0}
     - target: {fileID: 5005607425498995180, guid: 5bb5d295002e0564eaf7222d7b7f172f, type: 3}
       propertyPath: m_Name
       value: Slime
@@ -12189,6 +12213,14 @@ PrefabInstance:
     - target: {fileID: 5005607424814166834, guid: 5bb5d295002e0564eaf7222d7b7f172f, type: 3}
       propertyPath: speed
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005607424814166834, guid: 5bb5d295002e0564eaf7222d7b7f172f, type: 3}
+      propertyPath: levelMax
+      value: 39
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005607424814166834, guid: 5bb5d295002e0564eaf7222d7b7f172f, type: 3}
+      propertyPath: levelMin
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 5005607424814166834, guid: 5bb5d295002e0564eaf7222d7b7f172f, type: 3}
       propertyPath: leftRange
@@ -28401,6 +28433,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1255624062387143139, guid: 804462e0ef8a85646b6faf6d53d2903d, type: 3}
+      propertyPath: levelMax
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 1255624062387143139, guid: 804462e0ef8a85646b6faf6d53d2903d, type: 3}
+      propertyPath: levelMin
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 1255624062584981001, guid: 804462e0ef8a85646b6faf6d53d2903d, type: 3}
       propertyPath: m_Name
       value: Tooth
@@ -28513,6 +28553,14 @@ PrefabInstance:
     - target: {fileID: 3867712267186643790, guid: 0636ff25929ea8f458cbd0842c847da1, type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 3867712268252829593, guid: 0636ff25929ea8f458cbd0842c847da1, type: 3}
+      propertyPath: levelMax
+      value: 39
+      objectReference: {fileID: 0}
+    - target: {fileID: 3867712268252829593, guid: 0636ff25929ea8f458cbd0842c847da1, type: 3}
+      propertyPath: levelMin
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 3867712268252829593, guid: 0636ff25929ea8f458cbd0842c847da1, type: 3}
       propertyPath: leftRange
@@ -29949,6 +29997,14 @@ PrefabInstance:
     - target: {fileID: 1255624062387143139, guid: 804462e0ef8a85646b6faf6d53d2903d, type: 3}
       propertyPath: speed
       value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1255624062387143139, guid: 804462e0ef8a85646b6faf6d53d2903d, type: 3}
+      propertyPath: levelMax
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 1255624062387143139, guid: 804462e0ef8a85646b6faf6d53d2903d, type: 3}
+      propertyPath: levelMin
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1255624062387143141, guid: 804462e0ef8a85646b6faf6d53d2903d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -38320,6 +38376,14 @@ PrefabInstance:
     - target: {fileID: 7481937252903497988, guid: 5a7446d49e418cf449780218add5c897, type: 3}
       propertyPath: speed
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481937252903497988, guid: 5a7446d49e418cf449780218add5c897, type: 3}
+      propertyPath: levelMax
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481937252903497988, guid: 5a7446d49e418cf449780218add5c897, type: 3}
+      propertyPath: levelMin
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7481937252903497988, guid: 5a7446d49e418cf449780218add5c897, type: 3}
       propertyPath: leftRange
