@@ -2402,6 +2402,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3047329733218497454, guid: 8c1a11fb72783544b8bb8c9077e46669, type: 3}
+      propertyPath: m_text
+      value: "Select a lane\ntop lane: 3 Shades     \nmid lane: 5 Zombies\nbottom
+        lane : 2 Skeletons, 1 Zombie & 1 Shades"
+      objectReference: {fileID: 0}
     - target: {fileID: 3047329733888148782, guid: 8c1a11fb72783544b8bb8c9077e46669, type: 3}
       propertyPath: m_Pivot.x
       value: 0
