@@ -462,7 +462,7 @@ public class CombatManager : MonoBehaviour
             {
                 yield return new WaitForSeconds(1.0f);
 
-                AudioClip winning = (AudioClip) AssetDatabase.LoadAssetAtPath("Assets/SFX/win.mp3", typeof(AudioClip));
+                AudioClip winning = (AudioClip) Resources.Load("win");
 
                 enemy.GetComponent<AudioSource>().PlayOneShot(winning);
                 yield return new WaitForSeconds(6.0f);
