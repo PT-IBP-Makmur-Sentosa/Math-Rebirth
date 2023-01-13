@@ -1825,11 +1825,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1177647515766239490, guid: c357e9ed359f3da4d8de02629c1e5210, type: 3}
       propertyPath: levelMax
-      value: 27
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 1177647515766239490, guid: c357e9ed359f3da4d8de02629c1e5210, type: 3}
       propertyPath: levelMin
-      value: 25
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 1177647515766239490, guid: c357e9ed359f3da4d8de02629c1e5210, type: 3}
       propertyPath: leftRange
@@ -3852,11 +3852,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1199220176254950221, guid: f323ab8c17b4f7a4fb0a8a6cbcc788f5, type: 3}
       propertyPath: levelMax
-      value: 27
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1199220176254950221, guid: f323ab8c17b4f7a4fb0a8a6cbcc788f5, type: 3}
       propertyPath: levelMin
-      value: 25
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 1199220176254950221, guid: f323ab8c17b4f7a4fb0a8a6cbcc788f5, type: 3}
       propertyPath: leftRange
@@ -17285,7 +17285,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1177647515766239490, guid: c357e9ed359f3da4d8de02629c1e5210, type: 3}
       propertyPath: levelMax
-      value: 26
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 1177647515766239490, guid: c357e9ed359f3da4d8de02629c1e5210, type: 3}
       propertyPath: levelMin
@@ -17503,11 +17503,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3679229207428661582, guid: 507e068e77f6a454294c6922df450b9c, type: 3}
       propertyPath: levelMax
-      value: 27
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 3679229207428661582, guid: 507e068e77f6a454294c6922df450b9c, type: 3}
       propertyPath: levelMin
-      value: 25
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 3679229208129073020, guid: 507e068e77f6a454294c6922df450b9c, type: 3}
       propertyPath: m_RootOrder
@@ -17874,11 +17874,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3679229207428661582, guid: 507e068e77f6a454294c6922df450b9c, type: 3}
       propertyPath: levelMax
-      value: 27
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 3679229207428661582, guid: 507e068e77f6a454294c6922df450b9c, type: 3}
       propertyPath: levelMin
-      value: 25
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 3679229207428661582, guid: 507e068e77f6a454294c6922df450b9c, type: 3}
       propertyPath: leftRange
