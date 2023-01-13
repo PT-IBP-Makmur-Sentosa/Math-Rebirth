@@ -639,7 +639,7 @@ public class CombatManager : MonoBehaviour
 
             StartCoroutine(Coroutine());
 
-            glob.GetComponent<GlobalControl>().playerCurrency += enemyUnit.unitLevel * currencyMult[enemyUnit.tag] * Random.Range(6, 9);
+            glob.GetComponent<GlobalControl>().playerCurrency += enemyUnit.unitLevel * currencyMult[enemyUnit.tag] * Random.Range(7, 12);
 
             CameraSwitch.swithcam(CMVir);
             //print(CameraSwitch.isActiveCam(CMVir));
@@ -691,7 +691,15 @@ public class CombatManager : MonoBehaviour
         foreach (EnemyBehaviour enemies in GameObject.FindObjectsOfType<EnemyBehaviour>())
         {
             enemies.speed = speedHolder[enemies];
-            enemies.startWalk(speedHolder[enemies]);
+            if (speedHolder[enemies] == 0)
+            {
+                enemies.startIdle();
+            }
+            else
+            {
+                enemies.startWalk(speedHolder[enemies]);
+            }
+            
         }
 
         playerMov.collidedd.GetComponent<Animator>().Play("walk");

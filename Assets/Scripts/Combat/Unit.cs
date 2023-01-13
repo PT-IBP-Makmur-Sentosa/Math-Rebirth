@@ -140,8 +140,8 @@ public class Unit : MonoBehaviour
         // Area 1
         else if (gameObject.CompareTag("Skeleton"))
         {
-            maxHP = unitLevel * (10.0f + unitLevel / 3f);
-            Atk = unitLevel * (4.0f + unitLevel / 9f);
+            maxHP = unitLevel * (9.5f + unitLevel / 3f);
+            Atk = unitLevel * (3.75f + unitLevel / 9f);
             Def = unitLevel * (2.0f + unitLevel / 4f);
             CRate = 5.0f;
             CDmg = 1.5f;
@@ -153,15 +153,15 @@ public class Unit : MonoBehaviour
             maxHP = unitLevel * (9.0f + unitLevel / 3f);
             Atk = unitLevel * (3.5f + unitLevel / 9f);
             Def = unitLevel * (2.0f + unitLevel / 4f);
-            CRate = 40.0f;
+            CRate = 30.0f;
             CDmg = 1.5f;
             ExtraMult = 0.0f;
             ExtraTime = 0.0f;
         }
         else if (gameObject.CompareTag("Zombie"))
         {
-            maxHP = unitLevel * (11.5f + unitLevel / 3f);
-            Atk = unitLevel * (4.25f + unitLevel / 9f);
+            maxHP = unitLevel * (11.0f + unitLevel / 3f);
+            Atk = unitLevel * (4.0f + unitLevel / 9f);
             Def = unitLevel * (2.0f + unitLevel / 4f);
             CRate = 10.0f;
             CDmg = 1.5f;
@@ -183,7 +183,7 @@ public class Unit : MonoBehaviour
             maxHP = unitLevel * (15.0f + unitLevel / 3f);
             Atk = unitLevel * (4.5f + unitLevel / 9f);
             Def = unitLevel * (2.25f + unitLevel / 4f);
-            CRate = 25.0f;
+            CRate = 20.0f;
             CDmg = 1.5f;
             ExtraMult = 0.0f;
             ExtraTime = 0.0f;
@@ -202,8 +202,8 @@ public class Unit : MonoBehaviour
         // Area 2
         else if (gameObject.CompareTag("SlimeForest"))
         {
-            maxHP = unitLevel * (10.0f + unitLevel / 3f);
-            Atk = unitLevel * (4.0f + unitLevel / 9f);
+            maxHP = unitLevel * (9.5f + unitLevel / 3f);
+            Atk = unitLevel * (3.75f + unitLevel / 9f);
             Def = unitLevel * (2.0f + unitLevel / 4f);
             CRate = 5.0f;
             CDmg = 1.5f;
@@ -215,15 +215,15 @@ public class Unit : MonoBehaviour
             maxHP = unitLevel * (9.0f + unitLevel / 3f);
             Atk = unitLevel * (3.5f + unitLevel / 9f);
             Def = unitLevel * (2.0f + unitLevel / 4f);
-            CRate = 40.0f;
+            CRate = 30.0f;
             CDmg = 1.5f;
             ExtraMult = 0.0f;
             ExtraTime = 0.0f;
         }
         else if (gameObject.CompareTag("Tooth"))
         {
-            maxHP = unitLevel * (11.5f + unitLevel / 3f);
-            Atk = unitLevel * (4.25f + unitLevel / 9f);
+            maxHP = unitLevel * (11.0f + unitLevel / 3f);
+            Atk = unitLevel * (4.0f + unitLevel / 9f);
             Def = unitLevel * (2.0f + unitLevel / 4f);
             CRate = 10.0f;
             CDmg = 1.5f;
@@ -245,7 +245,7 @@ public class Unit : MonoBehaviour
             maxHP = unitLevel * (15.0f + unitLevel / 3f);
             Atk = unitLevel * (4.5f + unitLevel / 9f);
             Def = unitLevel * (2.25f + unitLevel / 4f);
-            CRate = 25.0f;
+            CRate = 20.0f;
             CDmg = 1.5f;
             ExtraMult = 0.0f;
             ExtraTime = 0.0f;
@@ -264,8 +264,8 @@ public class Unit : MonoBehaviour
         // Area 3
         else if (gameObject.CompareTag("Eyeball"))
         {
-            maxHP = unitLevel * (10.0f + unitLevel / 3f);
-            Atk = unitLevel * (4.0f + unitLevel / 9f);
+            maxHP = unitLevel * (9.5f + unitLevel / 3f);
+            Atk = unitLevel * (3.75f + unitLevel / 9f);
             Def = unitLevel * (2.0f + unitLevel / 4f);
             CRate = 5.0f;
             CDmg = 1.5f;
@@ -277,15 +277,15 @@ public class Unit : MonoBehaviour
             maxHP = unitLevel * (9.0f + unitLevel / 3f);
             Atk = unitLevel * (3.5f + unitLevel / 9f);
             Def = unitLevel * (2.0f + unitLevel / 4f);
-            CRate = 40.0f;
+            CRate = 30.0f;
             CDmg = 1.5f;
             ExtraMult = 0.0f;
             ExtraTime = 0.0f;
         }
         else if (gameObject.CompareTag("Fireworm"))
         {
-            maxHP = unitLevel * (11.5f + unitLevel / 3f);
-            Atk = unitLevel * (4.25f + unitLevel / 9f);
+            maxHP = unitLevel * (11.0f + unitLevel / 3f);
+            Atk = unitLevel * (4.0f + unitLevel / 9f);
             Def = unitLevel * (2.0f + unitLevel / 4f);
             CRate = 10.0f;
             CDmg = 1.5f;
@@ -307,7 +307,7 @@ public class Unit : MonoBehaviour
             maxHP = unitLevel * (15.0f + unitLevel / 3f);
             Atk = unitLevel * (4.5f + unitLevel / 9f);
             Def = unitLevel * (2.25f + unitLevel / 4f);
-            CRate = 25.0f;
+            CRate = 20.0f;
             CDmg = 1.5f;
             ExtraMult = 0.0f;
             ExtraTime = 0.0f;

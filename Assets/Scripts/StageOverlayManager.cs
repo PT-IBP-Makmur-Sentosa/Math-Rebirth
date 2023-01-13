@@ -14,6 +14,7 @@ public class StageOverlayManager : MonoBehaviour
     [SerializeField] GameObject childPrompt;
 
     Dictionary<EnemyBehaviour, float> speedHolder;
+    Dictionary<PlatformMovement, float> speedPlatformHolder;
     Dictionary<string, string> stageDict = new Dictionary<string, string>();
 
     GameObject glob;
@@ -73,11 +74,18 @@ public class StageOverlayManager : MonoBehaviour
         childPrompt.SetActive(true);
         globc.inOptions = true;
         speedHolder = new Dictionary<EnemyBehaviour, float>();
+
         foreach (EnemyBehaviour enemies in GameObject.FindObjectsOfType<EnemyBehaviour>())
         {
             speedHolder.Add(enemies, enemies.speed);
             enemies.speed = 0;
             enemies.startIdle();
+        }
+
+        foreach (PlatformMovement platform in GameObject.FindObjectsOfType<PlatformMovement>())
+        {
+            speedPlatformHolder.Add(platform, platform.speed);
+            platform.speed = 0;
         }
     }
 
@@ -85,10 +93,16 @@ public class StageOverlayManager : MonoBehaviour
     {
         childPrompt.SetActive(false);
         globc.inOptions = false;
+
         foreach (EnemyBehaviour enemies in GameObject.FindObjectsOfType<EnemyBehaviour>())
         {
             enemies.speed = speedHolder[enemies];
             enemies.startWalk(speedHolder[enemies]);
+        }
+
+        foreach (PlatformMovement platform in GameObject.FindObjectsOfType<PlatformMovement>())
+        {
+            platform.speed = speedPlatformHolder[platform];
         }
     }
 }
