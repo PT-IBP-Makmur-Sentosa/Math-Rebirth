@@ -88,7 +88,7 @@ public class StageOverlayManager : MonoBehaviour
         foreach (EnemyBehaviour enemies in GameObject.FindObjectsOfType<EnemyBehaviour>())
         {
             enemies.speed = speedHolder[enemies];
-            enemies.startWalk();
+            enemies.startWalk(speedHolder[enemies]);
         }
     }
 }
