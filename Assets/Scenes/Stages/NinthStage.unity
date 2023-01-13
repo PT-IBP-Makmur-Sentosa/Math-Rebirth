@@ -5442,7 +5442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3867712268252829593, guid: 0636ff25929ea8f458cbd0842c847da1, type: 3}
       propertyPath: levelMax
-      value: 65
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 3867712268252829593, guid: 0636ff25929ea8f458cbd0842c847da1, type: 3}
       propertyPath: levelMin
