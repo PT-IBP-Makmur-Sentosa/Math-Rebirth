@@ -14,24 +14,17 @@ public class Tutorial : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tutorial_background = GameObject.Find("TutorialBg");
-        move_tutorial = GameObject.Find("MoveTutorial");
-        inventory_tutorial = GameObject.Find("InventoryTutorial");
-        skill_tutorial = GameObject.Find("skillTutorial");
-        map_tutorial = GameObject.Find("MapTutorial");
-
         tutorial_background.SetActive(true);
         move_tutorial.SetActive(true);
         inventory_tutorial.SetActive(false);
         skill_tutorial.SetActive(false);
         map_tutorial.SetActive(false);
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetKeyDown("d") || Input.GetKeyDown("a") ||Input.GetKeyDown("w") )&& g ==1 )
+        if ((Input.GetKeyDown("d") || Input.GetKeyDown("a") ||Input.GetKeyDown("w") )&& g == 1 )
         {
             tutorial_background.SetActive(true);
             move_tutorial.SetActive(false);
@@ -40,22 +33,42 @@ public class Tutorial : MonoBehaviour
             map_tutorial.SetActive(false);
             g = 0;
         }
-        if (Input.GetKeyDown("k") )
+        if(Input.GetKeyDown("k") && g == 0)
         {
             tutorial_background.SetActive(false);
+            move_tutorial.SetActive(false);
+            inventory_tutorial.SetActive(false);
+            skill_tutorial.SetActive(false);
+            map_tutorial.SetActive(false);
+            g = 2;
+        }
+        if(Input.GetKeyDown("k") && g == 2)
+        {
+            tutorial_background.SetActive(true);
             move_tutorial.SetActive(false);
             inventory_tutorial.SetActive(true);
             skill_tutorial.SetActive(false);
             map_tutorial.SetActive(false);
+            g = 3;
         }
-        if (Input.GetKeyDown("i") )
+        if(Input.GetKeyDown("i") && g == 3)
         {
-            // tutorial_background.SetActive(false);
+            tutorial_background.SetActive(false);
             move_tutorial.SetActive(false);
             inventory_tutorial.SetActive(false);
             skill_tutorial.SetActive(false);
-            map_tutorial.SetActive(true);
-            StartCoroutine(map());
+            map_tutorial.SetActive(false);
+            g = 4;
+        }
+        if(Input.GetKeyDown("i") && g == 4)
+        {
+            tutorial_background.SetActive(false);
+            move_tutorial.SetActive(false);
+            inventory_tutorial.SetActive(false);
+            skill_tutorial.SetActive(false);
+            map_tutorial.SetActive(false);
+            g = 5;
+            //StartCoroutine(map());
         }
         // if (Input.GetKeyDown("i") )
         // {
