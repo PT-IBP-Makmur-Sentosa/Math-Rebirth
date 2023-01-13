@@ -5938,14 +5938,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2861516389378177690, guid: 6655a77de32f546ce8c32157b94dd39c, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 6cf10a25364d34bebab312c6548dc28e, type: 2}
-    - target: {fileID: 2861516389378177690, guid: 6655a77de32f546ce8c32157b94dd39c, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2678118318800362071, guid: 6cf10a25364d34bebab312c6548dc28e, type: 2}
     - target: {fileID: 2861516389611081789, guid: 6655a77de32f546ce8c32157b94dd39c, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -5959,14 +5951,6 @@ PrefabInstance:
       value: You can go to the other stage when you go to the start of finish checkpoint
         and click the stage that you want to choose.
       objectReference: {fileID: 0}
-    - target: {fileID: 2861516389692137278, guid: 6655a77de32f546ce8c32157b94dd39c, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 6cf10a25364d34bebab312c6548dc28e, type: 2}
-    - target: {fileID: 2861516389692137278, guid: 6655a77de32f546ce8c32157b94dd39c, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2678118318800362071, guid: 6cf10a25364d34bebab312c6548dc28e, type: 2}
     - target: {fileID: 2861516390141910476, guid: 6655a77de32f546ce8c32157b94dd39c, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -5976,14 +5960,6 @@ PrefabInstance:
       value: Next, you can use the items you have on the inventory by pressing "I"
         to check the inventory and right-click to use/equip or discard the item.
       objectReference: {fileID: 0}
-    - target: {fileID: 2861516390141910478, guid: 6655a77de32f546ce8c32157b94dd39c, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 6cf10a25364d34bebab312c6548dc28e, type: 2}
-    - target: {fileID: 2861516390141910478, guid: 6655a77de32f546ce8c32157b94dd39c, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2678118318800362071, guid: 6cf10a25364d34bebab312c6548dc28e, type: 2}
     - target: {fileID: 2861516390312674006, guid: 6655a77de32f546ce8c32157b94dd39c, type: 3}
       propertyPath: m_Name
       value: Tutorial
@@ -17720,14 +17696,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6555571723087925108, guid: ee4e562bb687d4c4b956686cb1433a9f, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 6cf10a25364d34bebab312c6548dc28e, type: 2}
-    - target: {fileID: 6555571723087925108, guid: ee4e562bb687d4c4b956686cb1433a9f, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2678118318800362071, guid: 6cf10a25364d34bebab312c6548dc28e, type: 2}
     - target: {fileID: 6555571723087925109, guid: ee4e562bb687d4c4b956686cb1433a9f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
