@@ -17,4 +17,52 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shop.unity
     guid: 20706fbd56ae50245be19ad655615d59
+  - enabled: 1
+    path: Assets/Scenes/StagePrototype.unity
+    guid: 8e63f5e8f6a4442448430c004aed511c
+  - enabled: 1
+    path: Assets/Scenes/Stages/FirstStage.unity
+    guid: a32f649246b544fc2a7884645f3b56a7
+  - enabled: 1
+    path: Assets/Scenes/Stages/SecondStage.unity
+    guid: 67aa8bdc27b2b442b890b824c1b32e56
+  - enabled: 1
+    path: Assets/Scenes/Stages/ThirdStage.unity
+    guid: 371070e021c4645d7ac2760c566ecbe8
+  - enabled: 1
+    path: Assets/Scenes/Stages/FourthStage.unity
+    guid: 1b6895c744f324c878c779f7278e93e9
+  - enabled: 1
+    path: Assets/Scenes/Stages/Boss/FifthStage.unity
+    guid: da3d6d09fbae546d5aa43e02bb32ccc3
+  - enabled: 1
+    path: Assets/Scenes/Stages/SixthStage.unity
+    guid: d24e8e50f759743c38ea916447081157
+  - enabled: 1
+    path: Assets/Scenes/Stages/SeventhStage.unity
+    guid: 9fa441b385d9d48ac94ad68c283b1672
+  - enabled: 1
+    path: Assets/Scenes/Stages/EightStage.unity
+    guid: 1be58c5c638af40cbb079a3af41a2059
+  - enabled: 1
+    path: Assets/Scenes/Stages/NinthStage.unity
+    guid: 40adf185532ff47ad8ef06f150ca30f2
+  - enabled: 1
+    path: Assets/Scenes/Stages/Boss/TenthStage.unity
+    guid: cd28777e60d944249809d8470aa52b87
+  - enabled: 1
+    path: Assets/Scenes/Stages/EleventhStage.unity
+    guid: 3ebcabdb05fc64444858a5094cc273bd
+  - enabled: 1
+    path: Assets/Scenes/Stages/TwelfthStage.unity
+    guid: fb606fca8d1b04ac29f5bcc7c3afdc86
+  - enabled: 1
+    path: Assets/Scenes/Stages/ThirdteenthStage.unity
+    guid: 00921c96d5fce4855964a223b4db2603
+  - enabled: 1
+    path: Assets/Scenes/Stages/FourteenthStage.unity
+    guid: 97bccefca7248466dbfc80b00f8ef5d6
+  - enabled: 1
+    path: Assets/Scenes/Stages/Boss/FifteenthStage.unity
+    guid: 10dfbdbc2c1f64f4d93413272ca4258d
   m_configObjects: {}

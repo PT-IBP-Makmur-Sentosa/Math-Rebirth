@@ -15,6 +15,8 @@ public class PlayerData
     public int[] stageList;
     public string skill1;
     public string skill2;
+    public float BGM;
+    public float SFX;
 
     public PlayerData(GlobalControl player)
     {
@@ -27,5 +29,7 @@ public class PlayerData
         stageList = player.stageList;
         skill1 = player.skill1;
         skill2 = player.skill2;
+        BGM = player.musicVol;
+        SFX = player.soundVol;
     }
 }

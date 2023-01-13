@@ -86,6 +86,8 @@ public class GlobalControl : MonoBehaviour
         skillDict.Add("Int_Skill3", mult);
         mult = new float[6] { 1.0f, 2.0f, 2.4f, 1.0f, 3.0f, 1.0f };
         skillDict.Add("Int_Skill4", mult);
+
+        PlayerData data = LoadGame();
     }
 
     private void Update()
@@ -240,6 +242,8 @@ public class GlobalControl : MonoBehaviour
             stageList = data.stageList;
             skill1 = data.skill1;
             skill2 = data.skill2;
+            musicVol = data.BGM;
+            soundVol = data.SFX;
             InventoryDict = new Dictionary<int, InventoryItem>();
 
             int i = 0;
