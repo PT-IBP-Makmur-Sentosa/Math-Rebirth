@@ -87,7 +87,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739786939673053836}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
@@ -415,7 +415,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3528174199013616439}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
@@ -719,9 +719,9 @@ MonoBehaviour:
   m_anim: {fileID: 9100000, guid: 168832a5754bbef49a36cb1c939f7ec9, type: 2}
   levelMin: 1
   levelMax: 3
-  spot: {fileID: 0}
-  infoText: {fileID: 0}
-  level_txt: {fileID: 0}
+  spot: {fileID: 2800086534083376364}
+  infoText: {fileID: 7063255712423065266}
+  level_txt: {fileID: 192220193393710607}
 --- !u!61 &7481937252903497989
 BoxCollider2D:
   m_ObjectHideFlags: 0

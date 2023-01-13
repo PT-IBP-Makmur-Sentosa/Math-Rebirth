@@ -340,7 +340,7 @@ public class PlayerMovement : MonoBehaviour
             print("Soul collected");
             gameObject.GetComponent<AudioSource>().PlayOneShot(clips);
             GameObject glob = GameObject.Find("GlobalObject");
-            glob.GetComponent<GlobalControl>().playerCurrency = GameObject.Find("CombatManager").GetComponent<CombatManager>().soulCurrency;
+            glob.GetComponent<GlobalControl>().playerCurrency += GameObject.Find("CombatManager").GetComponent<CombatManager>().soulCurrency;
             GameObject.Find("CombatManager").GetComponent<CombatManager>().soulCurrency = 0;
             GameObject.Find("CombatManager").GetComponent<CombatManager>().dead = 0;
             collision.gameObject.SetActive(false);

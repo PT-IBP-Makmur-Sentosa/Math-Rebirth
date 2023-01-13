@@ -2042,7 +2042,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 422799e644ec192f3bbdd3abb4081c17, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f07de9e314a807d478b18f96f685131d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2682,6 +2682,10 @@ PrefabInstance:
     - target: {fileID: 4975875952450380122, guid: 8407b95954255ce43b1b5c0d3ed81a43, type: 3}
       propertyPath: levelMax
       value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975875952450380127, guid: 8407b95954255ce43b1b5c0d3ed81a43, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4975875952969809798, guid: 8407b95954255ce43b1b5c0d3ed81a43, type: 3}
       propertyPath: m_Name
@@ -14517,6 +14521,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2864782073382095683, guid: ebaf13f207d822d4181b74707be5656a, type: 3}
+      propertyPath: m_LightType
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8632127650947564627, guid: ebaf13f207d822d4181b74707be5656a, type: 3}
       propertyPath: shopUI
       value: 
