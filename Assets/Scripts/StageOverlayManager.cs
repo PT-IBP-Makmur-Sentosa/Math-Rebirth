@@ -23,7 +23,7 @@ public class StageOverlayManager : MonoBehaviour
     void Start()
     {
         stageDict.Add("StagePrototype", "Stage 0-0");
-        stageDict.Add("Tutorial", "Tutorial");
+        stageDict.Add("tutorial stagepro", "Tutorial");
         stageDict.Add("Shop", "Shop");
 
         stageDict.Add("FirstStage", "Stage 1-1");
