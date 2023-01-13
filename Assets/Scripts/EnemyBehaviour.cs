@@ -37,6 +37,10 @@ public class EnemyBehaviour : MonoBehaviour
         level = UnityEngine.Random.Range(levelMin, levelMax);
         move = new Vector2(0, 0);
         level_txt.text = "lvl. " + level;
+        if(speed == 0)
+        {
+            GetComponent<Animator>().Play("idle");
+        }
     }
 
     // Update is called once per frame
