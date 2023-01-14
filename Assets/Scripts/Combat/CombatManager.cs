@@ -55,6 +55,7 @@ public class CombatManager : MonoBehaviour
     GlobalControl globc;
 
     Dictionary<EnemyBehaviour, float> speedHolder;
+    Dictionary<PlatformMovement, float> speedPlatformHolder;
     Dictionary<string, int> currencyMult = new Dictionary<string, int>();
     Dictionary<string, float[]> skillDict = new Dictionary<string, float[]>();
     Dictionary<string, string[]> skillList = new Dictionary<string, string[]>();
@@ -126,13 +127,6 @@ public class CombatManager : MonoBehaviour
     public void StartCombat()
     {
         roundCounter = 0;
-        speedHolder = new Dictionary<EnemyBehaviour, float>();
-        foreach (EnemyBehaviour enemies in GameObject.FindObjectsOfType<EnemyBehaviour>())
-        {
-            speedHolder.Add(enemies, enemies.speed);
-            enemies.speed = 0;
-            enemies.startIdle();
-        }
 
         playerUnit = player.GetComponent<Unit>();
         enemyUnit = enemy.GetComponent<Unit>();
@@ -151,6 +145,20 @@ public class CombatManager : MonoBehaviour
     {
         playerUnit = player.GetComponent<Unit>();
         enemyUnit = enemy.GetComponent<Unit>();
+        speedHolder = new Dictionary<EnemyBehaviour, float>();
+        foreach (EnemyBehaviour enemies in GameObject.FindObjectsOfType<EnemyBehaviour>())
+        {
+            speedHolder.Add(enemies, enemies.speed);
+            enemies.speed = 0;
+            enemies.startIdle();
+        }
+
+        speedPlatformHolder = new Dictionary<PlatformMovement, float>();
+        foreach (PlatformMovement platform in GameObject.FindObjectsOfType<PlatformMovement>())
+        {
+            speedPlatformHolder.Add(platform, platform.speed);
+            platform.speed = 0;
+        }
         print("Battle Starts");
         yield return new WaitForSeconds(0.5f);
         state = BattleState.PLAYERTURN;
@@ -634,7 +642,20 @@ public class CombatManager : MonoBehaviour
             foreach (EnemyBehaviour enemies in GameObject.FindObjectsOfType<EnemyBehaviour>())
             {
                 enemies.speed = speedHolder[enemies];
-                enemies.startWalk(speedHolder[enemies]);
+                if (speedHolder[enemies] == 0)
+                {
+                    enemies.startIdle();
+                }
+                else
+                {
+                    enemies.startWalk(speedHolder[enemies]);
+                }
+
+            }
+
+            foreach (PlatformMovement platform in GameObject.FindObjectsOfType<PlatformMovement>())
+            {
+                platform.speed = speedPlatformHolder[platform];
             }
 
             StartCoroutine(Coroutine());
@@ -676,7 +697,20 @@ public class CombatManager : MonoBehaviour
             foreach (EnemyBehaviour enemies in GameObject.FindObjectsOfType<EnemyBehaviour>())
             {
                 enemies.speed = speedHolder[enemies];
-                enemies.startWalk(speedHolder[enemies]);
+                if (speedHolder[enemies] == 0)
+                {
+                    enemies.startIdle();
+                }
+                else
+                {
+                    enemies.startWalk(speedHolder[enemies]);
+                }
+
+            }
+
+            foreach (PlatformMovement platform in GameObject.FindObjectsOfType<PlatformMovement>())
+            {
+                platform.speed = speedPlatformHolder[platform];
             }
             StartCoroutine(Coroutine());
 
@@ -700,6 +734,11 @@ public class CombatManager : MonoBehaviour
                 enemies.startWalk(speedHolder[enemies]);
             }
             
+        }
+
+        foreach (PlatformMovement platform in GameObject.FindObjectsOfType<PlatformMovement>())
+        {
+            platform.speed = speedPlatformHolder[platform];
         }
 
         playerMov.collidedd.GetComponent<Animator>().Play("walk");
