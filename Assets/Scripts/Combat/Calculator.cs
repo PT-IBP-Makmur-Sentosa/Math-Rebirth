@@ -98,6 +98,9 @@ public class Calculator : MonoBehaviour
             Question.SetActive(false);
             TimesUp.SetActive(true);
             Result.SetActive(true);
+            TMP_InputField_Answer.GetComponent<TMP_InputField>().text = "";
+            combatManagerScript.goDown = false;
+            hourclock.transform.rotation = Quaternion.Euler(rotationPos.x,rotationPos.y,0f);
         }
         if (runLottery && lotteryTime > 0.2)
         {
