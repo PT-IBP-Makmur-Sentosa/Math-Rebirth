@@ -303,6 +303,7 @@ namespace Inventory
                     if (shopUI.isActiveAndEnabled == false)
                     {
                         shopUI.Show();
+                        shopUI.Show();
                         foreach (var item in shopData.GetCurrentInventoryState())
                         {
                             shopUI.UpdateData(item.Key,

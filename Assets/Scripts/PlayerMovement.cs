@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     RaycastHit2D[][] AllRayHits = new RaycastHit2D[3][];
     bool grounded;
+    public bool death = false;
     bool isFalling => gameObject.GetComponent<Rigidbody2D>().velocity.y <= 0 && !grounded;
     bool isRising => !isFalling && !grounded;
     bool flipped = false;
@@ -132,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
         grounded = grounding(AllRayHits);
 
         // print(trigger);
-        if (!GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inMap && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inInventory && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inShop && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCharPage && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inSkillPage && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inOptions)
+        if (!GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCombat && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inMap && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inInventory && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inShop && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inCharPage && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inSkillPage && !GameObject.Find("GlobalObject").GetComponent<GlobalControl>().inOptions && !death)
         {
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
             if (Input.GetKeyDown("w") && grounded)
@@ -167,13 +168,13 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
-            if(horizontalMove == 0 && grounded)
+            if(horizontalMove == 0 && grounded && !death)
             {
                 gameObject.GetComponent<Animator>().Play("idle");
                 gameObject.GetComponent<Animator>().SetBool("isMoving", false);
                 fallingKey = false;
             }
-            else if(horizontalMove != 0 && grounded)
+            else if(horizontalMove != 0 && grounded && !death)
             {
                 // gameObject.GetComponent<Animator>().SetFloat("velocity", Mathf.Abs(horizontalMove));
                 gameObject.GetComponent<Animator>().Play("Run");
@@ -369,6 +370,12 @@ public class PlayerMovement : MonoBehaviour
         CameraSwitch.unregister(walk_cam);
         CameraSwitch.unregister(combat_cam);
     }
+
+    public void playerDeath()
+    {
+
+    }
+
     IEnumerator Coroutine()
     {
         //Print the time of when the function is first called.

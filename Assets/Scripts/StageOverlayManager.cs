@@ -65,6 +65,7 @@ public class StageOverlayManager : MonoBehaviour
     
     public void openMenu()
     {
+        globc.inOptions = false;
         globc.SaveGame();
         SceneManager.LoadScene("Mainmenu", LoadSceneMode.Single);
     }
