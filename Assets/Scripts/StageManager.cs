@@ -101,7 +101,7 @@ public class StageManager : MonoBehaviour
     {
         glob.GetComponent<GlobalControl>().inMap = false;
         globalcontrol.SaveGame();
-        SceneManager.LoadScene("EighthStage", LoadSceneMode.Single);
+        SceneManager.LoadScene("EightStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
         globalcontrol.SaveGame();
         print("load");
@@ -155,7 +155,7 @@ public class StageManager : MonoBehaviour
     {
         glob.GetComponent<GlobalControl>().inMap = false;
         globalcontrol.SaveGame();
-        SceneManager.LoadScene("Fourteenthtage", LoadSceneMode.Single);
+        SceneManager.LoadScene("FourteenthStage", LoadSceneMode.Single);
         globalcontrol.LoadGame();
         globalcontrol.SaveGame();
         print("load");
