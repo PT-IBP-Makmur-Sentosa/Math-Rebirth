@@ -44,10 +44,19 @@ public class SwitchStage : MonoBehaviour
 
         if (coll.CompareTag("Player"))
         {
-            glob.GetComponent<GlobalControl>().inMap = true;
-            glob.GetComponent<GlobalControl>().SaveGame();
+            Scene currScene = SceneManager.GetActiveScene();
+            if (currScene.name == "FifteenthStage" && gameObject.CompareTag("Finish"))
+            {
+                glob.GetComponent<GlobalControl>().SaveGame();
+                SceneManager.LoadScene("EndScene", LoadSceneMode.Single);
+            }
+            else
+            {
+                glob.GetComponent<GlobalControl>().inMap = true;
+                glob.GetComponent<GlobalControl>().SaveGame();
+                istrigger = true;
+            }
             print("col_true");
-            istrigger = true;
         }
 
     }
