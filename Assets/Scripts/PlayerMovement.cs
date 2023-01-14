@@ -341,7 +341,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.name == "Soul")
         {
-            print("Soul collected");
+            print("IQ collected");
             gameObject.GetComponent<AudioSource>().PlayOneShot(clips);
             GameObject glob = GameObject.Find("GlobalObject");
             glob.GetComponent<GlobalControl>().playerCurrency += GameObject.Find("CombatManager").GetComponent<CombatManager>().soulCurrency;

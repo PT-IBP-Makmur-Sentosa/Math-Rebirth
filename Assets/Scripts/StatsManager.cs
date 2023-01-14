@@ -111,7 +111,7 @@ public class StatsManager : MonoBehaviour
         }
         else
         {
-            LevelUpResultText.text = "Not Enough Soul!";
+            LevelUpResultText.text = "Not Enough IQ!";
             LevelUpResult.SetActive(true);
             StartCoroutine(Coroutine());
         }
@@ -123,7 +123,7 @@ public class StatsManager : MonoBehaviour
         float cost = 100 * playerUnit.unitLevel * (1 + playerUnit.unitLevel / 25.0f);
         int levelUpCost = (int)cost;
         LevelUpPrompt.SetActive(true);
-        LevelUpPromptText.text = "Spend " + levelUpCost.ToString() + " Soul to Level Up?";
+        LevelUpPromptText.text = "Spend " + levelUpCost.ToString() + " IQ to Level Up?";
     }
     public void closeWindow()
     {
